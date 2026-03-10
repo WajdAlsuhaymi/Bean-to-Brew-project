@@ -13,18 +13,31 @@ body{
 margin:0;
 padding:0;
 }
+
+
+body{
+  padding-top: 80px;
+}
+
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   background-color: #26231F;
-  padding: 15px 40px;
+  padding: 12px 40px;
+  z-index: 1000;
 }
 
-.logo {
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
+.logo img{
+  height: auto;
+  width: 60px;
+  display: block;
 }
 
 .nav-links {
@@ -32,6 +45,8 @@ padding:0;
   display: flex;
   align-items: center;
   gap: 18px;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links a {
@@ -48,6 +63,7 @@ padding:0;
 .nav-right {
   display: flex;
   align-items: center;
+  gap: 12px;
 }
 
 .mode-btn {
@@ -56,6 +72,14 @@ padding:0;
   color: white;
   font-size: 22px;
   cursor: pointer;
+}
+
+.search-box {
+  padding: 8px 12px;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  font-size: 14px;
 }
 
 .hero{
@@ -84,7 +108,7 @@ padding-left:80px;
 
 .hero-content h1{
   font-family: 'Playfair Display', serif;
-  font-size: 68px;
+  font-size: 60px;
   line-height: 1.2;
 }
 .beige-text{
@@ -126,7 +150,7 @@ padding-left:80px;
 }
 .why-section{
 
-background:#f5f3ef;
+background:#4B4F3E;
 
 padding:100px 40px;
 
@@ -142,7 +166,7 @@ font-family:'Playfair Display', serif;
 
 margin-bottom:60px;
 
-color:#3b2a22;
+color:#EDE8DC;
 
 }
 
@@ -176,7 +200,7 @@ font-size:18px;
 
 margin-bottom:10px;
 
-color:#3b2a22;
+color:#EDE8DC;
 
 }
 
@@ -186,7 +210,7 @@ font-size:14px;
 
 line-height:1.6;
 
-color:#555;
+color:#EDE8DC;
 
 }
 .why-card{
@@ -200,8 +224,9 @@ transition:0.3s;
 transform:translateY(-8px);
 
 }
+
 .bean-types {
-  background-color: #e8decc;
+  background-color: #C1B393;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -219,7 +244,7 @@ transform:translateY(-8px);
 .bean-card{
 
 width:170px;
-height:170px;
+height:180px;
 
 background-image:url("beanspic.png");
 background-size:cover;
@@ -255,12 +280,12 @@ color:#3b2a22;
 
 .bean-card h3 {
   font-size: 28px;
-  margin-bottom: 14px;
+  margin-bottom: 5px;
   font-family: 'Playfair Display', serif;
 }
 
 .bean-card p {
-  font-size: 12px;
+  font-size: 15px;
   line-height: 1.5;
 }
 
@@ -279,8 +304,9 @@ color:#3b2a22;
 }
 
 .bean-types-right img {
-  width: 180px;
-  height: auto;
+  width: 200px;
+  height: 380px;
+  /!height: auto;/
   margin-top: 10px;
 }
 
@@ -580,4 +606,376 @@ color:#3b2a22;
 #card6:checked ~ .dots label:nth-child(6) {
   background-color: white;
   transform: scale(1.2);
+}
+
+.floating-bean{
+	position: relative; } 
+	
+.floating-bean img{
+	position: absolute; 
+	right: -80px; 
+	top: -250px; 
+	width: 650px; 
+	height: 500px; 
+z-index: 50;}
+
+
+
+
+
+
+.reviews-section {
+  background-color: #3A2F2B;
+  padding: 25px 30px;
+}
+
+.reviews-section h2 {
+  font-size: 26px;
+  font-family: 'Playfair Display', serif;
+  color: #EDE8DC;
+  margin-bottom: 20px;
+}
+
+.reviews-slider {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+
+.reviews-slider input {
+  display: none;
+}
+
+.reviews-cards {
+  position: relative;
+  height: 160px;
+}
+
+.review-card {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+  width: 230px;
+  background-color: #bdbdbd;
+  padding: 14px;
+  opacity: 0;
+  transition: 0.4s ease;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.review-avatar {
+  width: 35px;
+  height: 35px;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.review-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: #222;
+}
+
+.review-card p {
+  background-color: white;
+  border: 2px dashed #555;
+  padding: 8px;
+  font-size: 12px;
+  color: #333;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.stars {
+  font-size: 16px;
+  color: #f2c94c;
+  letter-spacing: 2px;
+}
+
+#review1:checked ~ .reviews-cards .r1,
+#review2:checked ~ .reviews-cards .r2,
+#review3:checked ~ .reviews-cards .r3 {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+  z-index: 5;
+}
+
+.review-arrows {
+  display: none;
+  position: absolute;
+  top: 40%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+
+.arrow {
+  pointer-events: auto;
+  font-size: 26px;
+  color: #EDE8DC;
+  cursor: pointer;
+  user-select: none;
+  padding: 0 8px;
+}
+
+#review1:checked ~ .arrows-1,
+#review2:checked ~ .arrows-2,
+#review3:checked ~ .arrows-3 {
+  display: flex;
+}
+
+.review-dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.review-dots label {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #b8b8b8;
+  margin: 0 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#review1:checked ~ .review-dots label:nth-child(1),
+#review2:checked ~ .review-dots label:nth-child(2),
+#review3:checked ~ .review-dots label:nth-child(3) {
+  background: #7a4d2c;
+  transform: scale(1.2);
+}
+
+.add-review-box {
+  max-width: 240px;
+  margin: 10px auto;
+  background-color: #e7e7e7;
+  padding: 10px;
+}
+
+.add-review-box h3 {
+  font-size: 16px;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.add-review-box input,
+.add-review-box textarea,
+.add-review-box select {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 6px;
+  border: 1px solid #bbb;
+  font-size: 11px;
+  background-color: white;
+}
+
+.add-review-box textarea {
+  resize: none;
+  height: 70px;
+}
+
+.add-review-box button {
+  background-color: #7a4d2c;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  font-size: 11px;
+  cursor: pointer;
+}
+.rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.rating input {
+  display: none;
+}
+
+.rating label {
+  font-size: 20px;
+  color: #ccc;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.rating label:hover,
+.rating label:hover ~ label {
+  color: #f2c94c;
+}
+
+.rating input:checked ~ label {
+  color: #f2c94c;
+}
+
+
+
+
+.faq-section {
+  background-color: #3A2F2B;
+  padding: 15px 30px 40px;
+  border-top: 1px solid #a0a0a0;
+}
+
+.faq-section h2 {
+  font-size: 26px;
+  font-family: 'Playfair Display', serif;
+  color: #EDE8DC;
+  margin-bottom: 20px;
+}
+
+.faq-container {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.faq-item {
+  width: 220px;
+  background-color: transparent;
+}
+
+.faq-item summary {
+  list-style: none;
+  background-color: #dedede;
+  border: 1px solid #c9c9c9;
+  padding: 10px;
+  font-size: 13px;
+  color: #222;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-icon {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.faq-item[open] .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  background-color: #dedede;
+  margin-top: 6px;
+  padding: 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #333;
+}
+
+
+
+.site-footer{
+  background-image:
+  linear-gradient(rgba(35,24,18,0.80), rgba(35,24,18,0.80)),
+  url("Headerpic.png");
+
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+
+  padding: 25px 20px 40px;         
+  text-align: center;
+  color: white;
+}
+
+.footer-top{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  margin-bottom:5px;
+}
+
+.footer-logo img{
+width:300px;
+padding:10px;
+filter: drop-shadow(0 5px 8px rgba(0,0,0,0.2));
+}
+
+.footer-contact h3,
+.footer-social h3{
+  font-family:'Playfair Display', serif;
+  font-size:20px;
+  margin-bottom:8px;
+}
+
+.footer-contact p{
+  margin:6px 0;
+  font-size:16px;
+  font-weight:600;
+}
+
+.footer-social{
+  text-align:center;
+}
+
+.social-icons{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:15px;
+  margin-top:5px;
+}
+
+.social-icons a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.social-icons img{
+  width:30px;
+  height:30px;
+  object-fit:contain;
+  transition: transform 0.25s ease;
+}
+
+.social-icons img:hover{
+  transform: scale(1.15);
+}
+
+.social-divider{
+  width:1px;
+  height:22px;
+  background:rgba(0,0,0,0.6);
+}
+
+.footer-note{
+  font-size:16px;
+  margin-top:15px;
+}
+
+.copyright{
+  font-size:15px;
+  margin-top:10px;
+}
+.social-icons img{
+filter: brightness(1.4);
 }
