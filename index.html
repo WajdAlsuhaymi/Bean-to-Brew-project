@@ -8,24 +8,29 @@
 </head>
 <body>
 
-  <header>
-    <nav class="navbar">
-      <div class="logo">Bean to Brew</div>
+ <header>
+  <nav class="navbar">
 
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Brew School</a></li>
-        <li><a href="#">Coffee Lab</a></li>
-        <li><a href="#">Experience Creators</a></li>
-        <li><a href="#">Student Dashboard</a></li>
-        <li><a href="#">About Us</a></li>
-      </ul>
-	    <div class="nav-right">
-      <button class="mode-btn">☀️</button>
-	  <input type="text" placeholder="Search" class="search-box">
+    <div class="logo">
+      <img src="logo.png" alt="Bean to Brew Logo">
     </div>
-    </nav>
-  </header>
+
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Brew School</a></li>
+      <li><a href="#">Coffee Lab</a></li>
+      <li><a href="#">Experience Creators</a></li>
+      <li><a href="#">Student Dashboard</a></li>
+      <li><a href="#">About Us</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <button class="mode-btn">☀️</button>
+      <input type="text" placeholder="Search" class="search-box">
+    </div>
+
+  </nav>
+</header>
 
   <main>
     <section class="hero">
@@ -99,33 +104,35 @@
 
     <div class="bean-card">
   <h3>Arabica</h3>
-  <p>The most popular coffee bean known for its smooth flavor.</p>
+  <p>The most popular coffee bean, known for its smooth, aromatic, and slightly sweet flavor.</p>
     </div>
 	
     <div class="bean-card">
   <h3>Robusta</h3>
-  <p>Stronger taste with higher caffeine.</p>
+  <p>Stronger and more bitter, with higher caffeine content and a bold taste.</p>
     </div>
 
     <div class="bean-card">
   <h3>Liberica</h3>
-  <p>Distinctive smoky flavor.</p>
+  <p>Distinctive and smoky, offering a unique flavor that stands out from common coffee types.</p>
     </div>
 
     <div class="bean-card">
   <h3>Excelsa</h3>
-  <p>Fruity notes often used in blends.</p>
+  <p>Fruity and complex, adding depth and brightness, often used in coffee blends.</p>
    </div>
 
   </div>
-
-  <div class="bean-types-right">
+ <div class="bean-types-right">
     <h2>Coffee Bean<br>Types</h2>
-    <img src="beanpic.png" alt="Coffee Bean">
   </div>
+ 
 </section>
 
-
+<div class="floating-bean">
+  <img src="beanpic.png" alt="Coffee Bean">
+</div>
+ 
 <section class="grind-size">
   <div class="grind-overlay">
     <h2>The grind size makes a<br>difference</h2>
@@ -218,9 +225,168 @@
   </div>
 </section>
 
+<section class="reviews-section">
+  <h2>What Customers Think About Us</h2>
+
+  <div class="reviews-slider">
+
+    <input type="radio" name="review" id="review1" checked>
+    <input type="radio" name="review" id="review2">
+    <input type="radio" name="review" id="review3">
+
+    <div class="reviews-cards">
+
+      <div class="review-card r1">
+        <div class="review-header">
+          <div class="review-avatar"></div>
+          <h3>Wajd Mohammed</h3>
+        </div>
+        <p>Great platform for beginners and coffee lovers</p>
+        <div class="stars">★★★★★</div>
+      </div>
+
+      <div class="review-card r2">
+        <div class="review-header">
+          <div class="review-avatar"></div>
+          <h3>Ellen Ahmed</h3>
+        </div>
+        <p>Perfect for learning coffee basics</p>
+        <div class="stars">★★★★☆</div>
+      </div>
+
+      <div class="review-card r3">
+        <div class="review-header">
+          <div class="review-avatar"></div>
+          <h3>Lina Omar</h3>
+        </div>
+        <p>Simple, useful, and enjoyable for coffee learners</p>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+
+    <div class="review-arrows arrows-1">
+      <label for="review3" class="arrow left">&#10094;</label>
+      <label for="review2" class="arrow right">&#10095;</label>
+    </div>
+
+    <div class="review-arrows arrows-2">
+      <label for="review1" class="arrow left">&#10094;</label>
+      <label for="review3" class="arrow right">&#10095;</label>
+    </div>
+
+    <div class="review-arrows arrows-3">
+      <label for="review2" class="arrow left">&#10094;</label>
+      <label for="review1" class="arrow right">&#10095;</label>
+    </div>
+
+    <div class="review-dots">
+      <label for="review1"></label>
+      <label for="review2"></label>
+      <label for="review3"></label>
+    </div>
+
+  </div>
+
+  <div class="add-review-box">
+    <h3>Add Your Review</h3>
+    <input type="text" placeholder="Your name">
+    <textarea placeholder="Write your opinion..."></textarea>
+ <div class="rating">
+  <input type="radio" name="rating" id="star5">
+  <label for="star5">★</label>
+
+  <input type="radio" name="rating" id="star4">
+  <label for="star4">★</label>
+
+  <input type="radio" name="rating" id="star3">
+  <label for="star3">★</label>
+
+  <input type="radio" name="rating" id="star2">
+  <label for="star2">★</label>
+
+  <input type="radio" name="rating" id="star1">
+  <label for="star1">★</label>
+</div>
+    <button type="button">Submit Review</button>
+  </div>
+</section>
+
+<section class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-container">
+
+    <details class="faq-item">
+      <summary>Why does coffee taste different?<span class="faq-icon">▼</span></summary>
+      <div class="faq-answer">
+        Coffee tastes different because each brewing factor changes the extraction and flavor.
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Are the workshops hands-on?<span class="faq-icon">▼</span></summary>
+      <div class="faq-answer">
+        Yes, the workshops include practical and hands-on coffee activities.
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Who is this platform for?<span class="faq-icon">▼</span></summary>
+      <div class="faq-answer">
+        It is designed for beginners, coffee lovers, and anyone interested in learning more about coffee.
+      </div>
+    </details>
+
+  </div>
+</section>
 
 
   </main>
+  
+  
+<footer class="site-footer">
 
+  <div class="footer-top">
+
+    <div class="footer-logo">
+      <img src="logo.png" alt="Bean to Brew Logo">
+    </div>
+
+    <div class="footer-contact">
+      <h3>Contact us</h3>
+      <p>+966504256847</p>
+      <p>BeantoBrew@gmail.com</p>
+    </div>
+
+    <div class="footer-social">
+      <h3>Follow us</h3>
+
+      <div class="social-icons">
+
+        <a href="javascript:void(0);">
+          <img src="instagramicon.png" alt="Instagram">
+        </a>
+
+        <span class="social-divider"></span>
+
+        <a href="javascript:void(0);">
+          <img src="Xicon.png" alt="X">
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <p class="footer-note">
+    Learn, explore, and enjoy the world of coffee.
+  </p>
+
+  <p class="copyright">
+    © 2026 Bean to Brew. All rights reserved.
+  </p>
+
+</footer>
 </body>
 </html>
