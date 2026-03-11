@@ -1,47 +1,33 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/!body {
-  font-family: Arial, sans-serif;
-  background-color: #f8f4ef;
-  color: #3e2c23;
-}/
-body{
-margin:0;
-padding:0;
-}
-
-.hero{
-  width:100%;
-  min-height:100vh;
-  background-image:
-  linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-  url("Headerpic.png");
-  background-size:cover;
-  background-position:center top;
-  display:flex;
-  align-items:center;
-  padding-left:80px;
-}
-
-.hero-content{
-  margin-top:-280px;
-  margin-left:-60px;
-}
-
-.main-hero-title{
-  font-family:'Playfair Display', serif;
-  font-size:60px;
-  line-height:1.2;
+*{
   margin:0;
-}
-body{
-  padding-top: 80px;
+  padding:0;
+  box-sizing:border-box;
 }
 
+body{
+  margin:0;
+  padding:0;
+  padding-top:80px;
+  font-family:Arial, sans-serif;
+  background-color:#f8f4ef;
+  color:#3e2c23;
+}
+
+/* ===== Global Typography ===== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  font-family:'Playfair Display', serif;
+}
+
+p{
+  font-family:Arial, sans-serif;
+}
+
+/* ===== Navbar ===== */
 .navbar {
   position: fixed;
   top: 0;
@@ -83,6 +69,10 @@ body{
   color: #f3d9b1;
 }
 
+.nav-links a.active {
+  color: #f3d9b1;
+}
+
 .nav-right {
   display: flex;
   align-items: center;
@@ -105,21 +95,52 @@ body{
   font-size: 14px;
 }
 
+/* ===== Hero ===== */
+.hero{
+  width:100%;
+  min-height:100vh;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+    url("Headerpic.png");
+  background-size:cover;
+  background-position:center top;
+  display:flex;
+  align-items:center;
+  padding-left:80px;
+}
 
+.hero-content{
+  margin-top:-280px;
+  margin-left:-60px;
+}
 
+.main-hero-title{
+  font-family:'Playfair Display', serif;
+  font-size:60px;
+  line-height:1.2;
+  margin:0;
+  text-align:left;
+}
 
+.beige-text{
+  color:#FDE9C7;
+}
+
+.white-text{
+  color:white;
+}
+
+/* ===== Footer ===== */
 .site-footer{
   background-image:
-  linear-gradient(rgba(35,24,18,0.80), rgba(35,24,18,0.80)),
-  url("Headerpic.png");
-
-  background-size: cover;
-  background-position: top center;
-  background-repeat: no-repeat;
-
-  padding: 25px 20px 40px;         
-  text-align: center;
-  color: white;
+    linear-gradient(rgba(35,24,18,0.80), rgba(35,24,18,0.80)),
+    url("Headerpic.png");
+  background-size:cover;
+  background-position:top center;
+  background-repeat:no-repeat;
+  padding:25px 20px 40px;
+  text-align:center;
+  color:white;
 }
 
 .footer-top{
@@ -131,14 +152,13 @@ body{
 }
 
 .footer-logo img{
-width:300px;
-padding:10px;
-filter: drop-shadow(0 5px 8px rgba(0,0,0,0.2));
+  width:300px;
+  padding:10px;
+  filter:drop-shadow(0 5px 8px rgba(0,0,0,0.2));
 }
 
 .footer-contact h3,
 .footer-social h3{
-  font-family:'Playfair Display', serif;
   font-size:20px;
   margin-bottom:8px;
 }
@@ -171,17 +191,18 @@ filter: drop-shadow(0 5px 8px rgba(0,0,0,0.2));
   width:30px;
   height:30px;
   object-fit:contain;
-  transition: transform 0.25s ease;
+  transition:transform 0.25s ease;
+  filter:brightness(1.4);
 }
 
 .social-icons img:hover{
-  transform: scale(1.15);
+  transform:scale(1.15);
 }
 
 .social-divider{
   width:1px;
   height:22px;
-  background:rgba(0,0,0,0.6);
+  background:rgba(255,255,255,0.4);
 }
 
 .footer-note{
@@ -192,7 +213,4 @@ filter: drop-shadow(0 5px 8px rgba(0,0,0,0.2));
 .copyright{
   font-size:15px;
   margin-top:10px;
-}
-.social-icons img{
-filter: brightness(1.4);
 }
