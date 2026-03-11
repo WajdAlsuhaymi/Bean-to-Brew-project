@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bean to Brew - Experience Creators</title>
+
+ <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f3ef;
+    color: #3e2c23;
+    padding-top: 90px;
+  }
+
+  /* ===== Shared Navbar ===== */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #26231F;
+    padding: 12px 40px;
+    flex-wrap: wrap;
+    gap: 15px;
+    z-index: 1000;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .logo img {
+    width: 70px;
+    height: auto;
+    display: block;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+
+  .nav-links a:hover {
+    color: #f3d9b1;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .mode-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+  }
+
+  .search-box {
+    padding: 8px 14px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 14px;
+  }
+
+  /* ===== Page ===== */
+  .experience-page {
+    padding: 35px 32px 80px;
+    background-color: #f7f5f2;
+  }
+
+  .page-title h1 {
+    font-size: 48px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    color: #2f241d;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .hero-banner {
+    width: 100%;
+    height: 300px;
+    border-radius: 12px;
+    background:
+      linear-gradient(rgba(32, 24, 18, 0.35), rgba(32, 24, 18, 0.35)),
+      url("beanspic.png") center/cover no-repeat;
+    margin-bottom: 36px;
+    display: flex;
+    align-items: end;
+    padding: 28px;
+  }
+
+  .hero-banner-text {
+    color: white;
+    max-width: 520px;
+  }
+
+  .hero-banner-text h2 {
+    font-size: 34px;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 10px;
+  }
+
+  .hero-banner-text p {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .creators-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 45px;
+  }
+
+  .filter-sidebar {
+    width: 250px;
+    flex-shrink: 0;
+  }
+
+  .filter-sidebar h2 {
+    font-size: 34px;
+    margin-bottom: 18px;
+    color: #2f241d;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .filter-box {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 18px;
+    border-radius: 8px;
+  }
+
+  .filter-group {
+    margin-bottom: 18px;
+  }
+
+  .filter-group label {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #3b2a22;
+  }
+
+  .filter-group select {
+    width: 100%;
+    height: 42px;
+    border: 1px solid #cfcfcf;
+    padding: 0 10px;
+    background-color: #fafafa;
+    font-size: 14px;
+    color: #2f241d;
+    border-radius: 4px;
+  }
+
+  .filter-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .filter-buttons button {
+    flex: 1;
+    height: 42px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+
+  #applyBtn {
+    background-color: #26231F;
+    color: white;
+  }
+
+  #resetBtn {
+    background-color: #d9d9d9;
+    color: #2f241d;
+  }
+
+  .creators-content {
+    flex: 1;
+  }
+
+  .main-search {
+    margin: 0 0 35px;
+  }
+
+  .main-search input {
+    width: 560px;
+    max-width: 100%;
+    height: 58px;
+    border: 2px solid #2f241d;
+    border-radius: 8px;
+    padding: 0 18px;
+    font-size: 18px;
+    background-color: white;
+    color: #2f241d;
+    outline: none;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    gap: 28px;
+  }
+
+  /* ===== Flip Cards ===== */
+  .creator-card-wrap {
+    perspective: 1200px;
+    min-height: 335px;
+  }
+
+  .flip-toggle {
+    display: none;
+  }
+
+  .creator-card-flip {
+    position: relative;
+    width: 100%;
+    height: 335px;
+    transform-style: preserve-3d;
+    transition: transform 0.7s ease;
+  }
+
+  .flip-toggle:checked + .creator-card-flip {
+    transform: rotateY(180deg);
+  }
+
+  .creator-card-front,
+  .creator-card-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    background-color: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  }
+
+  .creator-card-back {
+    transform: rotateY(180deg);
+    background-color: #fffdf9;
+  }
+
+  .creator-card-front:hover,
+  .creator-card-back:hover {
+    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.08);
+  }
+
+  /* ===== Unified Creator Images ===== */
+  .creator-image,
+  .creator-back-image {
+    width: 100%;
+    height: 150px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    background: url("photo.png") center/cover no-repeat;
+    background-color: #d8c3af;
+  }
+
+  .creator-card-front h3,
+  .creator-card-back h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+    color: #2f241d;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .creator-role {
+    font-size: 14px;
+    color: #7a5d49;
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+
+  .creator-short {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #4a4a4a;
+    margin-bottom: 18px;
+    flex-grow: 1;
+  }
+
+  .details-btn {
+    width: 100%;
+    min-height: 44px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: #26231F;
+    color: white;
+    margin-top: auto;
+  }
+
+  .details-btn:hover {
+    background-color: #4a3a2f;
+  }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+
+  .back-arrow {
+    font-size: 28px;
+    color: #2f241d;
+    cursor: pointer;
+    line-height: 1;
+    width: fit-content;
+  }
+
+  .back-tag {
+    font-size: 13px;
+    color: #7a5d49;
+    font-weight: 600;
+  }
+
+  .creator-info {
+    flex-grow: 1;
+  }
+
+  .creator-info p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #4a3a2f;
+    margin-bottom: 8px;
+  }
+
+  .workshop-list {
+    margin-top: 6px;
+    margin-bottom: 14px;
+    padding-left: 18px;
+    color: #4a3a2f;
+  }
+
+  .workshop-list li {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 4px;
+  }
+
+  .rating-box {
+    margin-top: auto;
+    padding: 12px 14px;
+    background-color: #efe7dc;
+    border-radius: 8px;
+  }
+
+  .rating-title {
+    font-size: 13px;
+    color: #7a5d49;
+    margin-bottom: 4px;
+    font-weight: 700;
+  }
+
+  .rating-value {
+    font-size: 20px;
+    color: #2f241d;
+    font-weight: 700;
+  }
+
+  /* ===== Discover Section ===== */
+  .discover-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+    margin-top: 85px;
+    background-color: #efe7dc;
+    padding: 35px;
+    border-radius: 12px;
+  }
+
+  .discover-text {
+    max-width: 620px;
+  }
+
+  .discover-text h3 {
+    font-size: 30px;
+    margin-bottom: 14px;
+    color: #2f241d;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .discover-text p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #444;
+  }
+
+  .featured-creators {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .mini-creator-card {
+    width: 150px;
+    background-color: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    padding: 14px;
+    text-align: center;
+  }
+
+  .mini-creator-image {
+    width: 100%;
+    height: 90px;
+    border-radius: 8px;
+    background: url("photo.png") center/cover no-repeat;
+    background-color: #d8c3af;
+    margin-bottom: 10px;
+  }
+
+  .mini-creator-card h4 {
+    font-size: 16px;
+    color: #2f241d;
+    margin-bottom: 4px;
+  }
+
+  .mini-creator-card p {
+    font-size: 13px;
+    color: #666;
+  }
+
+  /* ===== Footer ===== */
+  .site-footer{
+  background-image:
+  linear-gradient(rgba(35,24,18,0.80), rgba(35,24,18,0.80)),
+  url("Headerpic.png");
+
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+
+  padding: 25px 20px 40px;         
+  text-align: center;
+  color: white;
+}
+
+.footer-top{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  margin-bottom:5px;
+}
+
+.footer-logo img{
+width:300px;
+padding:10px;
+filter: drop-shadow(0 5px 8px rgba(0,0,0,0.2));
+}
+
+.footer-contact h3,
+.footer-social h3{
+  font-family:'Playfair Display', serif;
+  font-size:20px;
+  margin-bottom:8px;
+}
+
+.footer-contact p{
+  margin:6px 0;
+  font-size:16px;
+  font-weight:600;
+}
+
+.footer-social{
+  text-align:center;
+}
+
+.social-icons{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:15px;
+  margin-top:5px;
+}
+
+.social-icons a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.social-icons img{
+  width:30px;
+  height:30px;
+  object-fit:contain;
+  transition: transform 0.25s ease;
+}
+
+.social-icons img:hover{
+  transform: scale(1.15);
+}
+
+.social-divider{
+  width:1px;
+  height:22px;
+  background:rgba(0,0,0,0.6);
+}
+
+.footer-note{
+  font-size:16px;
+  margin-top:15px;
+}
+
+.copyright{
+  font-size:15px;
+  margin-top:10px;
+}
+.social-icons img{
+filter: brightness(1.4);
+}
+
+  /* ===== Responsive ===== */
+  @media (max-width: 1150px) {
+    .cards-grid {
+      grid-template-columns: repeat(2, minmax(220px, 1fr));
+    }
+
+    .discover-section {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .navbar {
+      padding: 12px 20px;
+    }
+
+    .creators-layout {
+      flex-direction: column;
+    }
+
+    .filter-sidebar {
+      width: 100%;
+    }
+
+    .nav-links {
+      gap: 12px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    body {
+      padding-top: 120px;
+    }
+
+    .cards-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .experience-page {
+      padding: 25px 20px 60px;
+    }
+
+    .page-title h1 {
+      font-size: 38px;
+    }
+
+    .hero-banner {
+      height: auto;
+      min-height: 220px;
+    }
+
+    .navbar {
+      padding: 12px 16px;
+    }
+
+    .logo img {
+      width: 58px;
+    }
+
+    .search-box {
+      width: 160px;
+    }
+  }
+</style>
+</head>
+<body>
+  <header>
+  <nav class="navbar">
+
+    <div class="logo">
+      <img src="logo.png" alt="Bean to Brew Logo">
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Brew School</a></li>
+      <li><a href="CoffeLab.html">Coffee Lab</a></li>
+      <li><a href="Experience-Creators.html">Experience Creators</a></li>
+      <li><a href="#">Student Dashboard</a></li>
+      <li><a href="About-us.html">About Us</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <button class="mode-btn">☀️</button>
+      <input type="text" placeholder="Search" class="search-box">
+    </div>
+
+  </nav>
+</header>
+
+ <main class="experience-page">
+
+  <section class="page-title">
+    <h1>Experience Creators</h1>
+  </section>
+
+  <section class="hero-banner">
+    <div class="hero-banner-text">
+      <h2>Meet the Minds Behind the Workshops</h2>
+      <p>
+        Explore our experience creators and discover the workshops they lead,
+        their teaching style, and the value they bring to every coffee journey.
+      </p>
+    </div>
+  </section>
+
+  <section class="creators-layout">
+
+    <aside class="filter-sidebar">
+      <h2>Filter</h2>
+
+      <div class="filter-box">
+        <div class="filter-group">
+          <label for="specialtyFilter">Specialty</label>
+          <select id="specialtyFilter">
+            <option>All Specialties</option>
+            <option>Espresso</option>
+            <option>Manual Brewing</option>
+            <option>Latte Art</option>
+            <option>Coffee Tasting</option>
+            <option>Roasting</option>
+            <option>Signature Brews</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="locationFilter">Location</label>
+          <select id="locationFilter">
+            <option>All Locations</option>
+            <option>Riyadh</option>
+            <option>Jeddah</option>
+            <option>Online</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="levelFilter">Experience Level</label>
+          <select id="levelFilter">
+            <option>All Levels</option>
+            <option>Beginner Friendly</option>
+            <option>Intermediate</option>
+            <option>Advanced</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="ratingFilter">Rating</label>
+          <select id="ratingFilter">
+            <option>All Ratings</option>
+            <option>4.5+ / 5</option>
+            <option>4.7+ / 5</option>
+            <option>4.8+ / 5</option>
+            <option>4.9+ / 5</option>
+          </select>
+        </div>
+
+        <div class="filter-buttons">
+          <button id="applyBtn" type="button">Apply</button>
+          <button id="resetBtn" type="button">Reset</button>
+        </div>
+      </div>
+    </aside>
+
+    <div class="creators-content">
+
+      <div class="main-search">
+        <input type="text" placeholder="Search by creator name">
+      </div>
+
+      <section class="cards-grid">
+
+        <!-- 1 -->
+        <div class="creator-card-wrap">
+          <input type="checkbox" id="creator1" class="flip-toggle">
+          <div class="creator-card-flip">
+            <div class="creator-card-front">
+              <div class="creator-image"></div>
+              <h3>Hamad</h3>
+              <p class="creator-role">Coffee Skills Trainer</p>
+              <p class="creator-short">
+                Focuses on brewing foundations and making coffee learning easier for beginners.
+              </p>
+              <label for="creator1" class="details-btn">More Details</label>
+            </div>
+
+            <div class="creator-card-back">
+              <div class="card-top">
+                <label for="creator1" class="back-arrow">&#8592;</label>
+                <span class="back-tag">Experience Creator</span>
+              </div>
+              <div class="creator-back-image"></div>
+              <h3>Hamad</h3>
+              <div class="creator-info">
+                <p><strong>Name:</strong> Hamad</p>
+                <p><strong>Workshops:</strong></p>
+                <ul class="workshop-list">
+                  <li>Espresso Basics</li>
+                  <li>Manual Brewing</li>
+                  <li>Bean Origins</li>
+                </ul>
+              </div>
+              <div class="rating-box">
+                <div class="rating-title">Rating</div>
+                <div class="rating-value">4.6 / 5</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="creator-card-wrap">
+          <input type="checkbox" id="creator2" class="flip-toggle">
+          <div class="creator-card-flip">
+            <div class="creator-card-front">
+              <div class="creator-image"></div>
+              <h3>Eman</h3>
+              <p class="creator-role">Coffee Culture Mentor</p>
+              <p class="creator-short">
+                Guides learners through flavor understanding and coffee storytelling.
+              </p>
+              <label for="creator2" class="details-btn">More Details</label>
+            </div>
+
+            <div class="creator-card-back">
+              <div class="card-top">
+                <label for="creator2" class="back-arrow">&#8592;</label>
+                <span class="back-tag">Experience Creator</span>
+              </div>
+              <div class="creator-back-image"></div>
+              <h3>Eman</h3>
+              <div class="creator-info">
+                <p><strong>Name:</strong> Eman</p>
+                <p><strong>Workshops:</strong></p>
+                <ul class="workshop-list">
+                  <li>Coffee Tasting</li>
+                  <li>Turkish Coffee</li>
+                  <li>Latte Art Session</li>
+                </ul>
+              </div>
+              <div class="rating-box">
+                <div class="rating-title">Rating</div>
+                <div class="rating-value">4.5 / 5</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="creator-card-wrap">
+          <input type="checkbox" id="creator3" class="flip-toggle">
+          <div class="creator-card-flip">
+            <div class="creator-card-front">
+              <div class="creator-image"></div>
+              <h3>Joury</h3>
+              <p class="creator-role">Brew Methods Instructor</p>
+              <p class="creator-short">
+                Specializes in pour-over practice and balancing technique with flavor.
+              </p>
+              <label for="creator3" class="details-btn">More Details</label>
+            </div>
+
+            <div class="creator-card-back">
+              <div class="card-top">
+                <label for="creator3" class="back-arrow">&#8592;</label>
+                <span class="back-tag">Experience Creator</span>
+              </div>
+              <div class="creator-back-image"></div>
+              <h3>Joury</h3>
+              <div class="creator-info">
+                <p><strong>Name:</strong> Joury</p>
+                <p><strong>Workshops:</strong></p>
+                <ul class="workshop-list">
+                  <li>V60</li>
+                  <li>Chemex</li>
+                  <li>French Press</li>
+                </ul>
+              </div>
+              <div class="rating-box">
+                <div class="rating-title">Rating</div>
+                <div class="rating-value">4.4 / 5</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="creator-card-wrap">
+          <input type="checkbox" id="creator4" class="flip-toggle">
+          <div class="creator-card-flip">
+            <div class="creator-card-front">
+              <div class="creator-image"></div>
+              <h3>Saud</h3>
+              <p class="creator-role">Espresso Coach</p>
+              <p class="creator-short">
+                Helps learners understand extraction, balance, and espresso workflow.
+              </p>
+              <label for="creator4" class="details-btn">More Details</label>
+            </div>
+
+            <div class="creator-card-back">
+              <div class="card-top">
+                <label for="creator4" class="back-arrow">&#8592;</label>
+                <span class="back-tag">Experience Creator</span>
+              </div>
+              <div class="creator-back-image"></div>
+              <h3>Saud</h3>
+              <div class="creator-info">
+                <p><strong>Name:</strong> Saud</p>
+                <p><strong>Workshops:</strong></p>
+                <ul class="workshop-list">
+                  <li>Espresso Basics</li>
+                  <li>Moka Pot</li>
+                  <li>Cold Brew</li>
+                </ul>
+              </div>
+              <div class="rating-box">
+                <div class="rating-title">Rating</div>
+                <div class="rating-value">4.7 / 5</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="creator-card-wrap">
+          <input type="checkbox" id="creator5" class="flip-toggle">
+          <div class="creator-card-flip">
+            <div class="creator-card-front">
+              <div class="creator-image"></div>
+              <h3>Wajd</h3>
+              <p class="creator-role">Workshop Facilitator</p>
+              <p class="creator-short">
+                Creates engaging sessions that connect coffee practice with creativity.
+              </p>
+              <label for="creator5" class="details-btn">More Details</label>
+            </div>
+
+            <div class="creator-card-back">
+              <div class="card-top">
+                <label for="creator5" class="back-arrow">&#8592;</label>
+                <span class="back-tag">Experience Creator</span>
+              </div>
+              <div class="creator-back-image"></div>
+              <h3>Wajd</h3>
+              <div class="creator-info">
+                <p><strong>Name:</strong> Wajd</p>
+                <p><strong>Workshops:</strong></p>
+                <ul class="workshop-list">
+                  <li>Turkish Coffee</li>
+                  <li>Bean Origins</li>
+                  <li>Coffee Tasting</li>
+                </ul>
+              </div>
+              <div class="rating-box">
+                <div class="rating-title">Rating</div>
+                <div class="rating-value">4.3 / 5</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="creator-card-wrap">
+          <input type="checkbox" id="creator6" class="flip-toggle">
+          <div class="creator-card-flip">
+            <div class="creator-card-front">
+              <div class="creator-image"></div>
+              <h3>Mohammed</h3>
+              <p class="creator-role">Coffee Lab Guide</p>
+              <p class="creator-short">
+                Supports practical sessions and helps students build confidence step by step.
+              </p>
+              <label for="creator6" class="details-btn">More Details</label>
+            </div>
+
+            <div class="creator-card-back">
+              <div class="card-top">
+                <label for="creator6" class="back-arrow">&#8592;</label>
+                <span class="back-tag">Experience Creator</span>
+              </div>
+              <div class="creator-back-image"></div>
+              <h3>Mohammed</h3>
+              <div class="creator-info">
+                <p><strong>Name:</strong> Mohammed</p>
+                <p><strong>Workshops:</strong></p>
+                <ul class="workshop-list">
+                  <li>Manual Brewing</li>
+                  <li>Roasting Basics</li>
+                  <li>V60</li>
+                </ul>
+              </div>
+              <div class="rating-box">
+                <div class="rating-title">Rating</div>
+                <div class="rating-value">4.4 / 5</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="creator-card-wrap">
+          <input type="checkbox" id="creator7" class="flip-toggle">
+          <div class="creator-card-flip">
+            <div class="creator-card-front">
+              <div class="creator-image"></div>
+              <h3>Abdurahman</h3>
+              <p class="creator-role">Flavor Development Mentor</p>
+              <p class="creator-short">
+                Focuses on helping learners understand taste, body, and aroma with clarity.
+              </p>
+              <label for="creator7" class="details-btn">More Details</label>
+            </div>
+
+            <div class="creator-card-back">
+              <div class="card-top">
+                <label for="creator7" class="back-arrow">&#8592;</label>
+                <span class="back-tag">Experience Creator</span>
+              </div>
+              <div class="creator-back-image"></div>
+              <h3>Abdurahman</h3>
+              <div class="creator-info">
+                <p><strong>Name:</strong> Abdurahman</p>
+                <p><strong>Workshops:</strong></p>
+                <ul class="workshop-list">
+                  <li>Coffee Tasting</li>
+                  <li>Bean Origins</li>
+                  <li>Grinders &amp; Grinding</li>
+                </ul>
+              </div>
+              <div class="rating-box">
+                <div class="rating-title">Rating</div>
+                <div class="rating-value">4.6 / 5</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="creator-card-wrap">
+          <input type="checkbox" id="creator8" class="flip-toggle">
+          <div class="creator-card-flip">
+            <div class="creator-card-front">
+              <div class="creator-image"></div>
+              <h3>Latifah</h3>
+              <p class="creator-role">Workshop Leader</p>
+              <p class="creator-short">
+                Leads coffee sessions with a practical approach and a strong learner focus.
+              </p>
+              <label for="creator8" class="details-btn">More Details</label>
+            </div>
+
+            <div class="creator-card-back">
+              <div class="card-top">
+                <label for="creator8" class="back-arrow">&#8592;</label>
+                <span class="back-tag">Experience Creator</span>
+              </div>
+              <div class="creator-back-image"></div>
+              <h3>Latifah</h3>
+              <div class="creator-info">
+                <p><strong>Name:</strong> Latifah</p>
+                <p><strong>Workshops:</strong></p>
+                <ul class="workshop-list">
+                  <li>Cold Brew</li>
+                  <li>Espresso Basics</li>
+                  <li>Coffee Tasting</li>
+                </ul>
+              </div>
+              <div class="rating-box">
+                <div class="rating-title">Rating</div>
+                <div class="rating-value">5.0 / 5</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="creator-card-wrap">
+          <input type="checkbox" id="creator9" class="flip-toggle">
+          <div class="creator-card-flip">
+            <div class="creator-card-front">
+              <div class="creator-image"></div>
+              <h3>Sadeem</h3>
+              <p class="creator-role">Creative Brew Instructor</p>
+              <p class="creator-short">
+                Brings creative energy into workshops and helps learners explore new ideas.
+              </p>
+              <label for="creator9" class="details-btn">More Details</label>
+            </div>
+
+            <div class="creator-card-back">
+              <div class="card-top">
+                <label for="creator9" class="back-arrow">&#8592;</label>
+                <span class="back-tag">Experience Creator</span>
+              </div>
+              <div class="creator-back-image"></div>
+              <h3>Sadeem</h3>
+              <div class="creator-info">
+                <p><strong>Name:</strong> Sadeem</p>
+                <p><strong>Workshops:</strong></p>
+                <ul class="workshop-list">
+                  <li>Latte Art Session</li>
+                  <li>Turkish Coffee</li>
+                  <li>Cold Brew</li>
+                </ul>
+              </div>
+              <div class="rating-box">
+                <div class="rating-title">Rating</div>
+                <div class="rating-value">4.8 / 5</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="creator-card-wrap">
+          <input type="checkbox" id="creator10" class="flip-toggle">
+          <div class="creator-card-flip">
+            <div class="creator-card-front">
+              <div class="creator-image"></div>
+              <h3>Fahad</h3>
+              <p class="creator-role">Roasting Mentor</p>
+              <p class="creator-short">
+                Helps learners understand roasting stages and how heat shapes coffee flavor.
+              </p>
+              <label for="creator10" class="details-btn">More Details</label>
+            </div>
+
+            <div class="creator-card-back">
+              <div class="card-top">
+                <label for="creator10" class="back-arrow">&#8592;</label>
+                <span class="back-tag">Experience Creator</span>
+              </div>
+              <div class="creator-back-image"></div>
+              <h3>Fahad</h3>
+              <div class="creator-info">
+                <p><strong>Name:</strong> Fahad</p>
+                <p><strong>Workshops:</strong></p>
+                <ul class="workshop-list">
+                  <li>Roasting Basics</li>
+                  <li>Moka Pot</li>
+                  <li>Bean Origins</li>
+                </ul>
+              </div>
+              <div class="rating-box">
+                <div class="rating-title">Rating</div>
+                <div class="rating-value">4.5 / 5</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11 -->
+        <div class="creator-card-wrap">
+          <input type="checkbox" id="creator11" class="flip-toggle">
+          <div class="creator-card-flip">
+            <div class="creator-card-front">
+              <div class="creator-image"></div>
+              <h3>Naser</h3>
+              <p class="creator-role">Grinding Specialist</p>
+              <p class="creator-short">
+                Focuses on grinders, grind size, and how proper grinding improves extraction.
+              </p>
+              <label for="creator11" class="details-btn">More Details</label>
+            </div>
+
+            <div class="creator-card-back">
+              <div class="card-top">
+                <label for="creator11" class="back-arrow">&#8592;</label>
+                <span class="back-tag">Experience Creator</span>
+              </div>
+              <div class="creator-back-image"></div>
+              <h3>Naser</h3>
+              <div class="creator-info">
+                <p><strong>Name:</strong> Naser</p>
+                <p><strong>Workshops:</strong></p>
+                <ul class="workshop-list">
+                  <li>Grinders &amp; Grinding</li>
+                  <li>V60</li>
+                  <li>Chemex</li>
+                </ul>
+              </div>
+              <div class="rating-box">
+                <div class="rating-title">Rating</div>
+                <div class="rating-value">4.4 / 5</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12 -->
+        <div class="creator-card-wrap">
+          <input type="checkbox" id="creator12" class="flip-toggle">
+          <div class="creator-card-flip">
+            <div class="creator-card-front">
+              <div class="creator-image"></div>
+              <h3>Sara</h3>
+              <p class="creator-role">Creative Brew Instructor</p>
+              <p class="creator-short">
+                Brings creative energy into workshops and helps learners explore new ideas.
+              </p>
+              <label for="creator12" class="details-btn">More Details</label>
+            </div>
+
+            <div class="creator-card-back">
+              <div class="card-top">
+                <label for="creator12" class="back-arrow">&#8592;</label>
+                <span class="back-tag">Experience Creator</span>
+              </div>
+              <div class="creator-back-image"></div>
+              <h3>Sara</h3>
+              <div class="creator-info">
+                <p><strong>Name:</strong> Sara</p>
+                <p><strong>Workshops:</strong></p>
+                <ul class="workshop-list">
+                  <li>Latte Art Session</li>
+                  <li>French Press</li>
+                  <li>Cold Brew</li>
+                </ul>
+              </div>
+              <div class="rating-box">
+                <div class="rating-title">Rating</div>
+                <div class="rating-value">4.6 / 5</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </section>
+
+  <section class="discover-section">
+    <div class="discover-text">
+      <h3>Discover Our Top Experience Creators</h3>
+      <p>
+        Meet the creators who lead our coffee workshops with passion, knowledge, and creativity.
+        From espresso foundations to roasting and brewing techniques, each creator brings a unique
+        touch to the learning journey and helps students explore coffee with confidence.
+      </p>
+    </div>
+
+    <div class="featured-creators">
+      <div class="mini-creator-card">
+        <div class="mini-creator-image"></div>
+        <h4>Latifah</h4>
+        <p>Rating: 5.0 / 5</p>
+      </div>
+
+      <div class="mini-creator-card">
+        <div class="mini-creator-image"></div>
+        <h4>Sadeem</h4>
+        <p>Rating: 4.8 / 5</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+
+  <div class="footer-top">
+
+    <div class="footer-logo">
+      <img src="logo.png" alt="Bean to Brew Logo">
+    </div>
+
+    <div class="footer-contact">
+      <h3>Contact us</h3>
+      <p>+966504256847</p>
+      <p>BeantoBrew@gmail.com</p>
+    </div>
+
+    <div class="footer-social">
+      <h3>Follow us</h3>
+
+      <div class="social-icons">
+
+        <a href="javascript:void(0);">
+          <img src="instagramicon.png" alt="Instagram">
+        </a>
+
+        <span class="social-divider"></span>
+
+        <a href="javascript:void(0);">
+          <img src="Xicon.png" alt="X">
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <p class="footer-note">
+    Learn, explore, and enjoy the world of coffee.
+  </p>
+
+  <p class="copyright">
+    © 2026 Bean to Brew. All rights reserved.
+  </p>
+
+</footer>
+
+
+</body>
+</html>
+   

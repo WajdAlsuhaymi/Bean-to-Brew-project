@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bean to Brew - Coffee Lab</title>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f3ef;
+    color: #3e2c23;
+    padding-top: 90px;
+  }
+
+  /* ===== Shared Navbar ===== */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #26231F;
+    padding: 12px 40px;
+    flex-wrap: wrap;
+    gap: 15px;
+    z-index: 1000;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo img {
+    width: 70px;
+    height: auto;
+    display: block;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+
+  .nav-links a:hover {
+    color: #f3d9b1;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .mode-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+  }
+
+  .search-box {
+    padding: 8px 14px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 14px;
+  }
+
+  /* ===== Page ===== */
+  .experience-page,
+  .coffee-lab-page {
+    padding: 35px 32px 80px;
+    background-color: #f7f5f2;
+  }
+
+  .page-title h1 {
+    font-size: 48px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    color: #2f241d;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .lab-layout,
+  .creators-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 45px;
+  }
+
+  .filter-sidebar {
+    width: 250px;
+    flex-shrink: 0;
+  }
+
+  .filter-sidebar h2 {
+    font-size: 34px;
+    margin-bottom: 18px;
+    color: #2f241d;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .filter-box {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 18px;
+    border-radius: 8px;
+  }
+
+  .filter-group {
+    margin-bottom: 18px;
+  }
+
+  .filter-group label {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #3b2a22;
+  }
+
+  .filter-group select {
+    width: 100%;
+    height: 42px;
+    border: 1px solid #cfcfcf;
+    padding: 0 10px;
+    background-color: #fafafa;
+    font-size: 14px;
+    color: #2f241d;
+    border-radius: 4px;
+  }
+
+  .filter-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .filter-buttons button {
+    flex: 1;
+    height: 42px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+
+  #applyBtn {
+    background-color: #26231F;
+    color: white;
+  }
+
+  #resetBtn {
+    background-color: #d9d9d9;
+    color: #2f241d;
+  }
+
+  .lab-content,
+  .creators-content {
+    flex: 1;
+  }
+
+  .main-search {
+    margin: 0 0 35px;
+  }
+
+  .main-search input {
+    width: 560px;
+    max-width: 100%;
+    height: 58px;
+    border: 2px solid #2f241d;
+    border-radius: 8px;
+    padding: 0 18px;
+    font-size: 18px;
+    background-color: white;
+    color: #2f241d;
+    outline: none;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(230px, 1fr));
+    gap: 28px;
+  }
+
+  /* ===== Flip Cards ===== */
+  .lab-card-wrap {
+    perspective: 1200px;
+    min-height: 340px;
+  }
+
+  .flip-toggle {
+    display: none;
+  }
+
+  .lab-card-flip {
+    position: relative;
+    width: 100%;
+    height: 340px;
+    transform-style: preserve-3d;
+    transition: transform 0.7s ease;
+  }
+
+  .flip-toggle:checked + .lab-card-flip {
+    transform: rotateY(180deg);
+  }
+
+  .lab-card-front,
+  .lab-card-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    background-color: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .lab-card-back {
+    transform: rotateY(180deg);
+    background-color: #fffdf9;
+  }
+
+  .lab-card-front:hover,
+  .lab-card-back:hover {
+    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.08);
+  }
+
+  .card-image,
+  .card-back-image {
+    width: 100%;
+    height: 170px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  /* ===== Card Images ===== */
+  .card-image.espresso,
+  .card-back-image.espresso {
+    background-image: url("Espresso.png");
+    background-color: #d8c3af;
+  }
+
+  .card-image.turkish,
+  .card-back-image.turkish {
+    background-image: url("Turkish.png");
+    background-color: #d8c3af;
+  }
+
+  .card-image.v60,
+  .card-back-image.v60 {
+    background-image: url("V60.png");
+    background-color: #d8c3af;
+  }
+
+  .card-image.frenchpress,
+  .card-back-image.frenchpress {
+    background-image: url("French Press.png");
+    background-color: #d8c3af;
+  }
+
+  .card-image.moka,
+  .card-back-image.moka {
+    background-image: url("Moka Pot.png");
+    background-color: #d8c3af;
+  }
+
+  .card-image.chemex,
+  .card-back-image.chemex {
+    background-image: url("Chemex.png");
+    background-color: #d8c3af;
+  }
+
+  .card-image.roasting,
+  .card-back-image.roasting {
+    background-image: url("roasting.png");
+    background-color: #d8c3af;
+  }
+
+  .card-image.grinders,
+  .card-back-image.grinders {
+    background-image: url("beanpic.png");
+    background-color: #d8c3af;
+  }
+
+  .card-image.coldbrew,
+  .card-back-image.coldbrew {
+    background-image: url("coldbrew.png");
+    background-color: #d8c3af;
+  }
+
+  .lab-card-front h3,
+  .lab-card-back h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #2f241d;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .lab-card-front p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #4a4a4a;
+    margin-bottom: 18px;
+    flex-grow: 1;
+  }
+
+  .details-btn,
+  .book-btn {
+    width: 100%;
+    min-height: 44px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .details-btn {
+    background-color: #26231F;
+    color: white;
+    margin-top: auto;
+  }
+
+  .details-btn:hover {
+    background-color: #4a3a2f;
+  }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+
+  .back-arrow {
+    font-size: 28px;
+    color: #2f241d;
+    cursor: pointer;
+    line-height: 1;
+    width: fit-content;
+  }
+
+  .back-tag {
+    font-size: 13px;
+    color: #7a5d49;
+    font-weight: 600;
+  }
+
+  .back-details {
+    margin-top: 10px;
+    margin-bottom: 16px;
+    flex-grow: 1;
+  }
+
+  .back-details p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #4a3a2f;
+    margin-bottom: 6px;
+  }
+
+  .book-btn {
+    background-color: #b88b63;
+    color: white;
+    margin-top: auto;
+  }
+
+  .book-btn:hover {
+    background-color: #9f744f;
+  }
+
+  /* ===== Discover Section ===== */
+  .discover-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+    margin-top: 85px;
+    background-color: #efe7dc;
+    padding: 35px;
+    border-radius: 12px;
+  }
+
+  .discover-text {
+    max-width: 620px;
+  }
+
+  .discover-text h3 {
+    font-size: 30px;
+    margin-bottom: 14px;
+    color: #2f241d;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .discover-text p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #444;
+  }
+
+  .discover-right {
+    width: 260px;
+  }
+
+  .small-card {
+    width: 100%;
+    min-height: 300px;
+    background-color: white;
+    border: 1px solid #e5e5e5;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: 0.3s;
+  }
+
+  .small-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .small-card-image {
+    width: 100%;
+    height: 120px;
+    background: url("roasting.png") center/cover no-repeat;
+    background-color: #cfcfcf;
+    margin-bottom: 16px;
+    border-radius: 6px;
+  }
+
+  .small-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #2f241d;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .card-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #4a4a4a;
+    margin-bottom: 18px;
+    flex-grow: 1;
+  }
+
+  .mini-details {
+    display: block;
+    width: 100%;
+    height: 42px;
+    background-color: #26231F;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 42px;
+    border-radius: 6px;
+  }
+
+  /* ===== Footer ===== */
+  .site-footer{
+  background-image:
+  linear-gradient(rgba(35,24,18,0.80), rgba(35,24,18,0.80)),
+  url("Headerpic.png");
+
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+
+  padding: 25px 20px 40px;         
+  text-align: center;
+  color: white;
+}
+
+.footer-top{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  margin-bottom:5px;
+}
+
+.footer-logo img{
+width:300px;
+padding:10px;
+filter: drop-shadow(0 5px 8px rgba(0,0,0,0.2));
+}
+
+.footer-contact h3,
+.footer-social h3{
+  font-family:'Playfair Display', serif;
+  font-size:20px;
+  margin-bottom:8px;
+}
+
+.footer-contact p{
+  margin:6px 0;
+  font-size:16px;
+  font-weight:600;
+}
+
+.footer-social{
+  text-align:center;
+}
+
+.social-icons{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:15px;
+  margin-top:5px;
+}
+
+.social-icons a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.social-icons img{
+  width:30px;
+  height:30px;
+  object-fit:contain;
+  transition: transform 0.25s ease;
+}
+
+.social-icons img:hover{
+  transform: scale(1.15);
+}
+
+.social-divider{
+  width:1px;
+  height:22px;
+  background:rgba(0,0,0,0.6);
+}
+
+.footer-note{
+  font-size:16px;
+  margin-top:15px;
+}
+
+.copyright{
+  font-size:15px;
+  margin-top:10px;
+}
+.social-icons img{
+filter: brightness(1.4);
+}
+
+  /* ===== Responsive ===== */
+  @media (max-width: 1150px) {
+    .cards-grid {
+      grid-template-columns: repeat(2, minmax(230px, 1fr));
+    }
+
+    .discover-section {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .discover-right {
+      width: 100%;
+      max-width: 280px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .navbar {
+      padding: 12px 20px;
+    }
+
+    .lab-layout,
+    .creators-layout {
+      flex-direction: column;
+    }
+
+    .filter-sidebar {
+      width: 100%;
+    }
+
+    .nav-links {
+      gap: 12px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    body {
+      padding-top: 120px;
+    }
+
+    .cards-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .experience-page,
+    .coffee-lab-page {
+      padding: 25px 20px 60px;
+    }
+
+    .page-title h1 {
+      font-size: 38px;
+    }
+
+    .footer-top {
+      text-align: center;
+    }
+
+    .navbar {
+      padding: 12px 16px;
+    }
+
+    .logo img {
+      width: 58px;
+    }
+
+    .search-box {
+      width: 160px;
+    }
+  }
+</style>
+</head>
+<body>
+
+   <header>
+  <nav class="navbar">
+
+    <div class="logo">
+      <img src="logo.png" alt="Bean to Brew Logo">
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Brew School</a></li>
+      <li><a href="CoffeLab.html">Coffee Lab</a></li>
+      <li><a href="Experience-Creators.html">Experience Creators</a></li>
+      <li><a href="#">Student Dashboard</a></li>
+      <li><a href="About-us.html">About Us</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <button class="mode-btn">☀️</button>
+      <input type="text" placeholder="Search" class="search-box">
+    </div>
+
+  </nav>
+</header>
+
+  <main class="coffee-lab-page">
+
+    <section class="page-title">
+      <h1>Coffee Lab</h1>
+    </section>
+
+    <section class="lab-layout">
+
+      <aside class="filter-sidebar">
+        <h2>Filter</h2>
+
+        <div class="filter-box">
+          <div class="filter-group">
+            <label for="trainerFilter">Trainer</label>
+            <select id="trainerFilter">
+              <option>All Trainers</option>
+              <option>Latifah</option>
+              <option>Reem</option>
+              <option>Nora</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="locationFilter">Location</label>
+            <select id="locationFilter">
+              <option>All Locations</option>
+              <option>Riyadh</option>
+              <option>Jeddah</option>
+              <option>Online</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="timeFilter">Time</label>
+            <select id="timeFilter">
+              <option>All Times</option>
+              <option>8-11 AM</option>
+              <option>1-3 PM</option>
+            </select>
+          </div>
+
+          <div class="filter-buttons">
+            <button id="applyBtn" type="button">Apply</button>
+            <button id="resetBtn" type="button">Reset</button>
+          </div>
+        </div>
+      </aside>
+
+      <div class="lab-content">
+
+        <div class="main-search">
+          <input type="text" placeholder="Search by lab name">
+        </div>
+
+        <section class="cards-grid">
+
+          <!-- Card 1 -->
+          <div class="lab-card-wrap">
+            <input type="checkbox" id="flip1" class="flip-toggle">
+            <div class="lab-card-flip">
+              <div class="lab-card-front">
+                <div class="card-image espresso"></div>
+                <h3>Espresso Basics</h3>
+                <p>Learn the basics of espresso extraction and balance through a simple hands-on lab.</p>
+                <label for="flip1" class="details-btn">More Details</label>
+              </div>
+
+              <div class="lab-card-back">
+                <div class="card-top">
+                  <label for="flip1" class="back-arrow">&#8592;</label>
+                  <span class="back-tag">Coffee Lab</span>
+                </div>
+                <div class="card-back-image espresso"></div>
+                <h3>Espresso Basics</h3>
+                <div class="back-details">
+                  <p><strong>Trainer:</strong> Latifah</p>
+                  <p><strong>Location:</strong> Riyadh</p>
+                  <p><strong>Time:</strong> 8-11 AM</p>
+                  <p><strong>Level:</strong> Beginner</p>
+                </div>
+                <a href="student-dashboard.html" class="book-btn">Book Now</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+<div class="lab-card-wrap">
+  <input type="checkbox" id="flip2" class="flip-toggle">
+  <div class="lab-card-flip">
+    <div class="lab-card-front">
+      <div class="card-image turkish"></div>
+      <h3>Turkish Coffee</h3>
+      <p>Learn the art of Turkish coffee and discover how fine grinding, foam formation, and gentle heating create its rich flavor.</p>
+      <label for="flip2" class="details-btn">More Details</label>
+    </div>
+
+    <div class="lab-card-back">
+      <div class="card-top">
+        <label for="flip2" class="back-arrow">&#8592;</label>
+        <span class="back-tag">Coffee Lab</span>
+      </div>
+      <div class="card-back-image turkish"></div>
+      <h3>Turkish Coffee</h3>
+      <div class="back-details">
+        <p><strong>Trainer:</strong> Reem</p>
+        <p><strong>Location:</strong> Riyadh</p>
+        <p><strong>Time:</strong> 1-3 PM</p>
+        <p><strong>Level:</strong> Beginner</p>
+      </div>
+      <a href="#" class="book-btn">Book Now</a>
+    </div>
+  </div>
+</div>
+
+          <!-- Card 3 -->
+<div class="lab-card-wrap">
+  <input type="checkbox" id="flip3" class="flip-toggle">
+  <div class="lab-card-flip">
+    <div class="lab-card-front">
+      <div class="card-image v60"></div>
+      <h3>V60</h3>
+      <p>Practice precise pour-over brewing and understand how flow rate, timing, and technique affect clarity and balance.</p>
+      <label for="flip3" class="details-btn">More Details</label>
+    </div>
+
+    <div class="lab-card-back">
+      <div class="card-top">
+        <label for="flip3" class="back-arrow">&#8592;</label>
+        <span class="back-tag">Coffee Lab</span>
+      </div>
+      <div class="card-back-image v60"></div>
+      <h3>V60</h3>
+      <div class="back-details">
+        <p><strong>Trainer:</strong> Nora</p>
+        <p><strong>Location:</strong> Jeddah</p>
+        <p><strong>Time:</strong> 8-11 AM</p>
+        <p><strong>Level:</strong> Intermediate</p>
+      </div>
+      <a href="#" class="book-btn">Book Now</a>
+    </div>
+  </div>
+</div>
+
+         <!-- Card 4 -->
+<div class="lab-card-wrap">
+  <input type="checkbox" id="flip4" class="flip-toggle">
+  <div class="lab-card-flip">
+    <div class="lab-card-front">
+      <div class="card-image frenchpress"></div>
+      <h3>French Press</h3>
+      <p>Explore full-bodied brewing with the French Press and learn how steeping time and grind size shape the final cup.</p>
+      <label for="flip4" class="details-btn">More Details</label>
+    </div>
+
+    <div class="lab-card-back">
+      <div class="card-top">
+        <label for="flip4" class="back-arrow">&#8592;</label>
+        <span class="back-tag">Coffee Lab</span>
+      </div>
+      <div class="card-back-image frenchpress"></div>
+      <h3>French Press</h3>
+      <div class="back-details">
+        <p><strong>Trainer:</strong> Latifah</p>
+        <p><strong>Location:</strong> Online</p>
+        <p><strong>Time:</strong> 1-3 PM</p>
+        <p><strong>Level:</strong> Beginner</p>
+      </div>
+      <a href="#" class="book-btn">Book Now</a>
+    </div>
+  </div>
+</div>
+
+         <!-- Card 5 -->
+<div class="lab-card-wrap">
+  <input type="checkbox" id="flip5" class="flip-toggle">
+  <div class="lab-card-flip">
+    <div class="lab-card-front">
+      <div class="card-image moka"></div>
+      <h3>Moka Pot</h3>
+      <p>Discover how to brew rich coffee with a moka pot and understand how heat control and grind consistency affect taste.</p>
+      <label for="flip5" class="details-btn">More Details</label>
+    </div>
+
+    <div class="lab-card-back">
+      <div class="card-top">
+        <label for="flip5" class="back-arrow">&#8592;</label>
+        <span class="back-tag">Coffee Lab</span>
+      </div>
+      <div class="card-back-image moka"></div>
+      <h3>Moka Pot</h3>
+      <div class="back-details">
+        <p><strong>Trainer:</strong> Reem</p>
+        <p><strong>Location:</strong> Riyadh</p>
+        <p><strong>Time:</strong> 8-11 AM</p>
+        <p><strong>Level:</strong> Intermediate</p>
+      </div>
+      <a href="#" class="book-btn">Book Now</a>
+    </div>
+  </div>
+</div>
+
+          <!-- Card 6 -->
+<div class="lab-card-wrap">
+  <input type="checkbox" id="flip6" class="flip-toggle">
+  <div class="lab-card-flip">
+    <div class="lab-card-front">
+      <div class="card-image chemex"></div>
+      <h3>Chemex</h3>
+      <p>Learn how to brew clean and delicate coffee with Chemex while improving pouring control and extraction balance.</p>
+      <label for="flip6" class="details-btn">More Details</label>
+    </div>
+
+    <div class="lab-card-back">
+      <div class="card-top">
+        <label for="flip6" class="back-arrow">&#8592;</label>
+        <span class="back-tag">Coffee Lab</span>
+      </div>
+      <div class="card-back-image chemex"></div>
+      <h3>Chemex</h3>
+      <div class="back-details">
+        <p><strong>Trainer:</strong> Nora</p>
+        <p><strong>Location:</strong> Online</p>
+        <p><strong>Time:</strong> 1-3 PM</p>
+        <p><strong>Level:</strong> Intermediate</p>
+      </div>
+      <a href="#" class="book-btn">Book Now</a>
+    </div>
+  </div>
+</div>
+
+         <!-- Card 7 -->
+<div class="lab-card-wrap">
+  <input type="checkbox" id="flip7" class="flip-toggle">
+  <div class="lab-card-flip">
+    <div class="lab-card-front">
+      <div class="card-image roasting"></div>
+      <h3>Roasting Basics</h3>
+      <p>Understand the basics of coffee roasting and explore how roast levels influence aroma, sweetness, and body.</p>
+      <label for="flip7" class="details-btn">More Details</label>
+    </div>
+
+    <div class="lab-card-back">
+      <div class="card-top">
+        <label for="flip7" class="back-arrow">&#8592;</label>
+        <span class="back-tag">Coffee Lab</span>
+      </div>
+      <div class="card-back-image roasting"></div>
+      <h3>Roasting Basics</h3>
+      <div class="back-details">
+        <p><strong>Trainer:</strong> Latifah</p>
+        <p><strong>Location:</strong> Jeddah</p>
+        <p><strong>Time:</strong> 8-11 AM</p>
+        <p><strong>Level:</strong> Advanced</p>
+      </div>
+      <a href="#" class="book-btn">Book Now</a>
+    </div>
+  </div>
+</div>
+          <!-- Card 8 -->
+<div class="lab-card-wrap">
+  <input type="checkbox" id="flip8" class="flip-toggle">
+  <div class="lab-card-flip">
+    <div class="lab-card-front">
+      <div class="card-image grinders"></div>
+      <h3>Grinders & Grinding</h3>
+      <p>Learn how grinder types and grind size influence extraction and discover how to choose the right grind for each method.</p>
+      <label for="flip8" class="details-btn">More Details</label>
+    </div>
+
+    <div class="lab-card-back">
+      <div class="card-top">
+        <label for="flip8" class="back-arrow">&#8592;</label>
+        <span class="back-tag">Coffee Lab</span>
+      </div>
+      <div class="card-back-image grinders"></div>
+      <h3>Grinders & Grinding</h3>
+      <div class="back-details">
+        <p><strong>Trainer:</strong> Reem</p>
+        <p><strong>Location:</strong> Riyadh</p>
+        <p><strong>Time:</strong> 1-3 PM</p>
+        <p><strong>Level:</strong> Beginner</p>
+      </div>
+      <a href="#" class="book-btn">Book Now</a>
+    </div>
+  </div>
+</div>
+
+          <!-- Card 9 -->
+<div class="lab-card-wrap">
+  <input type="checkbox" id="flip9" class="flip-toggle">
+  <div class="lab-card-flip">
+    <div class="lab-card-front">
+      <div class="card-image coldbrew"></div>
+      <h3>Cold Brew</h3>
+      <p>Learn how to prepare smooth cold brew coffee and understand how time, grind size, and water ratio shape its taste.</p>
+      <label for="flip9" class="details-btn">More Details</label>
+    </div>
+
+    <div class="lab-card-back">
+      <div class="card-top">
+        <label for="flip9" class="back-arrow">&#8592;</label>
+        <span class="back-tag">Coffee Lab</span>
+      </div>
+      <div class="card-back-image coldbrew"></div>
+      <h3>Cold Brew</h3>
+      <div class="back-details">
+        <p><strong>Trainer:</strong> Nora</p>
+        <p><strong>Location:</strong> Jeddah</p>
+        <p><strong>Time:</strong> 1-3 PM</p>
+        <p><strong>Level:</strong> Intermediate</p>
+      </div>
+      <a href="#" class="book-btn">Book Now</a>
+    </div>
+  </div>
+</div>
+
+        </section>
+
+      </div>
+    </section>
+
+    <section class="discover-section">
+      <div class="discover-text">
+        <h3>Discover Our Signature Brews</h3>
+        <p>
+          At Bean to Brew, we believe every cup tells a story. Our coffee lab gives learners
+          the chance to explore coffee beans, roasting ideas, and brewing styles in a simple
+          and practical way. Whether you want to improve your skills or just try something new,
+          each lab is designed to make the experience richer and more enjoyable.
+        </p>
+      </div>
+
+      <div class="discover-right">
+  <a href="#" class="small-card">
+    <div class="small-card-image roasting-img"></div>
+
+    <h3>Roasting Lab</h3>
+
+    <p class="card-desc">
+      Discover how roasting transforms green coffee beans into rich aromatic flavors. 
+      Learn the basics of roast levels and how they influence aroma, acidity, and body.
+    </p>
+
+    <span class="mini-details">Explore Lab</span>
+  </a>
+</div>
+    </section>
+
+  </main>
+
+<footer class="site-footer">
+
+  <div class="footer-top">
+
+    <div class="footer-logo">
+      <img src="logo.png" alt="Bean to Brew Logo">
+    </div>
+
+    <div class="footer-contact">
+      <h3>Contact us</h3>
+      <p>+966504256847</p>
+      <p>BeantoBrew@gmail.com</p>
+    </div>
+
+    <div class="footer-social">
+      <h3>Follow us</h3>
+
+      <div class="social-icons">
+
+        <a href="javascript:void(0);">
+          <img src="instagramicon.png" alt="Instagram">
+        </a>
+
+        <span class="social-divider"></span>
+
+        <a href="javascript:void(0);">
+          <img src="Xicon.png" alt="X">
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <p class="footer-note">
+    Learn, explore, and enjoy the world of coffee.
+  </p>
+
+  <p class="copyright">
+    © 2026 Bean to Brew. All rights reserved.
+  </p>
+
+</footer>
+
+</body>
+</html>
