@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    .dashboard-page{
+      min-height:100vh;
+      background-color:#3A2F2B;
+    }
+	
+	.dashboard-section h1{
+     color:#EDE8DC;
+     margin-bottom:10px;
+    }
+
+    .dashboard-section{
+      text-align:center;
+      padding:70px 20px 90px;
+    }
+
+    .dashboard-subtitle{
+      font-size:18px;
+      color:#EDE8DC;
+      margin-top:10px;
+      margin-bottom:60px;
+    }
+
+    .dashboard-cards{
+      display:flex;
+      justify-content:center;
+      gap:60px;
+      flex-wrap:wrap;
+    }
+
+    .dashboard-card{
+      width:320px;
+      min-height:260px;
+      background-color:#4B4F3E;
+      color:white;
+      border-radius:45px;
+      padding:28px 25px;
+      text-align:left;
+      box-sizing:border-box;
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .dashboard-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .card-top{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      margin-bottom:25px;
+    }
+
+    .card-icon{
+      width:80px;
+      height:80px;
+      object-fit:contain;
+      padding:6px;
+      box-sizing:border-box;
+    }
+
+    .card-title{
+      font-size:30px;
+      font-weight:500;
+      margin:0;
+      color:#EDE8DC;
+      line-height:1.2;
+    }
+
+    .card-text{
+      font-size:20px;
+      line-height:1.7;
+      color:#EDE8DC;
+      margin-bottom:35px;
+      max-width:230px;
+    }
+
+    .card-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background-color:#e8e3db;
+      color:#2f2f2f;
+      text-decoration:none;
+      border-radius:8px;
+      padding:10px 18px;
+      font-size:15px;
+      transition:background-color 0.3s ease;
+    }
+
+    .card-btn:hover{
+      background-color:#d8d1c7;
+    }
+
+    .back-link{
+      display:inline-block;
+      margin-top:55px;
+      text-decoration:none;
+      font-size:28px;
+      color:#EDE8DC;
+      transition:transform 0.3s ease;
+    }
+
+  .back-arrow{
+  font-size:44px;
+  color:#EDE8DC;
+  text-decoration:none;
+  transition:transform 0.3s ease;
+}
+
+.back-arrow:hover{
+  transform:translateX(-4px);
+}
+
+.dashboard-bottom{
+  margin-top:40px;
+  display:flex;
+  justify-content:flex-start;
+  max-width:1100px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+    @media (max-width:768px){
+      .dashboard-section{
+        padding:50px 18px 70px;
+      }
+
+      .dashboard-subtitle{
+        font-size:16px;
+        margin-bottom:40px;
+      }
+
+      .dashboard-card{
+        width:100%;
+        max-width:340px;
+      }
+
+      .card-title{
+        font-size:26px;
+      }
+
+      .card-text{
+        font-size:18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard-page">
+  
+ <header>
+  <nav class="navbar">
+
+    <div class="logo">
+      <img src="logo.png" alt="Bean to Brew Logo">
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Brew School</a></li>
+      <li><a href="#">Coffee Lab</a></li>
+      <li><a href="#">Experience Creators</a></li>
+     <li><a href="student-dashboard.html" class="active">Student Dashboard</a></li>
+      <li><a href="#">About Us</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <button class="mode-btn">☀️</button>
+      <input type="text" placeholder="Search" class="search-box">
+    </div>
+
+  </nav>
+</header>
+
+    <main>
+      <section class="dashboard-section">
+        <h1>Student's Dashboard</h1>
+        <p class="dashboard-subtitle">
+          Manage your notes and evaluate our Experience Creators from here
+        </p>
+
+        <div class="dashboard-cards">
+          <div class="dashboard-card">
+            <div class="card-top">
+              <img src="Mynote.png" alt="Notes Icon" class="card-icon">
+              <h2 class="card-title">My Notes</h2>
+            </div>
+
+            <p class="card-text">
+              View, add, and delete your notes
+            </p>
+
+           <a href="my-notes.html" class="card-btn">➡ Go to my Notes</a>
+          </div>
+
+          <div class="dashboard-card">
+            <div class="card-top">
+              <img src="ratingicon.png" alt="Teacher Evaluation Icon" class="card-icon">
+              <h2 class="card-title">Teachers Evaluation</h2>
+            </div>
+
+            <p class="card-text">
+              Rate teachers and share your feedback
+            </p>
+
+            <a href="teacher-evaluation.html" class="card-btn">➡ Evaluate Teachers</a>
+          </div>
+              </div>
+
+        <div class="dashboard-bottom">
+          <a href="index.html" class="back-arrow">‹</a>
+        </div>
+
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <img src="logo.png" alt="Bean to Brew Logo">
+        </div>
+
+        <div class="footer-contact">
+          <h3>Contact us</h3>
+          <p>+966504256847</p>
+          <p>BeantoBrew@gmail.com</p>
+        </div>
+
+        <div class="footer-social">
+          <h3>Follow us</h3>
+          <div class="social-icons">
+            <a href="javascript:void(0);">
+              <img src="instagramicon.png" alt="Instagram">
+            </a>
+            <span class="social-divider"></span>
+            <a href="javascript:void(0);">
+              <img src="Xicon.png" alt="X">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
+      <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
+    </footer>
+  </div>
+
+</body>
+</html>
