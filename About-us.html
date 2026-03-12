@@ -4,86 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bean to Brew - About Us</title>
+   <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f3ef;
-      color: #3e2c23;
-    }
-
-    /* ===== Shared Navbar Style ===== */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #26231F;
-      padding: 15px 40px;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-    }
-
-    .logo img {
-      width: 70px;
-      height: auto;
-      display: block;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: white;
-      font-size: 16px;
-      transition: 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: #f3d9b1;
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .mode-btn {
-      background: transparent;
-      border: none;
-      color: white;
-      font-size: 22px;
-      cursor: pointer;
-    }
-
-    .search-box {
-      padding: 8px 14px;
-      border: none;
-      outline: none;
-      border-radius: 20px;
-      font-size: 14px;
-    }
-
+   
     /* ===== About Page ===== */
     .about-page {
-      background-color: #f5f3ef;
+      background-color: #3A2F2B;
       padding: 80px 60px;
     }
 
@@ -95,7 +23,7 @@
     .about-page h1 {
       font-size: 52px;
       font-family: 'Playfair Display', serif;
-      color: #3b2a22;
+      color: #EDE8DC;
       margin-bottom: 35px;
     }
 
@@ -120,144 +48,10 @@
       font-size: 20px;
       line-height: 1.9;
       margin-bottom: 22px;
-      color: #4a3a2f;
+      color: #EDE8DC;
     }
 
-    /* ===== Footer ===== */
-    .site-footer {
-      background-image:
-        linear-gradient(rgba(35,24,18,0.80), rgba(35,24,18,0.80)),
-        url("Headerpic.png");
-      background-size: cover;
-      background-position: top center;
-      background-repeat: no-repeat;
-      padding: 25px 20px 40px;
-      text-align: center;
-      color: white;
-      margin-top: 40px;
-    }
-
-    .footer-top {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 5px;
-    }
-
-    .footer-logo img {
-      width: 300px;
-      padding: 10px;
-      filter: drop-shadow(0 5px 8px rgba(0,0,0,0.2));
-    }
-
-    .footer-contact h3,
-    .footer-social h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      margin-bottom: 8px;
-    }
-
-    .footer-contact p {
-      margin: 6px 0;
-      font-size: 16px;
-      font-weight: 600;
-    }
-
-    .footer-social {
-      text-align: center;
-    }
-
-    .social-icons {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 5px;
-    }
-
-    .social-icons a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .social-icons img {
-      width: 30px;
-      height: 30px;
-      object-fit: contain;
-      transition: transform 0.25s ease;
-      filter: brightness(1.4);
-    }
-
-    .social-icons img:hover {
-      transform: scale(1.15);
-    }
-
-    .social-divider {
-      width: 1px;
-      height: 22px;
-      background: rgba(0,0,0,0.6);
-    }
-
-    .footer-note {
-      font-size: 16px;
-      margin-top: 15px;
-    }
-
-    .copyright {
-      font-size: 15px;
-      margin-top: 10px;
-    }
-
-    /* ===== Responsive ===== */
-    @media (max-width: 900px) {
-      .navbar {
-        padding: 15px 20px;
-      }
-
-      .about-page {
-        padding: 60px 25px;
-      }
-
-      .about-page h1 {
-        font-size: 40px;
-      }
-
-      .about-text p {
-        font-size: 18px;
-      }
-
-      .about-image img {
-        height: auto;
-      }
-
-      .site-footer {
-        padding: 50px 25px;
-      }
-
-      .footer-logo img {
-        width: 220px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .navbar {
-        gap: 12px;
-      }
-
-      .nav-links {
-        gap: 12px;
-      }
-
-      .logo img {
-        width: 58px;
-      }
-
-      .search-box {
-        width: 160px;
-      }
-    }
+   
   </style>
 </head>
 
@@ -271,11 +65,11 @@
 
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="#">Brew School</a></li>
+        <li><a href="BrewSchool.html">Brew School</a></li>
         <li><a href="CoffeLab.html">Coffee Lab</a></li>
         <li><a href="Experience-Creators.html">Experience Creators</a></li>
-        <li><a href="#">Student Dashboard</a></li>
-        <li><a href="About-us.html">About Us</a></li>
+        <li><a href="student-dashboard.html">Student Dashboard</a></li>
+        <li><a href="About-us.html"class="active">About Us</a></li>
       </ul>
 
       <div class="nav-right">
