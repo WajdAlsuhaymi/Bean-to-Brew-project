@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson 1 | What is Coffee?</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f4ef;
+      color: #2b2b2b;
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+
+    /* LESSON HERO */
+    .lesson-hero {
+      position: relative;
+      width: 100%;
+      height: 420px;
+      overflow: hidden;
+    }
+
+    .lesson-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.28);
+    }
+
+    .hero-content {
+      position: absolute;
+      left: 60px;
+      bottom: 45px;
+      color: white;
+    }
+
+    .lesson-label {
+      display: inline-block;
+      background-color: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      padding: 7px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .hero-content h1 {
+      font-size: 44px;
+      margin-bottom: 10px;
+    }
+
+    .hero-content p {
+      font-size: 16px;
+      max-width: 540px;
+    }
+
+    /* INTRO */
+    .lesson-intro {
+      max-width: 900px;
+      margin: 70px auto 50px;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .lesson-intro h2 {
+      font-size: 30px;
+      margin-bottom: 20px;
+      color: #3d2d22;
+    }
+
+    .lesson-intro p {
+      font-size: 17px;
+      color: #4d4d4d;
+      margin-bottom: 18px;
+    }
+
+    /* VIDEO SECTION */
+    .lesson-video {
+      max-width: 1000px;
+      margin: 0 auto 70px;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .lesson-video h3 {
+      font-size: 28px;
+      margin-bottom: 16px;
+      color: #3d2d22;
+    }
+
+    .lesson-video p {
+      max-width: 760px;
+      margin: 0 auto 30px;
+      color: #555;
+      font-size: 16px;
+    }
+
+    .video-box {
+      background: #ebe4db;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .video-box iframe {
+      width: 80%;
+      height: 400px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    /* BUTTONS */
+    .lesson-buttons {
+      max-width: 1000px;
+      margin: 0 auto 80px;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 32px;
+      border-radius: 6px;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .btn-back {
+      background-color: #ddd4ca;
+      color: #2b2b2b;
+    }
+
+    .btn-back:hover {
+      background-color: #cfc3b6;
+    }
+
+    .btn-next {
+      background-color: #3d2d22;
+      color: white;
+    }
+
+    .btn-next:hover {
+      background-color: #2c2018;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .navbar {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero-content {
+        left: 25px;
+        right: 25px;
+        bottom: 30px;
+      }
+
+      .hero-content h1 {
+        font-size: 34px;
+      }
+
+      .video-box iframe {
+        height: 320px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .lesson-hero {
+        height: 320px;
+      }
+
+      .hero-content h1 {
+        font-size: 28px;
+      }
+
+      .lesson-intro h2,
+      .lesson-video h3 {
+        font-size: 24px;
+      }
+
+      .lesson-buttons {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .search-box input {
+        width: 140px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER --> <header>
+  <nav class="navbar">
+
+    <div class="logo">
+      <img src="logo.png" alt="Bean to Brew Logo">
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Brew School</a></li>
+      <li><a href="#">Coffee Lab</a></li>
+      <li><a href="#">Experience Creators</a></li>
+      <li><a href="#">Student Dashboard</a></li>
+      <li><a href="#">About Us</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <button class="mode-btn">☀️</button>
+      <input type="text" placeholder="Search" class="search-box">
+    </div>
+
+  </nav>
+</header>
+
+  <!-- LESSON HERO -->
+  <section class="lesson-hero">
+    <img src="images\lesson1.jpg" alt="Coffee lesson image">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <span class="lesson-label">Lesson 1</span>
+      <h1>What is Coffee?</h1>
+      <p>Discover where coffee begins and how this everyday drink starts its journey from plant to cup.</p>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="lesson-intro">
+    <h2>Introduction</h2>
+    <p>
+      Coffee is one of the most popular drinks in the world, enjoyed by millions every day.
+      But coffee is more than just a drink. It begins as a seed inside a fruit called a coffee cherry,
+      and goes through many stages before reaching your cup.
+    </p>
+    <p>
+      In this lesson, you will learn what coffee really is, where it comes from,
+      and why understanding its origin is the first step to becoming more confident in the world of brewing.
+    </p>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="lesson-video">
+    <h3>Watch the Lesson Video</h3>
+    <p>
+      This video introduces the basics of coffee and explains how coffee starts its journey before it becomes the drink we know.
+    </p>
+	<div class="video-box">
+
+<iframe
+src="https://www.youtube.com/embed/yagagM7SlWs"
+title="Lesson 1 Video"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen>
+
+</iframe>
+
+</div>
+
+  </section>
+
+  <!-- BUTTONS -->
+  <section class="lesson-buttons">
+    <a href="BrewSchool.html" class="btn btn-back">Back</a>
+    <a href="lesson1.2.html" class="btn btn-next">Next</a>
+  </section>
+
+  <!-- FOOTER -->
+  
+  <footer class="site-footer">
+
+    <div class="footer-top">
+
+      <div class="footer-logo">
+        <img src="logo.png" alt="Bean to Brew Logo">
+      </div>
+
+      <div class="footer-contact">
+        <h3>Contact us</h3>
+        <p>+966504256847</p>
+        <p>BeantoBrew@gmail.com</p>
+      </div>
+
+      <div class="footer-social">
+        <h3>Follow us</h3>
+
+        <div class="social-icons">
+          <a href="javascript:void(0);">
+            <img src="instagramicon.png" alt="Instagram">
+          </a>
+
+          <span class="social-divider"></span>
+
+          <a href="javascript:void(0);">
+            <img src="Xicon.png" alt="X">
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <p class="footer-note">
+      Learn, explore, and enjoy the world of coffee.
+    </p>
+
+    <p class="copyright">
+      © 2026 Bean to Brew. All rights reserved.
+    </p>
+
+  </footer>
+</body>
+</html>
