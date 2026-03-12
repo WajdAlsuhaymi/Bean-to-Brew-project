@@ -4,11 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bean to Brew - About Us</title>
-   <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Style-la.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
-   
     /* ===== About Page ===== */
     .about-page {
       background-color: #3A2F2B;
@@ -51,34 +50,139 @@
       color: #EDE8DC;
     }
 
-   
+    /* ===== Teachers Section ===== */
+    .teachers-section {
+      background-color: #f7f5f2;
+      padding: 70px 60px 80px;
+    }
+
+    .teachers-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .teachers-title {
+      font-size: 42px;
+      font-family: 'Playfair Display', serif;
+      color: #2f241d;
+      margin-bottom: 14px;
+    }
+
+    .teachers-desc {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #6b5749;
+      max-width: 750px;
+      margin-bottom: 35px;
+    }
+
+    .teachers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(220px, 1fr));
+      gap: 28px;
+    }
+
+    .teacher-card {
+      background-color: white;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      transition: 0.3s;
+    }
+
+    .teacher-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 22px rgba(0, 0, 0, 0.08);
+    }
+
+    .teacher-img {
+      width: 100%;
+      height: 170px;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      background: url("photo.png") center/cover no-repeat;
+      background-color: #d8c3af;
+    }
+
+    .teacher-card h3 {
+      font-size: 23px;
+      margin-bottom: 8px;
+      color: #2f241d;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .teacher-exp {
+      font-size: 15px;
+      color: #7a5d49;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .teacher-note {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #4a4a4a;
+    }
+
+    @media (max-width: 1100px) {
+      .teachers-grid {
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .about-page {
+        padding: 50px 20px;
+      }
+
+      .about-page h1 {
+        font-size: 40px;
+      }
+
+      .about-text p {
+        font-size: 17px;
+      }
+
+      .teachers-section {
+        padding: 50px 20px 60px;
+      }
+
+      .teachers-title {
+        font-size: 34px;
+      }
+
+      .teachers-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <header>
-    <nav class="navbar">
+ <header>
+  <nav class="navbar">
 
-      <div class="logo">
-        <img src="logo.png" alt="Bean to Brew Logo">
-      </div>
+    <div class="logo">
+      <img src="logo.png" alt="Bean to Brew Logo">
+    </div>
 
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="BrewSchool.html">Brew School</a></li>
-        <li><a href="CoffeLab.html">Coffee Lab</a></li>
-        <li><a href="Experience-Creators.html">Experience Creators</a></li>
-        <li><a href="student-dashboard.html">Student Dashboard</a></li>
-        <li><a href="About-us.html"class="active">About Us</a></li>
-      </ul>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Brew School</a></li>
+      <li><a href="CoffeLab.html">Coffee Lab</a></li>
+      <li><a href="#">Student Dashboard</a></li>
+      <li><a href="About-us.html">About Us</a></li>
+      <li><a href="Contact.html">Contact Us</a></li>
+    </ul>
 
-      <div class="nav-right">
-        <button class="mode-btn">☀️</button>
-        <input type="text" placeholder="Search" class="search-box">
-      </div>
+    <div class="nav-right">
+      <button class="mode-btn">☀️</button>
+      <input type="text" placeholder="Search" class="search-box">
+    </div>
 
-    </nav>
-  </header>
+  </nav>
+</header>
 
   <main>
     <section class="about-page">
@@ -109,6 +213,104 @@
             We believe coffee is more than just a drink — it is a journey, a skill, and a story
             waiting to be explored.
           </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="teachers-section">
+      <div class="teachers-container">
+        <h2 class="teachers-title">Meet Our Teachers</h2>
+        <p class="teachers-desc">
+          Our teachers bring passion, knowledge, and hands-on experience to every coffee session.
+          Explore their names and years of experience as part of the Bean to Brew learning journey.
+        </p>
+
+        <div class="teachers-grid">
+
+          <div class="teacher-card">
+            <div class="teacher-img"></div>
+            <h3>Hamad</h3>
+            <p class="teacher-exp">4 Years of Experience</p>
+            <p class="teacher-note">Focuses on brewing foundations and helps beginners learn coffee skills clearly.</p>
+          </div>
+
+          <div class="teacher-card">
+            <div class="teacher-img"></div>
+            <h3>Eman</h3>
+            <p class="teacher-exp">6 Years of Experience</p>
+            <p class="teacher-note">Guides learners through flavor understanding and coffee culture in an engaging way.</p>
+          </div>
+
+          <div class="teacher-card">
+            <div class="teacher-img"></div>
+            <h3>Joury</h3>
+            <p class="teacher-exp">3 Years of Experience</p>
+            <p class="teacher-note">Specializes in brewing methods and practical techniques for balanced coffee results.</p>
+          </div>
+
+          <div class="teacher-card">
+            <div class="teacher-img"></div>
+            <h3>Saud</h3>
+            <p class="teacher-exp">8 Years of Experience</p>
+            <p class="teacher-note">Helps students understand espresso workflow, extraction, and balance with confidence.</p>
+          </div>
+
+          <div class="teacher-card">
+            <div class="teacher-img"></div>
+            <h3>Wajd</h3>
+            <p class="teacher-exp">5 Years of Experience</p>
+            <p class="teacher-note">Creates interactive workshops that connect creativity with practical coffee learning.</p>
+          </div>
+
+          <div class="teacher-card">
+            <div class="teacher-img"></div>
+            <h3>Mohammed</h3>
+            <p class="teacher-exp">7 Years of Experience</p>
+            <p class="teacher-note">Supports students through practical sessions and step-by-step coffee training.</p>
+          </div>
+
+          <div class="teacher-card">
+            <div class="teacher-img"></div>
+            <h3>Abdurahman</h3>
+            <p class="teacher-exp">6 Years of Experience</p>
+            <p class="teacher-note">Focuses on taste, aroma, and flavor development to deepen learners’ coffee knowledge.</p>
+          </div>
+
+          <div class="teacher-card">
+            <div class="teacher-img"></div>
+            <h3>Latifah</h3>
+            <p class="teacher-exp">5 Years of Experience</p>
+            <p class="teacher-note">Leads coffee sessions with a practical teaching style and strong learner focus.</p>
+          </div>
+
+          <div class="teacher-card">
+            <div class="teacher-img"></div>
+            <h3>Sadeem</h3>
+            <p class="teacher-exp">4 Years of Experience</p>
+            <p class="teacher-note">Brings creative energy into workshops and encourages learners to explore new ideas.</p>
+          </div>
+
+          <div class="teacher-card">
+            <div class="teacher-img"></div>
+            <h3>Fahad</h3>
+            <p class="teacher-exp">7 Years of Experience</p>
+            <p class="teacher-note">Helps learners understand roasting stages and how they affect coffee flavor.</p>
+          </div>
+
+          <div class="teacher-card">
+            <div class="teacher-img"></div>
+            <h3>Naser</h3>
+            <p class="teacher-exp">4 Years of Experience</p>
+            <p class="teacher-note">Specializes in grinders, grind size, and improving extraction through technique.</p>
+          </div>
+
+          <div class="teacher-card">
+            <div class="teacher-img"></div>
+            <h3>Sara</h3>
+            <p class="teacher-exp">6 Years of Experience</p>
+            <p class="teacher-note">Leads creative coffee sessions and helps learners enjoy different brew styles.</p>
+          </div>
+
         </div>
       </div>
     </section>
