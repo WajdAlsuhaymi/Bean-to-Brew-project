@@ -13,11 +13,15 @@
   }
 
   body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f3ef;
-    color: #3e2c23;
-    padding-top: 90px;
-  }
+  font-family: Arial, sans-serif;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(193, 179, 147, 0.35), transparent 28%),
+    radial-gradient(circle at 85% 18%, rgba(75, 79, 62, 0.25), transparent 24%),
+    radial-gradient(circle at 50% 75%, rgba(122, 77, 44, 0.18), transparent 30%),
+    linear-gradient(135deg, #f7f4ef 0%, #ede8dc 35%, #d8cdbd 65%, #c1b393 100%);
+  color: #3e2c23;
+  padding-top: 90px;
+}
 
   /* ===== Shared Navbar ===== */
   .navbar {
@@ -89,16 +93,24 @@
 
   /* ===== Page ===== */
   .experience-page,
-  .coffee-lab-page {
-    padding: 35px 32px 80px;
-    background-color: #f7f5f2;
-  }
+.coffee-lab-page {
+  padding: 35px 32px 80px;
+
+  background:
+  radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
+  radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
+  radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
+  radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
+  linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
+
+  min-height: 100vh;
+}
 
   .page-title h1 {
     font-size: 48px;
     font-weight: 500;
     margin-bottom: 30px;
-    color: #2f241d;
+    color: #EDE8DC;
     font-family: 'Playfair Display', serif;
   }
 
@@ -117,13 +129,13 @@
   .filter-sidebar h2 {
     font-size: 34px;
     margin-bottom: 18px;
-    color: #2f241d;
+    color: #EDE8DC;
     font-family: 'Playfair Display', serif;
   }
 
   .filter-box {
-    background-color: white;
-    border: 1px solid #ddd;
+    background-color:#4B4F3E;
+    border: 1px solid #4B4F3E;
     padding: 18px;
     border-radius: 8px;
   }
@@ -137,15 +149,15 @@
     font-size: 15px;
     margin-bottom: 8px;
     font-weight: 600;
-    color: #3b2a22;
+    color: #EDE8DC;
   }
 
   .filter-group select {
     width: 100%;
     height: 42px;
-    border: 1px solid #cfcfcf;
+    border: 1px solid #C1B393;
     padding: 0 10px;
-    background-color: #fafafa;
+    background-color: #C1B393;
     font-size: 14px;
     color: #2f241d;
     border-radius: 4px;
@@ -190,11 +202,11 @@
     width: 560px;
     max-width: 100%;
     height: 58px;
-    border: 2px solid #2f241d;
+    border: 2px solid #EDE8DC;
     border-radius: 8px;
     padding: 0 18px;
     font-size: 18px;
-    background-color: white;
+    background-color:#EDE8DC;
     color: #2f241d;
     outline: none;
   }
@@ -228,25 +240,32 @@
   }
 
   .lab-card-front,
-  .lab-card-back {
-    position: absolute;
-    inset: 0;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    background-color: white;
-    border: 1px solid #e5e5e5;
-    border-radius: 10px;
-    padding: 18px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
+.lab-card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border: 1px solid #4B4F3E;
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.lab-card-front{
+  background: linear-gradient(
+    135deg,
+    #4B4F3E 0%,
+    #4B4F3E 60%,
+    #C1B393 100%
+  );
+}
 
   .lab-card-back {
-    transform: rotateY(180deg);
-    background-color: #fffdf9;
-  }
+  transform: rotateY(180deg);
+  background-color: #C1B393;
+}
 
   .lab-card-front:hover,
   .lab-card-back:hover {
@@ -323,14 +342,14 @@
   .lab-card-back h3 {
     font-size: 22px;
     margin-bottom: 10px;
-    color: #2f241d;
+    color: #EDE8DC;
     font-family: 'Playfair Display', serif;
   }
 
   .lab-card-front p {
     font-size: 14px;
     line-height: 1.7;
-    color: #4a4a4a;
+    color: #EDE8DC;
     margin-bottom: 18px;
     flex-grow: 1;
   }
@@ -353,12 +372,12 @@
 
   .details-btn {
     background-color: #26231F;
-    color: white;
+    color:#EDE8DC;
     margin-top: auto;
   }
 
   .details-btn:hover {
-    background-color: #4a3a2f;
+    background-color: #9f744f;
   }
 
   .card-top {
@@ -378,7 +397,7 @@
 
   .back-tag {
     font-size: 13px;
-    color: #7a5d49;
+    color: #2f241d;
     font-weight: 600;
   }
 
@@ -396,8 +415,8 @@
   }
 
   .book-btn {
-    background-color: #b88b63;
-    color: white;
+    background-color: #2f241d;
+    color:#EDE8DC;
     margin-top: auto;
   }
 
@@ -412,7 +431,7 @@
     align-items: center;
     gap: 60px;
     margin-top: 85px;
-    background-color: #efe7dc;
+    background-color: #4B4F3E;
     padding: 35px;
     border-radius: 12px;
   }
@@ -424,14 +443,14 @@
   .discover-text h3 {
     font-size: 30px;
     margin-bottom: 14px;
-    color: #2f241d;
+    color: #EDE8DC;
     font-family: 'Playfair Display', serif;
   }
 
   .discover-text p {
     font-size: 15px;
     line-height: 1.9;
-    color: #444;
+    color: #C1B393;
   }
 
   .discover-right {
@@ -441,8 +460,8 @@
   .small-card {
     width: 100%;
     min-height: 300px;
-    background-color: white;
-    border: 1px solid #e5e5e5;
+    background-color:#C1B393;
+    border: 1px solid #C1B393;
     padding: 18px;
     display: flex;
     flex-direction: column;
@@ -485,7 +504,7 @@
     width: 100%;
     height: 42px;
     background-color: #26231F;
-    color: white;
+    color:#EDE8DC;
     font-size: 14px;
     font-weight: 600;
     text-align: center;
