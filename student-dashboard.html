@@ -10,7 +10,12 @@
   <style>
     .dashboard-page{
       min-height:100vh;
-      background-color:#3A2F2B;
+            background:
+  radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
+  radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
+  radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
+  radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
+  linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
     }
 	
 	.dashboard-section h1{
@@ -102,40 +107,8 @@
       background-color:#d8d1c7;
     }
 
-    .back-link{
-      display:inline-block;
-      margin-top:55px;
-      text-decoration:none;
-      font-size:28px;
-      color:#EDE8DC;
-      transition:transform 0.3s ease;
-    }
+   
 
-  .back-btn{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:140px;
-  height:55px;
-
-  background:#E6D8B5;
-  color:#3A2F2B;
-
-  text-decoration:none;
-  border-radius:12px;
-  font-size:20px;
-  font-weight:500;
-
-  margin-top:60px;   /* المسافة من فوق */
-  margin-left:20px;  /* يخليه يسار */
-
-  transition:all 0.3s ease;
-}
-
-.back-btn:hover{
-  background:#d9c9a5;
-  transform:translateY(-3px);
-}
     @media (max-width:768px){
       .dashboard-section{
         padding:50px 18px 70px;
@@ -158,6 +131,40 @@
       .card-text{
         font-size:18px;
       }
+    }
+	  /* =============================== */
+    /* Lesson Navigation Buttons */
+    /* =============================== */
+    .lesson-buttons {
+      width: min(1150px, 92%);
+      margin: 30px auto 80px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .lesson-buttons a {
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 600;
+	  color:   #C1B393;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-back,
+    .btn-next {
+      background: #C1B393;
+      color: #2f241d;
+      border: 1px solid #b9997d;
+    }
+
+    .btn-back:hover,
+    .btn-next:hover {
+      background: #7a4d2c;
+      color: #EDE8DC;
+      transform: translateY(-3px);
     }
   </style>
 </head>
@@ -221,18 +228,19 @@
               Rate teachers and share your feedback
             </p>
 
-            <a href="Evaluation-Form.html" class="card-btn">➡ Evaluate Teachers</a>
+            <a href="teacher-evaluation.html" class="card-btn">➡ Evaluate Teachers</a>
           </div>
               </div>
 
-        <div class="dashboard-bottom">
-<a href="index.html" class="back-btn">Back</a>
-        </div>
 
       </section>
     </main>
-
-    <footer class="site-footer">
+<!-- Lesson Navigation Buttons -->
+    <div class="lesson-buttons">
+      <a href="index.html" >← Back</a>
+    </div>
+   
+<footer class="site-footer">
       <div class="footer-top">
         <div class="footer-logo">
           <img src="logo.png" alt="Bean to Brew Logo">
@@ -247,11 +255,11 @@
         <div class="footer-social">
           <h3>Follow us</h3>
           <div class="social-icons">
-            <a href="javascript:void(0);">
+            <a href="https://instagram.com">
               <img src="instagramicon.png" alt="Instagram">
             </a>
             <span class="social-divider"></span>
-            <a href="javascript:void(0);">
+            <a href="https://instagram.com">
               <img src="Xicon.png" alt="X">
             </a>
           </div>
