@@ -15,15 +15,15 @@
       box-sizing:border-box;
     }
 
-    body{
-      font-family:'Playfair Display', serif;
-      background:
-        radial-gradient(circle at top left, rgba(122,77,44,0.10), transparent 20%),
-        radial-gradient(circle at bottom right, rgba(253,233,199,0.06), transparent 18%),
-        #211916;
-      color:#EDE8DC;
-      overflow-x:hidden;
-    }
+   body{
+           background:
+  radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
+  radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
+  radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
+  radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
+  linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
+  min-height:100vh;
+}
 
     .quiz-page{
       width:min(1000px, 92%);
@@ -184,6 +184,33 @@
         width:100%;
       }
     }
+		      .path-wrap{
+        width:min(92%, 1320px);
+        margin:auto;
+        padding:34px 0 80px;
+		
+      }
+
+      .path-breadcrumb{
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px;
+        align-items:center;
+        color:#fff7ef;
+        font-size:14px;
+        margin-bottom:20px;
+        animation:fadeUp 0.8s ease;
+      }
+
+      .path-breadcrumb a{
+        color:#fff7ef;
+        text-decoration:none;
+        transition:0.3s ease;
+      }
+
+      .path-breadcrumb a:hover{
+        color:#FDE9C7;
+      }
   </style>
 </head>
 <body>
@@ -211,6 +238,21 @@
   </header>
 
   <main class="quiz-page">
+  
+  <div class="path-wrap">
+  <div class="path-breadcrumb">
+    <a href="index.html">Home</a>
+    <span>›</span>
+    <a href="BrewSchool.html">Brew School</a>
+    <span>›</span>
+    <a href="lesson3.1.html">Lesson 3.1</a>
+    <span>›</span>
+    <a href="lesson3.2.html">Lesson 3.2</a>
+    <span>›</span>
+    <span>Quiz 3</span>
+  </div>
+</div>
+
     <div class="quiz-header">
       <span class="quiz-badge">Lesson 3 Quiz</span>
       <h1>Coffee Roasting & Roast Levels</h1>
