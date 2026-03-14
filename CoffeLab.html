@@ -4,106 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bean to Brew - Coffee Lab</title>
-
+ <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-  font-family: Arial, sans-serif;
-  background:
-    radial-gradient(circle at 15% 20%, rgba(193, 179, 147, 0.35), transparent 28%),
-    radial-gradient(circle at 85% 18%, rgba(75, 79, 62, 0.25), transparent 24%),
-    radial-gradient(circle at 50% 75%, rgba(122, 77, 44, 0.18), transparent 30%),
-    linear-gradient(135deg, #f7f4ef 0%, #ede8dc 35%, #d8cdbd 65%, #c1b393 100%);
-  color: #3e2c23;
-  padding-top: 90px;
-}
-
-  /* ===== Shared Navbar ===== */
-  .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #26231F;
-    padding: 12px 40px;
-    flex-wrap: wrap;
-    gap: 15px;
-    z-index: 1000;
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-  }
-
-  .logo img {
-    width: 70px;
-    height: auto;
-    display: block;
-  }
-
-  .nav-links {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    flex-wrap: wrap;
-  }
-
-  .nav-links a {
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
-    transition: 0.3s;
-  }
-
-  .nav-links a:hover {
-    color: #f3d9b1;
-  }
-
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .mode-btn {
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 22px;
-    cursor: pointer;
-  }
-
-  .search-box {
-    padding: 8px 14px;
-    border: none;
-    outline: none;
-    border-radius: 20px;
-    font-size: 14px;
-  }
+ 
 
   /* ===== Page ===== */
   .experience-page,
 .coffee-lab-page {
   padding: 35px 32px 80px;
-
+min-height: 100vh;
   background:
   radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
   radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
   radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
   radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
   linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
-
-  min-height: 100vh;
 }
 
   .page-title h1 {
@@ -512,96 +428,6 @@
     border-radius: 6px;
   }
 
-  /* ===== Footer ===== */
-  .site-footer{
-  background-image:
-  linear-gradient(rgba(35,24,18,0.80), rgba(35,24,18,0.80)),
-  url("Headerpic.png");
-
-  background-size: cover;
-  background-position: top center;
-  background-repeat: no-repeat;
-
-  padding: 25px 20px 40px;         
-  text-align: center;
-  color: white;
-}
-
-.footer-top{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:12px;
-  margin-bottom:5px;
-}
-
-.footer-logo img{
-width:300px;
-padding:10px;
-filter: drop-shadow(0 5px 8px rgba(0,0,0,0.2));
-}
-
-.footer-contact h3,
-.footer-social h3{
-  font-family:'Playfair Display', serif;
-  font-size:20px;
-  margin-bottom:8px;
-}
-
-.footer-contact p{
-  margin:6px 0;
-  font-size:16px;
-  font-weight:600;
-}
-
-.footer-social{
-  text-align:center;
-}
-
-.social-icons{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:15px;
-  margin-top:5px;
-}
-
-.social-icons a{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.social-icons img{
-  width:30px;
-  height:30px;
-  object-fit:contain;
-  transition: transform 0.25s ease;
-}
-
-.social-icons img:hover{
-  transform: scale(1.15);
-}
-
-.social-divider{
-  width:1px;
-  height:22px;
-  background:rgba(0,0,0,0.6);
-}
-
-.footer-note{
-  font-size:16px;
-  margin-top:15px;
-}
-
-.copyright{
-  font-size:15px;
-  margin-top:10px;
-}
-.social-icons img{
-filter: brightness(1.4);
-}
-
   /* ===== Responsive ===== */
   @media (max-width: 1150px) {
     .cards-grid {
@@ -672,6 +498,40 @@ filter: brightness(1.4);
       width: 160px;
     }
   }
+   /* =============================== */
+    /* Lesson Navigation Buttons */
+    /* =============================== */
+    .lesson-buttons {
+  width: min(1150px, 92%);
+  margin: 30px auto 80px;
+  display: flex;
+  justify-content: space-between;
+}
+
+    .lesson-buttons a {
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 600;
+	  color:   #C1B393;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-back,
+    .btn-next {
+      background: #C1B393;
+      color: #2f241d;
+      border: 1px solid #b9997d;
+    }
+
+    .btn-back:hover,
+    .btn-next:hover {
+      background: #7a4d2c;
+      color: #EDE8DC;
+      transform: translateY(-3px);
+    }
 </style>
 </head>
 <body>
@@ -684,9 +544,9 @@ filter: brightness(1.4);
     </div>
 
     <ul class="nav-links">
-      <li><a href="index.html"class="active">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="BrewSchool.html">Brew School</a></li>
-      <li><a href="CoffeLab.html">Coffee Lab</a></li>
+      <li><a href="CoffeLab.html"class="active">Coffee Lab</a></li>
       <li><a href="student-dashboard.html">Student Dashboard</a></li>
       <li><a href="About-us.html">About Us</a></li>
       <li><a href="Contact.html">Contact Us</a></li>
@@ -717,8 +577,8 @@ filter: brightness(1.4);
             <select id="trainerFilter">
               <option>All Trainers</option>
               <option>Latifah</option>
-              <option>Abdurahman</option>
-              <option>Hamad</option>
+              <option>Reem</option>
+              <option>Nora</option>
             </select>
           </div>
 
@@ -1047,53 +907,41 @@ filter: brightness(1.4);
   </a>
 </div>
     </section>
-
+<!-- Lesson Navigation Buttons -->
+    <div class="lesson-buttons">
+      <a href="index.html" >← Back</a>
+    </div>
   </main>
 
 <footer class="site-footer">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <img src="logo.png" alt="Bean to Brew Logo">
+        </div>
 
-  <div class="footer-top">
+        <div class="footer-contact">
+          <h3>Contact us</h3>
+          <p>+966504256847</p>
+          <p>BeantoBrew@gmail.com</p>
+        </div>
 
-    <div class="footer-logo">
-      <img src="logo.png" alt="Bean to Brew Logo">
-    </div>
-
-    <div class="footer-contact">
-      <h3>Contact us</h3>
-      <p>+966504256847</p>
-      <p>BeantoBrew@gmail.com</p>
-    </div>
-
-    <div class="footer-social">
-      <h3>Follow us</h3>
-
-      <div class="social-icons">
-
-        <a href="javascript:void(0);">
-          <img src="instagramicon.png" alt="Instagram">
-        </a>
-
-        <span class="social-divider"></span>
-
-        <a href="javascript:void(0);">
-          <img src="Xicon.png" alt="X">
-        </a>
-
+        <div class="footer-social">
+          <h3>Follow us</h3>
+          <div class="social-icons">
+            <a href="https://instagram.com">
+              <img src="instagramicon.png" alt="Instagram">
+            </a>
+            <span class="social-divider"></span>
+            <a href="https://instagram.com">
+              <img src="Xicon.png" alt="X">
+            </a>
+          </div>
+        </div>
       </div>
 
-    </div>
-
-  </div>
-
-  <p class="footer-note">
-    Learn, explore, and enjoy the world of coffee.
-  </p>
-
-  <p class="copyright">
-    © 2026 Bean to Brew. All rights reserved.
-  </p>
-
-</footer>
+      <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
+      <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
+    </footer>
 
 </body>
 
