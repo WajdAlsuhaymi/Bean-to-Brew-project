@@ -96,50 +96,35 @@ body{
 
 
   
-<footer class="site-footer">
+ <footer class="site-footer">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <img src="logo.png" alt="Bean to Brew Logo">
+        </div>
 
-  <div class="footer-top">
+        <div class="footer-contact">
+          <h3>Contact us</h3>
+          <p>+966504256847</p>
+          <p>BeantoBrew@gmail.com</p>
+        </div>
 
-    <div class="footer-logo">
-      <img src="logo.png" alt="Bean to Brew Logo">
-    </div>
-
-    <div class="footer-contact">
-      <h3>Contact us</h3>
-      <p>+966504256847</p>
-      <p>BeantoBrew@gmail.com</p>
-    </div>
-
-    <div class="footer-social">
-      <h3>Follow us</h3>
-
-      <div class="social-icons">
-
-        <a href="javascript:void(0);">
-          <img src="instagramicon.png" alt="Instagram">
-        </a>
-
-        <span class="social-divider"></span>
-
-        <a href="javascript:void(0);">
-          <img src="Xicon.png" alt="X">
-        </a>
-
+        <div class="footer-social">
+          <h3>Follow us</h3>
+          <div class="social-icons">
+            <a href="https://instagram.com">
+              <img src="instagramicon.png" alt="Instagram">
+            </a>
+            <span class="social-divider"></span>
+            <a href="https://instagram.com">
+              <img src="Xicon.png" alt="X">
+            </a>
+          </div>
+        </div>
       </div>
 
-    </div>
-
-  </div>
-
-  <p class="footer-note">
-    Learn, explore, and enjoy the world of coffee.
-  </p>
-
-  <p class="copyright">
-    © 2026 Bean to Brew. All rights reserved.
-  </p>
-
-</footer>
+      <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
+      <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
+    </footer>
 
 
   
