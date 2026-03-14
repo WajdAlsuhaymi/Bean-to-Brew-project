@@ -532,6 +532,35 @@ min-height: 100vh;
       color: #EDE8DC;
       transform: translateY(-3px);
     }
+	
+	 .path-wrap{
+        width:min(92%, 1320px);
+        margin:auto;
+        padding:34px 0 80px;
+		
+      }
+
+      .path-breadcrumb{
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px;
+        align-items:center;
+        color:#fff7ef;
+        font-size:14px;
+        margin-bottom:20px;
+        animation:fadeUp 0.8s ease;
+      }
+
+      .path-breadcrumb a{
+        color:#fff7ef;
+        text-decoration:none;
+        transition:0.3s ease;
+      }
+
+      .path-breadcrumb a:hover{
+        color:#FDE9C7;
+      }
+	  
 </style>
 </head>
 <body>
@@ -560,7 +589,23 @@ min-height: 100vh;
   </nav>
 </header>
 
+<div class="path-wrap">
+  <div class="path-breadcrumb">
+    <a href="index.html">Home</a>
+    <span>›</span>
+    <span>Coffee Lab</span>
+  </div>
+</div>
+
   <main class="coffee-lab-page">
+  
+  <div class="path-wrap">
+  <div class="path-breadcrumb">
+    <a href="index.html">Home</a>
+    <span>›</span>
+    <span>Coffee Lab</span>
+  </div>
+</div>
 
     <section class="page-title">
       <h1>Coffee Lab</h1>
