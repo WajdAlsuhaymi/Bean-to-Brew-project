@@ -14,16 +14,53 @@
 <style>
 
 body{
-background:linear-gradient(180deg,#1E1916,#2D241F,#221B18);
+
+	background:
+  radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
+  radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
+  radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
+  radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
+  linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
 color:#EDE8DC;
 }
+
+
+	      .path-wrap{
+        width:min(92%, 1320px);
+        margin:auto;
+        padding:34px 0 80px;
+		
+      }
+
+      .path-breadcrumb{
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px;
+        align-items:center;
+        color:#fff7ef;
+        font-size:14px;
+        margin-bottom:20px;
+        animation:fadeUp 0.8s ease;
+      }
+
+      .path-breadcrumb a{
+        color:#fff7ef;
+        text-decoration:none;
+        transition:0.3s ease;
+      }
+
+      .path-breadcrumb a:hover{
+        color:#FDE9C7;
+      }
+
 
 /* SECTION WRAPPER */
 
 .section{
-max-width:1100px;
-margin:auto;
-padding:80px 20px;
+width:100%;
+max-width:none;
+margin:0;
+padding:80px 0px;
 }
 
 /* TABLE SECTION */
@@ -182,80 +219,86 @@ color:#4a3b2e;
 .right1{right:40px; top:20px;}
 .right2{right:40px; bottom:30px;}
 .bottom{bottom:-40px;}
+    /* =============================== */
+    /* Lesson Navigation Buttons */
+    /* =============================== */
+    .lesson-buttons {
+      width: min(1150px, 92%);
+      margin: 30px auto 80px;
+      display: flex;
+      justify-content: space-between;
+    }
 
-/* NAVIGATION */
+    .lesson-buttons a {
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 600;
+	  color:   #C1B393;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
 
-.lesson-nav{
+    .btn-back,
+    .btn-next {
+      background: #C1B393;
+      color: #2f241d;
+      border: 1px solid #b9997d;
+    }
 
-display:flex;
-justify-content:space-between;
-margin-top:50px;
-
-}
-
-.lesson-nav button{
-
-padding:12px 30px;
-border:none;
-border-radius:30px;
-font-weight:bold;
-cursor:pointer;
-
-}
-
-.back{
-
-background:#ccc;
-
-}
-
-.quiz{
-
-background:#3A2F2B;
-color:white;
-
-}
-
-.lesson-nav button:hover{
-
-transform:scale(1.05);
-
-}
+    .btn-back:hover,
+    .btn-next:hover {
+      background: #7a4d2c;
+      color: #EDE8DC;
+      transform: translateY(-3px);
+    }
 
 </style>
 
 </head>
 
 <body>
-
 <header>
+  <nav class="navbar">
 
-<nav class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="Bean to Brew Logo">
+    </div>
 
-<div class="logo">
-<img src="logo.png">
-</div>
+    <ul class="nav-links">
+      <li><a href="index.html"class="active">Home</a></li>
+      <li><a href="BrewSchool.html">Brew School</a></li>
+      <li><a href="CoffeLab.html">Coffee Lab</a></li>
+      <li><a href="student-dashboard.html">Student Dashboard</a></li>
+      <li><a href="About-us.html">About Us</a></li>
+      <li><a href="Contact.html">Contact Us</a></li>
+    </ul>
 
-<ul class="nav-links">
-<li><a href="#">Home</a></li>
-<li><a href="#">Brew School</a></li>
-<li><a href="#">Coffee Lab</a></li>
-<li><a href="#">Experience Creators</a></li>
-<li><a href="#">Student Dashboard</a></li>
-<li><a href="#">About Us</a></li>
-</ul>
+    <div class="nav-right">
+      <button class="mode-btn">☀️</button>
+      <input type="text" placeholder="Search" class="search-box">
+    </div>
 
-<div class="nav-right">
-<button class="mode-btn">☀️</button>
-<input type="text" placeholder="Search" class="search-box">
-</div>
-
-</nav>
-
+  </nav>
 </header>
+
+
+
 
 <main>
 
+    <div class="path-wrap">
+
+      <div class="path-breadcrumb">
+        <a href="#">Home</a>
+        <span>›</span>
+        <a href="#">Brew School</a>
+        <span>›</span>
+        <span>Lesson 4.1</span>
+        <span>›</span>
+        <span>Lesson 4.2</span>
+      </div>
 <section class="section">
 
 <div class="grind-table">
@@ -350,51 +393,45 @@ Finer grind = stronger extraction
 
 </section>
 
-<div class="lesson-nav">
-
-<button class="lesson4.1.html">Back</button>
-
-<button class="quiz">Start Quiz</button>
-
-</div>
-
 </section>
 
+ <div class="lesson-buttons">
+    <a href="lesson4.1.html" >← Back</a>
+    <a href="quiz4.html" >Start Quiz →</a>
+  </div>
+
+
 </main>
+ 
+ <footer class="site-footer">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <img src="logo.png" alt="Bean to Brew Logo">
+        </div>
 
-<footer class="site-footer">
+        <div class="footer-contact">
+          <h3>Contact us</h3>
+          <p>+966504256847</p>
+          <p>BeantoBrew@gmail.com</p>
+        </div>
 
-<div class="footer-top">
+        <div class="footer-social">
+          <h3>Follow us</h3>
+          <div class="social-icons">
+            <a href="https://instagram.com">
+              <img src="instagramicon.png" alt="Instagram">
+            </a>
+            <span class="social-divider"></span>
+            <a href="https://instagram.com">
+              <img src="Xicon.png" alt="X">
+            </a>
+          </div>
+        </div>
+      </div>
 
-<div class="footer-logo">
-<img src="logo.png">
-</div>
-
-<div class="footer-contact">
-<h3>Contact us</h3>
-<p>+966504256847</p>
-<p>BeantoBrew@gmail.com</p>
-</div>
-
-<div class="footer-social">
-
-<h3>Follow us</h3>
-
-<div class="social-icons">
-
-<a href="#"><img src="instagramicon.png"></a>
-
-<span class="social-divider"></span>
-
-<a href="#"><img src="Xicon.png"></a>
-
-</div>
-
-</div>
-
-</div>
-
-</footer>
+      <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
+      <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
