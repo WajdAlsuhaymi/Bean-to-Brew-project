@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bean to Brew - Evaluation Form</title>
 
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     * {
@@ -17,17 +17,49 @@
 
     body {
       font-family: Arial, sans-serif;
-      background-color: #f5f3ef;
       color: #3e2c23;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
+        radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
+        radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
+        radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
+        linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
+      min-height: 100vh;
+    }
+
+    .path-wrap {
+      width: min(92%, 1320px);
+      margin: auto;
+      padding: 34px 0 10px;
+    }
+
+    .path-breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      color: #fff7ef;
+      font-size: 14px;
+      margin-bottom: 20px;
+      animation: fadeUp 0.8s ease;
+    }
+
+    .path-breadcrumb a {
+      color: #fff7ef;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .path-breadcrumb a:hover {
+      color: #FDE9C7;
     }
 
     .form-page {
       min-height: 100vh;
-      padding: 50px 20px 80px;
+      padding: 20px 20px 30px;
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      background-color: #f7f5f2;
     }
 
     .evaluation-wrapper {
@@ -91,6 +123,7 @@
       outline: none;
       background-color: #fafafa;
       color: #2f241d;
+      font-family: Arial, sans-serif;
     }
 
     .form-group textarea {
@@ -147,29 +180,39 @@
       color: #7a5d49;
     }
 
-    .dashboard-bottom {
-      margin-top: 34px;
+    /* نفس الباك حق صديقتك */
+    .lesson-buttons {
+      width: min(1150px, 92%);
+      margin: 30px auto 80px;
+      display: flex;
+      justify-content: flex-start;
     }
 
-    .back-btn {
-      display: inline-block;
-      min-width: 155px;
-      padding: 14px 28px;
-      border-radius: 14px;
-      font-size: 15px;
-      font-weight: bold;
-      text-align: center;
+    .lesson-buttons a {
       text-decoration: none;
-      background: #E6D8B5;
-      color: #2f241a;
-      box-shadow: 0 8px 18px rgba(62,39,22,0.06);
-      transition: 0.28s ease;
-      margin-left: 20px;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #C1B393;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
     }
 
-    .back-btn:hover {
-      background: #d9c9a5;
-      transform: translateY(-2px);
+    .lesson-buttons a:hover {
+      color: #EDE8DC;
+      transform: translateY(-3px);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @media (max-width: 768px) {
@@ -186,12 +229,16 @@
         height: 160px;
       }
 
-      .dashboard-bottom {
-        text-align: center;
+      .lesson-buttons {
+        margin: 25px auto 60px;
       }
 
-      .back-btn {
-        margin-left: 0;
+      .lesson-buttons a {
+        font-size: 1.2rem;
+      }
+
+      .path-wrap {
+        padding: 24px 0 6px;
       }
     }
   </style>
@@ -200,15 +247,16 @@
 
   <header>
     <nav class="navbar">
+
       <div class="logo">
         <img src="logo.png" alt="Bean to Brew Logo">
       </div>
 
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
         <li><a href="BrewSchool.html">Brew School</a></li>
         <li><a href="CoffeLab.html">Coffee Lab</a></li>
-        <li><a href="student-dashboard.html" class="active">Student Dashboard</a></li>
+        <li><a href="student-dashboard.html">Student Dashboard</a></li>
         <li><a href="About-us.html">About Us</a></li>
         <li><a href="Contact.html">Contact Us</a></li>
       </ul>
@@ -217,8 +265,19 @@
         <button class="mode-btn">☀️</button>
         <input type="text" placeholder="Search" class="search-box">
       </div>
+
     </nav>
   </header>
+
+  <div class="path-wrap">
+    <div class="path-breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="student-dashboard.html">Student Dashboard</a>
+      <span>›</span>
+      <span>Teacher Evaluation</span>
+    </div>
+  </div>
 
   <main class="form-page">
     <div class="evaluation-wrapper">
@@ -243,7 +302,6 @@
               <option>Fahad</option>
               <option>Sara</option>
               <option>Naser</option>
-              <option>Salman</option>
               <option>Wajd</option>
             </select>
           </div>
@@ -251,19 +309,19 @@
           <div class="form-group">
             <label>Rating</label>
             <div class="stars">
-              <input type="radio" id="star5" name="rating" value="5">
+              <input type="radio" id="star5" name="rating" value="5" />
               <label for="star5">★</label>
 
-              <input type="radio" id="star4" name="rating" value="4">
+              <input type="radio" id="star4" name="rating" value="4" />
               <label for="star4">★</label>
 
-              <input type="radio" id="star3" name="rating" value="3">
+              <input type="radio" id="star3" name="rating" value="3" />
               <label for="star3">★</label>
 
-              <input type="radio" id="star2" name="rating" value="2">
+              <input type="radio" id="star2" name="rating" value="2" />
               <label for="star2">★</label>
 
-              <input type="radio" id="star1" name="rating" value="1">
+              <input type="radio" id="star1" name="rating" value="1" />
               <label for="star1">★</label>
             </div>
           </div>
@@ -278,12 +336,12 @@
         </form>
       </div>
 
-      <div class="dashboard-bottom">
-        <a href="student-dashboard.html" class="back-btn">Back</a>
-      </div>
-
     </div>
   </main>
+
+  <div class="lesson-buttons">
+    <a href="student-dashboard.html">← Back</a>
+  </div>
 
   <footer class="site-footer">
     <div class="footer-top">
@@ -300,26 +358,19 @@
       <div class="footer-social">
         <h3>Follow us</h3>
         <div class="social-icons">
-          <a href="javascript:void(0);">
+          <a href="https://instagram.com">
             <img src="instagramicon.png" alt="Instagram">
           </a>
-
           <span class="social-divider"></span>
-
-          <a href="javascript:void(0);">
+          <a href="https://instagram.com">
             <img src="Xicon.png" alt="X">
           </a>
         </div>
       </div>
     </div>
 
-    <p class="footer-note">
-      Learn, explore, and enjoy the world of coffee.
-    </p>
-
-    <p class="copyright">
-      © 2026 Bean to Brew. All rights reserved.
-    </p>
+    <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
+    <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
   </footer>
 
 </body>
