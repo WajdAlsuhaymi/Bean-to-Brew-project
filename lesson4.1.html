@@ -21,10 +21,12 @@
     }
 
     body{
-      background:
-        radial-gradient(circle at top left, rgba(253,233,199,0.10), transparent 18%),
-        radial-gradient(circle at top right, rgba(75,79,62,0.13), transparent 20%),
-        linear-gradient(180deg, #1F1916 0%, #2D241F 40%, #221B18 100%);
+	background:
+  radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
+  radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
+  radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
+  radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
+  linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
       color:#EDE8DC;
       overflow-x:hidden;
     }
@@ -36,6 +38,35 @@
     .lesson-page{
       width:100%;
     }
+
+	      .path-wrap{
+        width:min(92%, 1320px);
+        margin:auto;
+        padding:34px 0 80px;
+		
+      }
+
+      .path-breadcrumb{
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px;
+        align-items:center;
+        color:#fff7ef;
+        font-size:14px;
+        margin-bottom:20px;
+        animation:fadeUp 0.8s ease;
+      }
+
+      .path-breadcrumb a{
+        color:#fff7ef;
+        text-decoration:none;
+        transition:0.3s ease;
+      }
+
+      .path-breadcrumb a:hover{
+        color:#FDE9C7;
+      }
+
 
     /* ================= HERO ================= */
     .hero-lesson{
@@ -180,31 +211,23 @@
       gap:26px;
     }
 
-    .grind-card{
-      text-align:center;
-      padding:22px 20px 24px;
-      border-radius:28px;
-      background:
-        linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-      border:1px solid rgba(255,255,255,0.06);
-      transition:0.35s ease;
-      box-shadow:0 12px 26px rgba(0,0,0,0.12);
-    }
+.grind-card{
+  text-align:center;
+  padding:22px 20px 24px;
+  border-radius:28px;
 
+  /* لون زيتي متوسط */
+  background:linear-gradient(145deg,#8E9775,#7A8A63);
+
+  border:1px solid rgba(0,0,0,0.08);
+  transition:0.35s ease;
+
+  box-shadow:0 12px 26px rgba(0,0,0,0.14);
+}
     .grind-card:hover{
       transform:translateY(-10px);
       border-color:rgba(253,233,199,0.18);
       box-shadow:0 18px 30px rgba(0,0,0,0.16);
-    }
-
-    .grind-image-box{
-      width:120px;
-      height:120px;
-      margin:0 auto 18px;
-      border-radius:24px;
-      overflow:hidden;
-      background:#EDE8DC;
-      box-shadow:0 10px 20px rgba(0,0,0,0.12);
     }
 
     .grind-image-box img{
@@ -234,96 +257,115 @@
       margin:14px auto 0;
       background:linear-gradient(90deg, #C1B393, #FDE9C7);
     }
+/* ================= COMPARISON ================= */
+.comparison-section{
+  margin-top:44px;
+  border-radius:34px;
+  padding:52px 34px;
 
-    /* ================= COMPARISON ================= */
-    .comparison-section{
-      margin-top:44px;
-      border-radius:34px;
-      padding:52px 34px;
-      background:
-        linear-gradient(145deg, rgba(75,79,62,0.72), rgba(58,47,43,0.78));
-      border:1px solid rgba(255,255,255,0.06);
-      box-shadow:0 20px 42px rgba(0,0,0,0.16);
-    }
+  /* خلفية بيج كريمي مع لمسة زيتي */
+  background:linear-gradient(145deg,#F5F0E6,#D8D3B6);
 
-    .comparison-section h2{
-      text-align:center;
-      font-family:'Playfair Display', serif;
-      font-size:50px;
-      color:#fff;
-      margin-bottom:34px;
-    }
+  border:1px solid rgba(90,70,50,0.08);
+  box-shadow:0 20px 42px rgba(0,0,0,0.10);
+}
 
-    .compare-grid{
-      max-width:920px;
-      margin:0 auto;
-      display:grid;
-      gap:24px;
-    }
+.comparison-section h2{
+  text-align:center;
+  font-family:'Playfair Display', serif;
+  font-size:50px;
 
-    .compare-row{
-      display:grid;
-      grid-template-columns:180px 1fr;
-      gap:20px;
-      align-items:center;
-    }
+  /* بني قهوة */
+  color:#3A2F2B;
 
-    .compare-label{
-      color:#F8EEE3;
-      font-size:16px;
-    }
+  margin-bottom:34px;
+}
 
-    .compare-bars{
-      display:grid;
-      gap:10px;
-    }
+.compare-grid{
+  max-width:920px;
+  margin:0 auto;
+  display:grid;
+  gap:24px;
+}
 
-    .bar{
-      height:10px;
-      border-radius:999px;
-      background:rgba(255,255,255,0.08);
-      overflow:hidden;
-      position:relative;
-    }
+.compare-row{
+  display:grid;
+  grid-template-columns:180px 1fr;
+  gap:20px;
+  align-items:center;
 
-    .fill{
-      height:100%;
-      border-radius:999px;
-    }
+  /* خلفية صف المقارنة */
+  background:rgba(255,255,255,0.45);
+  padding:14px 16px;
+  border-radius:18px;
+}
 
-    .fine{
-      background:linear-gradient(90deg, #8CCBFF, #6DA9E4);
-    }
+.compare-label{
+  color:#5C4B44; /* بني فاتح */
+  font-size:16px;
+  font-weight:600;
+}
 
-    .medium{
-      background:linear-gradient(90deg, #FDE9C7, #C1B393);
-    }
+.compare-bars{
+  display:grid;
+  gap:10px;
+}
 
-    .coarse{
-      background:linear-gradient(90deg, #88D97B, #64BD5A);
-    }
+.bar{
+  height:10px;
+  border-radius:999px;
+  overflow:hidden;
+  position:relative;
 
-    .legend{
-      display:flex;
-      justify-content:center;
-      gap:22px;
-      margin-top:28px;
-      flex-wrap:wrap;
-    }
+  /* خلفية البار */
+  background:#E7DFD2;
+}
 
-    .legend-item{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      color:#F4E9DE;
-      font-size:14px;
-    }
+.fill{
+  height:100%;
+  border-radius:999px;
+}
 
-    .legend-dot{
-      width:14px;
-      height:14px;
-      border-radius:50%;
-    }
+/* الألوان */
+
+.fine{
+  background:#7A4D2C; /* بني */
+}
+
+.medium{
+  background:linear-gradient(90deg,#C1B393,#FDE9C7); /* بيج */
+}
+
+.coarse{
+  background:linear-gradient(90deg,#7A8A63,#9DAA7A); /* زيتي */
+}
+
+.legend{
+  display:flex;
+  justify-content:center;
+  gap:22px;
+  margin-top:28px;
+  flex-wrap:wrap;
+}
+
+.legend-item{
+  display:flex;
+  align-items:center;
+  gap:8px;
+
+  color:#3A2F2B;
+  font-size:14px;
+
+  background:#F6F1E7;
+  padding:8px 14px;
+  border-radius:999px;
+}
+
+.legend-dot{
+  width:14px;
+  height:14px;
+  border-radius:50%;
+}
 
     /* ================= VIDEO ================= */
     .video-section{
@@ -381,57 +423,41 @@
       color:#3A2F2B;
     }
 
-    /* ================= NAV ================= */
-    .lesson-nav{
-      margin-top:44px;
-      display:flex;
-      justify-content:space-between;
-      gap:16px;
-      flex-wrap:wrap;
+    /* =============================== */
+    /* Lesson Navigation Buttons */
+    /* =============================== */
+    .lesson-buttons {
+      width: min(1150px, 92%);
+      margin: 30px auto 80px;
+      display: flex;
+      justify-content: space-between;
     }
 
-    .lesson-nav a{
-      min-width:170px;
-      text-align:center;
-      text-decoration:none;
-      padding:15px 26px;
-      border-radius:999px;
-      font-weight:700;
-      transition:0.35s ease;
+    .lesson-buttons a {
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 600;
+	  color:   #C1B393;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
     }
 
-    .back-btn{
-      background:rgba(255,255,255,0.05);
-      border:1px solid rgba(253,233,199,0.18);
-      color:#FDE9C7;
+    .btn-back,
+    .btn-next {
+      background: #C1B393;
+      color: #2f241d;
+      border: 1px solid #b9997d;
     }
 
-    .back-btn:hover{
-      transform:translateY(-4px);
-      background:rgba(255,255,255,0.08);
+    .btn-back:hover,
+    .btn-next:hover {
+      background: #7a4d2c;
+      color: #EDE8DC;
+      transform: translateY(-3px);
     }
 
-    .next-btn{
-      background:linear-gradient(135deg, #FDE9C7, #C1B393);
-      color:#2B1F19;
-      box-shadow:0 12px 26px rgba(0,0,0,0.16);
-    }
-
-    .next-btn:hover{
-      transform:translateY(-4px);
-      box-shadow:0 16px 32px rgba(0,0,0,0.20);
-    }
-
-    @keyframes fadeUp{
-      from{
-        opacity:0;
-        transform:translateY(30px);
-      }
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
 
     /* ================= RESPONSIVE ================= */
     @media (max-width: 900px){
@@ -481,28 +507,42 @@
   </style>
 </head>
 <body>
+<header>
+  <nav class="navbar">
 
-  <header>
-    <nav class="navbar">
-      <div class="logo">
-        <img src="logo.png" alt="Bean to Brew Logo">
+    <div class="logo">
+      <img src="logo.png" alt="Bean to Brew Logo">
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html"class="active">Home</a></li>
+      <li><a href="BrewSchool.html">Brew School</a></li>
+      <li><a href="CoffeLab.html">Coffee Lab</a></li>
+      <li><a href="student-dashboard.html">Student Dashboard</a></li>
+      <li><a href="About-us.html">About Us</a></li>
+      <li><a href="Contact.html">Contact Us</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <button class="mode-btn">☀️</button>
+      <input type="text" placeholder="Search" class="search-box">
+    </div>
+
+  </nav>
+</header>
+
+<div class="path-wrap">
+
+      <div class="path-breadcrumb">
+        <a href="#">Home</a>
+        <span>›</span>
+        <a href="#">Brew School</a>
+        <span>›</span>
+        <span>Lesson 4.1</span>
       </div>
 
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="brew-school.html" class="active">Brew School</a></li>
-        <li><a href="CoffeLab.html">Coffee Lab</a></li>
-        <li><a href="Experience-Creators.html">Experience Creators</a></li>
-        <li><a href="student-dashboard.html">Student Dashboard</a></li>
-        <li><a href="About-us.html">About Us</a></li>
-      </ul>
 
-      <div class="nav-right">
-        <button class="mode-btn">☀️</button>
-        <input type="text" placeholder="Search" class="search-box">
-      </div>
-    </nav>
-  </header>
+
 
   <main class="lesson-page">
 
@@ -541,7 +581,7 @@
 
           <div class="grind-card">
             <div class="grind-image-box">
-              <img src="fine-grind.jpg" alt="Fine Grind">
+              <img src="images/fine-grind.png" alt="Fine Grind">
             </div>
             <h3>Fine</h3>
             <p>Usually used for espresso. Water moves more slowly and extraction becomes stronger.</p>
@@ -550,7 +590,7 @@
 
           <div class="grind-card">
             <div class="grind-image-box">
-              <img src="medium-grind.jpg" alt="Medium Grind">
+              <img src="images/medium-grind.png" alt="Medium Grind">
             </div>
             <h3>Medium</h3>
             <p>A balanced grind size, commonly used for drip brewing methods and many filter coffees.</p>
@@ -559,7 +599,7 @@
 
           <div class="grind-card">
             <div class="grind-image-box">
-              <img src="coarse-grind.jpg" alt="Coarse Grind">
+              <img src="images/coarse-grind.png" alt="Coarse Grind">
             </div>
             <h3>Coarse</h3>
             <p>Best for methods like French press, where water stays in contact with coffee longer.</p>
@@ -639,52 +679,46 @@
         </a>
       </section>
 
-      <div class="lesson-nav">
-        <a href="BrewSchool" class="back-btn">Back</a>
-        <a href="lesson4.2.html" class="next-btn">Next</a>
-      </div>
+ <div class="lesson-buttons">
+      <a href="BrewSchool.html" >← Back</a>
+      <a href="lesson4.2.html" >Next →</a>
+    </div>
+
+
 
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-top">
-      <div class="footer-logo">
-        <img src="logo.png" alt="Bean to Brew Logo">
-      </div>
+ <footer class="site-footer">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <img src="logo.png" alt="Bean to Brew Logo">
+        </div>
 
-      <div class="footer-contact">
-        <h3>Contact us</h3>
-        <p>+966504256847</p>
-        <p>BeantoBrew@gmail.com</p>
-      </div>
+        <div class="footer-contact">
+          <h3>Contact us</h3>
+          <p>+966504256847</p>
+          <p>BeantoBrew@gmail.com</p>
+        </div>
 
-      <div class="footer-social">
-        <h3>Follow us</h3>
-        <div class="social-icons">
-          <a href="javascript:void(0);">
-            <img src="instagramicon.png" alt="Instagram">
-          </a>
-
-          <span class="social-divider"></span>
-
-          <a href="javascript:void(0);">
-            <img src="Xicon.png" alt="X">
-          </a>
+        <div class="footer-social">
+          <h3>Follow us</h3>
+          <div class="social-icons">
+            <a href="https://instagram.com">
+              <img src="instagramicon.png" alt="Instagram">
+            </a>
+            <span class="social-divider"></span>
+            <a href="https://instagram.com">
+              <img src="Xicon.png" alt="X">
+            </a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <p class="footer-note">
-      Learn, explore, and enjoy the world of coffee.
-    </p>
-
-    <p class="copyright">
-      © 2026 Bean to Brew. All rights reserved.
-    </p>
-  </footer>
+      <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
+      <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
 
-s
