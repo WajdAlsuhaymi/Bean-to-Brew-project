@@ -10,7 +10,12 @@
   <style>
     .notes-page{
       min-height:100vh;
-      background-color:#3A2F2B;
+            background:
+  radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
+  radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
+  radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
+  radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
+  linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
     }
 
     .notes-section{
@@ -62,8 +67,8 @@
       width:125px;
       height:40px;
       border:none;
-      background-color:#f2f2f2;
-      color:#4a4a4a;
+      background-color:#EDE8DC;
+      color:#2f241d;
       font-size:15px;
       cursor:pointer;
     }
@@ -117,8 +122,8 @@
       width:120px;
       height:38px;
       border:none;
-      background-color:#f2f2f2;
-      color:#4a4a4a;
+      background-color:#EDE8DC;
+      color:#2f241d;
       font-size:15px;
       cursor:pointer;
       flex-shrink:0;
@@ -131,20 +136,14 @@
       align-items:flex-end;
     }
 
-    .back-arrow{
-      font-size:44px;
-      color:#EDE8DC;
-      text-decoration:none;
-      line-height:1;
-      display:inline-block;
-    }
+  
 
     .delete-all-btn{
       height:38px;
       padding:0 18px;
       border:none;
-      background-color:#b7b7b7;
-      color:#f2f2f2;
+      background-color:#EDE8DC;
+      color:#2f241d;
       font-size:15px;
       cursor:pointer;
     }
@@ -199,35 +198,70 @@
         gap:18px;
       }
     }
+	  /* =============================== */
+    /* Lesson Navigation Buttons */
+    /* =============================== */
+    .lesson-buttons {
+      width: min(1150px, 92%);
+      margin: 30px auto 80px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .lesson-buttons a {
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 600;
+	  color:   #C1B393;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-back,
+    .btn-next {
+      background: #C1B393;
+      color: #2f241d;
+      border: 1px solid #b9997d;
+    }
+
+    .btn-back:hover,
+    .btn-next:hover {
+      background: #7a4d2c;
+      color: #EDE8DC;
+      transform: translateY(-3px);
+    }
   </style>
 </head>
 <body>
 
   <div class="notes-page">
 
-    <header>
-      <nav class="navbar">
+   <header>
+  <nav class="navbar">
 
-        <div class="logo">
-          <img src="logo.png" alt="Bean to Brew Logo">
-        </div>
+    <div class="logo">
+      <img src="logo.png" alt="Bean to Brew Logo">
+    </div>
 
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="brew-school.html">Brew School</a></li>
-          <li><a href="coffee-lab.html">Coffee Lab</a></li>
-          <li><a href="experience-creators.html">Experience Creators</a></li>
-          <li><a href="student-dashboard.html">Student Dashboard</a></li>
-          <li><a href="about.html">About Us</a></li>
-        </ul>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="BrewSchool.html">Brew School</a></li>
+      <li><a href="CoffeLab.html">Coffee Lab</a></li>
+      <li><a href="student-dashboard.html"class="active">Student Dashboard</a></li>
+      <li><a href="About-us.html">About Us</a></li>
+      <li><a href="Contact.html">Contact Us</a></li>
+    </ul>
 
-        <div class="nav-right">
-          <button class="mode-btn">☀️</button>
-          <input type="text" placeholder="Search" class="search-box">
-        </div>
+    <div class="nav-right">
+      <button class="mode-btn">☀️</button>
+      <input type="text" placeholder="Search" class="search-box">
+    </div>
 
-      </nav>
-    </header>
+  </nav>
+</header>
+
 
     <main>
       <section class="notes-section">
@@ -271,17 +305,18 @@
         </div>
 
         <div class="notes-bottom">
-          <a href="javascript:history.back()" class="back-arrow">‹</a>
           <button class="delete-all-btn">Delete All selected</button>
         </div>
 
       </section>
+	  <!-- Lesson Navigation Buttons -->
+    <div class="lesson-buttons">
+      <a href="student-dashboard.html" >← Back</a>
+    </div>
     </main>
 
     <footer class="site-footer">
-
       <div class="footer-top">
-
         <div class="footer-logo">
           <img src="logo.png" alt="Bean to Brew Logo">
         </div>
@@ -294,25 +329,20 @@
 
         <div class="footer-social">
           <h3>Follow us</h3>
-
           <div class="social-icons">
-            <a href="javascript:void(0);">
+            <a href="https://instagram.com">
               <img src="instagramicon.png" alt="Instagram">
             </a>
-
             <span class="social-divider"></span>
-
-            <a href="javascript:void(0);">
+            <a href="https://instagram.com">
               <img src="Xicon.png" alt="X">
             </a>
           </div>
         </div>
-
       </div>
 
       <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
       <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
-
     </footer>
 
   </div>
