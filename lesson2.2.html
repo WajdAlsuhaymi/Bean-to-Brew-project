@@ -7,6 +7,7 @@
   <title>Lesson 2.2 | Coffee Taste</title>
 
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     *{
@@ -17,15 +18,18 @@
 
     body{
       font-family:'Playfair Display', serif;
-      background: linear-gradient(180deg, #f7f2eb 0%, #efe6db 100%);
-      color:#2f241d;
+	 
+      background: #3A2F2B;
+      color:#EDE8DC;
       overflow-x:hidden;
     }
 
     .lesson-section{
       padding:90px 20px 70px;
       text-align:center;
-      background:
+
+      background: #3A2F2B;
+      color:#EDE8DC;
       radial-gradient(circle at top left, rgba(111,191,115,0.12), transparent 28%),
       radial-gradient(circle at top right, rgba(111,76,49,0.12), transparent 25%),
       linear-gradient(to bottom,#f8f5f1,#efe7dd);
@@ -73,13 +77,13 @@
     }
 
     .breadcrumbs a:hover{
-      color:#3b2a20;
+      color:#ffffff;
     }
 
     .lesson-section h2{
       font-size:clamp(2rem,4vw,3.2rem);
       margin-bottom:35px;
-      color:#2f241d;
+      color:#EDE8DC;
       position:relative;
       z-index:2;
     }
@@ -87,7 +91,7 @@
     .flavor-card{
       width:min(1050px, 92%);
       margin:0 auto 55px;
-      background:rgba(255,255,255,0.65);
+  background-color:#C1B393;
       backdrop-filter:blur(8px);
       border:1px solid rgba(80,55,35,0.08);
       box-shadow:0 20px 45px rgba(71,48,31,0.10);
@@ -164,7 +168,7 @@
       width:min(1100px, 92%);
       margin:0 auto 70px;
       padding:45px 25px;
-      background:linear-gradient(135deg, rgba(255,255,255,0.75), rgba(246,240,232,0.88));
+  background:#4B4F3E;
       border-radius:34px;
       box-shadow:0 20px 45px rgba(71,48,31,0.10);
       border:1px solid rgba(80,55,35,0.08);
@@ -218,6 +222,7 @@
       padding:24px;
       font-size:1.5rem;
       font-weight:700;
+	  color:#4f6f52;
       line-height:1.5;
       box-shadow:0 14px 28px rgba(71,48,31,0.12);
     }
@@ -233,7 +238,7 @@
     .table-section{
       width:min(1100px, 92%);
       margin:0 auto 60px;
-      background:rgba(255,255,255,0.72);
+  background-color:#C1B393;
       border-radius:34px;
       padding:40px 28px 35px;
       box-shadow:0 20px 45px rgba(71,48,31,0.10);
@@ -368,29 +373,29 @@
 <body>
 
   <!-- HEADER -->
-  <header>
-    <nav class="navbar">
+   <header>
+  <nav class="navbar">
 
-      <div class="logo">
-        <img src="logo.png" alt="Bean to Brew Logo">
-      </div>
+    <div class="logo">
+      <img src="logo.png" alt="Bean to Brew Logo">
+    </div>
 
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="BrewSchool.html">Brew School</a></li>
-        <li><a href="CoffeLab.html">Coffee Lab</a></li>
-        <li><a href="Experience-Creators.html">Experience Creators</a></li>
-        <li><a href="StudentDashboard.html">Student Dashboard</a></li>
-        <li><a href="About-us.html">About Us</a></li>
-      </ul>
+    <ul class="nav-links">
+      <li><a href="index.html"class="active">Home</a></li>
+      <li><a href="BrewSchool.html">Brew School</a></li>
+      <li><a href="CoffeLab.html">Coffee Lab</a></li>
+      <li><a href="student-dashboard.html">Student Dashboard</a></li>
+      <li><a href="About-us.html">About Us</a></li>
+      <li><a href="Contact.html">Contact Us</a></li>
+    </ul>
 
-      <div class="nav-right">
-        <button class="mode-btn">☀️</button>
-        <input type="text" placeholder="Search" class="search-box">
-      </div>
+    <div class="nav-right">
+      <button class="mode-btn">☀️</button>
+      <input type="text" placeholder="Search" class="search-box">
+    </div>
 
-    </nav>
-  </header>
+  </nav>
+</header>
 
   <!-- PAGE CONTENT -->
   <section class="lesson-section">
@@ -517,47 +522,53 @@
   </div>
 
   <!-- FOOTER -->
-  <footer class="site-footer">
+  
+  
+<footer class="site-footer">
 
-    <div class="footer-top">
+  <div class="footer-top">
 
-      <div class="footer-logo">
-        <img src="logo.png" alt="Bean to Brew Logo">
-      </div>
+    <div class="footer-logo">
+      <img src="logo.png" alt="Bean to Brew Logo">
+    </div>
 
-      <div class="footer-contact">
-        <h3>Contact us</h3>
-        <p>+966504256847</p>
-        <p>BeantoBrew@gmail.com</p>
-      </div>
+    <div class="footer-contact">
+      <h3>Contact us</h3>
+      <p>+966504256847</p>
+      <p>BeantoBrew@gmail.com</p>
+    </div>
 
-      <div class="footer-social">
-        <h3>Follow us</h3>
+    <div class="footer-social">
+      <h3>Follow us</h3>
 
-        <div class="social-icons">
-          <a href="javascript:void(0);">
-            <img src="instagramicon.png" alt="Instagram">
-          </a>
+      <div class="social-icons">
 
-          <span class="social-divider"></span>
+        <a href="javascript:void(0);">
+          <img src="instagramicon.png" alt="Instagram">
+        </a>
 
-          <a href="javascript:void(0);">
-            <img src="Xicon.png" alt="X">
-          </a>
-        </div>
+        <span class="social-divider"></span>
+
+        <a href="javascript:void(0);">
+          <img src="Xicon.png" alt="X">
+        </a>
+
       </div>
 
     </div>
 
-    <p class="footer-note">
-      Learn, explore, and enjoy the world of coffee.
-    </p>
+  </div>
 
-    <p class="copyright">
-      © 2026 Bean to Brew. All rights reserved.
-    </p>
+  <p class="footer-note">
+    Learn, explore, and enjoy the world of coffee.
+  </p>
 
-  </footer>
+  <p class="copyright">
+    © 2026 Bean to Brew. All rights reserved.
+  </p>
+
+</footer>
+
 
 </body>
 </html>
