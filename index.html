@@ -1,101 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bean to Brew</title>
-   <link rel="stylesheet" href="style.css">
+ <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
- <style>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
+   <style>
+    
 
-.beige-text{
-  color:#FDE9C7;
-}
+    /* =========================
+       BODY
+       خلفية الصفحة الأساسية:
+       - ثلاث ألوان متموهة
+       - مع تدرج غامق كأساس
+       - ولون الخط الافتراضي
+    ========================= */
+    body{
+      font-family:Arial, sans-serif;
+      padding-top:80px;
+      color:#EDE8DC;
+      background:
+        radial-gradient(circle at top left, rgba(122, 77, 44, 0.45), transparent 35%),
+        radial-gradient(circle at top right, rgba(75, 79, 62, 0.40), transparent 35%),
+        radial-gradient(circle at bottom center, rgba(237, 232, 220, 0.18), transparent 30%),
+        linear-gradient(135deg, #2A211D 0%, #332823 45%, #221B17 100%);
+      background-attachment:fixed;
+    }
 
-.white-text{
-  color:white;
-}
+   
 
-.our-story {
-  background-color:#3A2F2B;
-  padding:80px 20px;
-  text-align:center;
-}
+    /* ألوان خاصة للنص في العنوان */
+    .beige-text{
+      color:#FDE9C7;
+    }
 
-.story-container {
-  max-width:900px;
-  margin:0 auto;
-}
+    .white-text{
+      color:#ffffff;
+    }
 
-.our-story h2 {
-  font-size:52px;
-  font-family:'Playfair Display', serif;
-  color:#EDE8DC;
-  margin-bottom:25px;
-}
+   
+    /* =========================
+       MAIN LAYOUT
+       تنسيق عام للمحتوى الرئيسي
+    ========================= */
+    main{
+      width:100%;
+      padding-bottom:60px;
+    }
 
-.our-story p {
-  font-size:20px;
-  line-height:1.9;
-  color:#EDE8DC;
-  max-width:900px;
-  margin:0 auto 28px;
-}
+    /* بوكس عام لكل سكشن */
+    .section-box{
+      width:min(1120px, calc(100% - 40px));
+      margin:0 auto 35px;
+      background:rgba(255,255,255,0.07);
+      border:1px solid rgba(255,255,255,0.10);
+      border-radius:28px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.18);
+      backdrop-filter:blur(4px);
+    }
 
-.why-title {
-  margin-top:70px;
-}
+    /* =========================
+       HERO SECTION
+       سكشن البداية بالصورة
+    ========================= */
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+      padding:0 80px;
+      background-image:
+        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+        url("Headerpic.png");
+      background-size:cover;
+      background-position:center top;
+      background-repeat:no-repeat;
+    }
 
-.why-section{
-  background:#4B4F3E;
-  padding:100px 40px;
-  text-align:center;
-}
+    /* حاوية نص الهيرو */
+    .hero-content{
+      max-width:700px;
+      margin-top:-80px;
+    }
 
-.why-heading{
-  font-size:42px;
-  font-family:'Playfair Display', serif;
-  margin-bottom:60px;
-  color:#EDE8DC;
-}
+    /* عنوان الهيرو الرئيسي */
+    .main-hero-title{
+      font-size:68px;
+      line-height:1.15;
+      text-align:left;
+	  margin-top:-120px;
+    }
 
-.why-container{
-  display:flex;
-  justify-content:center;
-  gap:80px;
-  flex-wrap:wrap;
-}
+    /* =========================
+       OUR STORY
+    ========================= */
+    .our-story{
+      padding:80px 30px;
+      text-align:center;
+    }
 
-.why-card{
-  max-width:220px;
-  transition:0.3s;
-}
+    .story-container{
+      max-width:900px;
+      margin:0 auto;
+    }
 
-.why-card img{
-  width:100px;
-  height:auto;
-  margin-bottom:20px;
-}
+    .our-story h2{
+      font-size:52px;
+      color:#EDE8DC;
+      margin-bottom:25px;
+    }
 
-.why-card h3{
-  font-size:18px;
-  margin-bottom:10px;
-  color:#EDE8DC;
-}
+    .our-story p{
+      font-size:20px;
+      line-height:1.9;
+      color:#EDE8DC;
+      max-width:900px;
+      margin:0 auto 28px;
+    }
 
-.why-card p{
-  font-size:14px;
-  line-height:1.6;
-  color:#EDE8DC;
-}
+    /* =========================
+       WHY SECTION
+    ========================= */
+    .why-section{
+      padding:80px 40px;
+      text-align:center;
+    }
 
-.why-card:hover{
-  transform:translateY(-8px);
-}
+    .why-heading{
+      font-size:42px;
+      margin-bottom:60px;
+      color:#EDE8DC;
+    }
 
-.bean-types {
-  background-color:#C1B393;
+    /* حاوية الكروت */
+    .why-container{
+      display:flex;
+      justify-content:center;
+      gap:30px;
+      flex-wrap:wrap;
+    }
+
+    /* كل كرت */
+    .why-card{
+      max-width:250px;
+      min-height:260px;
+      padding:30px 20px;
+      border-radius:22px;
+      background:#4B4F3E;
+      border:1px solid rgba(255,255,255,0.10);
+      transition:0.3s;
+    }
+
+    /* حركة بسيطة عند المرور */
+    .why-card:hover{
+      transform:translateY(-8px);
+    }
+
+    .why-card img{
+      width:100px;
+      height:auto;
+      margin-bottom:20px;
+    }
+
+    .why-card h3{
+      font-size:18px;
+      margin-bottom:10px;
+      color:#EDE8DC;
+    }
+
+    .why-card p{
+      font-size:14px;
+      line-height:1.6;
+      color:#EDE8DC;
+    }
+
+    /* =========================
+       BEAN TYPES
+    ========================= */
+    .bean-types {
+  background-color:linear-gradient(to bottom, #8B5E3C 0%, #A98763 45%, #C1B393 100%);
   display:flex;
   justify-content:space-between;
   align-items:flex-start;
@@ -125,6 +211,9 @@
   padding:20px;
   overflow:hidden;
   color:#3b2a22;
+
+  border-radius:20px;
+  box-shadow:0 8px 18px rgba(0,0,0,0.15);
 }
 
 .bean-card::before {
@@ -138,7 +227,7 @@
 .bean-card p {
   position:relative;
   z-index:2;
-  color:black;
+  color:#2f241d;
 }
 
 .bean-card h3 {
@@ -161,11 +250,18 @@
 .bean-types-right h2 {
   font-size:58px;
   font-family:'Playfair Display', serif;
-  color:#7a4d2c;
+  color:#EDE8DC;
   line-height:1.15;
   margin-bottom:25px;
 }
 
+.bean-types-right img {
+  width:200px;
+  height:380px;
+  margin-top:10px;
+}
+
+    /* صورة البن العائمة بين السكشنات */
 .bean-types-right img {
   width:200px;
   height:380px;
@@ -185,7 +281,11 @@
   z-index:50;
 }
 
-.grind-size {
+
+    /* =========================
+       GRIND SIZE SECTION
+    ========================= */
+   .grind-size {
   background-image:
   linear-gradient(rgba(35, 24, 18, 0.58), rgba(35, 24, 18, 0.58)),
   url("Headerpic.png");
@@ -225,7 +325,7 @@
   left:50%;
   width:180px;
   height:240px;
-  background:rgba(255, 255, 255, 0.93);
+  background:#C1B393;
   text-align:center;
   padding:35px 20px;
   transform:translate(-50%, -50%) scale(0.6);
@@ -487,502 +587,623 @@
   transform:scale(1.2);
 }
 
-.reviews-section {
-  background-color:#3A2F2B;
-  padding:25px 30px;
-}
+    /* =========================
+       REVIEWS SECTION
+    ========================= */
+    .reviews-section{
+	background-color:#4B4F3E;
+      padding:35px 30px;
+    }
 
-.reviews-section h2 {
-  font-size:26px;
-  font-family:'Playfair Display', serif;
-  color:#EDE8DC;
-  margin-bottom:20px;
-}
+    .reviews-section h2{
+      font-size:26px;
+      color:#EDE8DC;
+      margin-bottom:20px;
+    }
 
-.reviews-slider {
-  position:relative;
-  max-width:700px;
-  margin:0 auto 30px;
-}
+    .reviews-slider{
+      position:relative;
+      max-width:700px;
+      margin:0 auto 30px;
+    }
 
-.reviews-slider input {
-  display:none;
-}
+    /* إخفاء radio buttons */
+    .reviews-slider input{
+      display:none;
+    }
 
-.reviews-cards {
-  position:relative;
-  height:160px;
-}
+    .reviews-cards{
+      position:relative;
+      height:180px;
+    }
 
-.review-card {
-  position:absolute;
-  top:0;
-  left:50%;
-  transform:translateX(-50%) scale(0.9);
-  width:230px;
-  background-color:#bdbdbd;
-  padding:14px;
-  opacity:0;
-  transition:0.4s ease;
-  text-align:center;
-  box-shadow:0 6px 15px rgba(0,0,0,0.1);
-}
+    .review-card{
+      position:absolute;
+      top:0;
+      left:50%;
+      transform:translateX(-50%) scale(0.9);
+      width:260px;
+      background-color:#EDE8DC;
+      padding:14px;
+      opacity:0;
+      transition:0.4s ease;
+      text-align:center;
+      box-shadow:0 6px 15px rgba(0,0,0,0.1);
+      border-radius:18px;
+    }
 
-.review-header {
-  display:flex;
-  align-items:center;
-  gap:8px;
-  margin-bottom:10px;
-}
+    .review-header{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      margin-bottom:10px;
+      justify-content:flex-start;
+    }
 
-.review-avatar {
+    .review-avatar{
   width:35px;
   height:35px;
-  background-color:#f5f5f5;
   border-radius:50%;
   flex-shrink:0;
+  overflow:hidden;
 }
 
-.review-header h3 {
-  margin:0;
-  font-size:16px;
-  font-weight:400;
-  color:#222;
-}
-
-.review-card p {
-  background-color:white;
-  border:2px dashed #555;
-  padding:8px;
-  font-size:12px;
-  color:#333;
-  line-height:1.4;
-  margin-bottom:8px;
-}
-
-.stars {
-  font-size:16px;
-  color:#f2c94c;
-  letter-spacing:2px;
-}
-
-#review1:checked ~ .reviews-cards .r1,
-#review2:checked ~ .reviews-cards .r2,
-#review3:checked ~ .reviews-cards .r3 {
-  opacity:1;
-  transform:translateX(-50%) scale(1);
-  z-index:5;
-}
-
-.review-arrows {
-  display:none;
-  position:absolute;
-  top:40%;
-  left:0;
+.review-avatar img{
   width:100%;
-  transform:translateY(-50%);
-  justify-content:space-between;
-  align-items:center;
-  pointer-events:none;
+  height:100%;
+  object-fit:cover;
+  display:block;
 }
 
-.review-arrows .arrow {
-  pointer-events:auto;
-  font-size:26px;
-  color:#EDE8DC;
-  cursor:pointer;
-  user-select:none;
-  padding:0 8px;
-}
+    .review-header h3{
+      margin:0;
+      font-size:16px;
+      font-weight:400;
+      color:#222;
+    }
 
-#review1:checked ~ .review-arrows.arrows-1,
-#review2:checked ~ .review-arrows.arrows-2,
-#review3:checked ~ .review-arrows.arrows-3 {
-  display:flex;
-}
+    .review-card p{
+      background-color:white;
+      border:2px dashed #555;
+      padding:8px;
+      font-size:12px;
+      color:#333;
+      line-height:1.4;
+      margin-bottom:8px;
+      border-radius:10px;
+    }
 
-.review-dots {
-  text-align:center;
-  margin-top:10px;
-}
+    .stars{
+      font-size:16px;
+      color:#f2c94c;
+      letter-spacing:2px;
+    }
 
-.review-dots label {
-  display:inline-block;
-  width:10px;
-  height:10px;
-  border-radius:50%;
-  background:#b8b8b8;
-  margin:0 4px;
-  cursor:pointer;
-  transition:0.3s;
-}
+    /* إظهار الكرت النشط فقط */
+    #review1:checked ~ .reviews-cards .r1,
+    #review2:checked ~ .reviews-cards .r2,
+    #review3:checked ~ .reviews-cards .r3{
+      opacity:1;
+      transform:translateX(-50%) scale(1);
+      z-index:5;
+    }
 
-#review1:checked ~ .review-dots label:nth-child(1),
-#review2:checked ~ .review-dots label:nth-child(2),
-#review3:checked ~ .review-dots label:nth-child(3) {
-  background:#7a4d2c;
-  transform:scale(1.2);
-}
+    /* أسهم سلايدر الريفيوز */
+    .review-arrows{
+      display:none;
+      position:absolute;
+      top:40%;
+      left:0;
+      width:100%;
+      transform:translateY(-50%);
+      justify-content:space-between;
+      align-items:center;
+      pointer-events:none;
+    }
 
-.add-review-box {
-  max-width:240px;
-  margin:10px auto;
-  background-color:#e7e7e7;
-  padding:10px;
-}
+    .review-arrows .arrow{
+      pointer-events:auto;
+      font-size:26px;
+      color:#EDE8DC;
+      cursor:pointer;
+      user-select:none;
+      padding:0 8px;
+    }
 
-.add-review-box h3 {
-  font-size:16px;
-  font-family:'Playfair Display', serif;
-  margin-bottom:10px;
-  color:#222;
-}
+    /* إظهار الأسهم حسب الريفيو الحالي */
+    #review1:checked ~ .review-arrows.arrows-1,
+    #review2:checked ~ .review-arrows.arrows-2,
+    #review3:checked ~ .review-arrows.arrows-3{
+      display:flex;
+    }
 
-.add-review-box input,
-.add-review-box textarea,
-.add-review-box select {
-  width:100%;
-  margin-bottom:8px;
-  padding:6px;
-  border:1px solid #bbb;
-  font-size:11px;
-  background-color:white;
-}
+    /* نقاط سلايدر الريفيو */
+    .review-dots{
+      text-align:center;
+      margin-top:10px;
+    }
 
-.add-review-box textarea {
-  resize:none;
-  height:70px;
-}
+    .review-dots label{
+      display:inline-block;
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:#b8b8b8;
+      margin:0 4px;
+      cursor:pointer;
+      transition:0.3s;
+    }
 
-.add-review-box button {
-  background-color:#7a4d2c;
-  color:white;
-  border:none;
-  padding:6px 10px;
-  font-size:11px;
-  cursor:pointer;
-}
+    /* النقطة النشطة */
+    #review1:checked ~ .review-dots label:nth-child(1),
+    #review2:checked ~ .review-dots label:nth-child(2),
+    #review3:checked ~ .review-dots label:nth-child(3){
+      background:#7a4d2c;
+      transform:scale(1.2);
+    }
 
-.rating {
-  display:flex;
-  flex-direction:row-reverse;
-  justify-content:center;
-  margin-bottom:10px;
-}
+    /* صندوق إضافة ريفيو */
+    .add-review-box{
+      max-width:320px;
+      margin:20px auto 0;
+      background-color:rgba(255,255,255,0.88);
+      padding:16px;
+      border-radius:18px;
+    }
 
-.rating input {
-  display:none;
-}
+    .add-review-box h3{
+      font-size:16px;
+      margin-bottom:10px;
+      color:#222;
+    }
 
-.rating label {
-  font-size:20px;
-  color:#ccc;
-  cursor:pointer;
-  transition:0.2s;
-}
+    .add-review-box input,
+    .add-review-box textarea,
+    .add-review-box select{
+      width:100%;
+      margin-bottom:8px;
+      padding:8px;
+      border:1px solid #bbb;
+      font-size:11px;
+      background-color:white;
+      border-radius:10px;
+      outline:none;
+    }
 
-.rating label:hover,
-.rating label:hover ~ label {
-  color:#f2c94c;
-}
+    .add-review-box textarea{
+      resize:none;
+      height:70px;
+    }
 
-.rating input:checked ~ label {
-  color:#f2c94c;
-}
+    .add-review-box button{
+      background-color:#7a4d2c;
+      color:white;
+      border:none;
+      padding:8px 12px;
+      font-size:11px;
+      cursor:pointer;
+      border-radius:10px;
+    }
 
-.faq-section {
-  background-color:#3A2F2B;
-  padding:15px 30px 40px;
-  border-top:1px solid #a0a0a0;
-}
+    /* تقييم النجوم */
+    .rating{
+      display:flex;
+      flex-direction:row-reverse;
+      justify-content:center;
+      margin-bottom:10px;
+    }
 
-.faq-section h2 {
-  font-size:26px;
-  font-family:'Playfair Display', serif;
-  color:#EDE8DC;
-  margin-bottom:20px;
-}
+    .rating input{
+      display:none;
+    }
 
-.faq-container {
-  display:flex;
-  gap:15px;
-  flex-wrap:wrap;
-  align-items:flex-start;
-}
+    .rating label{
+      font-size:20px;
+      color:#ccc;
+      cursor:pointer;
+      transition:0.2s;
+    }
 
-.faq-item {
-  width:220px;
-  background-color:transparent;
-}
+    .rating label:hover,
+    .rating label:hover ~ label{
+      color:#f2c94c;
+    }
 
-.faq-item summary {
-  list-style:none;
-  background-color:#dedede;
-  border:1px solid #c9c9c9;
-  padding:10px;
-  font-size:13px;
-  color:#222;
-  cursor:pointer;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
+    .rating input:checked ~ label{
+      color:#f2c94c;
+    }
 
-.faq-item summary::-webkit-details-marker {
-  display:none;
-}
+    /* =========================
+       FAQ SECTION
+    ========================= */
+    .faq-section{
+	 background-color:#4B4F3E;
+      padding:25px 30px 40px;
+    }
 
-.faq-icon {
-  font-size:12px;
-  transition:transform 0.3s ease;
-}
+    .faq-section h2{
+      font-size:26px;
+      color:#EDE8DC;
+      margin-bottom:20px;
+    }
 
-.faq-item[open] .faq-icon {
-  transform:rotate(180deg);
-}
+    .faq-container{
+      display:flex;
+      gap:15px;
+      flex-wrap:wrap;
+      align-items:flex-start;
+	 
+    }
 
-.faq-answer {
-  background-color:#dedede;
-  margin-top:6px;
-  padding:10px;
-  font-size:12px;
-  line-height:1.5;
-  color:#333;
-}
-</style>
+    .faq-item{
+      width:220px;
+      background-color:transparent;
+	  
+    }
+
+    .faq-item summary{
+      list-style:none;
+      background-color:#C1B393;
+      border:1px solid #C1B393;
+      padding:10px;
+      font-size:13px;
+      color:#222;
+      cursor:pointer;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      border-radius:12px;
+    }
+
+    .faq-item summary::-webkit-details-marker{
+      display:none;
+    }
+
+    .faq-icon{
+      font-size:12px;
+      transition:transform 0.3s ease;
+    }
+
+    .faq-item[open] .faq-icon{
+      transform:rotate(180deg);
+    }
+
+    .faq-answer{
+      background-color:#EDE8DC;
+      margin-top:6px;
+      padding:10px;
+      font-size:12px;
+      line-height:1.5;
+      color:#333;
+      border-radius:12px;
+    }
+
+    
+    /* =========================
+       RESPONSIVE
+       تعديلات للشاشات المتوسطة
+    ========================= */
+    @media (max-width: 992px){
+      .navbar{
+        padding:12px 20px;
+        gap:15px;
+        flex-wrap:wrap;
+      }
+
+      .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .hero{
+        padding:0 30px;
+        justify-content:center;
+        text-align:center;
+      }
+
+      .hero-content{
+        margin-top:-30px;
+      }
+
+      .main-hero-title{
+        font-size:52px;
+        text-align:center;
+      }
+
+      .bean-types{
+        justify-content:center;
+      }
+
+      .bean-types-left{
+        grid-template-columns:repeat(2, minmax(150px,170px));
+        justify-content:center;
+      }
+
+      .bean-types-right h2,
+      .grind-overlay h2,
+      .our-story h2{
+        font-size:42px;
+      }
+
+      .floating-bean img{
+        width:250px;
+        top:-120px;
+      }
+    }
+
+    /* تعديلات للجوال */
+    @media (max-width: 640px){
+      body{
+        padding-top:120px;
+      }
+
+      .main-hero-title{
+        font-size:40px;
+      }
+
+      .section-box{
+        width:min(1120px, calc(100% - 20px));
+      }
+
+      .our-story,
+      .why-section,
+      .bean-types,
+      .grind-size,
+      .reviews-section,
+      .faq-section{
+        padding-left:20px;
+        padding-right:20px;
+      }
+
+      .bean-types-left{
+        grid-template-columns:1fr;
+      }
+
+      .faq-item{
+        width:100%;
+      }
+
+      .cards{
+        height:340px;
+      }
+
+      .card{
+        width:150px;
+        height:220px;
+      }
+
+      .arrow{
+        font-size:46px;
+      }
+
+      .review-card{
+        width:220px;
+      }
+
+      .footer-logo img{
+        width:220px;
+      }
+
+      .floating-bean{
+        display:none;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <header>
-  <nav class="navbar">
+    <nav class="navbar">
+      <div class="logo">
+        <img src="logo.png" alt="Bean to Brew Logo">
+      </div>
 
-    <div class="logo">
-      <img src="logo.png" alt="Bean to Brew Logo">
-    </div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="BrewSchool.html">Brew School</a></li>
+        <li><a href="CoffeLab.html">Coffee Lab</a></li>
+        <li><a href="student-dashboard.html">Student Dashboard</a></li>
+        <li><a href="About-us.html">About Us</a></li>
+        <li><a href="Contact.html">Contact Us</a></li>
+      </ul>
 
-    <ul class="nav-links">
-      <li><a href="index.html"class="active">Home</a></li>
-      <li><a href="BrewSchool.html">Brew School</a></li>
-      <li><a href="CoffeLab.html">Coffee Lab</a></li>
-      <li><a href="student-dashboard.html">Student Dashboard</a></li>
-      <li><a href="About-us.html">About Us</a></li>
-      <li><a href="Contact.html">Contact Us</a></li>
-    </ul>
-
-    <div class="nav-right">
-      <button class="mode-btn">☀️</button>
-      <input type="text" placeholder="Search" class="search-box">
-    </div>
-
-  </nav>
-</header>
-
+      <div class="nav-right">
+        <button class="mode-btn">☀️</button>
+        <input type="text" placeholder="Search" class="search-box">
+      </div>
+    </nav>
+  </header>
 
   <main>
+
     <section class="hero">
+      <div class="hero-content">
+        <h1 class="main-hero-title">
+          <span class="beige-text">Experience the</span><br>
+          <span class="white-text">Art of coffee.</span>
+        </h1>
+      </div>
+    </section>
 
- <div class="hero-content">
-  <h1 class="main-hero-title">
-  <span class="beige-text">Experience the</span><br>
-  <span class="white-text">Art of coffee.</span>
-</h1>
-</div>
+    <section class="our-story section-box">
+      <div class="story-container">
+        <h2>Our Story</h2>
 
-</section>
-<section class="our-story">
-  <div class="story-container">
-    <h2>Our Story</h2>
+        <p>
+          It all started with a cup of coffee that tasted different.
+        </p>
 
-    <p>
-      It all started with a cup of coffee that tasted different.
-    </p>
+        <p>
+          One day, we came across coffee beans that were naturally caffeine-free,
+          and that moment sparked our curiosity. We began to wonder how coffee
+          could vary so much while still being coffee. This simple experience
+          encouraged us to learn more about coffee beans, where they come from,
+          and how different factors shape the final cup.
+        </p>
 
-    <p>
-      One day, we came across coffee beans that were naturally caffeine-free,
-      and that moment sparked our curiosity. We began to wonder how coffee
-      could vary so much while still being coffee. This simple experience
-      encouraged us to learn more about coffee beans, where they come from,
-      and how different factors shape the final cup.
-    </p>
+        <p>
+          As we explored further, we discovered how grind size, brewing methods,
+          and bean types can completely change flavor, aroma, and texture.
+          From light to dark roasts, fine to coarse grinds, and countless
+          brewing styles, each cup tells a different story. Bean to Brew was
+          created to share this journey — helping others understand why coffee
+          tastes the way it does, and how small details make a big difference.
+        </p>
+      </div>
+    </section>
 
-    <p>
-      As we explored further, we discovered how grind size, brewing methods,
-      and bean types can completely change flavor, aroma, and texture.
-      From light to dark roasts, fine to coarse grinds, and countless
-      brewing styles, each cup tells a different story. Bean to Brew was
-      created to share this journey — helping others understand why coffee
-      tastes the way it does, and how small details make a big difference.
-    </p>
+    <section class="why-section section-box">
+      <h2 class="why-heading">Why Bean to Brew?</h2>
 
-  </div>
-</section>
+      <div class="why-container">
+        <div class="why-card">
+          <img src="coffee-basics.png" alt="Coffee Basics">
+          <h3>Coffee Basics</h3>
+          <p>Understand coffee beans, grind sizes, and brewing methods.</p>
+        </div>
 
-<section class="why-section">
+        <div class="why-card">
+          <img src="courses.png" alt="Courses and Workshops">
+          <h3>Courses & Workshops</h3>
+          <p>Educational courses and hands-on training experiences.</p>
+        </div>
 
-  <h2 class="why-heading">Why Bean to Brew?</h2>
+        <div class="why-card">
+          <img src="difference.png" alt="Know the Difference">
+          <h3>Know the Difference</h3>
+          <p>Discover how small details change the taste of coffee.</p>
+        </div>
+      </div>
+    </section>
 
-  <div class="why-container">
+    <section class="bean-types section-box">
+      <div class="bean-types-left">
+        <div class="bean-card">
+          <h3>Arabica</h3>
+          <p>The most popular coffee bean, known for its smooth, aromatic, and slightly sweet flavor.</p>
+        </div>
 
-   <div class="why-card">
-<img src="coffee-basics.png">
-<h3>Coffee Basics</h3>
-<p>Understand coffee beans, grind sizes, and brewing methods.</p>
-</div>
+        <div class="bean-card">
+          <h3>Robusta</h3>
+          <p>Stronger and more bitter, with higher caffeine content and a bold taste.</p>
+        </div>
 
-<div class="why-card">
-<img src="courses.png">
-<h3>Courses & Workshops</h3>
-<p>Educational courses and hands-on training experiences.</p>
-</div>
+        <div class="bean-card">
+          <h3>Liberica</h3>
+          <p>Distinctive and smoky, offering a unique flavor that stands out from common coffee types.</p>
+        </div>
 
-<div class="why-card">
-<img src="difference.png">
-<h3>Know the Difference</h3>
-<p>Discover how small details change the taste of coffee.</p>
-</div>
+        <div class="bean-card">
+          <h3>Excelsa</h3>
+          <p>Fruity and complex, adding depth and brightness, often used in coffee blends.</p>
+        </div>
+      </div>
 
-  </div>
+      <div class="bean-types-right">
+        <h2>Coffee Bean<br>Types</h2>
+      </div>
+    </section>
 
-</section>
-
-<section class="bean-types">
-  <div class="bean-types-left">
-
-    <div class="bean-card">
-  <h3>Arabica</h3>
-  <p>The most popular coffee bean, known for its smooth, aromatic, and slightly sweet flavor.</p>
+    <div class="floating-bean">
+      <img src="beanpic.png" alt="Coffee Bean">
     </div>
-	
-    <div class="bean-card">
-  <h3>Robusta</h3>
-  <p>Stronger and more bitter, with higher caffeine content and a bold taste.</p>
-    </div>
 
-    <div class="bean-card">
-  <h3>Liberica</h3>
-  <p>Distinctive and smoky, offering a unique flavor that stands out from common coffee types.</p>
-    </div>
+    <section class="grind-size section-box">
+      <div class="grind-overlay">
+        <h2>The grind size makes a<br>difference</h2>
 
-    <div class="bean-card">
-  <h3>Excelsa</h3>
-  <p>Fruity and complex, adding depth and brightness, often used in coffee blends.</p>
-   </div>
+        <div class="grind-slider">
+          <input type="radio" name="grind" id="card1" checked>
+          <input type="radio" name="grind" id="card2">
+          <input type="radio" name="grind" id="card3">
+          <input type="radio" name="grind" id="card4">
+          <input type="radio" name="grind" id="card5">
+          <input type="radio" name="grind" id="card6">
 
-  </div>
- <div class="bean-types-right">
-    <h2>Coffee Bean<br>Types</h2>
-  </div>
- 
-</section>
+          <div class="cards">
+            <div class="card c1">
+              <h3>Extra Fine</h3>
+              <p>Turkish Coffee</p>
+              <img src="Turkish.png" alt="Turkish Coffee">
+            </div>
 
-<div class="floating-bean">
-  <img src="beanpic.png" alt="Coffee Bean">
-</div>
- 
-<section class="grind-size">
-  <div class="grind-overlay">
-    <h2>The grind size makes a<br>difference</h2>
+            <div class="card c2">
+              <h3>Fine</h3>
+              <p>Espresso</p>
+              <img src="Espresso.png" alt="Espresso">
+            </div>
 
-    <div class="grind-slider">
+            <div class="card c3">
+              <h3>Medium-Fine</h3>
+              <p>Moka Pot</p>
+              <img src="Moka Pot.png" alt="Moka Pot">
+            </div>
 
-      <!-- radio buttons -->
-      <input type="radio" name="grind" id="card1" checked>
-      <input type="radio" name="grind" id="card2">
-      <input type="radio" name="grind" id="card3">
-      <input type="radio" name="grind" id="card4">
-      <input type="radio" name="grind" id="card5">
-      <input type="radio" name="grind" id="card6">
+            <div class="card c4">
+              <h3>Medium</h3>
+              <p>V60 / Drip</p>
+              <img src="V60.png" alt="V60">
+            </div>
 
-      <div class="cards">
+            <div class="card c5">
+              <h3>Medium-Coarse</h3>
+              <p>Chemex</p>
+              <img src="Chemex.png" alt="Chemex">
+            </div>
 
-        <div class="card c1">
-          <h3>Extra Fine</h3>
-          <p>Turkish Coffee</p>
-          <img src="Turkish.png" alt="Turkish Coffee">
+            <div class="card c6">
+              <h3>Coarse</h3>
+              <p>French Press</p>
+              <img src="French Press.png" alt="French Press">
+            </div>
+          </div>
+
+          <div class="arrows arrows-1">
+            <label for="card6" class="arrow left">&#10094;</label>
+            <label for="card2" class="arrow right">&#10095;</label>
+          </div>
+
+          <div class="arrows arrows-2">
+            <label for="card1" class="arrow left">&#10094;</label>
+            <label for="card3" class="arrow right">&#10095;</label>
+          </div>
+
+          <div class="arrows arrows-3">
+            <label for="card2" class="arrow left">&#10094;</label>
+            <label for="card4" class="arrow right">&#10095;</label>
+          </div>
+
+          <div class="arrows arrows-4">
+            <label for="card3" class="arrow left">&#10094;</label>
+            <label for="card5" class="arrow right">&#10095;</label>
+          </div>
+
+          <div class="arrows arrows-5">
+            <label for="card4" class="arrow left">&#10094;</label>
+            <label for="card6" class="arrow right">&#10095;</label>
+          </div>
+
+          <div class="arrows arrows-6">
+            <label for="card5" class="arrow left">&#10094;</label>
+            <label for="card1" class="arrow right">&#10095;</label>
+          </div>
+
+          <div class="dots">
+            <label for="card1"></label>
+            <label for="card2"></label>
+            <label for="card3"></label>
+            <label for="card4"></label>
+            <label for="card5"></label>
+            <label for="card6"></label>
+          </div>
         </div>
-
-        <div class="card c2">
-          <h3>Fine</h3>
-          <p>Espresso</p>
-          <img src="Espresso.png" alt="Espresso">
-        </div>
-
-        <div class="card c3">
-          <h3>Medium-Fine</h3>
-          <p>Moka Pot</p>
-          <img src="Moka Pot.png" alt="Moka Pot">
-        </div>
-
-        <div class="card c4">
-          <h3>Medium</h3>
-          <p>V60 / Drip</p>
-          <img src="V60.png" alt="V60">
-        </div>
-
-        <div class="card c5">
-          <h3>Medium-Coarse</h3>
-          <p>Chemex</p>
-          <img src="Chemex.png" alt="Chemex">
-        </div>
-
-        <div class="card c6">
-          <h3>Coarse</h3>
-          <p>French Press</p>
-          <img src="French Press.png" alt="French Press">
-        </div>
-
       </div>
+    </section>
 
-      <!-- arrows -->
-      <div class="arrows arrows-1">
-        <label for="card6" class="arrow left">&#10094;</label>
-        <label for="card2" class="arrow right">&#10095;</label>
-      </div>
-
-      <div class="arrows arrows-2">
-        <label for="card1" class="arrow left">&#10094;</label>
-        <label for="card3" class="arrow right">&#10095;</label>
-      </div>
-
-      <div class="arrows arrows-3">
-        <label for="card2" class="arrow left">&#10094;</label>
-        <label for="card4" class="arrow right">&#10095;</label>
-      </div>
-
-      <div class="arrows arrows-4">
-        <label for="card3" class="arrow left">&#10094;</label>
-        <label for="card5" class="arrow right">&#10095;</label>
-      </div>
-
-      <div class="arrows arrows-5">
-        <label for="card4" class="arrow left">&#10094;</label>
-        <label for="card6" class="arrow right">&#10095;</label>
-      </div>
-
-      <div class="arrows arrows-6">
-        <label for="card5" class="arrow left">&#10094;</label>
-        <label for="card1" class="arrow right">&#10095;</label>
-      </div>
-
-      <!-- dots -->
-      <div class="dots">
-        <label for="card1"></label>
-        <label for="card2"></label>
-        <label for="card3"></label>
-        <label for="card4"></label>
-        <label for="card5"></label>
-        <label for="card6"></label>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section class="reviews-section">
+   <section class="reviews-section section-box">
   <h2>What Customers Think About Us</h2>
 
   <div class="reviews-slider">
-
     <input type="radio" name="review" id="review1" checked>
     <input type="radio" name="review" id="review2">
     <input type="radio" name="review" id="review3">
@@ -991,7 +1212,9 @@
 
       <div class="review-card r1">
         <div class="review-header">
-          <div class="review-avatar"></div>
+          <div class="review-avatar">
+            <img src="photo.png" alt="Wajd">
+          </div>
           <h3>Wajd Mohammed</h3>
         </div>
         <p>Great platform for beginners and coffee lovers</p>
@@ -1000,7 +1223,9 @@
 
       <div class="review-card r2">
         <div class="review-header">
-          <div class="review-avatar"></div>
+          <div class="review-avatar">
+            <img src="photo.png" alt="Ellen">
+          </div>
           <h3>Ellen Ahmed</h3>
         </div>
         <p>Perfect for learning coffee basics</p>
@@ -1009,12 +1234,15 @@
 
       <div class="review-card r3">
         <div class="review-header">
-          <div class="review-avatar"></div>
+          <div class="review-avatar">
+            <img src="photo.png" alt="Lina">
+          </div>
           <h3>Lina Omar</h3>
         </div>
         <p>Simple, useful, and enjoyable for coffee learners</p>
         <div class="stars">★★★★★</div>
       </div>
+
     </div>
 
     <div class="review-arrows arrows-1">
@@ -1037,109 +1265,92 @@
       <label for="review2"></label>
       <label for="review3"></label>
     </div>
-
   </div>
 
   <div class="add-review-box">
     <h3>Add Your Review</h3>
     <input type="text" placeholder="Your name">
     <textarea placeholder="Write your opinion..."></textarea>
- <div class="rating">
-  <input type="radio" name="rating" id="star5">
-  <label for="star5">★</label>
 
-  <input type="radio" name="rating" id="star4">
-  <label for="star4">★</label>
+    <div class="rating">
+      <input type="radio" name="rating" id="star5">
+      <label for="star5">★</label>
 
-  <input type="radio" name="rating" id="star3">
-  <label for="star3">★</label>
+      <input type="radio" name="rating" id="star4">
+      <label for="star4">★</label>
 
-  <input type="radio" name="rating" id="star2">
-  <label for="star2">★</label>
+      <input type="radio" name="rating" id="star3">
+      <label for="star3">★</label>
 
-  <input type="radio" name="rating" id="star1">
-  <label for="star1">★</label>
-</div>
+      <input type="radio" name="rating" id="star2">
+      <label for="star2">★</label>
+
+      <input type="radio" name="rating" id="star1">
+      <label for="star1">★</label>
+    </div>
+
     <button type="button">Submit Review</button>
   </div>
 </section>
 
-<section class="faq-section">
-  <h2>Frequently Asked Questions</h2>
+    <section class="faq-section section-box">
+      <h2>Frequently Asked Questions</h2>
 
-  <div class="faq-container">
+      <div class="faq-container">
+        <details class="faq-item">
+          <summary>Why does coffee taste different?<span class="faq-icon">▼</span></summary>
+          <div class="faq-answer">
+            Coffee tastes different because each brewing factor changes the extraction and flavor.
+          </div>
+        </details>
 
-    <details class="faq-item">
-      <summary>Why does coffee taste different?<span class="faq-icon">▼</span></summary>
-      <div class="faq-answer">
-        Coffee tastes different because each brewing factor changes the extraction and flavor.
+        <details class="faq-item">
+          <summary>Are the workshops hands-on?<span class="faq-icon">▼</span></summary>
+          <div class="faq-answer">
+            Yes, the workshops include practical and hands-on coffee activities.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Who is this platform for?<span class="faq-icon">▼</span></summary>
+          <div class="faq-answer">
+            It is designed for beginners, coffee lovers, and anyone interested in learning more about coffee.
+          </div>
+        </details>
       </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>Are the workshops hands-on?<span class="faq-icon">▼</span></summary>
-      <div class="faq-answer">
-        Yes, the workshops include practical and hands-on coffee activities.
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>Who is this platform for?<span class="faq-icon">▼</span></summary>
-      <div class="faq-answer">
-        It is designed for beginners, coffee lovers, and anyone interested in learning more about coffee.
-      </div>
-    </details>
-
-  </div>
-</section>
-
+    </section>
 
   </main>
-  
-  
-<footer class="site-footer">
 
-  <div class="footer-top">
+  <footer class="site-footer">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <img src="logo.png" alt="Bean to Brew Logo">
+        </div>
 
-    <div class="footer-logo">
-      <img src="logo.png" alt="Bean to Brew Logo">
-    </div>
+        <div class="footer-contact">
+          <h3>Contact us</h3>
+          <p>+966504256847</p>
+          <p>BeantoBrew@gmail.com</p>
+        </div>
 
-    <div class="footer-contact">
-      <h3>Contact us</h3>
-      <p>+966504256847</p>
-      <p>BeantoBrew@gmail.com</p>
-    </div>
-
-    <div class="footer-social">
-      <h3>Follow us</h3>
-
-      <div class="social-icons">
-
-        <a href="javascript:void(0);">
-          <img src="instagramicon.png" alt="Instagram">
-        </a>
-
-        <span class="social-divider"></span>
-
-        <a href="javascript:void(0);">
-          <img src="Xicon.png" alt="X">
-        </a>
-
+        <div class="footer-social">
+          <h3>Follow us</h3>
+          <div class="social-icons">
+            <a href="javascript:void(0);">
+              <img src="instagramicon.png" alt="Instagram">
+            </a>
+            <span class="social-divider"></span>
+            <a href="javascript:void(0);">
+              <img src="Xicon.png" alt="X">
+            </a>
+          </div>
+        </div>
       </div>
 
-    </div>
+      <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
+      <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
+    </footer>
 
-  </div>
-
-  <p class="footer-note">
-    Learn, explore, and enjoy the world of coffee.
-  </p>
-
-  <p class="copyright">
-    © 2026 Bean to Brew. All rights reserved.
-  </p>
-
-</footer>
 </body>
 </html>
