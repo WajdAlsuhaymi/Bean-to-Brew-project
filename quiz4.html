@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lesson 4 Quiz | Bean to Brew</title>
+  <title>Lesson 5 Quiz | Bean to Brew</title>
 
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     *{
@@ -15,7 +15,7 @@
       box-sizing:border-box;
     }
 
-   body{
+  body{
            background:
   radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
   radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
@@ -63,6 +63,7 @@
       line-height:1.9;
       max-width:700px;
       margin:auto;
+      font-family:Arial, sans-serif;
     }
 
     .quiz-form{
@@ -153,8 +154,8 @@
     }
 
     .btn-submit{
-      background:linear-gradient(135deg, #FDE9C7, #C1B393);
-      color:#2B1F19;
+      background:linear-gradient(90deg, #4B4F3E, #C1B393, #FDE9C7, #7A4D2C);
+      color:#1A1411;
       box-shadow:0 10px 24px rgba(0,0,0,0.18);
     }
 
@@ -216,6 +217,7 @@
 
   <header>
     <nav class="navbar">
+
       <div class="logo">
         <img src="logo.png" alt="Bean to Brew Logo">
       </div>
@@ -224,15 +226,16 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="brew-school.html" class="active">Brew School</a></li>
         <li><a href="CoffeLab.html">Coffee Lab</a></li>
-        <li><a href="Experience-Creators.html">Experience Creators</a></li>
         <li><a href="student-dashboard.html">Student Dashboard</a></li>
         <li><a href="About-us.html">About Us</a></li>
+        <li><a href="Contact.html">Contact Us</a></li>
       </ul>
 
       <div class="nav-right">
         <button class="mode-btn">☀️</button>
         <input type="text" placeholder="Search" class="search-box">
       </div>
+
     </nav>
   </header>
 
@@ -244,86 +247,86 @@
     <span>›</span>
     <a href="BrewSchool.html">Brew School</a>
     <span>›</span>
-    <a href="lesson4.1.html">Lesson 4.1</a>
+    <a href="lesson5.1.html">Lesson 5.1</a>
     <span>›</span>
-    <a href="lesson4.2.html">Lesson 4.2</a>
+    <a href="lesson5.2.html">Lesson 5.2</a>
     <span>›</span>
-    <span>Quiz 4</span>
+    <span>Quiz 5</span>
   </div>
 </div>
 
     <div class="quiz-header">
-      <span class="quiz-badge">Lesson 4 Quiz</span>
-      <h1>Coffee Grinding</h1>
+      <span class="quiz-badge">Lesson 5 Quiz</span>
+      <h1>Brewing Methods</h1>
       <p>
-        Answer the following multiple-choice questions about grind size,
-        extraction, brewing methods, and coffee flavor.
+        Answer the following multiple-choice questions about brewing styles,
+        extraction methods, and how different techniques affect the final cup.
       </p>
     </div>
 
     <form class="quiz-form" action="result.html">
 
       <div class="question-card">
-        <h3>1) What may happen if the grind size is too fine?</h3>
+        <h3>1) What is brewing?</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q1"> Water passes too quickly and causes under-extraction</label>
-          <label class="option"><input type="radio" name="q1"> Water flow slows down too much and may cause over-extraction</label>
-          <label class="option"><input type="radio" name="q1"> Coffee becomes cold immediately</label>
-          <label class="option"><input type="radio" name="q1"> The beans turn green again</label>
+          <label class="option"><input type="radio" name="q1"> The process of roasting coffee beans</label>
+          <label class="option"><input type="radio" name="q1"> The process where water extracts flavor from ground coffee</label>
+          <label class="option"><input type="radio" name="q1"> The process of grinding beans only</label>
+          <label class="option"><input type="radio" name="q1"> The process of drying green coffee beans</label>
         </div>
       </div>
 
       <div class="question-card">
-        <h3>2) Which grind size is usually used for espresso?</h3>
+        <h3>2) Which brewing style creates a clean and lighter cup?</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q2"> Coarse</label>
-          <label class="option"><input type="radio" name="q2"> Medium</label>
-          <label class="option"><input type="radio" name="q2"> Fine</label>
-          <label class="option"><input type="radio" name="q2"> Extra Coarse</label>
+          <label class="option"><input type="radio" name="q2"> Immersion Brewing</label>
+          <label class="option"><input type="radio" name="q2"> Pressure Brewing</label>
+          <label class="option"><input type="radio" name="q2"> Percolation Brewing</label>
+          <label class="option"><input type="radio" name="q2"> Cold Storage Brewing</label>
         </div>
       </div>
 
       <div class="question-card">
-        <h3>3) Which grind size is commonly used for drip brewing and many filter coffees?</h3>
+        <h3>3) In immersion brewing, coffee grounds:</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q3"> Fine</label>
-          <label class="option"><input type="radio" name="q3"> Medium</label>
-          <label class="option"><input type="radio" name="q3"> Coarse</label>
-          <label class="option"><input type="radio" name="q3"> Powder-like</label>
+          <label class="option"><input type="radio" name="q3"> Stay in water for a longer time</label>
+          <label class="option"><input type="radio" name="q3"> Are pushed under high pressure</label>
+          <label class="option"><input type="radio" name="q3"> Do not touch water directly</label>
+          <label class="option"><input type="radio" name="q3"> Become lighter in color</label>
         </div>
       </div>
 
       <div class="question-card">
-        <h3>4) Which grind size is best for French press?</h3>
+        <h3>4) Which method uses high pressure and a short brew time?</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q4"> Fine</label>
-          <label class="option"><input type="radio" name="q4"> Medium-Fine</label>
-          <label class="option"><input type="radio" name="q4"> Coarse</label>
-          <label class="option"><input type="radio" name="q4"> Very Fine</label>
+          <label class="option"><input type="radio" name="q4"> V60</label>
+          <label class="option"><input type="radio" name="q4"> French Press</label>
+          <label class="option"><input type="radio" name="q4"> Cold Brew</label>
+          <label class="option"><input type="radio" name="q4"> Espresso</label>
         </div>
       </div>
 
       <div class="question-card">
-        <h3>5) As grind size becomes coarser, water flow speed usually becomes:</h3>
+        <h3>5) Which brewing method is known for being smooth and low in acidity?</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q5"> Slower</label>
-          <label class="option"><input type="radio" name="q5"> Faster</label>
-          <label class="option"><input type="radio" name="q5"> The same</label>
-          <label class="option"><input type="radio" name="q5"> Sweeter</label>
+          <label class="option"><input type="radio" name="q5"> Cold Brew</label>
+          <label class="option"><input type="radio" name="q5"> Espresso</label>
+          <label class="option"><input type="radio" name="q5"> V60</label>
+          <label class="option"><input type="radio" name="q5"> Moka Pot</label>
         </div>
       </div>
 
       <div class="question-card">
-        <h3>6) Which statement is correct?</h3>
+        <h3>6) Which method uses a paper filter and highlights flavor notes?</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q6"> Same coffee always tastes the same مهما تغيّر الطحن</label>
-          <label class="option"><input type="radio" name="q6"> Wrong grind size can ruin good coffee</label>
-          <label class="option"><input type="radio" name="q6"> Grind size does not affect extraction</label>
-          <label class="option"><input type="radio" name="q6"> All brewing methods need the same grind size</label>
+          <label class="option"><input type="radio" name="q6"> French Press</label>
+          <label class="option"><input type="radio" name="q6"> V60</label>
+          <label class="option"><input type="radio" name="q6"> Espresso</label>
+          <label class="option"><input type="radio" name="q6"> Cold Brew</label>
         </div>
       </div>
 
-      <div class="quiz-actions">
+     <div class="quiz-actions">
         <a href="lesson4.2.html" class="btn-back">Back to Lesson</a>
         <button type="submit" class="btn-submit">Submit Answers</button>
       </div>
@@ -331,7 +334,9 @@
   </main>
 
   <footer class="site-footer">
+
     <div class="footer-top">
+
       <div class="footer-logo">
         <img src="logo.png" alt="Bean to Brew Logo">
       </div>
@@ -344,6 +349,7 @@
 
       <div class="footer-social">
         <h3>Follow us</h3>
+
         <div class="social-icons">
           <a href="javascript:void(0);">
             <img src="instagramicon.png" alt="Instagram">
@@ -353,7 +359,9 @@
             <img src="Xicon.png" alt="X">
           </a>
         </div>
+
       </div>
+
     </div>
 
     <p class="footer-note">
@@ -363,6 +371,7 @@
     <p class="copyright">
       © 2026 Bean to Brew. All rights reserved.
     </p>
+
   </footer>
 
 </body>
