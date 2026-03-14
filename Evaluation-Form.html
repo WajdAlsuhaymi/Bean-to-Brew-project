@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bean to Brew - Evaluation Form</title>
 
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
@@ -18,68 +21,6 @@
       color: #3e2c23;
     }
 
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #26231F;
-      padding: 15px 40px;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-    }
-
-    .logo img {
-      width: 70px;
-      height: auto;
-      display: block;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: white;
-      font-size: 16px;
-      transition: 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: #f3d9b1;
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .mode-btn {
-      background: transparent;
-      border: none;
-      color: white;
-      font-size: 22px;
-      cursor: pointer;
-    }
-
-    .search-box {
-      padding: 8px 14px;
-      border: none;
-      outline: none;
-      border-radius: 20px;
-      font-size: 14px;
-    }
-
     .form-page {
       min-height: 100vh;
       padding: 50px 20px 80px;
@@ -89,9 +30,13 @@
       background-color: #f7f5f2;
     }
 
-    .evaluation-card {
+    .evaluation-wrapper {
       width: 100%;
       max-width: 700px;
+    }
+
+    .evaluation-card {
+      width: 100%;
       background-color: white;
       border: 1px solid #e5e5e5;
       border-radius: 12px;
@@ -99,25 +44,20 @@
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
     }
 
-    .back-link {
-      display: inline-block;
-      margin-bottom: 18px;
-      color: #7a5d49;
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 600;
-    }
-
-    .back-link:hover {
-      color: #2f241d;
-    }
-
     .evaluation-card h1 {
       font-size: 40px;
-      margin-bottom: 24px;
+      margin-bottom: 12px;
       color: #2f241d;
       font-family: 'Playfair Display', serif;
       text-align: center;
+    }
+
+    .evaluation-subtitle {
+      text-align: center;
+      font-size: 16px;
+      color: #7a5d49;
+      margin-bottom: 24px;
+      line-height: 1.7;
     }
 
     .teacher-photo {
@@ -193,6 +133,7 @@
       font-weight: 600;
       cursor: pointer;
       transition: 0.3s;
+      font-family: 'Playfair Display', serif;
     }
 
     .submit-btn:hover {
@@ -206,85 +147,29 @@
       color: #7a5d49;
     }
 
-    .site-footer {
-      background-image:
-        linear-gradient(rgba(35,24,18,0.80), rgba(35,24,18,0.80)),
-        url("Headerpic.png");
-      background-size: cover;
-      background-position: top center;
-      background-repeat: no-repeat;
-      padding: 25px 20px 40px;
-      text-align: center;
-      color: white;
+    .dashboard-bottom {
+      margin-top: 34px;
     }
 
-    .footer-top {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 5px;
-    }
-
-    .footer-logo img {
-      width: 300px;
-      padding: 10px;
-      filter: drop-shadow(0 5px 8px rgba(0,0,0,0.2));
-    }
-
-    .footer-contact h3,
-    .footer-social h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      margin-bottom: 8px;
-    }
-
-    .footer-contact p {
-      margin: 6px 0;
-      font-size: 16px;
-      font-weight: 600;
-    }
-
-    .social-icons {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 5px;
-    }
-
-    .social-icons a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .social-icons img {
-      width: 30px;
-      height: 30px;
-      object-fit: contain;
-      transition: transform 0.25s ease;
-      filter: brightness(1.4);
-    }
-
-    .social-icons img:hover {
-      transform: scale(1.15);
-    }
-
-    .social-divider {
-      width: 1px;
-      height: 22px;
-      background: rgba(0,0,0,0.6);
-    }
-
-    .footer-note {
-      font-size: 16px;
-      margin-top: 15px;
-    }
-
-    .copyright {
+    .back-btn {
+      display: inline-block;
+      min-width: 155px;
+      padding: 14px 28px;
+      border-radius: 14px;
       font-size: 15px;
-      margin-top: 10px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      background: #E6D8B5;
+      color: #2f241a;
+      box-shadow: 0 8px 18px rgba(62,39,22,0.06);
+      transition: 0.28s ease;
+      margin-left: 20px;
+    }
+
+    .back-btn:hover {
+      background: #d9c9a5;
+      transform: translateY(-2px);
     }
 
     @media (max-width: 768px) {
@@ -296,97 +181,107 @@
         font-size: 32px;
       }
 
-      .logo img {
-        width: 58px;
+      .teacher-photo {
+        width: 160px;
+        height: 160px;
       }
 
-      .search-box {
-        width: 160px;
+      .dashboard-bottom {
+        text-align: center;
+      }
+
+      .back-btn {
+        margin-left: 0;
       }
     }
   </style>
 </head>
 <body>
 
- <header>
-  <nav class="navbar">
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="logo.png" alt="Bean to Brew Logo">
+      </div>
 
-    <div class="logo">
-      <img src="logo.png" alt="Bean to Brew Logo">
-    </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="BrewSchool.html">Brew School</a></li>
+        <li><a href="CoffeLab.html">Coffee Lab</a></li>
+        <li><a href="student-dashboard.html" class="active">Student Dashboard</a></li>
+        <li><a href="About-us.html">About Us</a></li>
+        <li><a href="Contact.html">Contact Us</a></li>
+      </ul>
 
-    <ul class="nav-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Brew School</a></li>
-      <li><a href="CoffeLab.html">Coffee Lab</a></li>
-      <li><a href="#">Student Dashboard</a></li>
-      <li><a href="About-us.html">About Us</a></li>
-      <li><a href="Contact.html">Contact Us</a></li>
-    </ul>
-
-    <div class="nav-right">
-      <button class="mode-btn">☀️</button>
-      <input type="text" placeholder="Search" class="search-box">
-    </div>
-
-  </nav>
-</header>
+      <div class="nav-right">
+        <button class="mode-btn">☀️</button>
+        <input type="text" placeholder="Search" class="search-box">
+      </div>
+    </nav>
+  </header>
 
   <main class="form-page">
-    <div class="evaluation-card">
-      <a href="teachers-evaluation.html" class="back-link">← Back to Teachers Evaluation</a>
+    <div class="evaluation-wrapper">
 
-      <h1>Teacher Evaluation</h1>
+      <div class="evaluation-card">
+        <h1>Teacher Evaluation</h1>
+        <p class="evaluation-subtitle">Rate teachers and share your feedback.</p>
 
-      <div class="teacher-photo"></div>
+        <div class="teacher-photo"></div>
 
-      <form action="evaluation-success.html">
-        <div class="form-group">
-          <label for="teacher-name">Teacher Name</label>
-          <select id="teacher-name">
-            <option>Hamad</option>
-            <option>Eman</option>
-            <option>Joury</option>
-            <option>Abdurahman</option>
-            <option>Latifah</option>
-            <option>Sadeem</option>
-            <option>Saud</option>
-            <option>Fahad</option>
-            <option>Sara</option>
-            <option>Naser</option>
-            <option>Salman</option>
-            <option>Wajd</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>Rating</label>
-          <div class="stars">
-            <input type="radio" id="star5" name="rating">
-            <label for="star5">★</label>
-
-            <input type="radio" id="star4" name="rating">
-            <label for="star4">★</label>
-
-            <input type="radio" id="star3" name="rating">
-            <label for="star3">★</label>
-
-            <input type="radio" id="star2" name="rating">
-            <label for="star2">★</label>
-
-            <input type="radio" id="star1" name="rating">
-            <label for="star1">★</label>
+        <form action="evaluation-success.html">
+          <div class="form-group">
+            <label for="teacher-name">Teacher Name</label>
+            <select id="teacher-name" name="teacher-name">
+              <option>Hamad</option>
+              <option>Eman</option>
+              <option>Joury</option>
+              <option>Abdurahman</option>
+              <option>Latifah</option>
+              <option>Sadeem</option>
+              <option>Saud</option>
+              <option>Fahad</option>
+              <option>Sara</option>
+              <option>Naser</option>
+              <option>Salman</option>
+              <option>Wajd</option>
+            </select>
           </div>
-        </div>
 
-        <div class="form-group">
-          <label for="comment">Comment</label>
-          <textarea id="comment" placeholder="Write your feedback here..."></textarea>
-        </div>
+          <div class="form-group">
+            <label>Rating</label>
+            <div class="stars">
+              <input type="radio" id="star5" name="rating" value="5">
+              <label for="star5">★</label>
 
-        <button type="submit" class="submit-btn">Apply</button>
-        <p class="note">This form is for project presentation and visual interaction.</p>
-      </form>
+              <input type="radio" id="star4" name="rating" value="4">
+              <label for="star4">★</label>
+
+              <input type="radio" id="star3" name="rating" value="3">
+              <label for="star3">★</label>
+
+              <input type="radio" id="star2" name="rating" value="2">
+              <label for="star2">★</label>
+
+              <input type="radio" id="star1" name="rating" value="1">
+              <label for="star1">★</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="comment">Comment</label>
+            <textarea id="comment" name="comment" placeholder="Write your feedback here..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Apply</button>
+          <p class="note">This form is for project presentation and visual interaction.</p>
+        </form>
+      </div>
+
+      <div class="dashboard-bottom">
+        <a href="student-dashboard.html" class="back-btn">Back</a>
+      </div>
+
     </div>
   </main>
 
@@ -428,5 +323,4 @@
   </footer>
 
 </body>
-
 </html>
