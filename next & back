@@ -1,0 +1,45 @@
+//css
+
+    /* =============================== */
+    /* Lesson Navigation Buttons */
+    /* =============================== */
+    .lesson-buttons {
+      width: min(1150px, 92%);
+      margin: 30px auto 80px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .lesson-buttons a {
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 600;
+	  color:   #C1B393;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-back,
+    .btn-next {
+      background: #C1B393;
+      color: #2f241d;
+      border: 1px solid #b9997d;
+    }
+
+    .btn-back:hover,
+    .btn-next:hover {
+      background: #7a4d2c;
+      color: #EDE8DC;
+      transform: translateY(-3px);
+    }
+
+------------------------------------
+  
+// html
+ <!-- Lesson Navigation Buttons -->
+    <div class="lesson-buttons">
+      <a href="" >← Back</a>
+      <a href="" >Next →</a>
+    </div>
