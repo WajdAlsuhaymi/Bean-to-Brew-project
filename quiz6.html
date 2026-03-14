@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson 6 Quiz | Bean to Brew</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Playfair Display', serif;
+      color:#EDE8DC;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(193,179,147,0.14), transparent 18%),
+        radial-gradient(circle at 90% 12%, rgba(75,79,62,0.20), transparent 18%),
+        radial-gradient(circle at 50% 75%, rgba(122,77,44,0.12), transparent 24%),
+        linear-gradient(180deg, #14100f 0%, #1c1614 30%, #251d19 62%, #171210 100%);
+      overflow-x:hidden;
+    }
+
+    .quiz-page{
+      width:min(1000px, 92%);
+      margin:120px auto 80px;
+    }
+
+    .quiz-header{
+      text-align:center;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:30px;
+      padding:38px 28px;
+      margin-bottom:30px;
+      box-shadow:0 18px 40px rgba(0,0,0,0.18);
+    }
+
+    .quiz-badge{
+      display:inline-block;
+      padding:9px 20px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.12);
+      border:1px solid rgba(255,255,255,0.14);
+      color:#FDE9C7;
+      font-size:14px;
+      margin-bottom:18px;
+    }
+
+    .quiz-header h1{
+      font-size:clamp(2.2rem, 5vw, 3.4rem);
+      color:#fff;
+      margin-bottom:14px;
+    }
+
+    .quiz-header p{
+      color:#DDD2C8;
+      font-size:1.05rem;
+      line-height:1.9;
+      max-width:700px;
+      margin:auto;
+      font-family:Arial, sans-serif;
+    }
+
+    .quiz-form{
+      display:grid;
+      gap:24px;
+    }
+
+    .question-card{
+      background:linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:28px;
+      padding:28px 24px;
+      box-shadow:0 18px 35px rgba(0,0,0,0.14);
+    }
+
+    .question-card h3{
+      font-size:1.25rem;
+      margin-bottom:18px;
+      color:#FDE9C7;
+      line-height:1.6;
+    }
+
+    .options{
+      display:grid;
+      gap:14px;
+    }
+
+    .option{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:16px;
+      padding:14px 16px;
+      transition:0.3s ease;
+      cursor:pointer;
+      color:#F5EEE5;
+      line-height:1.7;
+      font-family:Arial, sans-serif;
+    }
+
+    .option:hover{
+      background:rgba(255,255,255,0.12);
+      border-color:rgba(253,233,199,0.25);
+    }
+
+    .option input{
+      accent-color:#C1B393;
+      transform:scale(1.15);
+      margin-top:3px;
+      cursor:pointer;
+      flex-shrink:0;
+    }
+
+    .quiz-actions{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      margin-top:8px;
+      flex-wrap:wrap;
+    }
+
+    .quiz-actions a,
+    .quiz-actions button{
+      min-width:170px;
+      text-align:center;
+      text-decoration:none;
+      padding:14px 24px;
+      border-radius:999px;
+      font-size:1rem;
+      font-weight:700;
+      border:none;
+      cursor:pointer;
+      transition:0.35s ease;
+      font-family:'Playfair Display', serif;
+    }
+
+    .btn-back{
+      background:rgba(255,255,255,0.05);
+      color:#FDE9C7;
+      border:1px solid rgba(253,233,199,0.16);
+    }
+
+    .btn-back:hover{
+      transform:translateY(-4px);
+      background:rgba(255,255,255,0.08);
+    }
+
+    .btn-submit{
+      color:#171210;
+      background:linear-gradient(90deg, #4B4F3E, #C1B393, #FDE9C7, #7A4D2C);
+      box-shadow:0 10px 24px rgba(0,0,0,0.18);
+    }
+
+    .btn-submit:hover{
+      transform:translateY(-4px);
+      box-shadow:0 14px 28px rgba(0,0,0,0.24);
+    }
+
+    @media (max-width:768px){
+      .quiz-page{
+        margin:100px auto 70px;
+      }
+
+      .question-card h3{
+        font-size:1.1rem;
+      }
+
+      .quiz-actions{
+        justify-content:center;
+      }
+    }
+
+    @media (max-width:480px){
+      .quiz-actions a,
+      .quiz-actions button{
+        width:100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+
+      <div class="logo">
+        <img src="logo.png" alt="Bean to Brew Logo">
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="brew-school.html" class="active">Brew School</a></li>
+        <li><a href="CoffeLab.html">Coffee Lab</a></li>
+        <li><a href="student-dashboard.html">Student Dashboard</a></li>
+        <li><a href="About-us.html">About Us</a></li>
+        <li><a href="Contact.html">Contact Us</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <button class="mode-btn">☀️</button>
+        <input type="text" placeholder="Search" class="search-box">
+      </div>
+
+    </nav>
+  </header>
+
+  <main class="quiz-page">
+    <div class="quiz-header">
+      <span class="quiz-badge">Lesson 6 Quiz</span>
+      <h1>Find Your Coffee Match</h1>
+      <p>
+        Answer the following multiple-choice questions about coffee comparison,
+        coffee bags, flavor profiles, and choosing the right coffee for your taste.
+      </p>
+    </div>
+
+    <form class="quiz-form" action="result.html">
+
+      <div class="question-card">
+        <h3>1) What helps you know how fresh the coffee is?</h3>
+        <div class="options">
+          <label class="option"><input type="radio" name="q1"> The coffee cup color</label>
+          <label class="option"><input type="radio" name="q1"> The roasting date</label>
+          <label class="option"><input type="radio" name="q1"> The shop location only</label>
+          <label class="option"><input type="radio" name="q1"> The milk amount</label>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>2) What does the CO₂ valve on a coffee bag do?</h3>
+        <div class="options">
+          <label class="option"><input type="radio" name="q2"> Adds sweetness to the coffee</label>
+          <label class="option"><input type="radio" name="q2"> Lets carbon dioxide out while protecting coffee from oxygen</label>
+          <label class="option"><input type="radio" name="q2"> Changes light roast into dark roast</label>
+          <label class="option"><input type="radio" name="q2"> Makes coffee colder</label>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>3) Which flavor profile is described as rich and warm?</h3>
+        <div class="options">
+          <label class="option"><input type="radio" name="q3"> Fruity</label>
+          <label class="option"><input type="radio" name="q3"> Bright</label>
+          <label class="option"><input type="radio" name="q3"> Chocolatey</label>
+          <label class="option"><input type="radio" name="q3"> Salty</label>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>4) Which flavor profile is often floral or tea-like?</h3>
+        <div class="options">
+          <label class="option"><input type="radio" name="q4"> Bright</label>
+          <label class="option"><input type="radio" name="q4"> Chocolatey</label>
+          <label class="option"><input type="radio" name="q4"> Nutty</label>
+          <label class="option"><input type="radio" name="q4"> Smoky only</label>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>5) In the coffee journey, which step controls extraction by changing particle size?</h3>
+        <div class="options">
+          <label class="option"><input type="radio" name="q5"> Roast</label>
+          <label class="option"><input type="radio" name="q5"> Grind</label>
+          <label class="option"><input type="radio" name="q5"> Cup</label>
+          <label class="option"><input type="radio" name="q5"> Origin</label>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>6) Which drink in the comparison table is usually made with milk and can be served iced?</h3>
+        <div class="options">
+          <label class="option"><input type="radio" name="q6"> Espresso</label>
+          <label class="option"><input type="radio" name="q6"> Latte</label>
+          <label class="option"><input type="radio" name="q6"> Cold Brew</label>
+          <label class="option"><input type="radio" name="q6"> Americano without change</label>
+        </div>
+      </div>
+
+      <div class="quiz-actions">
+        <a href="lesson6.2.html" class="btn-back">Back to Lesson</a>
+        <button type="submit" class="btn-submit">Submit Answers</button>
+      </div>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+
+    <div class="footer-top">
+
+      <div class="footer-logo">
+        <img src="logo.png" alt="Bean to Brew Logo">
+      </div>
+
+      <div class="footer-contact">
+        <h3>Contact us</h3>
+        <p>+966504256847</p>
+        <p>BeantoBrew@gmail.com</p>
+      </div>
+
+      <div class="footer-social">
+        <h3>Follow us</h3>
+
+        <div class="social-icons">
+          <a href="javascript:void(0);">
+            <img src="instagramicon.png" alt="Instagram">
+          </a>
+          <span class="social-divider"></span>
+          <a href="javascript:void(0);">
+            <img src="Xicon.png" alt="X">
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <p class="footer-note">
+      Learn, explore, and enjoy the world of coffee.
+    </p>
+
+    <p class="copyright">
+      © 2026 Bean to Brew. All rights reserved.
+    </p>
+
+  </footer>
+
+</body>
+</html>

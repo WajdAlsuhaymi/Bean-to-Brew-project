@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson 5 Quiz | Bean to Brew</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Playfair Display', serif;
+      color:#EDE8DC;
+      background:
+        radial-gradient(circle at 12% 10%, rgba(193,179,147,0.16), transparent 16%),
+        radial-gradient(circle at 88% 18%, rgba(75,79,62,0.22), transparent 18%),
+        linear-gradient(180deg, #161210 0%, #211915 38%, #2E241E 70%, #191412 100%);
+      overflow-x:hidden;
+    }
+
+    .quiz-page{
+      width:min(1000px, 92%);
+      margin:120px auto 80px;
+    }
+
+    .quiz-header{
+      text-align:center;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:30px;
+      padding:38px 28px;
+      margin-bottom:30px;
+      box-shadow:0 18px 40px rgba(0,0,0,0.18);
+    }
+
+    .quiz-badge{
+      display:inline-block;
+      padding:9px 20px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.12);
+      border:1px solid rgba(255,255,255,0.14);
+      color:#FDE9C7;
+      font-size:14px;
+      margin-bottom:18px;
+    }
+
+    .quiz-header h1{
+      font-size:clamp(2.2rem, 5vw, 3.4rem);
+      color:#fff;
+      margin-bottom:14px;
+    }
+
+    .quiz-header p{
+      color:#DDD2C8;
+      font-size:1.05rem;
+      line-height:1.9;
+      max-width:700px;
+      margin:auto;
+      font-family:Arial, sans-serif;
+    }
+
+    .quiz-form{
+      display:grid;
+      gap:24px;
+    }
+
+    .question-card{
+      background:linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:28px;
+      padding:28px 24px;
+      box-shadow:0 18px 35px rgba(0,0,0,0.14);
+    }
+
+    .question-card h3{
+      font-size:1.25rem;
+      margin-bottom:18px;
+      color:#FDE9C7;
+      line-height:1.6;
+    }
+
+    .options{
+      display:grid;
+      gap:14px;
+    }
+
+    .option{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:16px;
+      padding:14px 16px;
+      transition:0.3s ease;
+      cursor:pointer;
+      color:#F5EEE5;
+      line-height:1.7;
+      font-family:Arial, sans-serif;
+    }
+
+    .option:hover{
+      background:rgba(255,255,255,0.12);
+      border-color:rgba(253,233,199,0.25);
+    }
+
+    .option input{
+      accent-color:#C1B393;
+      transform:scale(1.15);
+      margin-top:3px;
+      cursor:pointer;
+      flex-shrink:0;
+    }
+
+    .quiz-actions{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      margin-top:8px;
+      flex-wrap:wrap;
+    }
+
+    .quiz-actions a,
+    .quiz-actions button{
+      min-width:170px;
+      text-align:center;
+      text-decoration:none;
+      padding:14px 24px;
+      border-radius:999px;
+      font-size:1rem;
+      font-weight:700;
+      border:none;
+      cursor:pointer;
+      transition:0.35s ease;
+      font-family:'Playfair Display', serif;
+    }
+
+    .btn-back{
+      background:rgba(255,255,255,0.05);
+      color:#FDE9C7;
+      border:1px solid rgba(253,233,199,0.16);
+    }
+
+    .btn-back:hover{
+      transform:translateY(-4px);
+      background:rgba(255,255,255,0.08);
+    }
+
+    .btn-submit{
+      background:linear-gradient(90deg, #4B4F3E, #C1B393, #FDE9C7, #7A4D2C);
+      color:#1A1411;
+      box-shadow:0 10px 24px rgba(0,0,0,0.18);
+    }
+
+    .btn-submit:hover{
+      transform:translateY(-4px);
+      box-shadow:0 14px 28px rgba(0,0,0,0.24);
+    }
+
+    @media (max-width:768px){
+      .quiz-page{
+        margin:100px auto 70px;
+      }
+
+      .question-card h3{
+        font-size:1.1rem;
+      }
+
+      .quiz-actions{
+        justify-content:center;
+      }
+    }
+
+    @media (max-width:480px){
+      .quiz-actions a,
+      .quiz-actions button{
+        width:100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+
+      <div class="logo">
+        <img src="logo.png" alt="Bean to Brew Logo">
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="brew-school.html" class="active">Brew School</a></li>
+        <li><a href="CoffeLab.html">Coffee Lab</a></li>
+        <li><a href="student-dashboard.html">Student Dashboard</a></li>
+        <li><a href="About-us.html">About Us</a></li>
+        <li><a href="Contact.html">Contact Us</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <button class="mode-btn">☀️</button>
+        <input type="text" placeholder="Search" class="search-box">
+      </div>
+
+    </nav>
+  </header>
+
+  <main class="quiz-page">
+    <div class="quiz-header">
+      <span class="quiz-badge">Lesson 5 Quiz</span>
+      <h1>Brewing Methods</h1>
+      <p>
+        Answer the following multiple-choice questions about brewing styles,
+        extraction methods, and how different techniques affect the final cup.
+      </p>
+    </div>
+
+    <form class="quiz-form" action="result.html">
+
+      <div class="question-card">
+        <h3>1) What is brewing?</h3>
+        <div class="options">
+          <label class="option"><input type="radio" name="q1"> The process of roasting coffee beans</label>
+          <label class="option"><input type="radio" name="q1"> The process where water extracts flavor from ground coffee</label>
+          <label class="option"><input type="radio" name="q1"> The process of grinding beans only</label>
+          <label class="option"><input type="radio" name="q1"> The process of drying green coffee beans</label>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>2) Which brewing style creates a clean and lighter cup?</h3>
+        <div class="options">
+          <label class="option"><input type="radio" name="q2"> Immersion Brewing</label>
+          <label class="option"><input type="radio" name="q2"> Pressure Brewing</label>
+          <label class="option"><input type="radio" name="q2"> Percolation Brewing</label>
+          <label class="option"><input type="radio" name="q2"> Cold Storage Brewing</label>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>3) In immersion brewing, coffee grounds:</h3>
+        <div class="options">
+          <label class="option"><input type="radio" name="q3"> Stay in water for a longer time</label>
+          <label class="option"><input type="radio" name="q3"> Are pushed under high pressure</label>
+          <label class="option"><input type="radio" name="q3"> Do not touch water directly</label>
+          <label class="option"><input type="radio" name="q3"> Become lighter in color</label>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>4) Which method uses high pressure and a short brew time?</h3>
+        <div class="options">
+          <label class="option"><input type="radio" name="q4"> V60</label>
+          <label class="option"><input type="radio" name="q4"> French Press</label>
+          <label class="option"><input type="radio" name="q4"> Cold Brew</label>
+          <label class="option"><input type="radio" name="q4"> Espresso</label>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>5) Which brewing method is known for being smooth and low in acidity?</h3>
+        <div class="options">
+          <label class="option"><input type="radio" name="q5"> Cold Brew</label>
+          <label class="option"><input type="radio" name="q5"> Espresso</label>
+          <label class="option"><input type="radio" name="q5"> V60</label>
+          <label class="option"><input type="radio" name="q5"> Moka Pot</label>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>6) Which method uses a paper filter and highlights flavor notes?</h3>
+        <div class="options">
+          <label class="option"><input type="radio" name="q6"> French Press</label>
+          <label class="option"><input type="radio" name="q6"> V60</label>
+          <label class="option"><input type="radio" name="q6"> Espresso</label>
+          <label class="option"><input type="radio" name="q6"> Cold Brew</label>
+        </div>
+      </div>
+
+     <div class="quiz-actions">
+        <a href="lesson4.2.html" class="btn-back">Back to Lesson</a>
+        <button type="submit" class="btn-submit">Submit Answers</button>
+      </div>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+
+    <div class="footer-top">
+
+      <div class="footer-logo">
+        <img src="logo.png" alt="Bean to Brew Logo">
+      </div>
+
+      <div class="footer-contact">
+        <h3>Contact us</h3>
+        <p>+966504256847</p>
+        <p>BeantoBrew@gmail.com</p>
+      </div>
+
+      <div class="footer-social">
+        <h3>Follow us</h3>
+
+        <div class="social-icons">
+          <a href="javascript:void(0);">
+            <img src="instagramicon.png" alt="Instagram">
+          </a>
+          <span class="social-divider"></span>
+          <a href="javascript:void(0);">
+            <img src="Xicon.png" alt="X">
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <p class="footer-note">
+      Learn, explore, and enjoy the world of coffee.
+    </p>
+
+    <p class="copyright">
+      © 2026 Bean to Brew. All rights reserved.
+    </p>
+
+  </footer>
+
+</body>
+</html>
