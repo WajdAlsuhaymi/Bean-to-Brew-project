@@ -12,7 +12,7 @@
   /* ===== Page ===== */
   .experience-page,
 .coffee-lab-page {
-  padding: 35px 32px 80px;
+  padding: 110px 32px 80px;
 min-height: 100vh;
   background:
   radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
@@ -20,6 +20,16 @@ min-height: 100vh;
   radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
   radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
   linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
+}
+
+.path-wrap{
+  position: static;
+  top: auto;
+  left: auto;
+  width: min(92%, 1320px);
+  margin: 0 auto 30px;
+  padding: 0;
+  z-index: auto;
 }
 
   .page-title h1 {
@@ -533,33 +543,7 @@ min-height: 100vh;
       transform: translateY(-3px);
     }
 	
-	 .path-wrap{
-        width:min(92%, 1320px);
-        margin:auto;
-        padding:34px 0 80px;
-		
-      }
-
-      .path-breadcrumb{
-        display:flex;
-        flex-wrap:wrap;
-        gap:10px;
-        align-items:center;
-        color:#fff7ef;
-        font-size:14px;
-        margin-bottom:20px;
-        animation:fadeUp 0.8s ease;
-      }
-
-      .path-breadcrumb a{
-        color:#fff7ef;
-        text-decoration:none;
-        transition:0.3s ease;
-      }
-
-      .path-breadcrumb a:hover{
-        color:#FDE9C7;
-      }
+	 
 	  
 </style>
 </head>
