@@ -19,16 +19,48 @@
     body{
       font-family:'Playfair Display', serif;
 	 
-      background: #3A2F2B;
+      background:
+  radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
+  radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
+  radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
+  radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
+  linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
       color:#EDE8DC;
       overflow-x:hidden;
     }
+		      .path-wrap{
+        width:min(92%, 1320px);
+        margin:auto;
+        padding:34px 0 80px;
+		
+      }
+
+      .path-breadcrumb{
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px;
+        align-items:center;
+        color:#fff7ef;
+        font-size:14px;
+        margin-bottom:20px;
+        animation:fadeUp 0.8s ease;
+      }
+
+      .path-breadcrumb a{
+        color:#fff7ef;
+        text-decoration:none;
+        transition:0.3s ease;
+      }
+
+      .path-breadcrumb a:hover{
+        color:#FDE9C7;
+      }
+
 
     .lesson-section{
       padding:90px 20px 70px;
       text-align:center;
 
-      background: #3A2F2B;
       color:#EDE8DC;
       radial-gradient(circle at top left, rgba(111,191,115,0.12), transparent 28%),
       radial-gradient(circle at top right, rgba(111,76,49,0.12), transparent 25%),
@@ -301,45 +333,39 @@
       z-index:2;
     }
 
-    .lesson-buttons{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      width:min(1100px, 92%);
-      margin:0 auto 70px;
-      gap:20px;
-      flex-wrap:wrap;
+    /* =============================== */
+    /* Lesson Navigation Buttons */
+    /* =============================== */
+    .lesson-buttons {
+      width: min(1150px, 92%);
+      margin: 30px auto 80px;
+      display: flex;
+      justify-content: space-between;
     }
 
-    .lesson-buttons a{
-      text-decoration:none;
-      padding:14px 30px;
-      border-radius:999px;
-      font-size:1rem;
-      transition:0.3s ease;
-      min-width:150px;
-      text-align:center;
+    .lesson-buttons a {
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 600;
+	  color:   #C1B393;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
     }
 
-    .btn-back{
-      background:#e7ddd2;
-      color:#4b382b;
-      border:1.5px solid #cbb39d;
+    .btn-back,
+    .btn-next {
+      background: #C1B393;
+      color: #2f241d;
+      border: 1px solid #b9997d;
     }
 
-    .btn-back:hover{
-      background:#dcccbb;
-      transform:translateY(-2px);
-    }
-
-    .btn-next{
-      background:linear-gradient(135deg, #6FBF73, #4da85a);
-      color:#fff;
-      box-shadow:0 12px 24px rgba(77,168,90,0.22);
-    }
-
-    .btn-next:hover{
-      transform:translateY(-3px) scale(1.02);
+    .btn-back:hover,
+    .btn-next:hover {
+      background: #7a4d2c;
+      color: #EDE8DC;
+      transform: translateY(-3px);
     }
 
     @media (max-width: 900px){
@@ -373,7 +399,7 @@
 <body>
 
   <!-- HEADER -->
-   <header>
+  <header>
   <nav class="navbar">
 
     <div class="logo">
@@ -397,6 +423,19 @@
   </nav>
 </header>
 
+<main>
+    <div class="path-wrap">
+
+      <div class="path-breadcrumb">
+        <a href="#">Home</a>
+        <span>›</span>
+        <a href="#">Brew School</a>
+        <span>›</span>
+        <span>Lesson 2.1</span>
+        <span>›</span>
+        <span>Lesson 2.2</span>
+      </div>
+</main>
   <!-- PAGE CONTENT -->
   <section class="lesson-section">
 
@@ -516,58 +555,43 @@
 
   </section>
 
-  <div class="lesson-buttons">
-    <a href="lesson2.1.html" class="btn-back">Back</a>
-    <a href="quiz.html" class="btn-next">Start Quiz</a>
+ <div class="lesson-buttons">
+    <a href="lesson2.1html" >← Back</a>
+    <a href="quiz2.html" >Start Quiz →</a>
   </div>
-
   <!-- FOOTER -->
   
-  
-<footer class="site-footer">
+   <footer class="site-footer">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <img src="logo.png" alt="Bean to Brew Logo">
+        </div>
 
-  <div class="footer-top">
+        <div class="footer-contact">
+          <h3>Contact us</h3>
+          <p>+966504256847</p>
+          <p>BeantoBrew@gmail.com</p>
+        </div>
 
-    <div class="footer-logo">
-      <img src="logo.png" alt="Bean to Brew Logo">
-    </div>
-
-    <div class="footer-contact">
-      <h3>Contact us</h3>
-      <p>+966504256847</p>
-      <p>BeantoBrew@gmail.com</p>
-    </div>
-
-    <div class="footer-social">
-      <h3>Follow us</h3>
-
-      <div class="social-icons">
-
-        <a href="javascript:void(0);">
-          <img src="instagramicon.png" alt="Instagram">
-        </a>
-
-        <span class="social-divider"></span>
-
-        <a href="javascript:void(0);">
-          <img src="Xicon.png" alt="X">
-        </a>
-
+        <div class="footer-social">
+          <h3>Follow us</h3>
+          <div class="social-icons">
+            <a href="https://instagram.com">
+              <img src="instagramicon.png" alt="Instagram">
+            </a>
+            <span class="social-divider"></span>
+            <a href="https://instagram.com">
+              <img src="Xicon.png" alt="X">
+            </a>
+          </div>
+        </div>
       </div>
 
-    </div>
+      <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
+      <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
+    </footer>
 
-  </div>
 
-  <p class="footer-note">
-    Learn, explore, and enjoy the world of coffee.
-  </p>
-
-  <p class="copyright">
-    © 2026 Bean to Brew. All rights reserved.
-  </p>
-
-</footer>
 
 
 </body>
