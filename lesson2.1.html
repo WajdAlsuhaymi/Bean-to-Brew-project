@@ -16,14 +16,48 @@
     }
 
     body {
-      background: linear-gradient(to bottom, #3A2F2B, #4B4F3E);
+      background:
+  radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
+  radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
+  radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
+  radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
+  linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
       color: #2f241d;
-      font-family: 'Playfair Display', serif;
     }
 
     .lesson2-page {
       overflow-x: hidden;
     }
+	
+	      .path-wrap{
+        width:min(92%, 1320px);
+        margin:auto;
+        padding:34px 0 80px;
+		
+      }
+
+      .path-breadcrumb{
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px;
+        align-items:center;
+        color:#fff7ef;
+        font-size:14px;
+        margin-bottom:20px;
+        animation:fadeUp 0.8s ease;
+      }
+
+      .path-breadcrumb a{
+        color:#fff7ef;
+        text-decoration:none;
+        transition:0.3s ease;
+      }
+
+      .path-breadcrumb a:hover{
+        color:#FDE9C7;
+      }
+
+
 
     .hero-lesson2 {
       position: relative;
@@ -34,6 +68,9 @@
       background:
         linear-gradient(rgba(20, 12, 8, 0.45), rgba(20, 12, 8, 0.52)),
         url("images/lesson2.jpg") center/cover no-repeat;
+		
+        border-radius:34px;
+        overflow:hidden;
     }
 
     .hero-lesson2::before {
@@ -352,57 +389,40 @@ text-align: center;
 margin: auto;
 max-width: 600px;
 }
-
+    /* =============================== */
+    /* Lesson Navigation Buttons */
+    /* =============================== */
     .lesson-buttons {
       width: min(1150px, 92%);
       margin: 30px auto 80px;
       display: flex;
       justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
     }
 
     .lesson-buttons a {
       text-decoration: none;
-      min-width: 150px;
-      text-align: center;
-      padding: 14px 26px;
-      border-radius: 999px;
-      font-size: 1rem;
-      transition: 0.3s ease;
+      font-size: 1.5rem;
+      font-weight: 600;
+	  color:   #C1B393;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
     }
 
-    .btn-back {
-      background:#C1B393;
-      color: #2f241d;
-      border:#b9997d;
-    }
-
-    .btn-back:hover {
-      background: #7a4d2c;
-    }
-
+    .btn-back,
     .btn-next {
-      background:#C1B393;
+      background: #C1B393;
       color: #2f241d;
-      border:#b9997d;
+      border: 1px solid #b9997d;
     }
 
+    .btn-back:hover,
     .btn-next:hover {
-       background: #7a4d2c;
+      background: #7a4d2c;
+      color: #EDE8DC;
+      transform: translateY(-3px);
     }
-
-    @media (max-width: 900px) {
-      .bean-card,
-      .bean-card.reverse,
-      .vietnam-card {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-lesson2 {
-        min-height: 75vh;
-        padding: 110px 6% 70px;
-      }
 
       .intro-card,
       .bean-text,
@@ -415,10 +435,7 @@ max-width: 600px;
         font-size: 2.3rem;
       }
 
-      .lesson-buttons {
-        justify-content: center;
-      }
-    }
+    
 
     @media (max-width: 600px) {
       .hero-content p,
@@ -437,8 +454,7 @@ max-width: 600px;
 </head>
 <body>
 
-  <!-- HEADER -->
- <header>
+  <!-- HEADER -->  <header>
   <nav class="navbar">
 
     <div class="logo">
@@ -446,8 +462,8 @@ max-width: 600px;
     </div>
 
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="BrewSchool.html"class="active">Brew School</a></li>
+      <li><a href="index.html"class="active">Home</a></li>
+      <li><a href="BrewSchool.html">Brew School</a></li>
       <li><a href="CoffeLab.html">Coffee Lab</a></li>
       <li><a href="student-dashboard.html">Student Dashboard</a></li>
       <li><a href="About-us.html">About Us</a></li>
@@ -465,7 +481,15 @@ max-width: 600px;
 
 
   <main class="lesson2-page">
+    <div class="path-wrap">
 
+      <div class="path-breadcrumb">
+        <a href="#">Home</a>
+        <span>›</span>
+        <a href="#">Brew School</a>
+        <span>›</span>
+        <span>Lesson 2.1</span>
+      </div>
     <section class="hero-lesson2">
       <div class="hero-content">
         <span class="lesson-badge">Lesson 2</span>
@@ -593,13 +617,12 @@ max-width: 600px;
         </div>
       </div>
     </section>
-
-    <div class="lesson-buttons">
-      <a href="lesson1.2.html" class="btn-back">Back</a>
-      <a href="lesson2.2.html" class="btn-next">Next</a>
+ <div class="lesson-buttons">
+      <a href="BrewSchool.html" >← Back</a>
+      <a href="lesson2.2.html" >Next →</a>
     </div>
+</main>
 
-  </main>
 
   <!-- FOOTER -->
   <footer class="site-footer">
