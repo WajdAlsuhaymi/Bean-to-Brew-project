@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lesson 5 Quiz | Bean to Brew</title>
+  <title>Lesson 4 Quiz | Bean to Brew</title>
 
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     *{
@@ -15,7 +15,7 @@
       box-sizing:border-box;
     }
 
-  body{
+      body{
            background:
   radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
   radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
@@ -25,18 +25,169 @@
   min-height:100vh;
 }
 
+    /* ===== Global Typography ===== */
+    h1, h2, h3, h4, h5, h6{
+      font-family:'Playfair Display', serif;
+    }
+
+    p{
+      font-family:Arial, sans-serif;
+    }
+
+    /* ===== Navbar ===== */
+    .navbar{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:80px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background-color:#26231F;
+      padding:0 40px;
+      z-index:1000;
+    }
+
+    .logo img{
+      width:60px;
+      height:auto;
+      display:block;
+    }
+
+    .nav-links{
+      list-style:none;
+      display:flex;
+      align-items:center;
+      gap:18px;
+      margin:0;
+      padding:0;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:white;
+      font-size:16px;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:#f3d9b1;
+    }
+
+    .nav-links a.active{
+      color:#f3d9b1;
+      font-weight:bold;
+    }
+
+    .nav-right{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .mode-btn{
+      background:transparent;
+      border:none;
+      color:white;
+      font-size:22px;
+      cursor:pointer;
+    }
+
+    .search-box{
+      padding:8px 12px;
+      border:none;
+      outline:none;
+      border-radius:20px;
+      font-size:14px;
+    }
+
+    /* ===== Hero ===== */
+    .hero{
+      width:100%;
+      min-height:100vh;
+      background-image:linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url("Headerpic.png");
+      background-size:cover;
+      background-position:center top;
+      display:flex;
+      align-items:center;
+      padding-top:80px;
+      padding-left:80px;
+    }
+
+    .hero-content{
+      margin-top:-280px;
+      margin-left:-60px;
+    }
+
+    .main-hero-title{
+      font-family:'Playfair Display', serif;
+      font-size:60px;
+      line-height:1.2;
+      margin:0;
+      text-align:left;
+    }
+
+    .beige-text{
+      color:#FDE9C7;
+    }
+
+    .white-text{
+      color:white;
+    }
+
+    /* ===== Breadcrumb ===== */
+    .path-wrap{
+      position:absolute;
+      top:110px;
+      left:80px;
+      width:auto;
+      margin:0;
+      padding:0;
+      z-index:5;
+    }
+
+    .path-breadcrumb{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:nowrap;
+      color:#fff7ef;
+      font-size:14px;
+      margin:0;
+      animation:fadeUp 0.8s ease;
+    }
+
+    .path-breadcrumb a,
+    .path-breadcrumb a:visited,
+    .path-breadcrumb a:active{
+      color:#fff7ef;
+      text-decoration:none;
+      transition:0.3s ease;
+    }
+
+    .path-breadcrumb a:hover{
+      color:#FDE9C7;
+      text-decoration:none;
+    }
+
+    .path-breadcrumb span{
+      color:#fff7ef;
+    }
+
+    /* ===== Quiz Layout ===== */
     .quiz-page{
       width:min(1000px, 92%);
-      margin:120px auto 80px;
+      margin:170px auto 80px;
     }
 
     .quiz-header{
       text-align:center;
-      background:rgba(255,255,255,0.06);
-      border:1px solid rgba(255,255,255,0.08);
+      background:#26231F;
       border-radius:30px;
-      padding:38px 28px;
+      padding:40px 30px;
       margin-bottom:30px;
+      color:white;
       box-shadow:0 18px 40px rgba(0,0,0,0.18);
     }
 
@@ -44,26 +195,24 @@
       display:inline-block;
       padding:9px 20px;
       border-radius:999px;
-      background:rgba(255,255,255,0.12);
-      border:1px solid rgba(255,255,255,0.14);
-      color:#FDE9C7;
+      background:#C1B393;
+      color:#2f241d;
       font-size:14px;
       margin-bottom:18px;
     }
 
     .quiz-header h1{
       font-size:clamp(2.2rem, 5vw, 3.4rem);
-      color:#fff;
+      color:#FDE9C7;
       margin-bottom:14px;
     }
 
     .quiz-header p{
-      color:#DDD2C8;
+      color:#EDE8DC;
       font-size:1.05rem;
       line-height:1.9;
       max-width:700px;
       margin:auto;
-      font-family:Arial, sans-serif;
     }
 
     .quiz-form{
@@ -72,8 +221,8 @@
     }
 
     .question-card{
-      background:linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
-      border:1px solid rgba(255,255,255,0.08);
+      background:#4B4F3E;
+      border:1px solid #4B4F3E;
       border-radius:28px;
       padding:28px 24px;
       box-shadow:0 18px 35px rgba(0,0,0,0.14);
@@ -95,30 +244,31 @@
       display:flex;
       align-items:flex-start;
       gap:12px;
-      background:rgba(255,255,255,0.08);
-      border:1px solid rgba(255,255,255,0.08);
+      background:#EDE8DC;
+      border:1px solid #d8ccbb;
       border-radius:16px;
       padding:14px 16px;
       transition:0.3s ease;
       cursor:pointer;
-      color:#F5EEE5;
+      color:#2f241d;
       line-height:1.7;
       font-family:Arial, sans-serif;
     }
 
     .option:hover{
-      background:rgba(255,255,255,0.12);
-      border-color:rgba(253,233,199,0.25);
+      background:#f7f1e7;
+      border-color:#C1B393;
     }
 
     .option input{
-      accent-color:#C1B393;
+      accent-color:#7a4d2c;
       transform:scale(1.15);
       margin-top:3px;
       cursor:pointer;
       flex-shrink:0;
     }
 
+    /* ===== Buttons ===== */
     .quiz-actions{
       display:flex;
       justify-content:space-between;
@@ -129,44 +279,143 @@
 
     .quiz-actions a,
     .quiz-actions button{
-      min-width:170px;
-      text-align:center;
       text-decoration:none;
-      padding:14px 24px;
-      border-radius:999px;
-      font-size:1rem;
-      font-weight:700;
-      border:none;
-      cursor:pointer;
-      transition:0.35s ease;
+      font-size:1.5rem;
+      font-weight:600;
+      color:#7a4d2c;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      transition:all 0.3s ease;
       font-family:'Playfair Display', serif;
+      background:transparent;
+      border:none;
+      padding:0;
+      cursor:pointer;
     }
 
-    .btn-back{
-      background:rgba(255,255,255,0.05);
-      color:#FDE9C7;
-      border:1px solid rgba(253,233,199,0.16);
+    .quiz-actions a:hover,
+    .quiz-actions button:hover{
+      color:#2f241d;
+      transform:translateY(-3px);
     }
 
-    .btn-back:hover{
-      transform:translateY(-4px);
-      background:rgba(255,255,255,0.08);
+    /* ===== Footer ===== */
+    .site-footer{
+      background-image:
+        linear-gradient(rgba(35,24,18,0.80), rgba(35,24,18,0.80)),
+        url("Headerpic.png");
+      background-size:cover;
+      background-position:top center;
+      background-repeat:no-repeat;
+      padding:25px 20px 40px;
+      text-align:center;
+      color:beige;
     }
 
-    .btn-submit{
-      background:linear-gradient(90deg, #4B4F3E, #C1B393, #FDE9C7, #7A4D2C);
-      color:#1A1411;
-      box-shadow:0 10px 24px rgba(0,0,0,0.18);
+    .footer-top{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:12px;
+      margin-bottom:5px;
     }
 
-    .btn-submit:hover{
-      transform:translateY(-4px);
-      box-shadow:0 14px 28px rgba(0,0,0,0.24);
+    .footer-logo img{
+      width:300px;
+      padding:10px;
+      filter:drop-shadow(0 5px 8px rgba(0,0,0,0.2));
+    }
+
+    .footer-contact h3,
+    .footer-social h3{
+      font-size:20px;
+      margin-bottom:8px;
+    }
+
+    .footer-contact p{
+      margin:6px 0;
+      font-size:16px;
+      font-weight:600;
+    }
+
+    .footer-social{
+      text-align:center;
+    }
+
+    .social-icons{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:15px;
+      margin-top:5px;
+    }
+
+    .social-icons a{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .social-icons img{
+      width:30px;
+      height:30px;
+      object-fit:contain;
+      transition:transform 0.25s ease;
+      filter:brightness(1.4);
+    }
+
+    .social-icons img:hover{
+      transform:scale(1.15);
+    }
+
+    .social-divider{
+      width:1px;
+      height:22px;
+      background:rgba(255,255,255,0.4);
+    }
+
+    .footer-note{
+      font-size:16px;
+      margin-top:15px;
+    }
+
+    .copyright{
+      font-size:15px;
+      margin-top:10px;
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(10px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
     }
 
     @media (max-width:768px){
+      .navbar{
+        padding:0 16px;
+      }
+
+      .logo img{
+        width:58px;
+      }
+
+      .search-box{
+        width:160px;
+      }
+
+      .path-wrap{
+        left:20px;
+        top:100px;
+      }
+
       .quiz-page{
-        margin:100px auto 70px;
+        margin:155px auto 70px;
       }
 
       .question-card h3{
@@ -182,161 +431,131 @@
       .quiz-actions a,
       .quiz-actions button{
         width:100%;
+        justify-content:center;
       }
     }
-		      .path-wrap{
-        width:min(92%, 1320px);
-        margin:auto;
-        padding:34px 0 80px;
-		
-      }
-
-      .path-breadcrumb{
-        display:flex;
-        flex-wrap:wrap;
-        gap:10px;
-        align-items:center;
-        color:#fff7ef;
-        font-size:14px;
-        margin-bottom:20px;
-        animation:fadeUp 0.8s ease;
-      }
-
-      .path-breadcrumb a{
-        color:#fff7ef;
-        text-decoration:none;
-        transition:0.3s ease;
-      }
-
-      .path-breadcrumb a:hover{
-        color:#FDE9C7;
-      }
   </style>
 </head>
 <body>
 
   <header>
     <nav class="navbar">
-
       <div class="logo">
         <img src="logo.png" alt="Bean to Brew Logo">
       </div>
 
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="brewSchool.html" class="active">Brew School</a></li>
+        <li><a href="brew-school.html" class="active">Brew School</a></li>
         <li><a href="CoffeLab.html">Coffee Lab</a></li>
+        <li><a href="Experience-Creators.html">Experience Creators</a></li>
         <li><a href="student-dashboard.html">Student Dashboard</a></li>
         <li><a href="About-us.html">About Us</a></li>
-        <li><a href="Contact.html">Contact Us</a></li>
       </ul>
 
       <div class="nav-right">
         <button class="mode-btn">☀️</button>
         <input type="text" placeholder="Search" class="search-box">
       </div>
-
     </nav>
   </header>
 
   <main class="quiz-page">
   
-  <div class="path-wrap">
-  <div class="path-breadcrumb">
-    <a href="index.html">Home</a>
-    <span>›</span>
-    <a href="BrewSchool.html">Brew School</a>
-    <span>›</span>
-    <a href="lesson4.1.html">Lesson 4.1</a>
-    <span>›</span>
-    <a href="lesson4.2.html">Lesson 4.2</a>
-    <span>›</span>
-    <span>Quiz 4</span>
-  </div>
-</div>
+    <div class="path-wrap">
+      <div class="path-breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <a href="BrewSchool.html">Brew School</a>
+        <span>›</span>
+        <a href="lesson4.1.html">Lesson 4.1</a>
+        <span>›</span>
+        <a href="lesson4.2.html">Lesson 4.2</a>
+        <span>›</span>
+        <span>Quiz 4</span>
+      </div>
+    </div>
 
     <div class="quiz-header">
       <span class="quiz-badge">Lesson 4 Quiz</span>
-      <h1>Brewing Methods</h1>
+      <h1>Coffee Grinding</h1>
       <p>
-        Answer the following multiple-choice questions about brewing styles,
-        extraction methods, and how different techniques affect the final cup.
+        Answer the following multiple-choice questions about grind size,
+        extraction, brewing methods, and coffee flavor.
       </p>
     </div>
 
     <form class="quiz-form" action="result.html">
 
       <div class="question-card">
-        <h3>1) What is brewing?</h3>
+        <h3>1) What may happen if the grind size is too fine?</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q1"> The process of roasting coffee beans</label>
-          <label class="option"><input type="radio" name="q1"> The process where water extracts flavor from ground coffee</label>
-          <label class="option"><input type="radio" name="q1"> The process of grinding beans only</label>
-          <label class="option"><input type="radio" name="q1"> The process of drying green coffee beans</label>
+          <label class="option"><input type="radio" name="q1"> Water passes too quickly and causes under-extraction</label>
+          <label class="option"><input type="radio" name="q1"> Water flow slows down too much and may cause over-extraction</label>
+          <label class="option"><input type="radio" name="q1"> Coffee becomes cold immediately</label>
+          <label class="option"><input type="radio" name="q1"> The beans turn green again</label>
         </div>
       </div>
 
       <div class="question-card">
-        <h3>2) Which brewing style creates a clean and lighter cup?</h3>
+        <h3>2) Which grind size is usually used for espresso?</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q2"> Immersion Brewing</label>
-          <label class="option"><input type="radio" name="q2"> Pressure Brewing</label>
-          <label class="option"><input type="radio" name="q2"> Percolation Brewing</label>
-          <label class="option"><input type="radio" name="q2"> Cold Storage Brewing</label>
+          <label class="option"><input type="radio" name="q2"> Coarse</label>
+          <label class="option"><input type="radio" name="q2"> Medium</label>
+          <label class="option"><input type="radio" name="q2"> Fine</label>
+          <label class="option"><input type="radio" name="q2"> Extra Coarse</label>
         </div>
       </div>
 
       <div class="question-card">
-        <h3>3) In immersion brewing, coffee grounds:</h3>
+        <h3>3) Which grind size is commonly used for drip brewing and many filter coffees?</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q3"> Stay in water for a longer time</label>
-          <label class="option"><input type="radio" name="q3"> Are pushed under high pressure</label>
-          <label class="option"><input type="radio" name="q3"> Do not touch water directly</label>
-          <label class="option"><input type="radio" name="q3"> Become lighter in color</label>
+          <label class="option"><input type="radio" name="q3"> Fine</label>
+          <label class="option"><input type="radio" name="q3"> Medium</label>
+          <label class="option"><input type="radio" name="q3"> Coarse</label>
+          <label class="option"><input type="radio" name="q3"> Powder-like</label>
         </div>
       </div>
 
       <div class="question-card">
-        <h3>4) Which method uses high pressure and a short brew time?</h3>
+        <h3>4) Which grind size is best for French press?</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q4"> V60</label>
-          <label class="option"><input type="radio" name="q4"> French Press</label>
-          <label class="option"><input type="radio" name="q4"> Cold Brew</label>
-          <label class="option"><input type="radio" name="q4"> Espresso</label>
+          <label class="option"><input type="radio" name="q4"> Fine</label>
+          <label class="option"><input type="radio" name="q4"> Medium-Fine</label>
+          <label class="option"><input type="radio" name="q4"> Coarse</label>
+          <label class="option"><input type="radio" name="q4"> Very Fine</label>
         </div>
       </div>
 
       <div class="question-card">
-        <h3>5) Which brewing method is known for being smooth and low in acidity?</h3>
+        <h3>5) As grind size becomes coarser, water flow speed usually becomes:</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q5"> Cold Brew</label>
-          <label class="option"><input type="radio" name="q5"> Espresso</label>
-          <label class="option"><input type="radio" name="q5"> V60</label>
-          <label class="option"><input type="radio" name="q5"> Moka Pot</label>
+          <label class="option"><input type="radio" name="q5"> Slower</label>
+          <label class="option"><input type="radio" name="q5"> Faster</label>
+          <label class="option"><input type="radio" name="q5"> The same</label>
+          <label class="option"><input type="radio" name="q5"> Sweeter</label>
         </div>
       </div>
 
       <div class="question-card">
-        <h3>6) Which method uses a paper filter and highlights flavor notes?</h3>
+        <h3>6) Which statement is correct?</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q6"> French Press</label>
-          <label class="option"><input type="radio" name="q6"> V60</label>
-          <label class="option"><input type="radio" name="q6"> Espresso</label>
-          <label class="option"><input type="radio" name="q6"> Cold Brew</label>
+          <label class="option"><input type="radio" name="q6"> Same coffee always tastes the same مهما تغيّر الطحن</label>
+          <label class="option"><input type="radio" name="q6"> Wrong grind size can ruin good coffee</label>
+          <label class="option"><input type="radio" name="q6"> Grind size does not affect extraction</label>
+          <label class="option"><input type="radio" name="q6"> All brewing methods need the same grind size</label>
         </div>
       </div>
 
-     <div class="quiz-actions">
-        <a href="lesson4.2.html" class="btn-back">Back to Lesson</a>
-        <button type="submit" class="btn-submit">Submit Answers</button>
+      <div class="quiz-actions">
+        <a href="lesson4.2.html">← Back</a>
+        <button type="submit">Submit →</button>
       </div>
     </form>
   </main>
 
   <footer class="site-footer">
-
     <div class="footer-top">
-
       <div class="footer-logo">
         <img src="logo.png" alt="Bean to Brew Logo">
       </div>
@@ -349,7 +568,6 @@
 
       <div class="footer-social">
         <h3>Follow us</h3>
-
         <div class="social-icons">
           <a href="javascript:void(0);">
             <img src="instagramicon.png" alt="Instagram">
@@ -359,9 +577,7 @@
             <img src="Xicon.png" alt="X">
           </a>
         </div>
-
       </div>
-
     </div>
 
     <p class="footer-note">
@@ -371,7 +587,6 @@
     <p class="copyright">
       © 2026 Bean to Brew. All rights reserved.
     </p>
-
   </footer>
 
 </body>
