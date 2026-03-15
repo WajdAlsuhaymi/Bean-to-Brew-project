@@ -22,10 +22,16 @@
     }
 
     body{
+	
       background:
-        radial-gradient(circle at top left, rgba(253,233,199,0.08), transparent 18%),
-        radial-gradient(circle at top right, rgba(75,79,62,0.12), transparent 20%),
-        linear-gradient(180deg, #1E1815 0%, #2A211D 35%, #241C18 65%, #1C1714 100%);
+  radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
+  radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
+  radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
+  radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
+  linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
+      color: #EDE8DC;
+
+
       color:#EDE8DC;
       overflow-x:hidden;
     }
@@ -37,6 +43,35 @@
     .lesson-page{
       width:100%;
     }
+		      .path-wrap{
+        width:min(92%, 1320px);
+        margin:auto;
+        padding:34px 0 80px;
+		
+      }
+
+      .path-breadcrumb{
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px;
+        align-items:center;
+        color:#fff7ef;
+        font-size:14px;
+        margin-bottom:20px;
+        animation:fadeUp 0.8s ease;
+      }
+
+      .path-breadcrumb a{
+        color:#fff7ef;
+        text-decoration:none;
+        transition:0.3s ease;
+      }
+
+      .path-breadcrumb a:hover{
+        color:#FDE9C7;
+      }
+
+
 
     /* ================= HERO ================= */
     .hero-lesson{
@@ -266,22 +301,22 @@
       text-align:center;
       padding:52px 24px;
       border-radius:32px;
-      background:
-        linear-gradient(145deg, rgba(237,232,220,0.08), rgba(193,179,147,0.08));
-      border:1px solid rgba(255,255,255,0.06);
+
+    background-color:#EDE8DC;     
+	border:1px solid rgba(255,255,255,0.06);
     }
 
     .bridge-section h3{
       font-family:'Playfair Display', serif;
       font-size:40px;
-      color:#FDE9C7;
+      color: #3A2F2B;
       margin-bottom:16px;
     }
 
     .bridge-section p{
       max-width:760px;
       margin:0 auto;
-      color:#E5DACE;
+      color:#5a3e2d;
       font-size:28px;
       line-height:1.7;
     }
@@ -298,10 +333,9 @@
       margin-top:44px;
       padding:56px 30px 48px;
       border-radius:34px;
-      background:
-        linear-gradient(135deg, rgba(75,79,62,0.78), rgba(58,47,43,0.82));
-      border:1px solid rgba(255,255,255,0.06);
-      box-shadow:0 20px 42px rgba(0,0,0,0.16);
+      background: linear-gradient(to bottom, #3A2F2B, #4B4F3E);
+      color: #2f241d;
+
     }
 
     .levels-section h2{
@@ -441,7 +475,7 @@
       min-height:100%;
       background-image:
         linear-gradient(rgba(20,14,11,0.18), rgba(20,14,11,0.18)),
-        url("roast-side-image.jpg");
+        url("Headerpic.png");
       background-size:cover;
       background-position:center;
       position:relative;
@@ -468,59 +502,41 @@
       line-height:2;
       font-size:18px;
     }
-
-    /* ================= NAV BUTTONS ================= */
-    .lesson-nav{
-      margin-top:44px;
-      display:flex;
-      justify-content:space-between;
-      gap:16px;
-      flex-wrap:wrap;
+    /* =============================== */
+    /* Lesson Navigation Buttons */
+    /* =============================== */
+    .lesson-buttons {
+      width: min(1150px, 92%);
+      margin: 30px auto 80px;
+      display: flex;
+      justify-content: space-between;
     }
 
-    .lesson-nav a{
-      min-width:175px;
-      text-align:center;
-      text-decoration:none;
-      padding:15px 26px;
-      border-radius:999px;
-      font-weight:700;
-      letter-spacing:0.2px;
-      transition:0.35s ease;
+    .lesson-buttons a {
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 600;
+	  color:   #C1B393;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
     }
 
-    .back-btn{
-      background:rgba(255,255,255,0.05);
-      border:1px solid rgba(253,233,199,0.18);
-      color:#FDE9C7;
+    .btn-back,
+    .btn-next {
+      background: #C1B393;
+      color: #2f241d;
+      border: 1px solid #b9997d;
     }
 
-    .back-btn:hover{
-      transform:translateY(-4px);
-      background:rgba(255,255,255,0.08);
+    .btn-back:hover,
+    .btn-next:hover {
+      background: #7a4d2c;
+      color: #EDE8DC;
+      transform: translateY(-3px);
     }
 
-    .quiz-btn{
-      background:linear-gradient(135deg, #FDE9C7, #C1B393);
-      color:#2B1F19;
-      box-shadow:0 12px 26px rgba(0,0,0,0.18);
-    }
-
-    .quiz-btn:hover{
-      transform:translateY(-4px);
-      box-shadow:0 16px 32px rgba(0,0,0,0.22);
-    }
-
-    @keyframes fadeUp{
-      from{
-        opacity:0;
-        transform:translateY(32px);
-      }
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
 
     /* ================= RESPONSIVE ================= */
     @media (max-width: 1100px){
@@ -639,30 +655,43 @@
 </head>
 <body>
 
+
   <header>
-    <nav class="navbar">
-      <div class="logo">
-        <img src="logo.png" alt="Bean to Brew Logo">
-      </div>
+  <nav class="navbar">
 
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="brew-school.html" class="active">Brew School</a></li>
-        <li><a href="CoffeLab.html">Coffee Lab</a></li>
-        <li><a href="Experience-Creators.html">Experience Creators</a></li>
-        <li><a href="student-dashboard.html">Student Dashboard</a></li>
-        <li><a href="About-us.html">About Us</a></li>
-      </ul>
+    <div class="logo">
+      <img src="logo.png" alt="Bean to Brew Logo">
+    </div>
 
-      <div class="nav-right">
-        <button class="mode-btn">☀️</button>
-        <input type="text" placeholder="Search" class="search-box">
-      </div>
-    </nav>
-  </header>
+    <ul class="nav-links">
+      <li><a href="index.html"class="active">Home</a></li>
+      <li><a href="BrewSchool.html">Brew School</a></li>
+      <li><a href="CoffeLab.html">Coffee Lab</a></li>
+      <li><a href="student-dashboard.html">Student Dashboard</a></li>
+      <li><a href="About-us.html">About Us</a></li>
+      <li><a href="Contact.html">Contact Us</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <button class="mode-btn">☀️</button>
+      <input type="text" placeholder="Search" class="search-box">
+    </div>
+
+  </nav>
+</header>
 
   <main class="lesson-page">
+    <div class="path-wrap">
 
+      <div class="path-breadcrumb">
+        <a href="#">Home</a>
+        <span>›</span>
+        <a href="#">Brew School</a>
+        <span>›</span>
+        <span>Lesson 3.1</span>
+        <span>›</span>
+        <span>Lesson 3.2</span>
+      </div>
     <section class="hero-lesson">
       <div class="hero-content">
         <h1>Roast Levels</h1>
@@ -779,10 +808,11 @@
         </p>
       </section>
 
-      <div class="lesson-nav">
-        <a href="lesson3.html" class="back-btn">Back</a>
-        <a href="quiz3.html" class="quiz-btn">Start Quiz</a>
-      </div>
+ <div class="lesson-buttons">
+    <a href="lesson3.1.html" >← Back</a>
+    <a href="quiz3.html" >Start Quiz →</a>
+  </div>
+
 
     </section>
   </main>
