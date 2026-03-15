@@ -9,70 +9,72 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+<header>
+  <nav class="navbar">
 
-  <header>
-    <nav class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="Bean to Brew Logo">
+    </div>
 
-      <div class="logo">
-        <img src="logo.png" alt="Bean to Brew Logo">
-      </div>
+    <ul class="nav-links">
+      <li><a href="index.html"class="active">Home</a></li>
+      <li><a href="BrewSchool.html">Brew School</a></li>
+      <li><a href="CoffeLab.html">Coffee Lab</a></li>
+      <li><a href="student-dashboard.html">Student Dashboard</a></li>
+      <li><a href="About-us.html">About Us</a></li>
+      <li><a href="Contact.html">Contact Us</a></li>
+    </ul>
 
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Brew School</a></li>
-        <li><a href="CoffeLab.html">Coffee Lab</a></li>
-        <li><a href="#">Student Dashboard</a></li>
-        <li><a href="About-us.html">About Us</a></li>
-        <li><a href="Contact.html">Contact Us</a></li>
-      </ul>
+    <div class="nav-right">
+      <button class="mode-btn">☀️</button>
+      <input type="text" placeholder="Search" class="search-box">
+    </div>
 
-      <div class="nav-right">
-        <button class="mode-btn">☀️</button>
-        <input type="text" placeholder="Search" class="search-box">
-      </div>
-
-    </nav>
-  </header>
+  </nav>
+</header>
 
   <main class="lesson6b-page">
     <style>
       .lesson6b-page{
         font-family:Arial, sans-serif;
         color:#EDE8DC;
-        background:
-          radial-gradient(circle at 10% 8%, rgba(193,179,147,0.14), transparent 18%),
-          radial-gradient(circle at 88% 14%, rgba(75,79,62,0.18), transparent 18%),
-          radial-gradient(circle at 50% 75%, rgba(122,77,44,0.10), transparent 24%),
-          linear-gradient(180deg, #14100f 0%, #1b1613 30%, #241c18 62%, #171210 100%);
+      background:
+  radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
+  radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
+  radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
+  radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
+  linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
         overflow:hidden;
       }
-
-      .lesson6b-wrap{
+	      .path-wrap{
         width:min(92%, 1320px);
         margin:auto;
         padding:34px 0 80px;
+		
       }
 
-      .lesson6b-breadcrumb{
+      .path-breadcrumb{
         display:flex;
         flex-wrap:wrap;
         gap:10px;
         align-items:center;
-        color:#cbb9a4;
+        color:#fff7ef;
         font-size:14px;
         margin-bottom:20px;
         animation:fadeUp 0.8s ease;
       }
 
-      .lesson6b-breadcrumb a{
-        color:#ead7b7;
+      .path-breadcrumb a{
+        color:#fff7ef;
         text-decoration:none;
         transition:0.3s ease;
       }
 
-      .lesson6b-breadcrumb a:hover{
+      .path-breadcrumb a:hover{
         color:#FDE9C7;
       }
+
+
 
       .lesson6b-hero{
         position:relative;
@@ -168,12 +170,13 @@
         background:rgba(255,255,255,0.03);
         border:1px solid rgba(255,255,255,0.06);
       }
-
-      .comparison-table{
-        width:100%;
-        border-collapse:collapse;
-        min-width:850px;
-      }
+.comparison-table{
+  width:90%;
+  margin:auto;
+  border-collapse:collapse;
+  min-width:650px;
+  font-size:14px;
+}
 
       .comparison-table th,
       .comparison-table td{
@@ -181,22 +184,20 @@
         text-align:center;
         border-bottom:1px solid rgba(255,255,255,0.06);
       }
-
-      .comparison-table th{
-        background:linear-gradient(135deg, rgba(193,179,147,0.18), rgba(75,79,62,0.22));
-        color:#FFF0DB;
-        font-family:'Playfair Display', serif;
-        font-size:18px;
-      }
-
-      .comparison-table td{
-        color:#E9DED2;
-        font-size:15px;
-      }
-
-      .comparison-table tr:nth-child(even) td{
-        background:rgba(255,255,255,0.02);
-      }
+.comparison-table th{
+  background:#6B7557;
+  color:#FFF4E6;
+  font-family:'Playfair Display', serif;
+  font-size:17px;
+}
+.comparison-table td{
+  color:#3A2F2B;
+  font-size:14px;
+  background:#F3E7D3;
+}
+.comparison-table tr:nth-child(even) td{
+  background:#E8D8C0;
+}
 
       .comparison-table tr:hover td{
         background:rgba(255,255,255,0.05);
@@ -332,63 +333,54 @@
         position:relative;
         z-index:1;
       }
+.journey-card.bean{
+  top:60px;
+  left:70px;
+  background:#7D8B63; /* زيتي واضح */
+}
 
-      .journey-card.bean{
-        top:65px;
-        left:55px;
-        background:linear-gradient(180deg, rgba(193,179,147,0.26), rgba(75,79,62,0.82));
-      }
+.journey-card.roast{
+  top:70px;
+  right:80px;
+  background:#9B6A4B; /* بني دافئ */
+}
 
-      .journey-card.roast{
-        top:165px;
-        right:70px;
-        background:linear-gradient(180deg, rgba(122,77,44,0.34), rgba(58,47,43,0.92));
-      }
+.journey-card.grind{
+  top:360px;
+  left:90px;
+  background:#6F755E; /* زيتي غامق واضح */
+}
 
-      .journey-card.grind{
-        top:345px;
-        left:170px;
-        background:linear-gradient(180deg, rgba(75,79,62,0.30), rgba(38,35,31,0.96));
-      }
+.journey-card.brew{
+  top:430px;
+  right:120px;
+  background:#8A5C42; /* بني أوضح */
+}
 
-      .journey-card.brew{
-        top:380px;
-        right:150px;
-        background:linear-gradient(180deg, rgba(193,179,147,0.22), rgba(58,47,43,0.94));
-      }
+.journey-card.cup{
+  bottom:70px;
+  left:50%;
+  transform:translateX(-50%);
+  width:280px;
+  min-height:210px;
+  text-align:center;
+  background:#C1B393; /* بيج واضح */
+}
 
-      .journey-card.cup{
-        bottom:55px;
-        left:50%;
-        transform:translateX(-50%);
-        width:260px;
-        min-height:190px;
-        text-align:center;
-        background:linear-gradient(180deg, rgba(210,189,150,0.24), rgba(122,77,44,0.92));
-      }
+.journey-card.cup h3,
+.journey-card.cup p,
+.journey-card.cup .journey-badge{
+  color:#3A2F2B;
+}
 
-      .journey-card.cup:hover{
-        transform:translateX(-50%) translateY(-8px) scale(1.02);
-      }
+.journey-card.cup .journey-badge{
+  background:rgba(58,47,43,0.10);
+  border:1px solid rgba(58,47,43,0.10);
+}
 
-      .journey-icon{
-        width:54px;
-        height:54px;
-        border-radius:18px;
-        display:grid;
-        place-items:center;
-        margin-bottom:14px;
-        font-size:28px;
-        background:rgba(255,255,255,0.10);
-        box-shadow:inset 0 8px 16px rgba(255,255,255,0.10);
-        position:relative;
-        z-index:1;
-      }
-
-      .journey-card.cup .journey-icon{
-        margin:0 auto 14px;
-      }
-
+.journey-card.cup .journey-icon{
+  margin:0 auto 14px;
+}
       .journey-bottom-text{
         max-width:900px;
         margin:34px auto 0;
@@ -397,43 +389,42 @@
         color:#ddd1c4;
       }
 
-      .lesson6b-actions{
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        gap:20px;
-      }
+    /* =============================== */
+    /* Lesson Navigation Buttons */
+    /* =============================== */
+    .lesson-buttons {
+      width: min(1150px, 92%);
+      margin: 30px auto 80px;
+      display: flex;
+      justify-content: space-between;
+    }
 
-      .lesson6b-btn{
-        min-width:180px;
-        text-align:center;
-        text-decoration:none;
-        padding:15px 28px;
-        border-radius:16px;
-        font-weight:700;
-        transition:0.3s ease;
-      }
+    .lesson-buttons a {
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 600;
+	  color:   #C1B393;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
 
-      .lesson6b-btn.back{
-        background:rgba(255,255,255,0.07);
-        color:#f3e7d8;
-        border:1px solid rgba(255,255,255,0.08);
-      }
+    .btn-back,
+    .btn-next {
+      background: #C1B393;
+      color: #2f241d;
+      border: 1px solid #b9997d;
+    }
 
-      .lesson6b-btn.back:hover{
-        background:rgba(255,255,255,0.12);
-        transform:translateY(-4px);
-      }
+    .btn-back:hover,
+    .btn-next:hover {
+      background: #7a4d2c;
+      color: #EDE8DC;
+      transform: translateY(-3px);
+    }
 
-      .lesson6b-btn.quiz{
-        color:#171210;
-        background:linear-gradient(90deg, #4B4F3E, #C1B393, #FDE9C7, #7A4D2C);
-        box-shadow:0 12px 24px rgba(0,0,0,0.18);
-      }
 
-      .lesson6b-btn.quiz:hover{
-        transform:translateY(-4px) scale(1.02);
-      }
 
       @keyframes fadeUp{
         from{
@@ -514,6 +505,17 @@
       }
     </style>
 
+    <div class="path-wrap">
+
+      <div class="path-breadcrumb">
+        <a href="#">Home</a>
+        <span>›</span>
+        <a href="#">Brew School</a>
+        <span>›</span>
+        <span>Lesson 6.1</span>
+        <span>›</span>
+        <span>Lesson 6.2</span>
+      </div>
 
       <section class="lesson6b-hero">
         <div class="lesson6b-hero-content">
@@ -630,13 +632,12 @@
         </p>
 
         <div class="journey-map">
-
-          <svg class="journey-lines" viewBox="0 0 1200 760" preserveAspectRatio="none">
-            <path d="M230 150 C340 170, 430 180, 820 210" />
-            <path d="M900 290 C840 305, 760 330, 420 430" />
-            <path d="M390 510 C510 505, 630 500, 760 500" />
-            <path d="M760 565 C700 610, 610 640, 600 690" />
-          </svg>
+<svg class="journey-lines" viewBox="0 0 1200 900" preserveAspectRatio="none">
+  <path d="M290 150 C430 170, 700 150, 900 190" />
+  <path d="M900 300 C760 330, 520 390, 330 450" />
+  <path d="M330 520 C500 520, 700 530, 860 560" />
+  <path d="M860 650 C790 720, 680 770, 600 790" />
+</svg>
 
           <article class="journey-card bean">
             <div class="journey-icon">🌱</div>
@@ -696,56 +697,45 @@
         </p>
       </section>
 
-      <div class="lesson6b-actions">
-        <a href="#" class="lesson6.1.html">Back</a>
-        <a href="#" class="quiz">Start Quiz</a>
-      </div>
+ <div class="lesson-buttons">
+    <a href="lesson6.1.html" >← Back</a>
+    <a href="quiz6.html" >Start Quiz →</a>
+  </div>
 
     </div>
   </main>
-
-  <footer class="site-footer">
-
-    <div class="footer-top">
-
-      <div class="footer-logo">
-        <img src="logo.png" alt="Bean to Brew Logo">
-      </div>
-
-      <div class="footer-contact">
-        <h3>Contact us</h3>
-        <p>+966504256847</p>
-        <p>BeantoBrew@gmail.com</p>
-      </div>
-
-      <div class="footer-social">
-        <h3>Follow us</h3>
-
-        <div class="social-icons">
-          <a href="javascript:void(0);">
-            <img src="instagramicon.png" alt="Instagram">
-          </a>
-
-          <span class="social-divider"></span>
-
-          <a href="javascript:void(0);">
-            <img src="Xicon.png" alt="X">
-          </a>
+  
+ <footer class="site-footer">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <img src="logo.png" alt="Bean to Brew Logo">
         </div>
 
+        <div class="footer-contact">
+          <h3>Contact us</h3>
+          <p>+966504256847</p>
+          <p>BeantoBrew@gmail.com</p>
+        </div>
+
+        <div class="footer-social">
+          <h3>Follow us</h3>
+          <div class="social-icons">
+            <a href="https://instagram.com">
+              <img src="instagramicon.png" alt="Instagram">
+            </a>
+            <span class="social-divider"></span>
+            <a href="https://instagram.com">
+              <img src="Xicon.png" alt="X">
+            </a>
+          </div>
+        </div>
       </div>
 
-    </div>
+      <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
+      <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
+    </footer>
 
-    <p class="footer-note">
-      Learn, explore, and enjoy the world of coffee.
-    </p>
 
-    <p class="copyright">
-      © 2026 Bean to Brew. All rights reserved.
-    </p>
-
-  </footer>
 
 </body>
 </html>
