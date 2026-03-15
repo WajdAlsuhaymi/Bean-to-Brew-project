@@ -27,36 +27,10 @@
       min-height: 100vh;
     }
 
-    .path-wrap {
-      width: min(92%, 1320px);
-      margin: auto;
-      padding: 34px 0 10px;
-    }
-
-    .path-breadcrumb {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      color: #fff7ef;
-      font-size: 14px;
-      margin-bottom: 20px;
-      animation: fadeUp 0.8s ease;
-    }
-
-    .path-breadcrumb a {
-      color: #fff7ef;
-      text-decoration: none;
-      transition: 0.3s ease;
-    }
-
-    .path-breadcrumb a:hover {
-      color: #FDE9C7;
-    }
-
     .form-page {
+      position: relative;
       min-height: 100vh;
-      padding: 20px 20px 30px;
+      padding: 150px 20px 30px;
       display: flex;
       justify-content: center;
       align-items: flex-start;
@@ -180,7 +154,6 @@
       color: #7a5d49;
     }
 
-    /* نفس الباك حق صديقتك */
     .lesson-buttons {
       width: min(1150px, 92%);
       margin: 30px auto 80px;
@@ -216,6 +189,10 @@
     }
 
     @media (max-width: 768px) {
+      .form-page {
+        padding: 140px 18px 30px;
+      }
+
       .evaluation-card {
         padding: 22px;
       }
@@ -235,10 +212,6 @@
 
       .lesson-buttons a {
         font-size: 1.2rem;
-      }
-
-      .path-wrap {
-        padding: 24px 0 6px;
       }
     }
   </style>
@@ -269,17 +242,18 @@
     </nav>
   </header>
 
-  <div class="path-wrap">
-    <div class="path-breadcrumb">
-      <a href="index.html">Home</a>
-      <span>›</span>
-      <a href="student-dashboard.html">Student Dashboard</a>
-      <span>›</span>
-      <span>Teacher Evaluation</span>
-    </div>
-  </div>
-
   <main class="form-page">
+
+    <div class="path-wrap">
+      <div class="path-breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <a href="student-dashboard.html">Student Dashboard</a>
+        <span>›</span>
+        <span>Teacher Evaluation</span>
+      </div>
+    </div>
+
     <div class="evaluation-wrapper">
 
       <div class="evaluation-card">
