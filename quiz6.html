@@ -15,7 +15,7 @@
       box-sizing:border-box;
     }
 
-    body{
+     body{
       background:
       radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
       radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
@@ -25,18 +25,169 @@
       min-height:100vh;
     }
 
+    /* ===== Global Typography ===== */
+    h1, h2, h3, h4, h5, h6{
+      font-family:'Playfair Display', serif;
+    }
+
+    p{
+      font-family:Arial, sans-serif;
+    }
+
+    /* ===== Navbar ===== */
+    .navbar{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:80px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background-color:#26231F;
+      padding:0 40px;
+      z-index:1000;
+    }
+
+    .logo img{
+      width:60px;
+      height:auto;
+      display:block;
+    }
+
+    .nav-links{
+      list-style:none;
+      display:flex;
+      align-items:center;
+      gap:18px;
+      margin:0;
+      padding:0;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:white;
+      font-size:16px;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:#f3d9b1;
+    }
+
+    .nav-links a.active{
+      color:#f3d9b1;
+      font-weight:bold;
+    }
+
+    .nav-right{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .mode-btn{
+      background:transparent;
+      border:none;
+      color:white;
+      font-size:22px;
+      cursor:pointer;
+    }
+
+    .search-box{
+      padding:8px 12px;
+      border:none;
+      outline:none;
+      border-radius:20px;
+      font-size:14px;
+    }
+
+    /* ===== Hero ===== */
+    .hero{
+      width:100%;
+      min-height:100vh;
+      background-image:linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url("Headerpic.png");
+      background-size:cover;
+      background-position:center top;
+      display:flex;
+      align-items:center;
+      padding-top:80px;
+      padding-left:80px;
+    }
+
+    .hero-content{
+      margin-top:-280px;
+      margin-left:-60px;
+    }
+
+    .main-hero-title{
+      font-family:'Playfair Display', serif;
+      font-size:60px;
+      line-height:1.2;
+      margin:0;
+      text-align:left;
+    }
+
+    .beige-text{
+      color:#FDE9C7;
+    }
+
+    .white-text{
+      color:white;
+    }
+
+    /* ===== Breadcrumb ===== */
+    .path-wrap{
+      position:absolute;
+      top:110px;
+      left:80px;
+      width:auto;
+      margin:0;
+      padding:0;
+      z-index:5;
+    }
+
+    .path-breadcrumb{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:nowrap;
+      color:#fff7ef;
+      font-size:14px;
+      margin:0;
+      animation:fadeUp 0.8s ease;
+    }
+
+    .path-breadcrumb a,
+    .path-breadcrumb a:visited,
+    .path-breadcrumb a:active{
+      color:#fff7ef;
+      text-decoration:none;
+      transition:0.3s ease;
+    }
+
+    .path-breadcrumb a:hover{
+      color:#FDE9C7;
+      text-decoration:none;
+    }
+
+    .path-breadcrumb span{
+      color:#fff7ef;
+    }
+
+    /* ===== Quiz Layout ===== */
     .quiz-page{
       width:min(1000px, 92%);
-      margin:120px auto 80px;
+      margin:170px auto 80px;
     }
 
     .quiz-header{
       text-align:center;
-      background:rgba(255,255,255,0.06);
-      border:1px solid rgba(255,255,255,0.08);
+      background:#26231F;
       border-radius:30px;
-      padding:38px 28px;
+      padding:40px 30px;
       margin-bottom:30px;
+      color:white;
       box-shadow:0 18px 40px rgba(0,0,0,0.18);
     }
 
@@ -44,26 +195,24 @@
       display:inline-block;
       padding:9px 20px;
       border-radius:999px;
-      background:rgba(255,255,255,0.12);
-      border:1px solid rgba(255,255,255,0.14);
-      color:#FDE9C7;
+      background:#C1B393;
+      color:#2f241d;
       font-size:14px;
       margin-bottom:18px;
     }
 
     .quiz-header h1{
       font-size:clamp(2.2rem, 5vw, 3.4rem);
-      color:#fff;
+      color:#FDE9C7;
       margin-bottom:14px;
     }
 
     .quiz-header p{
-      color:#DDD2C8;
+      color:#EDE8DC;
       font-size:1.05rem;
       line-height:1.9;
       max-width:700px;
       margin:auto;
-      font-family:Arial, sans-serif;
     }
 
     .quiz-form{
@@ -72,8 +221,8 @@
     }
 
     .question-card{
-      background:linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
-      border:1px solid rgba(255,255,255,0.08);
+      background:#4B4F3E;
+      border:1px solid #4B4F3E;
       border-radius:28px;
       padding:28px 24px;
       box-shadow:0 18px 35px rgba(0,0,0,0.14);
@@ -95,30 +244,31 @@
       display:flex;
       align-items:flex-start;
       gap:12px;
-      background:rgba(255,255,255,0.08);
-      border:1px solid rgba(255,255,255,0.08);
+      background:#EDE8DC;
+      border:1px solid #d8ccbb;
       border-radius:16px;
       padding:14px 16px;
       transition:0.3s ease;
       cursor:pointer;
-      color:#F5EEE5;
+      color:#2f241d;
       line-height:1.7;
       font-family:Arial, sans-serif;
     }
 
     .option:hover{
-      background:rgba(255,255,255,0.12);
-      border-color:rgba(253,233,199,0.25);
+      background:#f7f1e7;
+      border-color:#C1B393;
     }
 
     .option input{
-      accent-color:#C1B393;
+      accent-color:#7a4d2c;
       transform:scale(1.15);
       margin-top:3px;
       cursor:pointer;
       flex-shrink:0;
     }
 
+    /* ===== Buttons ===== */
     .quiz-actions{
       display:flex;
       justify-content:space-between;
@@ -132,7 +282,7 @@
       text-decoration:none;
       font-size:1.5rem;
       font-weight:600;
-      color:#C1B393;
+      color:#7a4d2c;
       display:inline-flex;
       align-items:center;
       gap:10px;
@@ -146,13 +296,126 @@
 
     .quiz-actions a:hover,
     .quiz-actions button:hover{
-      color:#EDE8DC;
+      color:#2f241d;
       transform:translateY(-3px);
     }
 
+    /* ===== Footer ===== */
+    .site-footer{
+      background-image:
+        linear-gradient(rgba(35,24,18,0.80), rgba(35,24,18,0.80)),
+        url("Headerpic.png");
+      background-size:cover;
+      background-position:top center;
+      background-repeat:no-repeat;
+      padding:25px 20px 40px;
+      text-align:center;
+      color:beige;
+    }
+
+    .footer-top{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:12px;
+      margin-bottom:5px;
+    }
+
+    .footer-logo img{
+      width:300px;
+      padding:10px;
+      filter:drop-shadow(0 5px 8px rgba(0,0,0,0.2));
+    }
+
+    .footer-contact h3,
+    .footer-social h3{
+      font-size:20px;
+      margin-bottom:8px;
+    }
+
+    .footer-contact p{
+      margin:6px 0;
+      font-size:16px;
+      font-weight:600;
+    }
+
+    .footer-social{
+      text-align:center;
+    }
+
+    .social-icons{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:15px;
+      margin-top:5px;
+    }
+
+    .social-icons a{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .social-icons img{
+      width:30px;
+      height:30px;
+      object-fit:contain;
+      transition:transform 0.25s ease;
+      filter:brightness(1.4);
+    }
+
+    .social-icons img:hover{
+      transform:scale(1.15);
+    }
+
+    .social-divider{
+      width:1px;
+      height:22px;
+      background:rgba(255,255,255,0.4);
+    }
+
+    .footer-note{
+      font-size:16px;
+      margin-top:15px;
+    }
+
+    .copyright{
+      font-size:15px;
+      margin-top:10px;
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(10px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
     @media (max-width:768px){
+      .navbar{
+        padding:0 16px;
+      }
+
+      .logo img{
+        width:58px;
+      }
+
+      .search-box{
+        width:160px;
+      }
+
+      .path-wrap{
+        left:20px;
+        top:100px;
+      }
+
       .quiz-page{
-        margin:100px auto 70px;
+        margin:155px auto 70px;
       }
 
       .question-card h3{
@@ -171,38 +434,11 @@
         justify-content:center;
       }
     }
-
-    .path-wrap{
-      width:min(92%, 1320px);
-      margin:auto;
-      padding:34px 0 80px;
-    }
-
-    .path-breadcrumb{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      align-items:center;
-      color:#fff7ef;
-      font-size:14px;
-      margin-bottom:20px;
-      animation:fadeUp 0.8s ease;
-    }
-
-    .path-breadcrumb a{
-      color:#fff7ef;
-      text-decoration:none;
-      transition:0.3s ease;
-    }
-
-    .path-breadcrumb a:hover{
-      color:#FDE9C7;
-    }
   </style>
 </head>
 <body>
 
- <header>
+  <header>
     <nav class="navbar">
 
       <div class="logo">
@@ -211,7 +447,7 @@
 
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="brewSchool.html" class="active">Brew School</a></li>
+        <li><a href="brew-school.html" class="active">Brew School</a></li>
         <li><a href="CoffeLab.html">Coffee Lab</a></li>
         <li><a href="student-dashboard.html">Student Dashboard</a></li>
         <li><a href="About-us.html">About Us</a></li>
