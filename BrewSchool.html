@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -186,6 +187,34 @@
       color: #EDE8DC;
       transform: translateY(-3px);
     }
+	
+	.path-wrap{
+        width:min(92%, 1320px);
+        margin:auto;
+        padding:34px 0 80px;
+		
+      }
+
+      .path-breadcrumb{
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px;
+        align-items:center;
+        color:#fff7ef;
+        font-size:14px;
+        margin-bottom:20px;
+        animation:fadeUp 0.8s ease;
+      }
+
+      .path-breadcrumb a{
+        color:#fff7ef;
+        text-decoration:none;
+        transition:0.3s ease;
+      }
+
+      .path-breadcrumb a:hover{
+        color:#FDE9C7;
+      }
 </style>
 </head>
 <body>
@@ -216,6 +245,14 @@
 
 
   <main class="brew-school-page">
+   <div class="path-wrap">
+  <div class="path-breadcrumb">
+    <a href="index.html">Home</a>
+	 <span>›</span>
+	 <a href="BrewSchool.html">BrewSchool</a>
+    
+  </div>
+</div>
     <section class="page-heading">
       <h1>Brew School</h1>
       <p>Choose a lesson and start your coffee learning journey.</p>
