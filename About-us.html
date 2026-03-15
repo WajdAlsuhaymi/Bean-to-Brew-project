@@ -8,19 +8,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
-body{
-           background:
-  radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
-  radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
-  radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
-  radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
-  linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
-  min-height:100vh;
-}
+    body{
+      background:
+      radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
+      radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
+      radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
+      radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
+      linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
+      min-height:100vh;
+    }
+
     /* ===== About Page ===== */
-  .about-page {
-  padding: 80px 60px;
-}
+    .about-page {
+      position: relative;
+      padding: 150px 60px 80px;
+    }
 
     .about-container {
       max-width: 1100px;
@@ -59,9 +61,9 @@ body{
     }
 
     /* ===== Teachers Section ===== */
-.teachers-section {
-  padding: 70px 60px 80px;
-}
+    .teachers-section {
+      padding: 70px 60px 80px;
+    }
 
     .teachers-container {
       max-width: 1100px;
@@ -140,7 +142,7 @@ body{
 
     @media (max-width: 768px) {
       .about-page {
-        padding: 50px 20px;
+        padding: 140px 20px 50px;
       }
 
       .about-page h1 {
@@ -163,7 +165,8 @@ body{
         grid-template-columns: 1fr;
       }
     }
-	  /* =============================== */
+
+    /* =============================== */
     /* Lesson Navigation Buttons */
     /* =============================== */
     .lesson-buttons {
@@ -177,7 +180,7 @@ body{
       text-decoration: none;
       font-size: 1.5rem;
       font-weight: 600;
-	  color:   #C1B393;
+      color:#C1B393;
       display: inline-flex;
       align-items: center;
       gap: 10px;
@@ -197,72 +200,45 @@ body{
       color: #EDE8DC;
       transform: translateY(-3px);
     }
-	
-	 .path-wrap{
-        width:min(92%, 1320px);
-        margin:auto;
-        padding:34px 0 80px;
-		
-      }
-
-      .path-breadcrumb{
-        display:flex;
-        flex-wrap:wrap;
-        gap:10px;
-        align-items:center;
-        color:#fff7ef;
-        font-size:14px;
-        margin-bottom:20px;
-        animation:fadeUp 0.8s ease;
-      }
-
-      .path-breadcrumb a{
-        color:#fff7ef;
-        text-decoration:none;
-        transition:0.3s ease;
-      }
-
-      .path-breadcrumb a:hover{
-        color:#FDE9C7;
-      }
   </style>
 </head>
 
 <body>
   <header>
-  <nav class="navbar">
+    <nav class="navbar">
 
-    <div class="logo">
-      <img src="logo.png" alt="Bean to Brew Logo">
-    </div>
+      <div class="logo">
+        <img src="logo.png" alt="Bean to Brew Logo">
+      </div>
 
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="BrewSchool.html">Brew School</a></li>
-      <li><a href="CoffeLab.html">Coffee Lab</a></li>
-      <li><a href="student-dashboard.html">Student Dashboard</a></li>
-      <li><a href="About-us.html"class="active">About Us</a></li>
-      <li><a href="Contact.html">Contact Us</a></li>
-    </ul>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="BrewSchool.html">Brew School</a></li>
+        <li><a href="CoffeLab.html">Coffee Lab</a></li>
+        <li><a href="student-dashboard.html">Student Dashboard</a></li>
+        <li><a href="About-us.html" class="active">About Us</a></li>
+        <li><a href="Contact.html">Contact Us</a></li>
+      </ul>
 
-    <div class="nav-right">
-      <button class="mode-btn">☀️</button>
-      <input type="text" placeholder="Search" class="search-box">
-    </div>
+      <div class="nav-right">
+        <button class="mode-btn">☀️</button>
+        <input type="text" placeholder="Search" class="search-box">
+      </div>
 
-  </nav>
-</header>
-
-<div class="path-wrap">
-  <div class="path-breadcrumb">
-    <a href="index.html">Home</a>
-    <span>›</span>
-    <span>About Us</span>
-  </div>
-</div>
+    </nav>
+  </header>
 
   <main>
     <section class="about-page">
+
+      <div class="path-wrap">
+        <div class="path-breadcrumb">
+          <a href="index.html">Home</a>
+          <span>›</span>
+          <span>About Us</span>
+        </div>
+      </div>
+
       <div class="about-container">
         <h1>About Us</h1>
 
@@ -391,41 +367,40 @@ body{
         </div>
       </div>
     </section>
-	<!-- Lesson Navigation Buttons -->
+
     <div class="lesson-buttons">
-      <a href="index.html" >← Back</a>
+      <a href="index.html">← Back</a>
     </div>
   </main>
 
   <footer class="site-footer">
-      <div class="footer-top">
-        <div class="footer-logo">
-          <img src="logo.png" alt="Bean to Brew Logo">
-        </div>
-
-        <div class="footer-contact">
-          <h3>Contact us</h3>
-          <p>+966504256847</p>
-          <p>BeantoBrew@gmail.com</p>
-        </div>
-
-        <div class="footer-social">
-          <h3>Follow us</h3>
-          <div class="social-icons">
-            <a href="https://instagram.com">
-              <img src="instagramicon.png" alt="Instagram">
-            </a>
-            <span class="social-divider"></span>
-            <a href="https://instagram.com">
-              <img src="Xicon.png" alt="X">
-            </a>
-          </div>
-        </div>
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src="logo.png" alt="Bean to Brew Logo">
       </div>
 
-      <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
-      <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
-    </footer>
+      <div class="footer-contact">
+        <h3>Contact us</h3>
+        <p>+966504256847</p>
+        <p>BeantoBrew@gmail.com</p>
+      </div>
+
+      <div class="footer-social">
+        <h3>Follow us</h3>
+        <div class="social-icons">
+          <a href="https://instagram.com">
+            <img src="instagramicon.png" alt="Instagram">
+          </a>
+          <span class="social-divider"></span>
+          <a href="https://instagram.com">
+            <img src="Xicon.png" alt="X">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
+    <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
+  </footer>
 </body>
 </html>
-
