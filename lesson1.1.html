@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lesson 2.2 | Coffee Taste</title>
+  <title>Lesson 1.1 | Coffee Taste</title>
 
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -17,27 +16,142 @@
     }
 
     body{
-	 
+      margin:0;
+      font-family:Arial, sans-serif;
       background:
-  radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
-  radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
-  radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
-  radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
-  linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
-      color:#EDE8DC;
+        radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
+        radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
+        radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
+        radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
+        linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
+      color:#3e2c23;
       overflow-x:hidden;
     }
-		     
 
+    /* ===== Global Typography ===== */
+    h1, h2, h3, h4, h5, h6{
+      font-family:'Playfair Display', serif;
+    }
 
+    p{
+      font-family:Arial, sans-serif;
+    }
+
+    /* ===== Navbar ===== */
+    .navbar{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:80px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background-color:#26231F;
+      padding:0 40px;
+      z-index:1000;
+    }
+
+    .logo img{
+      width:60px;
+      height:auto;
+      display:block;
+    }
+
+    .nav-links{
+      list-style:none;
+      display:flex;
+      align-items:center;
+      gap:18px;
+      margin:0;
+      padding:0;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:white;
+      font-size:16px;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:#f3d9b1;
+    }
+
+    .nav-links a.active{
+      color:#f3d9b1;
+      font-weight:bold;
+    }
+
+    .nav-right{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .mode-btn{
+      background:transparent;
+      border:none;
+      color:white;
+      font-size:22px;
+      cursor:pointer;
+    }
+
+    .search-box{
+      padding:8px 12px;
+      border:none;
+      outline:none;
+      border-radius:20px;
+      font-size:14px;
+    }
+
+    /* ===== Breadcrumb ===== */
+    main{
+      position:relative;
+    }
+
+    .path-wrap{
+      position:absolute;
+      top:110px;
+      left:80px;
+      width:auto;
+      margin:0;
+      padding:0;
+      z-index:5;
+    }
+
+    .path-breadcrumb{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:nowrap;
+      color:#fff7ef;
+      font-size:14px;
+      margin:0;
+    }
+
+    .path-breadcrumb a,
+    .path-breadcrumb a:visited,
+    .path-breadcrumb a:active{
+      color:#fff7ef;
+      text-decoration:none;
+      transition:0.3s ease;
+    }
+
+    .path-breadcrumb a:hover{
+      color:#FDE9C7;
+      text-decoration:none;
+    }
+
+    .path-breadcrumb span{
+      color:#fff7ef;
+    }
+
+    /* ===== Lesson Content ===== */
     .lesson-section{
-      padding:90px 20px 70px;
+      padding:170px 20px 70px;
       text-align:center;
-
       color:#EDE8DC;
-      radial-gradient(circle at top left, rgba(111,191,115,0.12), transparent 28%),
-      radial-gradient(circle at top right, rgba(111,76,49,0.12), transparent 25%),
-      linear-gradient(to bottom,#f8f5f1,#efe7dd);
       position:relative;
     }
 
@@ -65,26 +179,6 @@
       border-radius:50%;
     }
 
-    .breadcrumbs{
-      width:min(1150px, 92%);
-      margin:0 auto 35px;
-      text-align:left;
-      font-size:14px;
-      color:#7b6452;
-      position:relative;
-      z-index:2;
-    }
-
-    .breadcrumbs a{
-      text-decoration:none;
-      color:#7b6452;
-      margin-right:8px;
-    }
-
-    .breadcrumbs a:hover{
-      color:#ffffff;
-    }
-
     .lesson-section h2{
       font-size:clamp(2rem,4vw,3.2rem);
       margin-bottom:35px;
@@ -96,7 +190,7 @@
     .flavor-card{
       width:min(1050px, 92%);
       margin:0 auto 55px;
-  background-color:#C1B393;
+      background-color:#C1B393;
       backdrop-filter:blur(8px);
       border:1px solid rgba(80,55,35,0.08);
       box-shadow:0 20px 45px rgba(71,48,31,0.10);
@@ -173,7 +267,7 @@
       width:min(1100px, 92%);
       margin:0 auto 70px;
       padding:45px 25px;
-  background:#4B4F3E;
+      background:#4B4F3E;
       border-radius:34px;
       box-shadow:0 20px 45px rgba(71,48,31,0.10);
       border:1px solid rgba(80,55,35,0.08);
@@ -227,7 +321,7 @@
       padding:24px;
       font-size:1.5rem;
       font-weight:700;
-	  color:#4f6f52;
+      color:#4f6f52;
       line-height:1.5;
       box-shadow:0 14px 28px rgba(71,48,31,0.12);
     }
@@ -243,7 +337,7 @@
     .table-section{
       width:min(1100px, 92%);
       margin:0 auto 60px;
-  background-color:#C1B393;
+      background-color:#C1B393;
       border-radius:34px;
       padding:40px 28px 35px;
       box-shadow:0 20px 45px rgba(71,48,31,0.10);
@@ -306,42 +400,149 @@
       z-index:2;
     }
 
-    /* =============================== */
-    /* Lesson Navigation Buttons */
-    /* =============================== */
-    .lesson-buttons {
-      width: min(1150px, 92%);
-      margin: 30px auto 80px;
-      display: flex;
-      justify-content: space-between;
+    .lesson-buttons{
+  width:min(1150px, 92%);
+  margin:30px auto 80px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:relative;
+  z-index:2;
+}
+
+.lesson-buttons a{
+  text-decoration:none;
+  font-size:1.5rem;
+  font-weight:600;
+  color:#C1B393;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  transition:all 0.3s ease;
+}
+
+.lesson-buttons a:hover{
+  color:#EDE8DC;
+  transform:translateY(-3px);
+}
+
+    /* ===== Footer ===== */
+    .site-footer{
+      background-image:
+        linear-gradient(rgba(35,24,18,0.80), rgba(35,24,18,0.80)),
+        url("Headerpic.png");
+      background-size:cover;
+      background-position:top center;
+      background-repeat:no-repeat;
+      padding:25px 20px 40px;
+      text-align:center;
+      color:beige;
     }
 
-    .lesson-buttons a {
-      text-decoration: none;
-      font-size: 1.5rem;
-      font-weight: 600;
-	  color:   #C1B393;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      transition: all 0.3s ease;
+    .footer-top{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:12px;
+      margin-bottom:5px;
     }
 
-    .btn-back,
-    .btn-next {
-      background: #C1B393;
-      color: #2f241d;
-      border: 1px solid #b9997d;
+    .footer-logo img{
+      width:300px;
+      padding:10px;
+      filter:drop-shadow(0 5px 8px rgba(0,0,0,0.2));
     }
 
-    .btn-back:hover,
-    .btn-next:hover {
-      background: #7a4d2c;
-      color: #EDE8DC;
-      transform: translateY(-3px);
+    .footer-contact h3,
+    .footer-social h3{
+      font-size:20px;
+      margin-bottom:8px;
+      color:beige;
+    }
+
+    .footer-contact p{
+      margin:6px 0;
+      font-size:16px;
+      font-weight:600;
+      color:beige;
+    }
+
+    .footer-social{
+      text-align:center;
+    }
+
+    .social-icons{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:15px;
+      margin-top:5px;
+    }
+
+    .social-icons a{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .social-icons img{
+      width:30px;
+      height:30px;
+      object-fit:contain;
+      transition:transform 0.25s ease;
+      filter:brightness(1.4);
+    }
+
+    .social-icons img:hover{
+      transform:scale(1.15);
+    }
+
+    .social-divider{
+      width:1px;
+      height:22px;
+      background:rgba(255,255,255,0.4);
+    }
+
+    .footer-note{
+      font-size:16px;
+      margin-top:15px;
+      color:beige;
+    }
+
+    .copyright{
+      font-size:15px;
+      margin-top:10px;
+      color:beige;
     }
 
     @media (max-width: 900px){
+      .navbar{
+        padding:0 18px;
+      }
+
+      .nav-links{
+        gap:10px;
+      }
+
+      .nav-links a{
+        font-size:14px;
+      }
+
+      .path-wrap{
+        left:20px;
+        top:100px;
+      }
+
+      .path-breadcrumb{
+        font-size:13px;
+        gap:8px;
+        flex-wrap:wrap;
+      }
+
+      .lesson-section{
+        padding:160px 15px 60px;
+      }
+
       .criteria-grid{
         grid-template-columns:1fr;
       }
@@ -363,6 +564,12 @@
       }
 
       .lesson-buttons{
+        flex-direction:column;
+        gap:16px;
+      }
+
+      .lesson-buttons a{
+        width:100%;
         justify-content:center;
       }
     }
@@ -373,205 +580,190 @@
 
   <!-- HEADER -->
   <header>
-  <nav class="navbar">
+    <nav class="navbar">
+      <div class="logo">
+        <img src="logo.png" alt="Bean to Brew Logo">
+      </div>
 
-    <div class="logo">
-      <img src="logo.png" alt="Bean to Brew Logo">
-    </div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="BrewSchool.html">Brew School</a></li>
+        <li><a href="CoffeLab.html">Coffee Lab</a></li>
+        <li><a href="student-dashboard.html">Student Dashboard</a></li>
+        <li><a href="About-us.html">About Us</a></li>
+        <li><a href="Contact.html">Contact Us</a></li>
+      </ul>
 
-    <ul class="nav-links">
-      <li><a href="index.html"class="active">Home</a></li>
-      <li><a href="BrewSchool.html">Brew School</a></li>
-      <li><a href="CoffeLab.html">Coffee Lab</a></li>
-      <li><a href="student-dashboard.html">Student Dashboard</a></li>
-      <li><a href="About-us.html">About Us</a></li>
-      <li><a href="Contact.html">Contact Us</a></li>
-    </ul>
+      <div class="nav-right">
+        <button class="mode-btn">☀️</button>
+        <input type="text" placeholder="Search" class="search-box">
+      </div>
+    </nav>
+  </header>
 
-    <div class="nav-right">
-      <button class="mode-btn">☀️</button>
-      <input type="text" placeholder="Search" class="search-box">
-    </div>
-
-  </nav>
-</header>
-
-
-<main>
-
+  <main>
     <div class="path-wrap">
-
       <div class="path-breadcrumb">
         <a href="index.html">Home</a>
         <span>›</span>
         <a href="BrewSchool.html">Brew School</a>
         <span>›</span>
-<a href="lesson2.1.html">lesson2.1</a>     
+        <a href="lesson1.1.html">lesson1.1</a>
         <span>›</span>
-<a href="lesson2.2.html">lesson2.2</a>     
-      </div>
-  <!-- PAGE CONTENT -->
-  <section class="lesson-section">
-
-
-    <h2>How Do We Describe Coffee Taste?</h2>
-
-    <div class="flavor-card">
-      <div class="flavor-title">
-        <h3>☕ Flavor Scale</h3>
-      </div>
-
-      <div class="scale-block">
-        <div class="scale-labels">
-          <span>Low</span>
-          <span>Medium</span>
-          <span>High</span>
-        </div>
-
-        <div class="scale-bar">
-          <div class="scale-dot dot1"></div>
-          <div class="scale-dot dot2"></div>
-          <div class="scale-dot dot3"></div>
-          <div class="scale-dot dot4"></div>
-        </div>
-      </div>
-
-      <div class="scale-block">
-        <div class="scale-labels">
-          <span>Light</span>
-          <span>Heavy</span>
-        </div>
-
-        <div class="scale-bar">
-          <div class="scale-dot dot2"></div>
-        </div>
+        <a href="lesson1.2.html">lesson1.2</a>
       </div>
     </div>
 
-    <div class="criteria-section">
-      <div class="criteria-grid">
+    <!-- PAGE CONTENT -->
+    <section class="lesson-section">
+      <h2>How Do We Describe Coffee Taste?</h2>
 
-        <div class="criteria-side">
-          <div class="criteria-box">Sweetness</div>
-          <div class="criteria-box">Body</div>
+      <div class="flavor-card">
+        <div class="flavor-title">
+          <h3>☕ Flavor Scale</h3>
         </div>
 
-        <div class="criteria-center">
-          Key Coffee<br>
-          Evaluation<br>
-          Criteria
+        <div class="scale-block">
+          <div class="scale-labels">
+            <span>Low</span>
+            <span>Medium</span>
+            <span>High</span>
+          </div>
+
+          <div class="scale-bar">
+            <div class="scale-dot dot1"></div>
+            <div class="scale-dot dot2"></div>
+            <div class="scale-dot dot3"></div>
+            <div class="scale-dot dot4"></div>
+          </div>
         </div>
 
-        <div class="criteria-side">
-          <div class="criteria-box">Acidity</div>
-          <div class="criteria-box">Bitterness</div>
-        </div>
+        <div class="scale-block">
+          <div class="scale-labels">
+            <span>Light</span>
+            <span>Heavy</span>
+          </div>
 
-      </div>
-
-      <div class="bottom-criteria">
-        <div class="criteria-box">Flavor Notes</div>
-        <div class="criteria-box">Aroma</div>
-      </div>
-    </div>
-
-    <div class="table-section">
-      <h2>Arabica vs Robusta</h2>
-
-      <table>
-        <tr>
-          <th>Criteria</th>
-          <th>Arabica</th>
-          <th>Robusta</th>
-        </tr>
-
-        <tr>
-          <td>Acidity</td>
-          <td>Higher – Bright & Fruity</td>
-          <td>Lower – Mild</td>
-        </tr>
-
-        <tr>
-          <td>Sweetness</td>
-          <td>More Natural Sweetness</td>
-          <td>Less Sweet</td>
-        </tr>
-
-        <tr>
-          <td>Bitterness</td>
-          <td>Mild</td>
-          <td>Strong & Bold</td>
-        </tr>
-
-        <tr>
-          <td>Body</td>
-          <td>Light to Medium</td>
-          <td>Medium to Heavy</td>
-        </tr>
-
-        <tr>
-          <td>Aroma</td>
-          <td>Complex & Aromatic</td>
-          <td>Strong but Simpler</td>
-        </tr>
-
-        <tr>
-          <td>Aftertaste</td>
-          <td>Smooth & Long-lasting</td>
-          <td>Shorter & Strong</td>
-        </tr>
-      </table>
-    </div>
-
-    <p class="final-text">
-      Coffee is not just one simple flavor. Its taste is shaped by different standards and bean types, each offering a unique experience. By understanding these characteristics, you can better appreciate the differences between Arabica and Robusta and begin to explore coffee with deeper knowledge.
-    </p>
-
-  </section>
-
- <div class="lesson-buttons">
-    <a href="lesson2.1.html" >← Back</a>
-    <a href="lesson2-quiz.html" >Start Quiz →</a>
-  </div>
-  </main>
-
-  <!-- FOOTER -->
-  
-
- <footer class="site-footer">
-      <div class="footer-top">
-        <div class="footer-logo">
-          <img src="logo.png" alt="Bean to Brew Logo">
-        </div>
-
-        <div class="footer-contact">
-          <h3>Contact us</h3>
-          <p>+966504256847</p>
-          <p>BeantoBrew@gmail.com</p>
-        </div>
-
-        <div class="footer-social">
-          <h3>Follow us</h3>
-          <div class="social-icons">
-            <a href="https://instagram.com">
-              <img src="instagramicon.png" alt="Instagram">
-            </a>
-            <span class="social-divider"></span>
-            <a href="https://instagram.com">
-              <img src="Xicon.png" alt="X">
-            </a>
+          <div class="scale-bar">
+            <div class="scale-dot dot2"></div>
           </div>
         </div>
       </div>
 
-      <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
-      <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
-    </footer>
+      <div class="criteria-section">
+        <div class="criteria-grid">
+          <div class="criteria-side">
+            <div class="criteria-box">Sweetness</div>
+            <div class="criteria-box">Body</div>
+          </div>
 
+          <div class="criteria-center">
+            Key Coffee<br>
+            Evaluation<br>
+            Criteria
+          </div>
 
+          <div class="criteria-side">
+            <div class="criteria-box">Acidity</div>
+            <div class="criteria-box">Bitterness</div>
+          </div>
+        </div>
 
+        <div class="bottom-criteria">
+          <div class="criteria-box">Flavor Notes</div>
+          <div class="criteria-box">Aroma</div>
+        </div>
+      </div>
 
+      <div class="table-section">
+        <h2>Arabica vs Robusta</h2>
+
+        <table>
+          <tr>
+            <th>Criteria</th>
+            <th>Arabica</th>
+            <th>Robusta</th>
+          </tr>
+
+          <tr>
+            <td>Acidity</td>
+            <td>Higher – Bright & Fruity</td>
+            <td>Lower – Mild</td>
+          </tr>
+
+          <tr>
+            <td>Sweetness</td>
+            <td>More Natural Sweetness</td>
+            <td>Less Sweet</td>
+          </tr>
+
+          <tr>
+            <td>Bitterness</td>
+            <td>Mild</td>
+            <td>Strong & Bold</td>
+          </tr>
+
+          <tr>
+            <td>Body</td>
+            <td>Light to Medium</td>
+            <td>Medium to Heavy</td>
+          </tr>
+
+          <tr>
+            <td>Aroma</td>
+            <td>Complex & Aromatic</td>
+            <td>Strong but Simpler</td>
+          </tr>
+
+          <tr>
+            <td>Aftertaste</td>
+            <td>Smooth & Long-lasting</td>
+            <td>Shorter & Strong</td>
+          </tr>
+        </table>
+      </div>
+
+      <p class="final-text">
+        Coffee is not just one simple flavor. Its taste is shaped by different standards and bean types, each offering a unique experience. By understanding these characteristics, you can better appreciate the differences between Arabica and Robusta and begin to explore coffee with deeper knowledge.
+      </p>
+    </section>
+
+    <div class="lesson-buttons">
+      <a href="BrewSchool.html">← Back</a>
+      <a href="lesson1.2.html">Next →</a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src="logo.png" alt="Bean to Brew Logo">
+      </div>
+
+      <div class="footer-contact">
+        <h3>Contact us</h3>
+        <p>+966504256847</p>
+        <p>BeantoBrew@gmail.com</p>
+      </div>
+
+      <div class="footer-social">
+        <h3>Follow us</h3>
+        <div class="social-icons">
+          <a href="https://instagram.com">
+            <img src="instagramicon.png" alt="Instagram">
+          </a>
+          <span class="social-divider"></span>
+          <a href="https://instagram.com">
+            <img src="Xicon.png" alt="X">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
+    <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
-
