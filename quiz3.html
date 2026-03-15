@@ -147,30 +147,35 @@ margin-top:3px;
 /* Buttons */
 
 .quiz-actions{
-display:flex;
-justify-content:space-between;
-margin-top:8px;
+  width:min(1150px, 92%);
+  margin:30px auto 80px;
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
 }
 
 .quiz-actions a,
 .quiz-actions button{
-text-decoration:none;
-font-size:1.5rem;
-font-weight:600;
-color:#7a4d2c;
-display:inline-flex;
-align-items:center;
-gap:10px;
-background:transparent;
-border:none;
-cursor:pointer;
-font-family:'Playfair Display', serif;
+  text-decoration:none;
+  font-size:1.5rem;
+  font-weight:600;
+  color:#C1B393;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  transition:all 0.3s ease;
+  font-family:'Playfair Display', serif;
+  background:transparent;
+  border:none;
+  padding:0;
+  cursor:pointer;
 }
 
 .quiz-actions a:hover,
 .quiz-actions button:hover{
-color:#2f241d;
-transform:translateY(-3px);
+  color:#7a4d2c;
+  transform:translateY(-3px);
 }
 
 </style>
