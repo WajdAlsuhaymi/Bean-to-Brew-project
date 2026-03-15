@@ -5,27 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student Dashboard</title>
   <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     .dashboard-page{
       min-height:100vh;
-            background:
-  radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
-  radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
-  radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
-  radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
-  linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
-    }
-	
-	.dashboard-section h1{
-     color:#EDE8DC;
-     margin-bottom:10px;
+      background:
+      radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
+      radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
+      radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
+      radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
+      linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
     }
 
     .dashboard-section{
+      position:relative;
       text-align:center;
-      padding:70px 20px 90px;
+      padding:150px 20px 90px;
+    }
+
+    .dashboard-section h1{
+      color:#EDE8DC;
+      margin-bottom:10px;
     }
 
     .dashboard-subtitle{
@@ -107,11 +108,9 @@
       background-color:#d8d1c7;
     }
 
-   
-
     @media (max-width:768px){
       .dashboard-section{
-        padding:50px 18px 70px;
+        padding:140px 18px 70px;
       }
 
       .dashboard-subtitle{
@@ -132,7 +131,8 @@
         font-size:18px;
       }
     }
-	  /* =============================== */
+
+    /* =============================== */
     /* Lesson Navigation Buttons */
     /* =============================== */
     .lesson-buttons {
@@ -146,7 +146,7 @@
       text-decoration: none;
       font-size: 1.5rem;
       font-weight: 600;
-	  color:   #C1B393;
+      color:#C1B393;
       display: inline-flex;
       align-items: center;
       gap: 10px;
@@ -155,85 +155,57 @@
 
     .btn-back,
     .btn-next {
-      background: #C1B393;
-      color: #2f241d;
-      border: 1px solid #b9997d;
+      background:#C1B393;
+      color:#2f241d;
+      border:1px solid #b9997d;
     }
 
     .btn-back:hover,
     .btn-next:hover {
-      background: #7a4d2c;
-      color: #EDE8DC;
-      transform: translateY(-3px);
+      background:#7a4d2c;
+      color:#EDE8DC;
+      transform:translateY(-3px);
     }
-		      .path-wrap{
-        width:min(92%, 1320px);
-        margin:auto;
-        padding:34px 0 80px;
-		
-      }
-
-      .path-breadcrumb{
-        display:flex;
-        flex-wrap:wrap;
-        gap:10px;
-        align-items:center;
-        color:#fff7ef;
-        font-size:14px;
-        margin-bottom:20px;
-        animation:fadeUp 0.8s ease;
-      }
-
-      .path-breadcrumb a{
-        color:#fff7ef;
-        text-decoration:none;
-        transition:0.3s ease;
-      }
-
-      .path-breadcrumb a:hover{
-        color:#FDE9C7;
-      }
   </style>
 </head>
 <body>
 
   <div class="dashboard-page">
-  
-  <header>
-  <nav class="navbar">
 
-    <div class="logo">
-      <img src="logo.png" alt="Bean to Brew Logo">
-    </div>
+    <header>
+      <nav class="navbar">
 
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="BrewSchool.html">Brew School</a></li>
-      <li><a href="CoffeLab.html">Coffee Lab</a></li>
-      <li><a href="student-dashboard.html"class="active">Student Dashboard</a></li>
-      <li><a href="About-us.html">About Us</a></li>
-      <li><a href="Contact.html">Contact Us</a></li>
-    </ul>
+        <div class="logo">
+          <img src="logo.png" alt="Bean to Brew Logo">
+        </div>
 
-    <div class="nav-right">
-      <button class="mode-btn">☀️</button>
-      <input type="text" placeholder="Search" class="search-box">
-    </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="BrewSchool.html">Brew School</a></li>
+          <li><a href="CoffeLab.html">Coffee Lab</a></li>
+          <li><a href="student-dashboard.html" class="active">Student Dashboard</a></li>
+          <li><a href="About-us.html">About Us</a></li>
+          <li><a href="Contact.html">Contact Us</a></li>
+        </ul>
 
-  </nav>
-</header>
+        <div class="nav-right">
+          <button class="mode-btn">☀️</button>
+          <input type="text" placeholder="Search" class="search-box">
+        </div>
 
+      </nav>
+    </header>
 
     <main>
       <section class="dashboard-section">
-	  
-	  <div class="path-wrap">
-  <div class="path-breadcrumb">
-    <a href="index.html">Home</a>
-    <span>›</span>
-    <span>Student Dashboard</span>
-  </div>
-</div>
+
+        <div class="path-wrap">
+          <div class="path-breadcrumb">
+            <a href="index.html">Home</a>
+            <span>›</span>
+            <span>Student Dashboard</span>
+          </div>
+        </div>
 
         <h1>Student's Dashboard</h1>
         <p class="dashboard-subtitle">
@@ -251,7 +223,7 @@
               View, add, and delete your notes
             </p>
 
-           <a href="my-notes.html" class="card-btn">➡ Go to my Notes</a>
+            <a href="my-notes.html" class="card-btn">➡ Go to my Notes</a>
           </div>
 
           <div class="dashboard-card">
@@ -266,17 +238,16 @@
 
             <a href="Evaluation-Form.html" class="card-btn">➡ Evaluate Teachers</a>
           </div>
-              </div>
-
+        </div>
 
       </section>
     </main>
-<!-- Lesson Navigation Buttons -->
+
     <div class="lesson-buttons">
-      <a href="index.html" >← Back</a>
+      <a href="index.html">← Back</a>
     </div>
-   
-<footer class="site-footer">
+
+    <footer class="site-footer">
       <div class="footer-top">
         <div class="footer-logo">
           <img src="logo.png" alt="Bean to Brew Logo">
