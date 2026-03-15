@@ -2,271 +2,261 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bean to Brew - Contact</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bean to Brew - Contact</title>
 
-  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-              background:
-  radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
-  radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
-  radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
-  radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
-  linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
-      color: #3e2c23;
-    }
+<style>
 
-    .contact-section {
-      padding: 80px 20px;
-    }
-
-    .contact-title {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .contact-title h1 {
-      font-size: 48px;
-      font-family: 'Playfair Display', serif;
-      color: #EDE8DC;
-      margin-bottom: 10px;
-    }
-
-    .contact-title p {
-      color: #C1B393;
-      font-size: 16px;
-    }
-
-    .contact-container {
-      max-width: 600px;
-      margin: auto;
-      background:#4B4F3E;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-    }
-
-   .contact-form label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
-  color: #EDE8DC;
+body{
+font-family:Arial, sans-serif;
+background:
+radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
+radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
+radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
+radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
+linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
+color:#3e2c23;
 }
 
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 20px;
-      border: 1px solid #EDE8DC;
-      border-radius: 6px;
-      font-size: 14px;
-    }
+/* SECTION */
 
-    .contact-form textarea {
-      height: 130px;
-      resize: none;
-    }
+.contact-section{
+position:relative;
+padding:150px 20px 80px;
+}
 
-    .contact-form button {
-      width: 100%;
-      padding: 14px;
-      background: #26231F;
-      color:#EDE8DC;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+.contact-title{
+text-align:center;
+margin-bottom:40px;
+}
 
-    .contact-form button:hover {
-      background: #C1B393;
-    }
+.contact-title h1{
+font-size:48px;
+font-family:'Playfair Display', serif;
+color:#EDE8DC;
+margin-bottom:10px;
+}
 
-    @media (max-width: 768px) {
-      .contact-section {
-        padding: 50px 16px;
-      }
+.contact-title p{
+color:#C1B393;
+font-size:16px;
+}
 
-      .contact-title h1 {
-        font-size: 38px;
-      }
+.contact-container{
+max-width:600px;
+margin:auto;
+background:#4B4F3E;
+padding:40px;
+border-radius:10px;
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
+}
 
-      .contact-container {
-        padding: 25px;
-      }
-    }
-	
-   /* =============================== */
-    /* Lesson Navigation Buttons */
-    /* =============================== */
-    .lesson-buttons {
-      width: min(1150px, 92%);
-      margin: 30px auto 80px;
-      display: flex;
-      justify-content: space-between;
-    }
+.contact-form label{
+display:block;
+margin-bottom:8px;
+font-weight:bold;
+color:#EDE8DC;
+}
 
-    .lesson-buttons a {
-      text-decoration: none;
-      font-size: 1.5rem;
-      font-weight: 600;
-	  color:   #C1B393;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      transition: all 0.3s ease;
-    }
+.contact-form input,
+.contact-form textarea{
+width:100%;
+padding:12px;
+margin-bottom:20px;
+border:1px solid #EDE8DC;
+border-radius:6px;
+font-size:14px;
+}
 
-    .btn-back,
-    .btn-next {
-      background: #C1B393;
-      color: #2f241d;
-      border: 1px solid #b9997d;
-    }
+.contact-form textarea{
+height:130px;
+resize:none;
+}
 
-    .btn-back:hover,
-    .btn-next:hover {
-      background: #7a4d2c;
-      color: #EDE8DC;
-      transform: translateY(-3px);
-    }
-	
-	 .path-wrap{
-        width:min(92%, 1320px);
-        margin:auto;
-        padding:34px 0 80px;
-		
-      }
+.contact-form button{
+width:100%;
+padding:14px;
+background:#26231F;
+color:#EDE8DC;
+border:none;
+border-radius:6px;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
 
-      .path-breadcrumb{
-        display:flex;
-        flex-wrap:wrap;
-        gap:10px;
-        align-items:center;
-        color:#fff7ef;
-        font-size:14px;
-        margin-bottom:20px;
-        animation:fadeUp 0.8s ease;
-      }
+.contact-form button:hover{
+background:#C1B393;
+}
 
-      .path-breadcrumb a{
-        color:#fff7ef;
-        text-decoration:none;
-        transition:0.3s ease;
-      }
+/* MOBILE */
 
-      .path-breadcrumb a:hover{
-        color:#FDE9C7;
-      }
-  </style>
+@media (max-width:768px){
+
+.contact-section{
+padding:140px 16px 60px;
+}
+
+.contact-title h1{
+font-size:38px;
+}
+
+.contact-container{
+padding:25px;
+}
+
+}
+
+/* =============================== */
+/* Lesson Navigation Buttons */
+/* =============================== */
+
+.lesson-buttons{
+width:min(1150px,92%);
+margin:30px auto 80px;
+display:flex;
+justify-content:space-between;
+}
+
+.lesson-buttons a{
+text-decoration:none;
+font-size:1.5rem;
+font-weight:600;
+color:#C1B393;
+display:inline-flex;
+align-items:center;
+gap:10px;
+transition:all 0.3s ease;
+}
+
+.btn-back,
+.btn-next{
+background:#C1B393;
+color:#2f241d;
+border:1px solid #b9997d;
+}
+
+.btn-back:hover,
+.btn-next:hover{
+background:#7a4d2c;
+color:#EDE8DC;
+transform:translateY(-3px);
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
-  <nav class="navbar">
+<nav class="navbar">
 
-    <div class="logo">
-      <img src="logo.png" alt="Bean to Brew Logo">
-    </div>
-
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="BrewSchool.html">Brew School</a></li>
-      <li><a href="CoffeLab.html">Coffee Lab</a></li>
-      <li><a href="student-dashboard.html">Student Dashboard</a></li>
-      <li><a href="About-us.html">About Us</a></li>
-      <li><a href="Contact.html"class="active">Contact Us</a></li>
-    </ul>
-
-    <div class="nav-right">
-      <button class="mode-btn">☀️</button>
-      <input type="text" placeholder="Search" class="search-box">
-    </div>
-
-  </nav>
-</header>
-
-    </nav>
-  </header>
-
-  <main>
-    <section class="contact-section">
-	
-	<div class="path-wrap">
-  <div class="path-breadcrumb">
-    <a href="index.html">Home</a>
-    <span>›</span>
-    <span>Contact Us</span>
-  </div>
+<div class="logo">
+<img src="logo.png" alt="Bean to Brew Logo">
 </div>
 
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="BrewSchool.html">Brew School</a></li>
+<li><a href="CoffeLab.html">Coffee Lab</a></li>
+<li><a href="student-dashboard.html">Student Dashboard</a></li>
+<li><a href="About-us.html">About Us</a></li>
+<li><a href="Contact.html" class="active">Contact Us</a></li>
+</ul>
 
-      <div class="contact-title">
-        <h1>Contact Us</h1>
-        <p>Have a question? Send us a message.</p>
-      </div>
+<div class="nav-right">
+<button class="mode-btn">☀️</button>
+<input type="text" placeholder="Search" class="search-box">
+</div>
 
-      <div class="contact-container">
-        <form class="contact-form">
+</nav>
+</header>
 
-          <label for="name">Name</label>
-          <input type="text" id="name" placeholder="Enter your name" required>
+<main>
 
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="Enter your email" required>
+<section class="contact-section">
 
-          <label for="message">Message</label>
-          <textarea id="message" placeholder="Write your message..." required></textarea>
+<div class="path-wrap">
+<div class="path-breadcrumb">
+<a href="index.html">Home</a>
+<span>›</span>
+<span>Contact Us</span>
+</div>
+</div>
 
-          <button type="submit">Submit</button>
+<div class="contact-title">
+<h1>Contact Us</h1>
+<p>Have a question? Send us a message.</p>
+</div>
 
-        </form>
-      </div>
+<div class="contact-container">
 
-    </section>
-	<!-- Lesson Navigation Buttons -->
-    <div class="lesson-buttons">
-      <a href="" >← Back</a>
-    </div>
-  </main>
+<form class="contact-form">
 
-   <footer class="site-footer">
-      <div class="footer-top">
-        <div class="footer-logo">
-          <img src="logo.png" alt="Bean to Brew Logo">
-        </div>
+<label for="name">Name</label>
+<input type="text" id="name" placeholder="Enter your name" required>
 
-        <div class="footer-contact">
-          <h3>Contact us</h3>
-          <p>+966504256847</p>
-          <p>BeantoBrew@gmail.com</p>
-        </div>
+<label for="email">Email</label>
+<input type="email" id="email" placeholder="Enter your email" required>
 
-        <div class="footer-social">
-          <h3>Follow us</h3>
-          <div class="social-icons">
-            <a href="https://instagram.com">
-              <img src="instagramicon.png" alt="Instagram">
-            </a>
-            <span class="social-divider"></span>
-            <a href="https://instagram.com">
-              <img src="Xicon.png" alt="X">
-            </a>
-          </div>
-        </div>
-      </div>
+<label for="message">Message</label>
+<textarea id="message" placeholder="Write your message..." required></textarea>
 
-      <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
-      <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
-    </footer>
+<button type="submit">Submit</button>
+
+</form>
+
+</div>
+
+</section>
+
+<div class="lesson-buttons">
+<a href="index.html">← Back</a>
+</div>
+
+</main>
+
+<footer class="site-footer">
+
+<div class="footer-top">
+
+<div class="footer-logo">
+<img src="logo.png" alt="Bean to Brew Logo">
+</div>
+
+<div class="footer-contact">
+<h3>Contact us</h3>
+<p>+966504256847</p>
+<p>BeantoBrew@gmail.com</p>
+</div>
+
+<div class="footer-social">
+<h3>Follow us</h3>
+
+<div class="social-icons">
+<a href="https://instagram.com">
+<img src="instagramicon.png" alt="Instagram">
+</a>
+
+<span class="social-divider"></span>
+
+<a href="https://instagram.com">
+<img src="Xicon.png" alt="X">
+</a>
+</div>
+
+</div>
+
+</div>
+
+<p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
+<p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
+
+</footer>
 
 </body>
 </html>
