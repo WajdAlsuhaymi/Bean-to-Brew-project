@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,36 +40,18 @@
 
     .lesson-page{
       width:100%;
+      padding-top:110px;
     }
-		      .path-wrap{
-        width:min(92%, 1320px);
-        margin:auto;
-        padding:34px 0 80px;
-		
-      }
-
-      .path-breadcrumb{
-        display:flex;
-        flex-wrap:wrap;
-        gap:10px;
-        align-items:center;
-        color:#fff7ef;
-        font-size:14px;
-        margin-bottom:20px;
-        animation:fadeUp 0.8s ease;
-      }
-
-      .path-breadcrumb a{
-        color:#fff7ef;
-        text-decoration:none;
-        transition:0.3s ease;
-      }
-
-      .path-breadcrumb a:hover{
-        color:#FDE9C7;
-      }
-
-
+		      
+    .path-wrap{
+      position:static;
+      top:auto;
+      left:auto;
+      width:min(92%, 1320px);
+      margin:0 auto 30px;
+      padding:0;
+      z-index:auto;
+    }
 
     /* ================= HERO ================= */
     .hero-lesson{
@@ -537,7 +517,6 @@
       transform: translateY(-3px);
     }
 
-
     /* ================= RESPONSIVE ================= */
     @media (max-width: 1100px){
       .diamond-area{
@@ -655,7 +634,6 @@
 </head>
 <body>
 
-
   <header>
   <nav class="navbar">
 
@@ -692,6 +670,7 @@
         <span>›</span>
          <a href="lesson3.2.html">lesson3.2</a>
       </div>
+    </div>
 	  
     <section class="hero-lesson">
       <div class="hero-content">
@@ -809,11 +788,10 @@
         </p>
       </section>
 
- <div class="lesson-buttons">
-    <a href="lesson3.1.html" >← Back</a>
-    <a href="quiz3.html" >Start Quiz →</a>
-  </div>
-
+      <div class="lesson-buttons">
+        <a href="lesson3.1.html" >← Back</a>
+        <a href="quiz3.html" >Start Quiz →</a>
+      </div>
 
     </section>
   </main>
