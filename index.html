@@ -9,7 +9,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
    <style>
-    
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html, body{
+      margin:0;
+      padding:0;
+      overflow-x:hidden;
+    }
 
     /* =========================
        BODY
@@ -31,8 +40,6 @@
       background-attachment:fixed;
     }
 
-   
-
     /* ألوان خاصة للنص في العنوان */
     .beige-text{
       color:#FDE9C7;
@@ -42,7 +49,6 @@
       color:#ffffff;
     }
 
-   
     /* =========================
        MAIN LAYOUT
        تنسيق عام للمحتوى الرئيسي
@@ -50,6 +56,7 @@
     main{
       width:100%;
       padding-bottom:60px;
+      overflow-x:hidden;
     }
 
     /* بوكس عام لكل سكشن */
@@ -79,12 +86,13 @@
       background-size:cover;
       background-position:center top;
       background-repeat:no-repeat;
+      overflow:hidden;
     }
 
     /* حاوية نص الهيرو */
     .hero-content{
       max-width:700px;
-      margin-top:-80px;
+      margin-top:0;
     }
 
     /* عنوان الهيرو الرئيسي */
@@ -92,7 +100,8 @@
       font-size:68px;
       line-height:1.15;
       text-align:left;
-	  margin-top:-120px;
+      margin-top:0;
+      margin-bottom:0;
     }
 
     /* =========================
@@ -185,7 +194,7 @@
   background-color:linear-gradient(to bottom, #8B5E3C 0%, #A98763 45%, #C1B393 100%);
   display:flex;
   justify-content:space-between;
-  align-items:flex-start;
+  align-items:center;
   padding:70px 60px;
   gap:50px;
   flex-wrap:wrap;
@@ -246,6 +255,10 @@
   flex:1;
   text-align:center;
   position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-width:280px;
 }
 
 .bean-types-right h2 {
@@ -253,7 +266,7 @@
   font-family:'Playfair Display', serif;
   color:#EDE8DC;
   line-height:1.15;
-  margin-bottom:25px;
+  margin-bottom:0;
 }
 
 .bean-types-right img {
@@ -267,12 +280,12 @@
   width:200px;
   height:380px;
   margin-top:10px;
-  
+
 }
 
 .floating-bean{
   position:relative;
-  
+
 }
 
 .floating-bean img{
@@ -283,7 +296,6 @@
   height:500px;
   z-index:50;
 }
-
 
     /* =========================
        GRIND SIZE SECTION
@@ -835,13 +847,13 @@
       gap:15px;
       flex-wrap:wrap;
       align-items:flex-start;
-	 
+
     }
 
     .faq-item{
       width:220px;
       background-color:transparent;
-	  
+
     }
 
     .faq-item summary{
@@ -881,7 +893,7 @@
       border-radius:12px;
     }
 
-    
+
     /* =========================
        RESPONSIVE
        تعديلات للشاشات المتوسطة
@@ -905,7 +917,7 @@
       }
 
       .hero-content{
-        margin-top:-30px;
+        margin-top:0;
       }
 
       .main-hero-title{
