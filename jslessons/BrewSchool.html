@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Brew School</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+  .brew-school-page {
+    background:
+      radial-gradient(circle at top left, rgba(122, 77, 44, 0.45), transparent 35%),
+      radial-gradient(circle at top right, rgba(75, 79, 62, 0.40), transparent 35%),
+      radial-gradient(circle at bottom center, rgba(237, 232, 220, 0.18), transparent 30%),
+      linear-gradient(135deg, #2A211D 0%, #332823 45%, #221B17 100%);
+    padding: 130px 60px 70px;
+    min-height: 100vh;
+  }
+
+  .page-heading {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .page-heading h1 {
+    font-size: 46px;
+    color: #EDE8DC;
+    margin-bottom: 10px;
+  }
+
+  .page-heading p {
+    font-size: 17px;
+    color: #EDE8DC;
+    margin: 0;
+  }
+
+  .lessons-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(260px, 1fr));
+    gap: 32px;
+  }
+
+  .lesson-card {
+    background: linear-gradient(to bottom, #4B4F3E 0%, #3F4335 100%);
+    border: 1px solid rgba(237, 232, 220, 0.12);
+    border-radius: 22px;
+    padding: 22px;
+    box-shadow: 0 10px 28px rgba(20, 12, 8, 0.20);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .lesson-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 36px rgba(20, 12, 8, 0.28);
+  }
+
+  .lesson-card img {
+    width: 100%;
+    height: 185px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    display: block;
+    background: #efe7db;
+  }
+
+  .lesson-card::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 3px;
+    background: #C1B393;
+    margin: 4px auto 16px;
+    border-radius: 10px;
+  }
+
+  .lesson-card h3 {
+    font-size: 31px;
+    color: #EDE8DC;
+    margin: 0 0 12px;
+  }
+
+  .lesson-card p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #F1E7D8;
+    margin-bottom: 18px;
+    min-height: 76px;
+  }
+
+  .lesson-card select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d8c6ae;
+    border-radius: 14px;
+    background: #C1B393;
+    color: #4a3a2f;
+    font-size: 15px;
+    outline: none;
+    margin-bottom: 16px;
+  }
+
+  .lesson-card select:focus {
+    border-color: #8a6244;
+    box-shadow: 0 0 0 3px rgba(138, 98, 68, 0.12);
+  }
+
+  .start-btn {
+    display: inline-block;
+    text-decoration: none;
+    background: #C1B393;
+    color: #2f241d;
+    padding: 11px 28px;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: background 0.25s ease, transform 0.2s ease;
+  }
+
+  .start-btn:hover {
+    background: #7a4d2c;
+    color: #EDE8DC;
+    transform: scale(1.04);
+  }
+
+  .hidden-lessons {
+    display: none;
+  }
+
+  .more-wrapper {
+    text-align: center;
+    margin-top: 28px;
+    margin-bottom: 10px;
+  }
+
+  .more-btn {
+    background: #C1B393;
+    color: #2f241d;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.2s ease;
+  }
+
+  .more-btn:hover {
+    background: #7a4d2c;
+    color: #EDE8DC;
+    transform: translateY(-3px);
+  }
+
+  @media (max-width: 992px) {
+    .brew-school-page {
+      padding: 120px 30px 55px;
+    }
+
+    .lessons-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .lessons-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .page-heading h1 {
+      font-size: 34px;
+    }
+
+    .lesson-card h3 {
+      font-size: 25px;
+    }
+
+    .lesson-card p {
+      font-size: 17px;
+    }
+  }
+
+  .lesson-buttons {
+    width: min(1150px, 92%);
+    margin: 30px auto 80px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .lesson-buttons a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #C1B393;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-back,
+  .btn-next {
+    background: #C1B393;
+    color: #2f241d;
+    border: 1px solid #b9997d;
+  }
+
+  .btn-back:hover,
+  .btn-next:hover {
+    background: #7a4d2c;
+    color: #EDE8DC;
+    transform: translateY(-3px);
+  }
+
+  .path-wrap {
+    position: static;
+    top: auto;
+    left: auto;
+    width: min(92%, 1320px);
+    margin: 0 auto 30px;
+    padding: 0;
+  }
+
+  .path-breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    color: #fff7ef;
+    font-size: 14px;
+    margin-bottom: 0;
+    animation: fadeUp 0.8s ease;
+  }
+
+  .path-breadcrumb a {
+    color: #fff7ef;
+    text-decoration: none;
+    transition: 0.3s ease;
+  }
+
+  .path-breadcrumb a:hover {
+    color: #FDE9C7;
+  }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+
+      <div class="logo">
+        <img src="logo.png" alt="Bean to Brew Logo">
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="BrewSchool.html" class="active">Brew School</a></li>
+        <li><a href="CoffeLab.html">Coffee Lab</a></li>
+        <li><a href="student-dashboard.html">Student Dashboard</a></li>
+        <li><a href="About-us.html">About Us</a></li>
+        <li><a href="Contact.html">Contact Us</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <button class="mode-btn">☀️</button>
+        <input type="text" placeholder="Search" class="search-box">
+      </div>
+
+    </nav>
+  </header>
+
+  <main class="brew-school-page">
+    <div class="path-wrap">
+      <div class="path-breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <a href="BrewSchool.html">BrewSchool</a>
+      </div>
+    </div>
+
+    <section class="page-heading">
+      <h1>Brew School</h1>
+      <p>Choose a lesson and start your coffee learning journey.</p>
+    </section>
+
+    <section class="lessons-grid">
+
+      <div class="lesson-card">
+        <img src="images/lesson1.jpg" alt="Lesson 1">
+        <h3>Lesson 1</h3>
+        <p>Learn about the origin of coffee beans and where coffee starts.</p>
+        <select>
+          <option selected disabled>Teacher</option>
+          <option>Hamad</option>
+          <option>Eman</option>
+          <option>Joury</option>
+          <option>Abdurhman</option>
+          <option>Latifah</option>
+          <option>Sadeem</option>
+          <option>Saud</option>
+          <option>Fahad</option>
+          <option>Sara</option>
+          <option>Naser</option>
+          <option>Salman</option>
+          <option>Wajd</option>
+        </select>
+        <a href="lesson1.1.html" class="start-btn">Start</a>
+      </div>
+
+      <div class="lesson-card">
+        <img src="images/lesson2.jpg" alt="Lesson 2">
+        <h3>Lesson 2</h3>
+        <p>Discover coffee beans and their flavor characteristics.</p>
+        <select>
+          <option selected disabled>Teacher</option>
+          <option>Hamad</option>
+          <option>Eman</option>
+          <option>Joury</option>
+          <option>Abdurhman</option>
+          <option>Latifah</option>
+          <option>Sadeem</option>
+          <option>Saud</option>
+          <option>Fahad</option>
+          <option>Sara</option>
+          <option>Naser</option>
+          <option>Salman</option>
+          <option>Wajd</option>
+        </select>
+        <a href="lesson2.1.html" class="start-btn">Start</a>
+      </div>
+
+      <div class="lesson-card">
+        <img src="images/lesson3.jpg" alt="Lesson 3">
+        <h3>Lesson 3</h3>
+        <p>Understand roasting stages and coffee taste.</p>
+        <select>
+          <option selected disabled>Teacher</option>
+          <option>Hamad</option>
+          <option>Eman</option>
+          <option>Joury</option>
+          <option>Abdurhman</option>
+          <option>Latifah</option>
+          <option>Sadeem</option>
+          <option>Saud</option>
+          <option>Fahad</option>
+          <option>Sara</option>
+          <option>Naser</option>
+          <option>Salman</option>
+          <option>Wajd</option>
+        </select>
+        <a href="lesson3.1.html" class="start-btn">Start</a>
+      </div>
+
+      <div class="lesson-card hidden-lessons">
+        <img src="images/lesson4.jpg" alt="Lesson 4">
+        <h3>Lesson 4</h3>
+        <p>Learn grinding sizes and their role in coffee extraction.</p>
+        <select>
+          <option selected disabled>Teacher</option>
+          <option>Hamad</option>
+          <option>Eman</option>
+          <option>Joury</option>
+          <option>Abdurhman</option>
+          <option>Latifah</option>
+          <option>Sadeem</option>
+          <option>Saud</option>
+          <option>Fahad</option>
+          <option>Sara</option>
+          <option>Naser</option>
+          <option>Salman</option>
+          <option>Wajd</option>
+        </select>
+        <a href="lesson4.1.html" class="start-btn">Start</a>
+      </div>
+
+      <div class="lesson-card hidden-lessons">
+        <img src="images/lesson5.jpg" alt="Lesson 5">
+        <h3>Lesson 5</h3>
+        <p>Explore brewing methods and different coffee preparation styles.</p>
+        <select>
+          <option selected disabled>Teacher</option>
+          <option>Hamad</option>
+          <option>Eman</option>
+          <option>Joury</option>
+          <option>Abdurhman</option>
+          <option>Latifah</option>
+          <option>Sadeem</option>
+          <option>Saud</option>
+          <option>Fahad</option>
+          <option>Sara</option>
+          <option>Naser</option>
+          <option>Salman</option>
+          <option>Wajd</option>
+        </select>
+        <a href="lesson5.1.html" class="start-btn">Start</a>
+      </div>
+
+      <div class="lesson-card hidden-lessons">
+        <img src="images/lesson6.jpg" alt="Lesson 6">
+        <h3>Lesson 6</h3>
+        <p>Learn how to choose coffee beans and brew coffee correctly.</p>
+        <select>
+          <option selected disabled>Teacher</option>
+          <option>Hamad</option>
+          <option>Eman</option>
+          <option>Joury</option>
+          <option>Abdurhman</option>
+          <option>Latifah</option>
+          <option>Sadeem</option>
+          <option>Saud</option>
+          <option>Fahad</option>
+          <option>Sara</option>
+          <option>Naser</option>
+          <option>Salman</option>
+          <option>Wajd</option>
+        </select>
+        <a href="lesson6.1.html" class="start-btn">Start</a>
+      </div>
+
+    </section>
+
+    <div class="more-wrapper">
+      <button id="moreBtn" class="more-btn">More</button>
+    </div>
+
+    <div class="lesson-buttons">
+      <a href="index.html">← Back</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src="logo.png" alt="Bean to Brew Logo">
+      </div>
+
+      <div class="footer-contact">
+        <h3>Contact us</h3>
+        <p>+966504256847</p>
+        <p>BeantoBrew@gmail.com</p>
+      </div>
+
+      <div class="footer-social">
+        <h3>Follow us</h3>
+        <div class="social-icons">
+          <a href="https://instagram.com">
+            <img src="instagramicon.png" alt="Instagram">
+          </a>
+          <span class="social-divider"></span>
+          <a href="https://instagram.com">
+            <img src="Xicon.png" alt="X">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
+    <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const moreBtn = document.getElementById("moreBtn");
+    const hiddenLessons = document.querySelectorAll(".hidden-lessons");
+
+    moreBtn.addEventListener("click", function () {
+      hiddenLessons.forEach(function (lesson) {
+        if (lesson.style.display === "block") {
+          lesson.style.display = "none";
+        } else {
+          lesson.style.display = "block";
+        }
+      });
+
+      if (moreBtn.textContent === "More") {
+        moreBtn.textContent = "Show Less";
+      } else {
+        moreBtn.textContent = "More";
+      }
+    });
+  </script>
+
+</body>
+</html>
