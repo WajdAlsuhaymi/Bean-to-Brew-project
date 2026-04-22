@@ -110,6 +110,9 @@
       flex-direction: row-reverse;
       justify-content: flex-end;
       gap: 8px;
+      padding: 8px 0;
+      border: 1px solid transparent;
+      border-radius: 8px;
     }
 
     .stars input {
@@ -175,6 +178,16 @@
     .lesson-buttons a:hover {
       color: #EDE8DC;
       transform: translateY(-3px);
+    }
+
+    .input-error {
+      border: 2px solid #b94a48 !important;
+      background-color: #fff5f5 !important;
+    }
+
+    .stars-error {
+      border: 2px solid #b94a48 !important;
+      background-color: #fff5f5 !important;
     }
 
     @keyframes fadeUp {
@@ -262,27 +275,28 @@
 
         <div class="teacher-photo"></div>
 
-        <form action="evaluation-success.html">
+        <form id="evaluationForm">
           <div class="form-group">
             <label for="teacher-name">Teacher Name</label>
             <select id="teacher-name" name="teacher-name">
-              <option>Hamad</option>
-              <option>Eman</option>
-              <option>Joury</option>
-              <option>Abdurahman</option>
-              <option>Latifah</option>
-              <option>Sadeem</option>
-              <option>Saud</option>
-              <option>Fahad</option>
-              <option>Sara</option>
-              <option>Naser</option>
-              <option>Wajd</option>
+              <option value="">Select a teacher</option>
+              <option value="Hamad">Hamad</option>
+              <option value="Eman">Eman</option>
+              <option value="Joury">Joury</option>
+              <option value="Abdurahman">Abdurahman</option>
+              <option value="Latifah">Latifah</option>
+              <option value="Sadeem">Sadeem</option>
+              <option value="Saud">Saud</option>
+              <option value="Fahad">Fahad</option>
+              <option value="Sara">Sara</option>
+              <option value="Naser">Naser</option>
+              <option value="Wajd">Wajd</option>
             </select>
           </div>
 
           <div class="form-group">
             <label>Rating</label>
-            <div class="stars">
+            <div class="stars" id="ratingStars">
               <input type="radio" id="star5" name="rating" value="5" />
               <label for="star5">★</label>
 
@@ -346,6 +360,57 @@
     <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
     <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
   </footer>
+
+  <script>
+    const evaluationForm = document.getElementById("evaluationForm");
+    const teacherSelect = document.getElementById("teacher-name");
+    const commentBox = document.getElementById("comment");
+    const ratingStars = document.getElementById("ratingStars");
+
+    evaluationForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      teacherSelect.classList.remove("input-error");
+      commentBox.classList.remove("input-error");
+      ratingStars.classList.remove("stars-error");
+
+      const selectedTeacher = teacherSelect.value;
+      const selectedRating = document.querySelector('input[name="rating"]:checked');
+      const commentValue = commentBox.value.trim();
+
+      let hasError = false;
+
+      if (selectedTeacher === "") {
+        teacherSelect.classList.add("input-error");
+        hasError = true;
+      }
+
+      if (!selectedRating) {
+        ratingStars.classList.add("stars-error");
+        hasError = true;
+      }
+
+      if (commentValue === "") {
+        commentBox.classList.add("input-error");
+        hasError = true;
+      }
+
+      if (hasError) {
+        alert("Please complete all required fields.");
+        return;
+      }
+
+      const ratingValue = Number(selectedRating.value);
+
+      if (ratingValue >= 4) {
+        alert("Thank you for your feedback! We are happy that you had a good experience.");
+      } else {
+        alert("We are sorry that your experience was not the best. Thank you for your feedback, and we will try to improve.");
+      }
+
+      window.location.href = "student-dashboard.html";
+    });
+  </script>
 
 </body>
 </html>
