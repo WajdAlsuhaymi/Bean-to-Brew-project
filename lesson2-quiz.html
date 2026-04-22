@@ -451,55 +451,55 @@
       </p>
     </div>
 
-    <form class="quiz-form" action="result.html">
+    <form class="quiz-form" id="quizForm">
 
       <div class="question-card">
         <h3>1) Which coffee bean is the most widely consumed in the world?</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q1"> Robusta</label>
-          <label class="option"><input type="radio" name="q1"> Arabica</label>
-          <label class="option"><input type="radio" name="q1"> Liberica</label>
-          <label class="option"><input type="radio" name="q1"> Excelsa</label>
+        <label class="option"><input type="radio" name="q1" value="a"> Robusta</label>
+        <label class="option"><input type="radio" name="q1" value="b"> Arabica</label>
+        <label class="option"><input type="radio" name="q1" value="c"> Liberica</label>
+        <label class="option"><input type="radio" name="q1" value="d"> Excelsa</label>
         </div>
       </div>
 
       <div class="question-card">
         <h3>2) Which bean contains more caffeine?</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q2"> Arabica</label>
-          <label class="option"><input type="radio" name="q2"> Robusta</label>
-          <label class="option"><input type="radio" name="q2"> Both are equal</label>
-          <label class="option"><input type="radio" name="q2"> None of them</label>
+        <label class="option"><input type="radio" name="q2" value="a"> Arabica</label>
+        <label class="option"><input type="radio" name="q2" value="b"> Robusta</label>
+        <label class="option"><input type="radio" name="q2" value="c"> Both are equal</label>
+        <label class="option"><input type="radio" name="q2" value="d"> None of them</label>
         </div>
       </div>
 
       <div class="question-card">
         <h3>3) Which bean is usually smoother, more aromatic, and more complex in flavor?</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q3"> Robusta</label>
-          <label class="option"><input type="radio" name="q3"> Arabica</label>
-          <label class="option"><input type="radio" name="q3"> Both are identical</label>
-          <label class="option"><input type="radio" name="q3"> None of them</label>
+        <label class="option"><input type="radio" name="q3" value="a"> Robusta</label>
+        <label class="option"><input type="radio" name="q3" value="b"> Arabica</label>
+        <label class="option"><input type="radio" name="q3" value="c"> Both are identical</label>
+        <label class="option"><input type="radio" name="q3" value="d"> None of them</label>
         </div>
       </div>
 
       <div class="question-card">
         <h3>4) Which of the following is one of the key coffee evaluation criteria?</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q4"> Temperature only</label>
-          <label class="option"><input type="radio" name="q4"> Cup color</label>
-          <label class="option"><input type="radio" name="q4"> Sweetness</label>
-          <label class="option"><input type="radio" name="q4"> Mug size</label>
+          <label class="option"><input type="radio" name="q4" value="a"> Temperature only</label>
+<label class="option"><input type="radio" name="q4" value="b"> Cup color</label>
+<label class="option"><input type="radio" name="q4" value="c"> Sweetness</label>
+<label class="option"><input type="radio" name="q4" value="d"> Mug size</label>
         </div>
       </div>
 
       <div class="question-card">
         <h3>5) How is Robusta usually described?</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q5"> Mild and fruity with higher acidity</label>
-          <label class="option"><input type="radio" name="q5"> Strong, bitter, and heavier in body</label>
-          <label class="option"><input type="radio" name="q5"> Sweet with floral notes only</label>
-          <label class="option"><input type="radio" name="q5"> Low body and low bitterness</label>
+        <label class="option"><input type="radio" name="q5" value="a"> Mild and fruity with higher acidity</label>
+<label class="option"><input type="radio" name="q5" value="b"> Strong, bitter, and heavier in body</label>
+<label class="option"><input type="radio" name="q5" value="c"> Sweet with floral notes only</label>
+<label class="option"><input type="radio" name="q5" value="d"> Low body and low bitterness</label>
         </div>
       </div>
 
@@ -539,6 +539,69 @@
     <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
     <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
   </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const quizForm = document.getElementById("quizForm");
+
+  if (!quizForm) return;
+
+  quizForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const correctAnswers = {
+      q1: "b",
+      q2: "b",
+      q3: "b",
+      q4: "c",
+      q5: "b"
+    };
+
+    let score = 0;
+    const lessonName = "Lesson 2 Quiz";
+    const totalQuestions = 5;
+    const quizLink = "lesson2-quiz.html";
+
+    for (let question in correctAnswers) {
+      const selectedAnswer = document.querySelector('input[name="' + question + '"]:checked');
+
+      if (!selectedAnswer) {
+        alert("Please answer all questions before submitting.");
+        return;
+      }
+
+      if (selectedAnswer.value === correctAnswers[question]) {
+        score++;
+      }
+    }
+
+    let scores = JSON.parse(localStorage.getItem("quizScores")) || [];
+
+    let existingLesson = scores.find(function(item) {
+      return item.lesson === lessonName;
+    });
+
+    if (existingLesson) {
+      if (score > existingLesson.bestScore) {
+        existingLesson.bestScore = score;
+      }
+    } else {
+      scores.push({
+        lesson: lessonName,
+        bestScore: score
+      });
+    }
+
+    localStorage.setItem("quizScores", JSON.stringify(scores));
+    localStorage.setItem("currentQuizScore", String(score));
+    localStorage.setItem("currentQuizLesson", lessonName);
+    localStorage.setItem("currentQuizTotal", String(totalQuestions));
+    localStorage.setItem("currentQuizLink", quizLink);
+
+    window.location.href = "result.html";
+  });
+});
+</script>
 
 </body>
 </html>
