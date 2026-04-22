@@ -255,7 +255,7 @@
 
   .card-image.roasting,
   .card-back-image.roasting {
-    background-image: url("roasting.png");
+    background-image: url("Headerpic.png");
     background-color: #d8c3af;
   }
 
@@ -411,7 +411,7 @@
   .small-card-image {
     width: 100%;
     height: 120px;
-    background: url("roasting.png") center/cover no-repeat;
+    background: url("Headerpic.png") center/cover no-repeat;
     background-color: #cfcfcf;
     margin-bottom: 16px;
     border-radius: 6px;
@@ -550,7 +550,25 @@
       transform: translateY(-3px);
     }
 	
-	 
+	.light-mode{
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255,255,255,0.35), transparent 30%),
+    radial-gradient(circle at 85% 25%, rgba(255,255,255,0.25), transparent 28%),
+    radial-gradient(circle at 50% 80%, rgba(255,255,255,0.20), transparent 32%),
+    linear-gradient(140deg, #f5eee6 0%, #e8dccb 45%, #d8c3af 100%);
+}
+
+.light-mode .page-title h1,
+.light-mode .filter-sidebar h2,
+.light-mode .discover-text h3{
+  color:#2f241d;
+}
+
+.light-mode .discover-text p,
+.light-mode .path-breadcrumb,
+.light-mode .path-breadcrumb a{
+  color:#4a3a2f;
+} 
 	  
 </style>
 </head>
@@ -640,13 +658,13 @@
       <div class="lab-content">
 
         <div class="main-search">
-          <input type="text" placeholder="Search by lab name">
+          <input type="text" id="searchInput" placeholder="Search by lab name">
         </div>
 
         <section class="cards-grid">
 
           <!-- Card 1 -->
-          <div class="lab-card-wrap">
+          <div class="lab-card-wrap" data-title="Espresso Basics" data-trainer="Latifah" data-location="Riyadh" data-time="8-11 AM">
             <input type="checkbox" id="flip1" class="flip-toggle">
             <div class="lab-card-flip">
               <div class="lab-card-front">
@@ -669,13 +687,13 @@
                   <p><strong>Time:</strong> 8-11 AM</p>
                   <p><strong>Level:</strong> Beginner</p>
                 </div>
-                <a href="student-dashboard.html" class="book-btn">Book Now</a>
+                <a href="#" class="book-btn" data-lab="Espresso Basics">Book Now</a>
               </div>
             </div>
           </div>
 
           <!-- Card 2 -->
-<div class="lab-card-wrap">
+<div class="lab-card-wrap" data-title="Turkish Coffee" data-trainer="Reem" data-location="Riyadh" data-time="1-3 PM">
   <input type="checkbox" id="flip2" class="flip-toggle">
   <div class="lab-card-flip">
     <div class="lab-card-front">
@@ -698,13 +716,13 @@
         <p><strong>Time:</strong> 1-3 PM</p>
         <p><strong>Level:</strong> Beginner</p>
       </div>
-      <a href="#" class="book-btn">Book Now</a>
+      <a href="#" class="book-btn" data-lab="Turkish Coffee">Book Now</a>
     </div>
   </div>
 </div>
 
           <!-- Card 3 -->
-<div class="lab-card-wrap">
+<div class="lab-card-wrap" data-title="V60" data-trainer="Nora" data-location="Jeddah" data-time="8-11 AM">
   <input type="checkbox" id="flip3" class="flip-toggle">
   <div class="lab-card-flip">
     <div class="lab-card-front">
@@ -727,13 +745,13 @@
         <p><strong>Time:</strong> 8-11 AM</p>
         <p><strong>Level:</strong> Intermediate</p>
       </div>
-      <a href="#" class="book-btn">Book Now</a>
+      <a href="#" class="book-btn" data-lab="V60">Book Now</a>
     </div>
   </div>
 </div>
 
          <!-- Card 4 -->
-<div class="lab-card-wrap">
+<div class="lab-card-wrap" data-title="French Press" data-trainer="Latifah" data-location="Online" data-time="1-3 PM">
   <input type="checkbox" id="flip4" class="flip-toggle">
   <div class="lab-card-flip">
     <div class="lab-card-front">
@@ -756,13 +774,13 @@
         <p><strong>Time:</strong> 1-3 PM</p>
         <p><strong>Level:</strong> Beginner</p>
       </div>
-      <a href="#" class="book-btn">Book Now</a>
+      <a href="#" class="book-btn" data-lab="French Press">Book Now</a>
     </div>
   </div>
 </div>
 
          <!-- Card 5 -->
-<div class="lab-card-wrap">
+<div class="lab-card-wrap" data-title="Moka Pot" data-trainer="Reem" data-location="Riyadh" data-time="8-11 AM">
   <input type="checkbox" id="flip5" class="flip-toggle">
   <div class="lab-card-flip">
     <div class="lab-card-front">
@@ -785,13 +803,13 @@
         <p><strong>Time:</strong> 8-11 AM</p>
         <p><strong>Level:</strong> Intermediate</p>
       </div>
-      <a href="#" class="book-btn">Book Now</a>
+      <a href="#" class="book-btn" data-lab="Moka Pot">Book Now</a>
     </div>
   </div>
 </div>
 
           <!-- Card 6 -->
-<div class="lab-card-wrap">
+<div class="lab-card-wrap" data-title="Chemex" data-trainer="Nora" data-location="Online" data-time="1-3 PM">
   <input type="checkbox" id="flip6" class="flip-toggle">
   <div class="lab-card-flip">
     <div class="lab-card-front">
@@ -814,13 +832,13 @@
         <p><strong>Time:</strong> 1-3 PM</p>
         <p><strong>Level:</strong> Intermediate</p>
       </div>
-      <a href="#" class="book-btn">Book Now</a>
+      <a href="#" class="book-btn" data-lab="Chemex">Book Now</a>
     </div>
   </div>
 </div>
 
          <!-- Card 7 -->
-<div class="lab-card-wrap">
+<div class="lab-card-wrap" data-title="Roasting Basics" data-trainer="Latifah" data-location="Jeddah" data-time="8-11 AM">
   <input type="checkbox" id="flip7" class="flip-toggle">
   <div class="lab-card-flip">
     <div class="lab-card-front">
@@ -843,12 +861,12 @@
         <p><strong>Time:</strong> 8-11 AM</p>
         <p><strong>Level:</strong> Advanced</p>
       </div>
-      <a href="#" class="book-btn">Book Now</a>
+      <a href="#" class="book-btn" data-lab="Roasting Basics">Book Now</a>
     </div>
   </div>
 </div>
           <!-- Card 8 -->
-<div class="lab-card-wrap">
+<div class="lab-card-wrap" data-title="Grinders & Grinding" data-trainer="Reem" data-location="Riyadh" data-time="1-3 PM">
   <input type="checkbox" id="flip8" class="flip-toggle">
   <div class="lab-card-flip">
     <div class="lab-card-front">
@@ -871,13 +889,13 @@
         <p><strong>Time:</strong> 1-3 PM</p>
         <p><strong>Level:</strong> Beginner</p>
       </div>
-      <a href="#" class="book-btn">Book Now</a>
+      <a href="#" class="book-btn" data-lab="Grinders & Grinding">Book Now</a>
     </div>
   </div>
 </div>
 
           <!-- Card 9 -->
-<div class="lab-card-wrap">
+<div class="lab-card-wrap" data-title="Cold Brew" data-trainer="Nora" data-location="Jeddah" data-time="1-3 PM">
   <input type="checkbox" id="flip9" class="flip-toggle">
   <div class="lab-card-flip">
     <div class="lab-card-front">
@@ -900,7 +918,7 @@
         <p><strong>Time:</strong> 1-3 PM</p>
         <p><strong>Level:</strong> Intermediate</p>
       </div>
-      <a href="#" class="book-btn">Book Now</a>
+      <a href="#" class="book-btn" data-lab="Cold Brew">Book Now</a>
     </div>
   </div>
 </div>
@@ -971,6 +989,89 @@
       <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
       <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
     </footer>
+	
+	<script>
+const trainerFilter = document.getElementById("trainerFilter");
+const locationFilter = document.getElementById("locationFilter");
+const timeFilter = document.getElementById("timeFilter");
+const applyBtn = document.getElementById("applyBtn");
+const resetBtn = document.getElementById("resetBtn");
+const searchInput = document.getElementById("searchInput");
+const cards = document.querySelectorAll(".lab-card-wrap");
+const bookButtons = document.querySelectorAll(".book-btn");
+const modeBtn = document.querySelector(".mode-btn");
+
+// filter + search
+function filterCards() {
+  const trainerValue = trainerFilter.value.toLowerCase();
+  const locationValue = locationFilter.value.toLowerCase();
+  const timeValue = timeFilter.value.toLowerCase();
+  const searchValue = searchInput.value.toLowerCase().trim();
+
+  cards.forEach(card => {
+    const title = card.dataset.title.toLowerCase();
+    const trainer = card.dataset.trainer.toLowerCase();
+    const location = card.dataset.location.toLowerCase();
+    const time = card.dataset.time.toLowerCase();
+
+    let showCard = true;
+
+    if (trainerValue !== "all trainers" && trainer !== trainerValue) {
+      showCard = false;
+    }
+
+    if (locationValue !== "all locations" && location !== locationValue) {
+      showCard = false;
+    }
+
+    if (timeValue !== "all times" && time !== timeValue) {
+      showCard = false;
+    }
+
+    if (searchValue !== "" && !title.includes(searchValue)) {
+      showCard = false;
+    }
+
+    if (showCard) {
+      card.style.display = "";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+
+// apply button
+applyBtn.addEventListener("click", filterCards);
+
+// search while typing
+searchInput.addEventListener("input", filterCards);
+
+// reset button
+resetBtn.addEventListener("click", function() {
+  trainerFilter.value = "All Trainers";
+  locationFilter.value = "All Locations";
+  timeFilter.value = "All Times";
+  searchInput.value = "";
+
+  cards.forEach(card => {
+    card.style.display = "";
+  });
+});
+
+// booking alert
+bookButtons.forEach(button => {
+  button.addEventListener("click", function(event) {
+    event.preventDefault();
+    const labName = this.dataset.lab;
+    alert("Your booking for " + labName + " has been completed successfully.");
+  });
+});
+
+// mode button
+modeBtn.addEventListener("click", function() {
+  document.body.classList.toggle("light-mode");
+});
+</script>
 
 </body>
 
