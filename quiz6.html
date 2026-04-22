@@ -446,7 +446,7 @@
 
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="brew-school.html" class="active">Brew School</a></li>
+        <li><a href="Brew-school.html" class="active">Brew School</a></li>
         <li><a href="CoffeLab.html">Coffee Lab</a></li>
         <li><a href="student-dashboard.html">Student Dashboard</a></li>
         <li><a href="About-us.html">About Us</a></li>
@@ -486,65 +486,65 @@
       </p>
     </div>
 
-    <form class="quiz-form" action="result.html">
+    <form class="quiz-form" id="quizForm">
 
       <div class="question-card">
         <h3>1) What helps you know how fresh the coffee is?</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q1"> The coffee cup color</label>
-          <label class="option"><input type="radio" name="q1"> The roasting date</label>
-          <label class="option"><input type="radio" name="q1"> The shop location only</label>
-          <label class="option"><input type="radio" name="q1"> The milk amount</label>
+        <label class="option"><input type="radio" name="q1" value="a"> The coffee cup color</label>
+<label class="option"><input type="radio" name="q1" value="b"> The roasting date</label>
+<label class="option"><input type="radio" name="q1" value="c"> The shop location only</label>
+<label class="option"><input type="radio" name="q1" value="d"> The milk amount</label>
         </div>
       </div>
 
       <div class="question-card">
         <h3>2) What does the CO₂ valve on a coffee bag do?</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q2"> Adds sweetness to the coffee</label>
-          <label class="option"><input type="radio" name="q2"> Lets carbon dioxide out while protecting coffee from oxygen</label>
-          <label class="option"><input type="radio" name="q2"> Changes light roast into dark roast</label>
-          <label class="option"><input type="radio" name="q2"> Makes coffee colder</label>
+        <label class="option"><input type="radio" name="q2" value="a"> Adds sweetness to the coffee</label>
+<label class="option"><input type="radio" name="q2" value="b"> Lets carbon dioxide out while protecting coffee from oxygen</label>
+<label class="option"><input type="radio" name="q2" value="c"> Changes light roast into dark roast</label>
+<label class="option"><input type="radio" name="q2" value="d"> Makes coffee colder</label>
         </div>
       </div>
 
       <div class="question-card">
         <h3>3) Which flavor profile is described as rich and warm?</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q3"> Fruity</label>
-          <label class="option"><input type="radio" name="q3"> Bright</label>
-          <label class="option"><input type="radio" name="q3"> Chocolatey</label>
-          <label class="option"><input type="radio" name="q3"> Salty</label>
+        <label class="option"><input type="radio" name="q3" value="a"> Fruity</label>
+<label class="option"><input type="radio" name="q3" value="b"> Bright</label>
+<label class="option"><input type="radio" name="q3" value="c"> Chocolatey</label>
+<label class="option"><input type="radio" name="q3" value="d"> Salty</label>
         </div>
       </div>
 
       <div class="question-card">
         <h3>4) Which flavor profile is often floral or tea-like?</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q4"> Bright</label>
-          <label class="option"><input type="radio" name="q4"> Chocolatey</label>
-          <label class="option"><input type="radio" name="q4"> Nutty</label>
-          <label class="option"><input type="radio" name="q4"> Smoky only</label>
+        <label class="option"><input type="radio" name="q4" value="a"> Bright</label>
+<label class="option"><input type="radio" name="q4" value="b"> Chocolatey</label>
+<label class="option"><input type="radio" name="q4" value="c"> Nutty</label>
+<label class="option"><input type="radio" name="q4" value="d"> Smoky only</label>
         </div>
       </div>
 
       <div class="question-card">
         <h3>5) In the coffee journey, which step controls extraction by changing particle size?</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q5"> Roast</label>
-          <label class="option"><input type="radio" name="q5"> Grind</label>
-          <label class="option"><input type="radio" name="q5"> Cup</label>
-          <label class="option"><input type="radio" name="q5"> Origin</label>
+        <label class="option"><input type="radio" name="q5" value="a"> Roast</label>
+<label class="option"><input type="radio" name="q5" value="b"> Grind</label>
+<label class="option"><input type="radio" name="q5" value="c"> Cup</label>
+<label class="option"><input type="radio" name="q5" value="d"> Origin</label>
         </div>
       </div>
 
       <div class="question-card">
         <h3>6) Which drink in the comparison table is usually made with milk and can be served iced?</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q6"> Espresso</label>
-          <label class="option"><input type="radio" name="q6"> Latte</label>
-          <label class="option"><input type="radio" name="q6"> Cold Brew</label>
-          <label class="option"><input type="radio" name="q6"> Americano without change</label>
+        <label class="option"><input type="radio" name="q6" value="a"> Espresso</label>
+<label class="option"><input type="radio" name="q6" value="b"> Latte</label>
+<label class="option"><input type="radio" name="q6" value="c"> Cold Brew</label>
+<label class="option"><input type="radio" name="q6" value="d"> Americano without change</label>
         </div>
       </div>
 
@@ -595,6 +595,70 @@
     </p>
 
   </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const quizForm = document.getElementById("quizForm");
+
+  if (!quizForm) return;
+
+  quizForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const correctAnswers = {
+      q1: "b",
+      q2: "b",
+      q3: "c",
+      q4: "a",
+      q5: "b",
+      q6: "b"
+    };
+
+    let score = 0;
+    const lessonName = "Lesson 6 Quiz";
+    const totalQuestions = 6;
+    const quizLink = "quiz6.html";
+
+    for (let question in correctAnswers) {
+      const selectedAnswer = document.querySelector('input[name="' + question + '"]:checked');
+
+      if (!selectedAnswer) {
+        alert("Please answer all questions before submitting.");
+        return;
+      }
+
+      if (selectedAnswer.value === correctAnswers[question]) {
+        score++;
+      }
+    }
+
+    let scores = JSON.parse(localStorage.getItem("quizScores")) || [];
+
+    let existingLesson = scores.find(function(item) {
+      return item.lesson === lessonName;
+    });
+
+    if (existingLesson) {
+      if (score > existingLesson.bestScore) {
+        existingLesson.bestScore = score;
+      }
+    } else {
+      scores.push({
+        lesson: lessonName,
+        bestScore: score
+      });
+    }
+
+    localStorage.setItem("quizScores", JSON.stringify(scores));
+    localStorage.setItem("currentQuizScore", String(score));
+    localStorage.setItem("currentQuizLesson", lessonName);
+    localStorage.setItem("currentQuizTotal", String(totalQuestions));
+    localStorage.setItem("currentQuizLink", quizLink);
+
+    window.location.href = "result.html";
+  });
+});
+</script>
 
 </body>
 </html>
