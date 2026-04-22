@@ -415,7 +415,7 @@
 
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="brewSchool.html" class="active">Brew School</a></li>
+        <li><a href="BrewSchool.html" class="active">Brew School</a></li>
         <li><a href="CoffeLab.html">Coffee Lab</a></li>
         <li><a href="student-dashboard.html">Student Dashboard</a></li>
         <li><a href="About-us.html">About Us</a></li>
@@ -454,7 +454,7 @@
       </p>
     </div>
 
-    <form class="quiz-form" id="quizForm" action="result.html">
+    <form class="quiz-form" id="quizForm">
 
       <div class="question-card">
         <h3>1) Coffee begins as a:</h3>
@@ -596,5 +596,72 @@
     <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
   </footer>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const quizForm = document.getElementById("quizForm");
+
+  if (!quizForm) return;
+
+  quizForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const correctAnswers = {
+      q1: "b",
+      q2: "c",
+      q3: "b",
+      q4: "a",
+      q5: "c",
+      q6: "a",
+      q7: "b",
+      q8: "c",
+      q9: "b",
+      q10: "a"
+    };
+
+    let score = 0;
+    const lessonName = "Lesson 1 Quiz";
+    const totalQuestions = 10;
+    const quizLink = "Quiz1.html";
+
+    for (let question in correctAnswers) {
+      const selectedAnswer = document.querySelector('input[name="' + question + '"]:checked');
+
+      if (!selectedAnswer) {
+        alert("Please answer all questions before submitting.");
+        return;
+      }
+
+      if (selectedAnswer.value === correctAnswers[question]) {
+        score++;
+      }
+    }
+
+    let scores = JSON.parse(localStorage.getItem("quizScores")) || [];
+
+    let existingLesson = scores.find(function(item) {
+      return item.lesson === lessonName;
+    });
+
+    if (existingLesson) {
+      if (score > existingLesson.bestScore) {
+        existingLesson.bestScore = score;
+      }
+    } else {
+      scores.push({
+        lesson: lessonName,
+        bestScore: score
+      });
+    }
+
+    localStorage.setItem("quizScores", JSON.stringify(scores));
+    localStorage.setItem("currentQuizScore", String(score));
+    localStorage.setItem("currentQuizLesson", lessonName);
+    localStorage.setItem("currentQuizTotal", String(totalQuestions));
+    localStorage.setItem("currentQuizLink", quizLink);
+
+    window.location.href = "result.html";
+  });
+});
+</script>
 </body>
 </html>
