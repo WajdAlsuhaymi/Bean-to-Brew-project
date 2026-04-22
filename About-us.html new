@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bean to Brew - About Us</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson 6 Quiz | Bean to Brew</title>
 
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<style>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
 
-/* ===== BODY ===== */
-body{
-    background:
+     body{
+      background:
       radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
       radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
       radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
@@ -21,606 +25,640 @@ body{
       min-height:100vh;
     }
 
-
-    /* ===== About Page ===== */
-    .about-page {
-      position: relative;
-      padding: 150px 60px 80px;
+    /* ===== Global Typography ===== */
+    h1, h2, h3, h4, h5, h6{
+      font-family:'Playfair Display', serif;
     }
 
-    .about-container {
-      max-width: 1100px;
-      margin: 0 auto;
+    p{
+      font-family:Arial, sans-serif;
     }
 
-    .about-page h1 {
-      font-size: 52px;
-      font-family: 'Playfair Display', serif;
-      color: #EDE8DC;
-      margin-bottom: 35px;
+    /* ===== Navbar ===== */
+    .navbar{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:80px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background-color:#26231F;
+      padding:0 40px;
+      z-index:1000;
     }
 
-    .about-image {
-      margin-bottom: 35px;
+    .logo img{
+      width:60px;
+      height:auto;
+      display:block;
     }
 
-    .about-image img {
-      width: 100%;
-      max-width: 850px;
-      height: 350px;
-      object-fit: cover;
-      display: block;
-      border-radius: 10px;
+    .nav-links{
+      list-style:none;
+      display:flex;
+      align-items:center;
+      gap:18px;
+      margin:0;
+      padding:0;
     }
 
-    .about-text {
-      max-width: 950px;
+    .nav-links a{
+      text-decoration:none;
+      color:white;
+      font-size:16px;
+      transition:0.3s;
     }
 
-    .about-text p {
-      font-size: 20px;
-      line-height: 1.9;
-      margin-bottom: 22px;
-      color: #EDE8DC;
+    .nav-links a:hover{
+      color:#f3d9b1;
     }
 
-/* ===== TEACHERS ===== */
-.teachers-section{
-  padding:70px 60px;
+    .nav-links a.active{
+      color:#f3d9b1;
+      font-weight:bold;
+    }
+
+    .nav-right{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .mode-btn{
+      background:transparent;
+      border:none;
+      color:white;
+      font-size:22px;
+      cursor:pointer;
+    }
+
+    .search-box{
+      padding:8px 12px;
+      border:none;
+      outline:none;
+      border-radius:20px;
+      font-size:14px;
+    }
+
+    /* ===== Hero ===== */
+    .hero{
+      width:100%;
+      min-height:100vh;
+      background-image:linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url("Headerpic.png");
+      background-size:cover;
+      background-position:center top;
+      display:flex;
+      align-items:center;
+      padding-top:80px;
+      padding-left:80px;
+    }
+
+    .hero-content{
+      margin-top:-280px;
+      margin-left:-60px;
+    }
+
+    .main-hero-title{
+      font-family:'Playfair Display', serif;
+      font-size:60px;
+      line-height:1.2;
+      margin:0;
+      text-align:left;
+    }
+
+    .beige-text{
+      color:#FDE9C7;
+    }
+
+    .white-text{
+      color:white;
+    }
+
+    /* ===== Breadcrumb ===== */
+    .path-wrap{
+      position:absolute;
+      top:110px;
+      left:80px;
+      width:auto;
+      margin:0;
+      padding:0;
+      z-index:5;
+    }
+
+    .path-breadcrumb{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:nowrap;
+      color:#fff7ef;
+      font-size:14px;
+      margin:0;
+      animation:fadeUp 0.8s ease;
+    }
+
+    .path-breadcrumb a,
+    .path-breadcrumb a:visited,
+    .path-breadcrumb a:active{
+      color:#fff7ef;
+      text-decoration:none;
+      transition:0.3s ease;
+    }
+
+    .path-breadcrumb a:hover{
+      color:#FDE9C7;
+      text-decoration:none;
+    }
+
+    .path-breadcrumb span{
+      color:#fff7ef;
+    }
+
+    /* ===== Quiz Layout ===== */
+    .quiz-page{
+      width:min(1000px, 92%);
+      margin:170px auto 80px;
+    }
+
+    .quiz-header{
+      text-align:center;
+      background:#26231F;
+      border-radius:30px;
+      padding:40px 30px;
+      margin-bottom:30px;
+      color:white;
+      box-shadow:0 18px 40px rgba(0,0,0,0.18);
+    }
+
+    .quiz-badge{
+      display:inline-block;
+      padding:9px 20px;
+      border-radius:999px;
+      background:#C1B393;
+      color:#2f241d;
+      font-size:14px;
+      margin-bottom:18px;
+    }
+
+    .quiz-header h1{
+      font-size:clamp(2.2rem, 5vw, 3.4rem);
+      color:#FDE9C7;
+      margin-bottom:14px;
+    }
+
+    .quiz-header p{
+      color:#EDE8DC;
+      font-size:1.05rem;
+      line-height:1.9;
+      max-width:700px;
+      margin:auto;
+    }
+
+    .quiz-form{
+      display:grid;
+      gap:24px;
+    }
+
+    .question-card{
+      background:#4B4F3E;
+      border:1px solid #4B4F3E;
+      border-radius:28px;
+      padding:28px 24px;
+      box-shadow:0 18px 35px rgba(0,0,0,0.14);
+    }
+
+    .question-card h3{
+      font-size:1.25rem;
+      margin-bottom:18px;
+      color:#FDE9C7;
+      line-height:1.6;
+    }
+
+    .options{
+      display:grid;
+      gap:14px;
+    }
+
+    .option{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      background:#EDE8DC;
+      border:1px solid #d8ccbb;
+      border-radius:16px;
+      padding:14px 16px;
+      transition:0.3s ease;
+      cursor:pointer;
+      color:#2f241d;
+      line-height:1.7;
+      font-family:Arial, sans-serif;
+    }
+
+    .option:hover{
+      background:#f7f1e7;
+      border-color:#C1B393;
+    }
+
+    .option input{
+      accent-color:#7a4d2c;
+      transform:scale(1.15);
+      margin-top:3px;
+      cursor:pointer;
+      flex-shrink:0;
+    }
+
+    /* ===== Buttons ===== */
+    .quiz-actions{
+  width: min(1150px, 92%);
+  margin: 30px auto 80px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.teachers-title{
-  font-size:42px;
-  color:#EDE8DC;
-}
-
-.teachers-desc{
-  color:#EDE8DC;
-  margin-bottom:30px;
-}
-
-.teacher-img{
-  width:100%;
-  height:150px;
-  border-radius:20px;
-  margin-bottom:18px;
-  background: url("photo.png") center/cover no-repeat;
-  background-color:#d8c3af;
-}
-
-/* ===== SORT ===== */
-.teachers-topbar{
-  display:flex;
-  align-items:center;
-  gap:15px;
-  margin-bottom:30px;
-}
-
-.sort-title{
-  color:#EDE8DC;
-  font-weight:600;
-}
-
-.sort-select{
-  padding:10px 14px;
-  border-radius:10px;
-  border:1px solid #b9997d;
-  background:#C1B393;
-  color:#2f241d;
-}
-
-/* ===== SLIDER ===== */
-.teachers-slider{
-  position:relative;
-  max-width:900px;
-  margin:auto;
-}
-
-.teachers-slider input{
-  display:none;
-}
-
-.cards{
-  position:relative;
-  height:430px;
-}
-
-.card{
-  position:absolute;
-  top:50%;
-  left:50%;
-  width:240px;
-  height:340px;
-  background:#C1B393;
-  border-radius:24px;
-  padding:22px 18px;
-  transform:translate(-50%,-50%) scale(0.45);
-  opacity:0;
-  transition:0.5s ease;
-  text-align:center;
-  box-sizing:border-box;
-  overflow:hidden;
-}
-
-.card h3{
-  font-size:28px;
-  line-height:1.1;
-  margin:0 0 8px;
-  color:#2f241d;
+.quiz-actions a,
+.quiz-actions button{
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color:#C1B393;
+  display: inline-flex;
+  align-items: center;
+  gap:10px;
+  transition: all 0.3s ease;
   font-family:'Playfair Display', serif;
-}
-
-.teacher-exp{
-  font-size:16px;
-  margin:0 0 10px;
-  color:#2f241d;
-  font-weight:600;
-}
-
-.teacher-note{
-  font-size:14px;
-  line-height:1.4;
-  color:#2f241d;
-  margin:0 auto;
-  max-width:90%;
-}
-
-/* center */
-#t1:checked ~ .cards .c1,
-#t2:checked ~ .cards .c2,
-#t3:checked ~ .cards .c3,
-#t4:checked ~ .cards .c4,
-#t5:checked ~ .cards .c5,
-#t6:checked ~ .cards .c6,
-#t7:checked ~ .cards .c7,
-#t8:checked ~ .cards .c8,
-#t9:checked ~ .cards .c9,
-#t10:checked ~ .cards .c10,
-#t11:checked ~ .cards .c11,
-#t12:checked ~ .cards .c12{
-  transform:translate(-50%,-50%) scale(1.15);
-  opacity:1;
-  z-index:5;
-}
-
-/* right near */
-#t1:checked ~ .cards .c2,
-#t2:checked ~ .cards .c3,
-#t3:checked ~ .cards .c4,
-#t4:checked ~ .cards .c5,
-#t5:checked ~ .cards .c6,
-#t6:checked ~ .cards .c7,
-#t7:checked ~ .cards .c8,
-#t8:checked ~ .cards .c9,
-#t9:checked ~ .cards .c10,
-#t10:checked ~ .cards .c11,
-#t11:checked ~ .cards .c12,
-#t12:checked ~ .cards .c1{
-  transform:translate(70%,-50%) scale(0.82);
-  opacity:0.75;
-  z-index:4;
-}
-
-/* left near */
-#t1:checked ~ .cards .c12,
-#t2:checked ~ .cards .c1,
-#t3:checked ~ .cards .c2,
-#t4:checked ~ .cards .c3,
-#t5:checked ~ .cards .c4,
-#t6:checked ~ .cards .c5,
-#t7:checked ~ .cards .c6,
-#t8:checked ~ .cards .c7,
-#t9:checked ~ .cards .c8,
-#t10:checked ~ .cards .c9,
-#t11:checked ~ .cards .c10,
-#t12:checked ~ .cards .c11{
-  transform:translate(-170%,-50%) scale(0.82);
-  opacity:0.75;
-  z-index:4;
-}
-
-/* right far */
-#t1:checked ~ .cards .c3,
-#t2:checked ~ .cards .c4,
-#t3:checked ~ .cards .c5,
-#t4:checked ~ .cards .c6,
-#t5:checked ~ .cards .c7,
-#t6:checked ~ .cards .c8,
-#t7:checked ~ .cards .c9,
-#t8:checked ~ .cards .c10,
-#t9:checked ~ .cards .c11,
-#t10:checked ~ .cards .c12,
-#t11:checked ~ .cards .c1,
-#t12:checked ~ .cards .c2{
-  transform:translate(180%,-50%) scale(0.6);
-  opacity:0.35;
-  z-index:3;
-}
-
-/* left far */
-#t1:checked ~ .cards .c11,
-#t2:checked ~ .cards .c12,
-#t3:checked ~ .cards .c1,
-#t4:checked ~ .cards .c2,
-#t5:checked ~ .cards .c3,
-#t6:checked ~ .cards .c4,
-#t7:checked ~ .cards .c5,
-#t8:checked ~ .cards .c6,
-#t9:checked ~ .cards .c7,
-#t10:checked ~ .cards .c8,
-#t11:checked ~ .cards .c9,
-#t12:checked ~ .cards .c10{
-  transform:translate(-280%,-50%) scale(0.6);
-  opacity:0.35;
-  z-index:3;
-}
-
-/* arrows */
-.arrows{
-  display:none;
-  position:absolute;
-  top:50%;
-  width:100%;
-  justify-content:space-between;
-  transform:translateY(-50%);
-}
-
-.arrow{
-  font-size:72px;
-  color:white;
+  background: transparent;
+  border: none;
   cursor:pointer;
-  user-select:none;
 }
 
-/* show current arrows */
-#t1:checked ~ .arrows-1,
-#t2:checked ~ .arrows-2,
-#t3:checked ~ .arrows-3,
-#t4:checked ~ .arrows-4,
-#t5:checked ~ .arrows-5,
-#t6:checked ~ .arrows-6,
-#t7:checked ~ .arrows-7,
-#t8:checked ~ .arrows-8,
-#t9:checked ~ .arrows-9,
-#t10:checked ~ .arrows-10,
-#t11:checked ~ .arrows-11,
-#t12:checked ~ .arrows-12{
-  display:flex;
+/* hover */
+.quiz-actions a:hover,
+.quiz-actions button:hover{
+  color:#7a4d2c;
+  transform: translateY(-3px);
 }
 
-.lesson-buttons {
-      width: min(1150px, 92%);
-      margin: 30px auto 80px;
-      display: flex;
-      justify-content: space-between;
+    /* ===== Footer ===== */
+    .site-footer{
+      background-image:
+        linear-gradient(rgba(35,24,18,0.80), rgba(35,24,18,0.80)),
+        url("Headerpic.png");
+      background-size:cover;
+      background-position:top center;
+      background-repeat:no-repeat;
+      padding:25px 20px 40px;
+      text-align:center;
+      color:beige;
     }
 
-    .lesson-buttons a {
-      text-decoration: none;
-      font-size: 1.5rem;
-      font-weight: 600;
-      color:#C1B393;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      transition: all 0.3s ease;
+    .footer-top{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:12px;
+      margin-bottom:5px;
     }
 
-    .btn-back,
-    .btn-next {
-      background: #C1B393;
-      color: #2f241d;
-      border: 1px solid #b9997d;
+    .footer-logo img{
+      width:300px;
+      padding:10px;
+      filter:drop-shadow(0 5px 8px rgba(0,0,0,0.2));
     }
 
-    .btn-back:hover,
-    .btn-next:hover {
-      background: #7a4d2c;
-      color: #EDE8DC;
-      transform: translateY(-3px);
+    .footer-contact h3,
+    .footer-social h3{
+      font-size:20px;
+      margin-bottom:8px;
     }
 
-</style>
+    .footer-contact p{
+      margin:6px 0;
+      font-size:16px;
+      font-weight:600;
+    }
+
+    .footer-social{
+      text-align:center;
+    }
+
+    .social-icons{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:15px;
+      margin-top:5px;
+    }
+
+    .social-icons a{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .social-icons img{
+      width:30px;
+      height:30px;
+      object-fit:contain;
+      transition:transform 0.25s ease;
+      filter:brightness(1.4);
+    }
+
+    .social-icons img:hover{
+      transform:scale(1.15);
+    }
+
+    .social-divider{
+      width:1px;
+      height:22px;
+      background:rgba(255,255,255,0.4);
+    }
+
+    .footer-note{
+      font-size:16px;
+      margin-top:15px;
+    }
+
+    .copyright{
+      font-size:15px;
+      margin-top:10px;
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(10px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @media (max-width:768px){
+      .navbar{
+        padding:0 16px;
+      }
+
+      .logo img{
+        width:58px;
+      }
+
+      .search-box{
+        width:160px;
+      }
+
+      .path-wrap{
+        left:20px;
+        top:100px;
+      }
+
+      .quiz-page{
+        margin:155px auto 70px;
+      }
+
+      .question-card h3{
+        font-size:1.1rem;
+      }
+
+      .quiz-actions{
+        justify-content:center;
+      }
+    }
+
+    @media (max-width:480px){
+      .quiz-actions a,
+      .quiz-actions button{
+        width:100%;
+        justify-content:center;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-  <!-- HEADER -->
   <header>
-  <nav class="navbar">
+    <nav class="navbar">
 
-    <div class="logo">
-      <img src="logo.png" alt="Bean to Brew Logo">
-    </div>
-
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="BrewSchool.html">Brew School</a></li>
-      <li><a href="CoffeLab.html">Coffee Lab</a></li>
-      <li><a href="student-dashboard.html">Student Dashboard</a></li>
-      <li><a href="About-us.html" class="active">About Us</a></li>
-      <li><a href="Contact.html">Contact Us</a></li>
-    </ul>
-
-    <div class="nav-right">
-      <button class="mode-btn">☀️</button>
-      <input type="text" placeholder="Search" class="search-box">
-    </div>
-
-  </nav>
-</header>
-
-<main>
-
- <section class="about-page">
-
-      <div class="path-wrap">
-        <div class="path-breadcrumb">
-          <a href="index.html">Home</a>
-          <span>›</span>
-          <span>About Us</span>
-        </div>
+      <div class="logo">
+        <img src="logo.png" alt="Bean to Brew Logo">
       </div>
 
-      <div class="about-container">
-        <h1>About Us</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Brew-school.html" class="active">Brew School</a></li>
+        <li><a href="CoffeLab.html">Coffee Lab</a></li>
+        <li><a href="student-dashboard.html">Student Dashboard</a></li>
+        <li><a href="About-us.html">About Us</a></li>
+        <li><a href="Contact.html">Contact Us</a></li>
+      </ul>
 
-        <div class="about-image">
-          <img src="beanspic.png" alt="Coffee experience at Bean to Brew">
-        </div>
-
-        <div class="about-text">
-          <p>
-            At <strong>Bean to Brew</strong>, we created this platform to make learning about coffee
-            simple, enjoyable, and easy to explore.
-          </p>
-
-          <p>
-            From understanding coffee beans and their origins to learning different brewing methods,
-            our goal is to help users build knowledge step by step in a fun and clear way.
-          </p>
-
-          <p>
-            Whether you are a beginner or already a coffee lover, Bean to Brew gives you a space
-            to discover, learn, and enjoy the experience behind every cup.
-          </p>
-
-          <p>
-            We believe coffee is more than just a drink — it is a journey, a skill, and a story
-            waiting to be explored.
-          </p>
-        </div>
+      <div class="nav-right">
+        <button class="mode-btn">☀️</button>
+        <input type="text" placeholder="Search" class="search-box">
       </div>
-    </section>
 
+    </nav>
+  </header>
 
-<section class="teachers-section">
-
-  <h2 class="teachers-title">Meet Our Teachers</h2>
-
-  <p class="teachers-desc">
-    Our teachers bring passion, knowledge, and hands-on experience.
-  </p>
-
-  <!-- SORT -->
-  <div class="teachers-topbar">
-    <label class="sort-title">Sort by Experience:</label>
-    <select class="sort-select">
-      <option>Default</option>
-      <option>Low to High</option>
-      <option>High to Low</option>
-    </select>
-  </div>
-
-  <!-- SLIDER -->
-  <div class="teachers-slider">
-
- <input type="radio" name="tcard" id="t1" checked>
-<input type="radio" name="tcard" id="t2">
-<input type="radio" name="tcard" id="t3">
-<input type="radio" name="tcard" id="t4">
-<input type="radio" name="tcard" id="t5">
-<input type="radio" name="tcard" id="t6">
-<input type="radio" name="tcard" id="t7">
-<input type="radio" name="tcard" id="t8">
-<input type="radio" name="tcard" id="t9">
-<input type="radio" name="tcard" id="t10">
-<input type="radio" name="tcard" id="t11">
-<input type="radio" name="tcard" id="t12">
-
-    <div class="cards">
-
-      <div class="card c1">
-      <div class="teacher-img"></div>
-      <h3>Hamad</h3>
-     <p>4 Years</p>
-	 <p class="teacher-note">Focuses on brewing foundations and helps beginners learn coffee skills clearly.</p>
-     </div>
-
-      <div class="card c2">
-	  <div class="teacher-img"></div>
-	  <h3>Eman</h3>
-	  <p>6 Years</p>
-	  <p class="teacher-note">Guides learners through flavor understanding and coffee culture in an engaging way.</p>
-	  </div>
-	  
-      <div class="card c3">
-	  <div class="teacher-img"></div>
-	  <h3>Joury</h3>
-	  <p>3 Years</p>
-	  <p class="teacher-note">Specializes in brewing methods and practical techniques for balanced coffee results.</p>
-	  </div>
-	  
-	  
-      <div class="card c4">
-	  <div class="teacher-img"></div>
-	  <h3>Saud</h3>
-	  <p>8 Years</p>
-	  <p class="teacher-note">Helps students understand espresso workflow, extraction, and balance with confidence.</p>
-	  </div>
-	  
-	  
-      <div class="card c5">
-	  <div class="teacher-img"></div>
-	  <h3>Wajd</h3>
-	  <p>5 Years</p>
-	  <p class="teacher-note">Creates interactive workshops that connect creativity with practical coffee learning.</p>
-	  </div>
-	  
-	  
-      <div class="card c6">
-	  <div class="teacher-img"></div>
-	  <h3>Salman</h3>
-	  <p>7 Years</p>
-	  <p class="teacher-note">Supports students through practical sessions and step-by-step coffee training.</p>
-	  </div>
-	  
-	  <div class="card c7">
-	  <div class="teacher-img"></div>
-	  <h3>Sadeem</h3>
-	  <p>4 Years</p>
-	  <p class="teacher-note">Brings creative energy into workshops and encourages learners to explore new ideas.</p>
-	  </div>
-	  
-	  <div class="card c8">
-	  <div class="teacher-img"></div>
-	  <h3>Latifah</h3>
-	  <p>3 Years</p>
-	  <p class="teacher-note">Leads coffee sessions with a practical teaching style and strong learner focus.</p>
-	  </div>
-	  
-	  <div class="card c9">
-	  <div class="teacher-img"></div>
-	  <h3>Abdurhman</h3>
-	  <p>3 Years</p>
-	  <p class="teacher-note">Focuses on taste, aroma, and flavor development to deepen learners’ coffee knowledge.</p>
-	  </div>
-	  
-	  <div class="card c10">
-	  <div class="teacher-img"></div>
-	  <h3>Sara</h3>
-	  <p>9 Years</p>
-	  <p class="teacher-note">Leads creative coffee sessions and helps learners enjoy different brew styles.</p>
-	  </div>
-	  
-	  <div class="card c11">
-	  <div class="teacher-img"></div>
-	  <h3>Nasser</h3>
-	  <p>5 Years</p>
-	  <p class="teacher-note">Specializes in grinders, grind size, and improving extraction through technique.</p>
-	  </div>
-	  
-	  <div class="card c12">
-	  <div class="teacher-img"></div>
-	  <h3>Fahad</h3>
-	  <p>6 Years</p>
-	  <p class="teacher-note">Helps learners understand roasting stages and how they affect coffee flavor.</p>
-	  </div>
-
-    </div>
-
-    <div class="arrows arrows-1">
-  <label for="t12" class="arrow">&#10094;</label>
-  <label for="t2" class="arrow">&#10095;</label>
-</div>
-
-<div class="arrows arrows-2">
-  <label for="t1" class="arrow">&#10094;</label>
-  <label for="t3" class="arrow">&#10095;</label>
-</div>
-
-<div class="arrows arrows-3">
-  <label for="t2" class="arrow">&#10094;</label>
-  <label for="t4" class="arrow">&#10095;</label>
-</div>
-
-<div class="arrows arrows-4">
-  <label for="t3" class="arrow">&#10094;</label>
-  <label for="t5" class="arrow">&#10095;</label>
-</div>
-
-<div class="arrows arrows-5">
-  <label for="t4" class="arrow">&#10094;</label>
-  <label for="t6" class="arrow">&#10095;</label>
-</div>
-
-<div class="arrows arrows-6">
-  <label for="t5" class="arrow">&#10094;</label>
-  <label for="t7" class="arrow">&#10095;</label>
-</div>
-
-<div class="arrows arrows-7">
-  <label for="t6" class="arrow">&#10094;</label>
-  <label for="t8" class="arrow">&#10095;</label>
-</div>
-
-<div class="arrows arrows-8">
-  <label for="t7" class="arrow">&#10094;</label>
-  <label for="t9" class="arrow">&#10095;</label>
-</div>
-
-<div class="arrows arrows-9">
-  <label for="t8" class="arrow">&#10094;</label>
-  <label for="t10" class="arrow">&#10095;</label>
-</div>
-
-<div class="arrows arrows-10">
-  <label for="t9" class="arrow">&#10094;</label>
-  <label for="t11" class="arrow">&#10095;</label>
-</div>
-
-<div class="arrows arrows-11">
-  <label for="t10" class="arrow">&#10094;</label>
-  <label for="t12" class="arrow">&#10095;</label>
-</div>
-
-<div class="arrows arrows-12">
-  <label for="t11" class="arrow">&#10094;</label>
-  <label for="t1" class="arrow">&#10095;</label>
-</div>
-
-  </div>
-
-</section>
-
-<div class="lesson-buttons">
-      <a href="index.html">← Back</a>
-    </div>
-
-</main>
-
-  <!-- FOOTER -->
+  <main class="quiz-page">
   
+    <div class="path-wrap">
+      <div class="path-breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <a href="BrewSchool.html">Brew School</a>
+        <span>›</span>
+        <a href="lesson6.1.html">Lesson 6.1</a>
+        <span>›</span>
+        <a href="lesson6.2.html">Lesson 6.2</a>
+        <span>›</span>
+        <span>Quiz 6</span>
+      </div>
+    </div>
 
- <footer class="site-footer">
-      <div class="footer-top">
-        <div class="footer-logo">
-          <img src="logo.png" alt="Bean to Brew Logo">
-        </div>
+    <div class="quiz-header">
+      <span class="quiz-badge">Lesson 6 Quiz</span>
+      <h1>Find Your Coffee Match</h1>
+      <p>
+        Answer the following multiple-choice questions about coffee comparison,
+        coffee bags, flavor profiles, and choosing the right coffee for your taste.
+      </p>
+    </div>
 
-        <div class="footer-contact">
-          <h3>Contact us</h3>
-          <p>+966504256847</p>
-          <p>BeantoBrew@gmail.com</p>
-        </div>
+    <form class="quiz-form" id="quizForm">
 
-        <div class="footer-social">
-          <h3>Follow us</h3>
-          <div class="social-icons">
-            <a href="https://instagram.com">
-              <img src="instagramicon.png" alt="Instagram">
-            </a>
-            <span class="social-divider"></span>
-            <a href="https://instagram.com">
-              <img src="Xicon.png" alt="X">
-            </a>
-          </div>
+      <div class="question-card">
+        <h3>1) What helps you know how fresh the coffee is?</h3>
+        <div class="options">
+        <label class="option"><input type="radio" name="q1" value="a"> The coffee cup color</label>
+<label class="option"><input type="radio" name="q1" value="b"> The roasting date</label>
+<label class="option"><input type="radio" name="q1" value="c"> The shop location only</label>
+<label class="option"><input type="radio" name="q1" value="d"> The milk amount</label>
         </div>
       </div>
 
-      <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
-      <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
-    </footer>
+      <div class="question-card">
+        <h3>2) What does the CO₂ valve on a coffee bag do?</h3>
+        <div class="options">
+        <label class="option"><input type="radio" name="q2" value="a"> Adds sweetness to the coffee</label>
+<label class="option"><input type="radio" name="q2" value="b"> Lets carbon dioxide out while protecting coffee from oxygen</label>
+<label class="option"><input type="radio" name="q2" value="c"> Changes light roast into dark roast</label>
+<label class="option"><input type="radio" name="q2" value="d"> Makes coffee colder</label>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>3) Which flavor profile is described as rich and warm?</h3>
+        <div class="options">
+        <label class="option"><input type="radio" name="q3" value="a"> Fruity</label>
+<label class="option"><input type="radio" name="q3" value="b"> Bright</label>
+<label class="option"><input type="radio" name="q3" value="c"> Chocolatey</label>
+<label class="option"><input type="radio" name="q3" value="d"> Salty</label>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>4) Which flavor profile is often floral or tea-like?</h3>
+        <div class="options">
+        <label class="option"><input type="radio" name="q4" value="a"> Bright</label>
+<label class="option"><input type="radio" name="q4" value="b"> Chocolatey</label>
+<label class="option"><input type="radio" name="q4" value="c"> Nutty</label>
+<label class="option"><input type="radio" name="q4" value="d"> Smoky only</label>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>5) In the coffee journey, which step controls extraction by changing particle size?</h3>
+        <div class="options">
+        <label class="option"><input type="radio" name="q5" value="a"> Roast</label>
+<label class="option"><input type="radio" name="q5" value="b"> Grind</label>
+<label class="option"><input type="radio" name="q5" value="c"> Cup</label>
+<label class="option"><input type="radio" name="q5" value="d"> Origin</label>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>6) Which drink in the comparison table is usually made with milk and can be served iced?</h3>
+        <div class="options">
+        <label class="option"><input type="radio" name="q6" value="a"> Espresso</label>
+<label class="option"><input type="radio" name="q6" value="b"> Latte</label>
+<label class="option"><input type="radio" name="q6" value="c"> Cold Brew</label>
+<label class="option"><input type="radio" name="q6" value="d"> Americano without change</label>
+        </div>
+      </div>
+
+      <div class="quiz-actions">
+  <a href="lesson6.2.html">← Back</a>
+  <button type="submit">Submit →</button>
+</div>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+
+    <div class="footer-top">
+
+      <div class="footer-logo">
+        <img src="logo.png" alt="Bean to Brew Logo">
+      </div>
+
+      <div class="footer-contact">
+        <h3>Contact us</h3>
+        <p>+966504256847</p>
+        <p>BeantoBrew@gmail.com</p>
+      </div>
+
+      <div class="footer-social">
+        <h3>Follow us</h3>
+
+        <div class="social-icons">
+          <a href="javascript:void(0);">
+            <img src="instagramicon.png" alt="Instagram">
+          </a>
+          <span class="social-divider"></span>
+          <a href="javascript:void(0);">
+            <img src="Xicon.png" alt="X">
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <p class="footer-note">
+      Learn, explore, and enjoy the world of coffee.
+    </p>
+
+    <p class="copyright">
+      © 2026 Bean to Brew. All rights reserved.
+    </p>
+
+  </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const quizForm = document.getElementById("quizForm");
+
+  if (!quizForm) return;
+
+  quizForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const correctAnswers = {
+      q1: "b",
+      q2: "b",
+      q3: "c",
+      q4: "a",
+      q5: "b",
+      q6: "b"
+    };
+
+    let score = 0;
+    const lessonName = "Lesson 6 Quiz";
+    const totalQuestions = 6;
+    const quizLink = "quiz6.html";
+
+    for (let question in correctAnswers) {
+      const selectedAnswer = document.querySelector('input[name="' + question + '"]:checked');
+
+      if (!selectedAnswer) {
+        alert("Please answer all questions before submitting.");
+        return;
+      }
+
+      if (selectedAnswer.value === correctAnswers[question]) {
+        score++;
+      }
+    }
+
+    let scores = JSON.parse(localStorage.getItem("quizScores")) || [];
+
+    let existingLesson = scores.find(function(item) {
+      return item.lesson === lessonName;
+    });
+
+    if (existingLesson) {
+      if (score > existingLesson.bestScore) {
+        existingLesson.bestScore = score;
+      }
+    } else {
+      scores.push({
+        lesson: lessonName,
+        bestScore: score
+      });
+    }
+
+    localStorage.setItem("quizScores", JSON.stringify(scores));
+    localStorage.setItem("currentQuizScore", String(score));
+    localStorage.setItem("currentQuizLesson", lessonName);
+    localStorage.setItem("currentQuizTotal", String(totalQuestions));
+    localStorage.setItem("currentQuizLink", quizLink);
+
+    window.location.href = "result.html";
+  });
+});
+</script>
 
 </body>
 </html>
