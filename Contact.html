@@ -195,16 +195,16 @@ transform:translateY(-3px);
 
 <div class="contact-container">
 
-<form class="contact-form">
+<form class="contact-form" id="contactForm">
 
 <label for="name">Name</label>
-<input type="text" id="name" placeholder="Enter your name" required>
+<input type="text" id="name" name="name" placeholder="Enter your name" required>
 
 <label for="email">Email</label>
-<input type="email" id="email" placeholder="Enter your email" required>
+<input type="email" id="email" name="email" placeholder="Enter your email" required>
 
 <label for="message">Message</label>
-<textarea id="message" placeholder="Write your message..." required></textarea>
+<textarea id="message" name="message" placeholder="Write your message..." required></textarea>
 
 <button type="submit">Submit</button>
 
@@ -257,6 +257,45 @@ transform:translateY(-3px);
 <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
 
 </footer>
+
+<script>
+const contactForm = document.getElementById("contactForm");
+
+contactForm.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  // no empty fields
+  if (name === "" || email === "" || message === "") {
+    alert("Please fill in all fields.");
+    return;
+  }
+
+  // name cannot start with number
+  if (!isNaN(name.charAt(0))) {
+    alert("Name cannot start with a number.");
+    return;
+  }
+
+  // full name check
+  if (name.split(" ").length < 2) {
+    alert("Please enter your full name.");
+    return;
+  }
+
+  // email check
+  if (!email.includes("@") || !email.includes(".")) {
+    alert("Please enter a valid email address.");
+    return;
+  }
+
+  alert("Thank you, " + name + "! Your message has been sent successfully.");
+  contactForm.reset();
+});
+</script>
 
 </body>
 </html>
