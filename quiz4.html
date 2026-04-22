@@ -447,7 +447,7 @@
 
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="brew-school.html" class="active">Brew School</a></li>
+        <li><a href="Brew-school.html" class="active">Brew School</a></li>
         <li><a href="CoffeLab.html">Coffee Lab</a></li>
         <li><a href="Experience-Creators.html">Experience Creators</a></li>
         <li><a href="student-dashboard.html">Student Dashboard</a></li>
@@ -486,65 +486,65 @@
       </p>
     </div>
 
-    <form class="quiz-form" action="result.html">
+    <form class="quiz-form" id="quizForm">
 
       <div class="question-card">
         <h3>1) What may happen if the grind size is too fine?</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q1"> Water passes too quickly and causes under-extraction</label>
-          <label class="option"><input type="radio" name="q1"> Water flow slows down too much and may cause over-extraction</label>
-          <label class="option"><input type="radio" name="q1"> Coffee becomes cold immediately</label>
-          <label class="option"><input type="radio" name="q1"> The beans turn green again</label>
+        <label class="option"><input type="radio" name="q1" value="a"> Water passes too quickly and causes under-extraction</label>
+<label class="option"><input type="radio" name="q1" value="b"> Water flow slows down too much and may cause over-extraction</label>
+<label class="option"><input type="radio" name="q1" value="c"> Coffee becomes cold immediately</label>
+<label class="option"><input type="radio" name="q1" value="d"> The beans turn green again</label>
         </div>
       </div>
 
       <div class="question-card">
         <h3>2) Which grind size is usually used for espresso?</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q2"> Coarse</label>
-          <label class="option"><input type="radio" name="q2"> Medium</label>
-          <label class="option"><input type="radio" name="q2"> Fine</label>
-          <label class="option"><input type="radio" name="q2"> Extra Coarse</label>
+        <label class="option"><input type="radio" name="q2" value="a"> Coarse</label>
+<label class="option"><input type="radio" name="q2" value="b"> Medium</label>
+<label class="option"><input type="radio" name="q2" value="c"> Fine</label>
+<label class="option"><input type="radio" name="q2" value="d"> Extra Coarse</label>
         </div>
       </div>
 
       <div class="question-card">
         <h3>3) Which grind size is commonly used for drip brewing and many filter coffees?</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q3"> Fine</label>
-          <label class="option"><input type="radio" name="q3"> Medium</label>
-          <label class="option"><input type="radio" name="q3"> Coarse</label>
-          <label class="option"><input type="radio" name="q3"> Powder-like</label>
+         <label class="option"><input type="radio" name="q3" value="a"> Fine</label>
+<label class="option"><input type="radio" name="q3" value="b"> Medium</label>
+<label class="option"><input type="radio" name="q3" value="c"> Coarse</label>
+<label class="option"><input type="radio" name="q3" value="d"> Powder-like</label>
         </div>
       </div>
 
       <div class="question-card">
         <h3>4) Which grind size is best for French press?</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q4"> Fine</label>
-          <label class="option"><input type="radio" name="q4"> Medium-Fine</label>
-          <label class="option"><input type="radio" name="q4"> Coarse</label>
-          <label class="option"><input type="radio" name="q4"> Very Fine</label>
+        <label class="option"><input type="radio" name="q4" value="a"> Fine</label>
+<label class="option"><input type="radio" name="q4" value="b"> Medium-Fine</label>
+<label class="option"><input type="radio" name="q4" value="c"> Coarse</label>
+<label class="option"><input type="radio" name="q4" value="d"> Very Fine</label>
         </div>
       </div>
 
       <div class="question-card">
         <h3>5) As grind size becomes coarser, water flow speed usually becomes:</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q5"> Slower</label>
-          <label class="option"><input type="radio" name="q5"> Faster</label>
-          <label class="option"><input type="radio" name="q5"> The same</label>
-          <label class="option"><input type="radio" name="q5"> Sweeter</label>
+        <label class="option"><input type="radio" name="q5" value="a"> Slower</label>
+<label class="option"><input type="radio" name="q5" value="b"> Faster</label>
+<label class="option"><input type="radio" name="q5" value="c"> The same</label>
+<label class="option"><input type="radio" name="q5" value="d"> Sweeter</label>
         </div>
       </div>
 
       <div class="question-card">
         <h3>6) Which statement is correct?</h3>
         <div class="options">
-          <label class="option"><input type="radio" name="q6"> Same coffee always tastes the same مهما تغيّر الطحن</label>
-          <label class="option"><input type="radio" name="q6"> Wrong grind size can ruin good coffee</label>
-          <label class="option"><input type="radio" name="q6"> Grind size does not affect extraction</label>
-          <label class="option"><input type="radio" name="q6"> All brewing methods need the same grind size</label>
+        <label class="option"><input type="radio" name="q6" value="a"> Same coffee always tastes the same even if the grind changes</label>
+<label class="option"><input type="radio" name="q6" value="b"> Wrong grind size can ruin good coffee</label>
+<label class="option"><input type="radio" name="q6" value="c"> Grind size does not affect extraction</label>
+<label class="option"><input type="radio" name="q6" value="d"> All brewing methods need the same grind size</label>
         </div>
       </div>
 
@@ -589,6 +589,70 @@
       © 2026 Bean to Brew. All rights reserved.
     </p>
   </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const quizForm = document.getElementById("quizForm");
+
+  if (!quizForm) return;
+
+  quizForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const correctAnswers = {
+      q1: "b",
+      q2: "c",
+      q3: "b",
+      q4: "c",
+      q5: "b",
+      q6: "b"
+    };
+
+    let score = 0;
+    const lessonName = "Lesson 4 Quiz";
+    const totalQuestions = 6;
+    const quizLink = "quiz4.html";
+
+    for (let question in correctAnswers) {
+      const selectedAnswer = document.querySelector('input[name="' + question + '"]:checked');
+
+      if (!selectedAnswer) {
+        alert("Please answer all questions before submitting.");
+        return;
+      }
+
+      if (selectedAnswer.value === correctAnswers[question]) {
+        score++;
+      }
+    }
+
+    let scores = JSON.parse(localStorage.getItem("quizScores")) || [];
+
+    let existingLesson = scores.find(function(item) {
+      return item.lesson === lessonName;
+    });
+
+    if (existingLesson) {
+      if (score > existingLesson.bestScore) {
+        existingLesson.bestScore = score;
+      }
+    } else {
+      scores.push({
+        lesson: lessonName,
+        bestScore: score
+      });
+    }
+
+    localStorage.setItem("quizScores", JSON.stringify(scores));
+    localStorage.setItem("currentQuizScore", String(score));
+    localStorage.setItem("currentQuizLesson", lessonName);
+    localStorage.setItem("currentQuizTotal", String(totalQuestions));
+    localStorage.setItem("currentQuizLink", quizLink);
+
+    window.location.href = "result.html";
+  });
+});
+</script>
 
 </body>
 </html>
