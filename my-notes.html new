@@ -51,14 +51,27 @@
       align-items:center;
       gap:22px;
       margin-bottom:38px;
+      flex-wrap:wrap;
     }
 
     .note-input{
       flex:1;
+      min-width:240px;
       height:48px;
       border:1px dashed #EDE8DC;
       background-color:#f8f8f8;
       padding:0 16px;
+      font-size:15px;
+      color:#333;
+      outline:none;
+    }
+
+    .priority-select{
+      width:170px;
+      height:48px;
+      border:1px dashed #EDE8DC;
+      background-color:#f8f8f8;
+      padding:0 12px;
       font-size:15px;
       color:#333;
       outline:none;
@@ -87,11 +100,23 @@
     }
 
     .note-card{
-    background-color:#4B4F3E;
-    min-height:92px;
-    padding:0 18px 0 16px;
-    display:flex;
-    align-items:center;
+      background-color:#4B4F3E;
+      min-height:92px;
+      padding:0 18px 0 16px;
+      display:flex;
+      align-items:center;
+    }
+
+    .note-card.priority-1{
+      background-color:#8B3A3A;
+    }
+
+    .note-card.priority-2{
+      background-color:#9A8B3A;
+    }
+
+    .note-card.priority-3{
+      background-color:#4B6B4B;
     }
 
     .note-left{
@@ -135,8 +160,8 @@
     }
 
     .save-btn:hover{
-  background-color:#e6dfd7;
-}
+      background-color:#e6dfd7;
+    }
 
     .delete-all-btn:hover{
       background-color:#9f9f9f;
@@ -162,6 +187,10 @@
         width:100%;
       }
 
+      .priority-select{
+        width:100%;
+      }
+
       .note-card{
         flex-direction:column;
         align-items:stretch;
@@ -174,9 +203,9 @@
       }
 
       .notes-bottom{
-      margin-top:32px;
-      display:flex;
-      justify-content:flex-end;
+        margin-top:32px;
+        display:flex;
+        justify-content:flex-end;
       }
     }
 
@@ -266,30 +295,22 @@
         </div>
 
         <div class="note-input-box">
-          <input type="text" class="note-input" placeholder="Enter your note here..">
-          <button class="save-btn">Save</button>
+          <input type="text" class="note-input" id="noteInput" placeholder="Enter your note here..">
+
+          <select id="prioritySelect" class="priority-select">
+            <option value="">Choose Priority</option>
+            <option value="1">Priority 1</option>
+            <option value="2">Priority 2</option>
+            <option value="3">Priority 3</option>
+          </select>
+
+          <button class="save-btn" id="saveBtn">Save</button>
         </div>
 
         <h2 class="saved-title">Saved Notes</h2>
 
-        <div class="notes-list">
-
-          <div class="note-card">
-  <div class="note-left">
-    <input type="checkbox" class="note-check">
-    <p class="note-text">remember to review the lesson before the quiz next week</p>
-  </div>
-</div>
-
-<div class="note-card">
-  <div class="note-left">
-    <input type="checkbox" class="note-check">
-    <p class="note-text">
-      Check out this helpful website for extra practice<br>
-      www.example.com
-    </p>
-  </div>
-</div>
+        <div class="notes-list" id="notesList">
+        </div>
 
         <div class="notes-bottom">
           <button class="delete-all-btn">Delete All selected</button>
@@ -333,6 +354,94 @@
     </footer>
 
   </div>
+
+  <script>
+    const noteInput = document.getElementById("noteInput");
+    const prioritySelect = document.getElementById("prioritySelect");
+    const saveBtn = document.getElementById("saveBtn");
+    const notesList = document.getElementById("notesList");
+    const deleteBtn = document.querySelector(".delete-all-btn");
+
+    let notes = JSON.parse(localStorage.getItem("myNotes")) || [];
+
+    function renderNotes() {
+      notesList.innerHTML = "";
+
+      notes.forEach((note, index) => {
+        const noteCard = document.createElement("div");
+        noteCard.className = "note-card priority-" + note.priority;
+
+        noteCard.innerHTML = `
+          <div class="note-left">
+            <input type="checkbox" class="note-check" data-index="${index}">
+            <p class="note-text">${note.text}</p>
+          </div>
+        `;
+
+        notesList.appendChild(noteCard);
+      });
+    }
+
+    function saveNotesToLocalStorage() {
+      localStorage.setItem("myNotes", JSON.stringify(notes));
+    }
+
+    saveBtn.addEventListener("click", function () {
+      const noteText = noteInput.value.trim();
+      const priority = prioritySelect.value;
+
+      if (noteText === "") {
+        alert("Note cannot be empty.");
+        return;
+      }
+
+      if (noteText.length < 30) {
+        alert("Note must be at least 30 characters.");
+        return;
+      }
+
+      if (priority === "") {
+        alert("Please choose a priority.");
+        return;
+      }
+
+      const newNote = {
+        text: noteText,
+        priority: priority
+      };
+
+      notes.push(newNote);
+      saveNotesToLocalStorage();
+      renderNotes();
+
+      noteInput.value = "";
+      prioritySelect.value = "";
+    });
+
+    deleteBtn.addEventListener("click", function () {
+      const checkedNotes = document.querySelectorAll(".note-check:checked");
+
+      if (checkedNotes.length === 0) {
+        alert("Please select at least one note");
+        return;
+      }
+
+      const confirmDelete = confirm("Are you sure you want to delete the selected notes?");
+
+      if (!confirmDelete) {
+        return;
+      }
+
+      const selectedIndexes = Array.from(checkedNotes).map(note => Number(note.dataset.index));
+
+      notes = notes.filter((note, index) => !selectedIndexes.includes(index));
+
+      saveNotesToLocalStorage();
+      renderNotes();
+    });
+
+    renderNotes();
+  </script>
 
 </body>
 </html>
