@@ -134,102 +134,157 @@ background:#ddd2c4;
 <body>
 
 <header>
-      <nav class="navbar">
+  <nav class="navbar">
 
-        <div class="logo">
-          <img src="logo.png" alt="Bean to Brew Logo">
-        </div>
+    <div class="logo">
+      <img src="logo.png" alt="Bean to Brew Logo">
+    </div>
 
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="BrewSchool.html">Brew School</a></li>
-          <li><a href="CoffeLab.html">Coffee Lab</a></li>
-          <li><a href="student-dashboard.html">Student Dashboard</a></li>
-          <li><a href="About-us.html">About Us</a></li>
-          <li><a href="Contact.html">Contact Us</a></li>
-        </ul>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="BrewSchool.html">Brew School</a></li>
+      <li><a href="CoffeLab.html">Coffee Lab</a></li>
+      <li><a href="student-dashboard.html">Student Dashboard</a></li>
+      <li><a href="About-us.html">About Us</a></li>
+      <li><a href="Contact.html">Contact Us</a></li>
+    </ul>
 
-        <div class="nav-right">
-          <button class="mode-btn">☀️</button>
-          <input type="text" placeholder="Search" class="search-box">
-        </div>
+    <div class="nav-right">
+      <button class="mode-btn">☀️</button>
+      <input type="text" placeholder="Search" class="search-box">
+    </div>
 
-      </nav>
-    </header>
+  </nav>
+</header>
 	
 <main class="result-page">
 
-<div class="result-card">
+  <div class="result-card">
 
-<span class="result-badge">Quiz Result</span>
+    <span class="result-badge" id="resultBadge">Quiz Result</span>
 
-<h1>Quiz Completed</h1>
+    <h1>Quiz Completed</h1>
 
-<p>Your quiz result will appear below.</p>
+    <p id="resultLessonText">Your quiz result will appear below.</p>
 
-<div class="score-box">
+    <div class="score-box">
 
-<h2>Your Score</h2>
+      <h2>Your Score</h2>
 
-<div class="score">
--- / 5
-</div>
+      <div class="score" id="currentScore">
+        -- / --
+      </div>
 
-<p class="best-score">
-Best Score: -- / 5
-</p>
+      <p class="best-score" id="bestScore">
+        Best Score: -- / --
+      </p>
 
-</div>
+    </div>
 
-<div class="message">
-Great effort! Review the lesson and try again to improve your score.
-</div>
+    <div class="message" id="resultMessage">
+      Great effort! Review the lesson and try again to improve your score.
+    </div>
 
-<div class="result-actions">
+    <div class="result-actions">
 
-<a href="lesson2-quiz.html" class="btn-retry">
-Try Again
-</a>
+      <a href="BrewSchool.html" class="btn-retry" id="retryBtn">
+        Try Again
+      </a>
 
-<a href="BrewSchool.html" class="btn-home">
-Back to Brew School
-</a>
+      <a href="BrewSchool.html" class="btn-home">
+        Back to Brew School
+      </a>
 
-</div>
+    </div>
 
-</div>
+  </div>
 
 </main>
 
 <footer class="site-footer">
-      <div class="footer-top">
-        <div class="footer-logo">
-          <img src="logo.png" alt="Bean to Brew Logo">
-        </div>
+  <div class="footer-top">
+    <div class="footer-logo">
+      <img src="logo.png" alt="Bean to Brew Logo">
+    </div>
 
-        <div class="footer-contact">
-          <h3>Contact us</h3>
-          <p>+966504256847</p>
-          <p>BeantoBrew@gmail.com</p>
-        </div>
+    <div class="footer-contact">
+      <h3>Contact us</h3>
+      <p>+966504256847</p>
+      <p>BeantoBrew@gmail.com</p>
+    </div>
 
-        <div class="footer-social">
-          <h3>Follow us</h3>
-          <div class="social-icons">
-            <a href="https://instagram.com">
-              <img src="instagramicon.png" alt="Instagram">
-            </a>
-            <span class="social-divider"></span>
-            <a href="https://instagram.com">
-              <img src="Xicon.png" alt="X">
-            </a>
-          </div>
-        </div>
+    <div class="footer-social">
+      <h3>Follow us</h3>
+      <div class="social-icons">
+        <a href="https://instagram.com">
+          <img src="instagramicon.png" alt="Instagram">
+        </a>
+        <span class="social-divider"></span>
+        <a href="https://instagram.com">
+          <img src="Xicon.png" alt="X">
+        </a>
       </div>
+    </div>
+  </div>
 
-      <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
-      <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
-    </footer>
+  <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
+  <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
+</footer>
+
+<script>
+const currentScoreElement = document.getElementById("currentScore");
+const bestScoreElement = document.getElementById("bestScore");
+const resultMessageElement = document.getElementById("resultMessage");
+const resultLessonText = document.getElementById("resultLessonText");
+const retryBtn = document.getElementById("retryBtn");
+
+const currentScore = localStorage.getItem("currentQuizScore");
+const currentLesson = localStorage.getItem("currentQuizLesson");
+const currentTotal = localStorage.getItem("currentQuizTotal");
+const currentQuizLink = localStorage.getItem("currentQuizLink");
+
+const savedScores = JSON.parse(localStorage.getItem("quizScores")) || [];
+
+if (currentLesson && currentScore && currentTotal) {
+  currentScoreElement.textContent = currentScore + " / " + currentTotal;
+  resultLessonText.textContent = "You completed " + currentLesson + ".";
+} else {
+  currentScoreElement.textContent = "-- / --";
+  resultLessonText.textContent = "Your quiz result will appear below.";
+}
+
+const lessonBest = savedScores.find(item => item.lesson === currentLesson);
+
+if (lessonBest && currentTotal) {
+  bestScoreElement.textContent = "Best Score: " + lessonBest.bestScore + " / " + currentTotal;
+} else {
+  bestScoreElement.textContent = "Best Score: -- / --";
+}
+
+if (currentQuizLink) {
+  retryBtn.href = currentQuizLink;
+}
+
+if (currentScore && currentTotal) {
+  const scoreNumber = Number(currentScore);
+  const totalNumber = Number(currentTotal);
+  const percentage = (scoreNumber / totalNumber) * 100;
+
+  if (percentage >= 80) {
+    resultMessageElement.textContent = "Excellent work! You did a great job in this quiz.";
+    resultMessageElement.style.background = "#eef7ef";
+    resultMessageElement.style.color = "#2f5a35";
+  } else if (percentage >= 50) {
+    resultMessageElement.textContent = "Good job! Keep practicing to improve your score.";
+    resultMessageElement.style.background = "#fff6e5";
+    resultMessageElement.style.color = "#8a5a00";
+  } else {
+    resultMessageElement.textContent = "Review the lesson and try again to improve your score.";
+    resultMessageElement.style.background = "#fbeaea";
+    resultMessageElement.style.color = "#8a2f2f";
+  }
+}
+</script>
 
 </body>
 </html>
