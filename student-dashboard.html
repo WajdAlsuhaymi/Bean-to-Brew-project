@@ -108,6 +108,55 @@
       background-color:#d8d1c7;
     }
 
+    .scores-section{
+      width:min(1000px, 92%);
+      margin:60px auto 0;
+      text-align:left;
+    }
+
+    .scores-title{
+      font-size:32px;
+      color:#EDE8DC;
+      margin-bottom:20px;
+      text-align:center;
+      font-family:'Playfair Display', serif;
+    }
+
+    .no-scores{
+      display:none;
+      text-align:center;
+      color:#EDE8DC;
+      font-size:18px;
+      margin-top:20px;
+    }
+
+    .scores-table-wrap{
+      display:none;
+      overflow-x:auto;
+    }
+
+    .scores-table{
+      width:100%;
+      border-collapse:collapse;
+      background:#4B4F3E;
+      border-radius:12px;
+      overflow:hidden;
+    }
+
+    .scores-table th,
+    .scores-table td{
+      padding:14px 16px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.08);
+      color:#EDE8DC;
+    }
+
+    .scores-table th{
+      background:#C1B393;
+      color:#2f241d;
+      font-weight:600;
+    }
+
     @media (max-width:768px){
       .dashboard-section{
         padding:140px 18px 70px;
@@ -240,6 +289,24 @@
           </div>
         </div>
 
+        <div class="scores-section">
+          <h2 class="scores-title">My Quiz Scores</h2>
+
+          <p class="no-scores" id="noScoresMessage">No quiz scores available yet.</p>
+
+          <div class="scores-table-wrap" id="scoresTableWrap">
+            <table class="scores-table">
+              <thead>
+                <tr>
+                  <th>Lesson</th>
+                  <th>Best Score</th>
+                </tr>
+              </thead>
+              <tbody id="scoresTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+
       </section>
     </main>
 
@@ -277,6 +344,45 @@
       <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
     </footer>
   </div>
+
+<script>
+  const scoresTableWrap = document.getElementById("scoresTableWrap");
+  const scoresTableBody = document.getElementById("scoresTableBody");
+  const noScoresMessage = document.getElementById("noScoresMessage");
+
+  let savedScores = JSON.parse(localStorage.getItem("quizScores")) || [];
+
+  if (savedScores.length === 0) {
+    noScoresMessage.style.display = "block";
+  } else {
+    scoresTableWrap.style.display = "block";
+
+    savedScores.sort((a, b) => b.bestScore - a.bestScore);
+
+    savedScores.forEach(score => {
+      const row = document.createElement("tr");
+
+      let color = "#EDE8DC";
+
+      if (score.bestScore >= 5) {
+        color = "#A8E6A3";
+      } else if (score.bestScore >= 3) {
+        color = "#FDE9C7";
+      } else {
+        color = "#E7A6A1";
+      }
+
+      row.innerHTML = `
+        <td>${score.lesson}</td>
+        <td style="color:${color}; font-weight:600;">
+          ${score.bestScore} / ${score.total || 6}
+        </td>
+      `;
+
+      scoresTableBody.appendChild(row);
+    });
+  }
+</script>
 
 </body>
 </html>
