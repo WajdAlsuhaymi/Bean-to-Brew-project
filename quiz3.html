@@ -192,7 +192,7 @@ margin-top:3px;
 
 <ul class="nav-links">
 <li><a href="index.html">Home</a></li>
-<li><a href="brewSchool.html" class="active">Brew School</a></li>
+<li><a href="BrewSchool.html" class="active">Brew School</a></li>
 <li><a href="CoffeLab.html">Coffee Lab</a></li>
 <li><a href="student-dashboard.html">Student Dashboard</a></li>
 <li><a href="About-us.html">About Us</a></li>
@@ -232,65 +232,65 @@ roast levels, and how roasting changes coffee flavor.
 </p>
 </div>
 
-<form class="quiz-form" action="result.html">
+<form class="quiz-form" id="quizForm">
 
 <div class="question-card">
 <h3>1) What is roasting?</h3>
 <div class="options">
-<label class="option"><input type="radio" name="q1"> The process of turning roasted beans back into green beans</label>
-<label class="option"><input type="radio" name="q1"> The process that transforms green coffee beans into brown aromatic beans</label>
-<label class="option"><input type="radio" name="q1"> The process of serving coffee with milk</label>
-<label class="option"><input type="radio" name="q1"> The process of cooling coffee after brewing</label>
+<label class="option"><input type="radio" name="q1" value="a"> The process of turning roasted beans back into green beans</label>
+<label class="option"><input type="radio" name="q1" value="b"> The process that transforms green coffee beans into brown aromatic beans</label>
+<label class="option"><input type="radio" name="q1" value="c"> The process of serving coffee with milk</label>
+<label class="option"><input type="radio" name="q1" value="d"> The process of cooling coffee after brewing</label>
 </div>
 </div>
 
 <div class="question-card">
 <h3>2) Which of the following happens during roasting?</h3>
 <div class="options">
-<label class="option"><input type="radio" name="q2"> Beans become wetter and heavier</label>
-<label class="option"><input type="radio" name="q2"> Moisture evaporates and sugars begin to caramelize</label>
-<label class="option"><input type="radio" name="q2"> Beans turn from brown to green</label>
-<label class="option"><input type="radio" name="q2"> Aroma disappears completely</label>
+<label class="option"><input type="radio" name="q2" value="a"> Beans become wetter and heavier</label>
+<label class="option"><input type="radio" name="q2" value="b"> Moisture evaporates and sugars begin to caramelize</label>
+<label class="option"><input type="radio" name="q2" value="c"> Beans turn from brown to green</label>
+<label class="option"><input type="radio" name="q2" value="d"> Aroma disappears completely</label>
 </div>
 </div>
 
 <div class="question-card">
 <h3>3) As roasting increases, acidity usually becomes:</h3>
 <div class="options">
-<label class="option"><input type="radio" name="q3"> Higher and sharper</label>
-<label class="option"><input type="radio" name="q3"> Softer and lower</label>
-<label class="option"><input type="radio" name="q3"> Exactly the same</label>
-<label class="option"><input type="radio" name="q3"> Sweeter</label>
+<label class="option"><input type="radio" name="q3" value="a"> Higher and sharper</label>
+<label class="option"><input type="radio" name="q3" value="b"> Softer and lower</label>
+<label class="option"><input type="radio" name="q3" value="c"> Exactly the same</label>
+<label class="option"><input type="radio" name="q3" value="d"> Sweeter</label>
 </div>
 </div>
 
 <div class="question-card">
 <h3>4) Which roast level usually has the highest acidity?</h3>
 <div class="options">
-<label class="option"><input type="radio" name="q4"> Light Roast</label>
-<label class="option"><input type="radio" name="q4"> Medium Roast</label>
-<label class="option"><input type="radio" name="q4"> Dark Roast</label>
-<label class="option"><input type="radio" name="q4"> All are equal</label>
+<label class="option"><input type="radio" name="q4" value="a"> Light Roast</label>
+<label class="option"><input type="radio" name="q4" value="b"> Medium Roast</label>
+<label class="option"><input type="radio" name="q4" value="c"> Dark Roast</label>
+<label class="option"><input type="radio" name="q4" value="d"> All are equal</label>
 </div>
 </div>
 
 <div class="question-card">
 <h3>5) Which roast level is described as balanced in acidity and bitterness?</h3>
 <div class="options">
-<label class="option"><input type="radio" name="q5"> Light Roast</label>
-<label class="option"><input type="radio" name="q5"> Medium Roast</label>
-<label class="option"><input type="radio" name="q5"> Dark Roast</label>
-<label class="option"><input type="radio" name="q5"> Green Roast</label>
+<label class="option"><input type="radio" name="q5" value="a"> Light Roast</label>
+<label class="option"><input type="radio" name="q5" value="b"> Medium Roast</label>
+<label class="option"><input type="radio" name="q5" value="c"> Dark Roast</label>
+<label class="option"><input type="radio" name="q5" value="d"> Green Roast</label>
 </div>
 </div>
 
 <div class="question-card">
 <h3>6) Which roast level usually has stronger bitterness and heavier body?</h3>
 <div class="options">
-<label class="option"><input type="radio" name="q6"> Light Roast</label>
-<label class="option"><input type="radio" name="q6"> Medium Roast</label>
-<label class="option"><input type="radio" name="q6"> Dark Roast</label>
-<label class="option"><input type="radio" name="q6"> None of them</label>
+<label class="option"><input type="radio" name="q6" value="a"> Light Roast</label>
+<label class="option"><input type="radio" name="q6" value="b"> Medium Roast</label>
+<label class="option"><input type="radio" name="q6" value="c"> Dark Roast</label>
+<label class="option"><input type="radio" name="q6" value="d"> None of them</label>
 </div>
 </div>
 
@@ -347,6 +347,70 @@ Learn, explore, and enjoy the world of coffee.
 </p>
 
 </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const quizForm = document.getElementById("quizForm");
+
+  if (!quizForm) return;
+
+  quizForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const correctAnswers = {
+      q1: "b",
+      q2: "b",
+      q3: "b",
+      q4: "a",
+      q5: "b",
+      q6: "c"
+    };
+
+    let score = 0;
+    const lessonName = "Lesson 3 Quiz";
+    const totalQuestions = 6;
+    const quizLink = "quiz3.html";
+
+    for (let question in correctAnswers) {
+      const selectedAnswer = document.querySelector('input[name="' + question + '"]:checked');
+
+      if (!selectedAnswer) {
+        alert("Please answer all questions before submitting.");
+        return;
+      }
+
+      if (selectedAnswer.value === correctAnswers[question]) {
+        score++;
+      }
+    }
+
+    let scores = JSON.parse(localStorage.getItem("quizScores")) || [];
+
+    let existingLesson = scores.find(function(item) {
+      return item.lesson === lessonName;
+    });
+
+    if (existingLesson) {
+      if (score > existingLesson.bestScore) {
+        existingLesson.bestScore = score;
+      }
+    } else {
+      scores.push({
+        lesson: lessonName,
+        bestScore: score
+      });
+    }
+
+    localStorage.setItem("quizScores", JSON.stringify(scores));
+    localStorage.setItem("currentQuizScore", String(score));
+    localStorage.setItem("currentQuizLesson", lessonName);
+    localStorage.setItem("currentQuizTotal", String(totalQuestions));
+    localStorage.setItem("currentQuizLink", quizLink);
+
+    window.location.href = "result.html";
+  });
+});
+</script>
 
 </body>
 </html>
