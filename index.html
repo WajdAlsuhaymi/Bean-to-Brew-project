@@ -4,12 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bean to Brew</title>
- <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
-   <style>
-
+  <style>
     *{
       box-sizing:border-box;
     }
@@ -20,27 +18,19 @@
       overflow-x:hidden;
     }
 
-    /* =========================
-       BODY
-       خلفية الصفحة الأساسية:
-       - ثلاث ألوان متموهة
-       - مع تدرج غامق كأساس
-       - ولون الخط الافتراضي
-    ========================= */
     body{
       font-family:Arial, sans-serif;
       padding-top:80px;
       color:#EDE8DC;
       background:
-  radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
-  radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
-  radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
-  radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
-  linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
+        radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
+        radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
+        radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
+        radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
+        linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
       background-attachment:fixed;
     }
 
-    /* ألوان خاصة للنص في العنوان */
     .beige-text{
       color:#FDE9C7;
     }
@@ -49,17 +39,12 @@
       color:#ffffff;
     }
 
-    /* =========================
-       MAIN LAYOUT
-       تنسيق عام للمحتوى الرئيسي
-    ========================= */
     main{
       width:100%;
       padding-bottom:60px;
       overflow-x:hidden;
     }
 
-    /* بوكس عام لكل سكشن */
     .section-box{
       width:min(1120px, calc(100% - 40px));
       margin:0 auto 35px;
@@ -70,10 +55,6 @@
       backdrop-filter:blur(4px);
     }
 
-    /* =========================
-       HERO SECTION
-       سكشن البداية بالصورة
-    ========================= */
     .hero{
       min-height:100vh;
       display:flex;
@@ -89,13 +70,11 @@
       overflow:hidden;
     }
 
-    /* حاوية نص الهيرو */
     .hero-content{
       max-width:700px;
       margin-top:0;
     }
 
-    /* عنوان الهيرو الرئيسي */
     .main-hero-title{
       font-size:68px;
       line-height:1.15;
@@ -104,9 +83,6 @@
       margin-bottom:0;
     }
 
-    /* =========================
-       OUR STORY
-    ========================= */
     .our-story{
       padding:80px 30px;
       text-align:center;
@@ -131,9 +107,6 @@
       margin:0 auto 28px;
     }
 
-    /* =========================
-       WHY SECTION
-    ========================= */
     .why-section{
       padding:80px 40px;
       text-align:center;
@@ -145,7 +118,6 @@
       color:#EDE8DC;
     }
 
-    /* حاوية الكروت */
     .why-container{
       display:flex;
       justify-content:center;
@@ -153,7 +125,6 @@
       flex-wrap:wrap;
     }
 
-    /* كل كرت */
     .why-card{
       max-width:250px;
       min-height:260px;
@@ -164,7 +135,6 @@
       transition:0.3s;
     }
 
-    /* حركة بسيطة عند المرور */
     .why-card:hover{
       transform:translateY(-8px);
     }
@@ -187,426 +157,436 @@
       color:#EDE8DC;
     }
 
-    /* =========================
-       BEAN TYPES
-    ========================= */
-    .bean-types {
-  background-color:linear-gradient(to bottom, #8B5E3C 0%, #A98763 45%, #C1B393 100%);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:70px 60px;
-  gap:50px;
-  flex-wrap:wrap;
-}
+    .bean-types{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:70px 60px;
+      gap:50px;
+      flex-wrap:wrap;
+    }
 
-.bean-types-left {
-  display:grid;
-  grid-template-columns:repeat(2, 170px);
-  gap:20px;
-}
+    .bean-types-left{
+      display:grid;
+      grid-template-columns:repeat(2, 170px);
+      gap:20px;
+    }
 
-.bean-card{
-  width:170px;
-  height:180px;
-  background-image:url("beanspic.png");
-  background-size:cover;
-  background-position:center;
-  position:relative;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:20px;
-  overflow:hidden;
-  color:#3b2a22;
+    .bean-card{
+      width:170px;
+      height:180px;
+      background-image:url("beanspic.png");
+      background-size:cover;
+      background-position:center;
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:20px;
+      overflow:hidden;
+      color:#3b2a22;
+      border-radius:20px;
+      box-shadow:0 8px 18px rgba(0,0,0,0.15);
+    }
 
-  border-radius:20px;
-  box-shadow:0 8px 18px rgba(0,0,0,0.15);
-}
+    .bean-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(222, 204, 176, 0.62);
+    }
 
-.bean-card::before {
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(222, 204, 176, 0.62);
-}
+    .bean-card h3,
+    .bean-card p{
+      position:relative;
+      z-index:2;
+      color:#2f241d;
+    }
 
-.bean-card h3,
-.bean-card p {
-  position:relative;
-  z-index:2;
-  color:#2f241d;
-}
+    .bean-card h3{
+      font-size:28px;
+      margin-bottom:5px;
+      font-family:'Playfair Display', serif;
+    }
 
-.bean-card h3 {
-  font-size:28px;
-  margin-bottom:5px;
-  font-family:'Playfair Display', serif;
-}
+    .bean-card p{
+      font-size:15px;
+      line-height:1.5;
+    }
 
-.bean-card p {
-  font-size:15px;
-  line-height:1.5;
-}
+    .bean-types-right{
+      flex:1;
+      text-align:center;
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-width:280px;
+    }
 
-.bean-types-right {
-  flex:1;
-  text-align:center;
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  min-width:280px;
-}
+    .bean-types-right h2{
+      font-size:58px;
+      font-family:'Playfair Display', serif;
+      color:#EDE8DC;
+      line-height:1.15;
+      margin-bottom:0;
+    }
 
-.bean-types-right h2 {
-  font-size:58px;
-  font-family:'Playfair Display', serif;
-  color:#EDE8DC;
-  line-height:1.15;
-  margin-bottom:0;
-}
+    .bean-types-right img{
+      width:200px;
+      height:380px;
+      margin-top:10px;
+    }
 
-.bean-types-right img {
-  width:200px;
-  height:380px;
-  margin-top:10px;
-}
+    .floating-bean{
+      position:relative;
+    }
 
-    /* صورة البن العائمة بين السكشنات */
-.bean-types-right img {
-  width:200px;
-  height:380px;
-  margin-top:10px;
+    .floating-bean img{
+      position:absolute;
+      right:-80px;
+      top:-250px;
+      width:650px;
+      height:500px;
+      z-index:50;
+      animation:beanFloat 5s ease-in-out infinite;
+      pointer-events:none;
+    }
 
-}
+    @keyframes beanFloat{
+      0%{
+        transform:translateY(0) rotate(0deg);
+      }
+      25%{
+        transform:translateY(-10px) rotate(-1deg);
+      }
+      50%{
+        transform:translateY(-18px) rotate(0.8deg);
+      }
+      75%{
+        transform:translateY(-10px) rotate(-0.6deg);
+      }
+      100%{
+        transform:translateY(0) rotate(0deg);
+      }
+    }
 
-.floating-bean{
-  position:relative;
+    .grind-size{
+      background-image:
+        linear-gradient(rgba(35, 24, 18, 0.58), rgba(35, 24, 18, 0.58)),
+        url("Headerpic.png");
+      background-size:cover;
+      background-position:center;
+      padding:70px 30px 90px;
+      overflow:hidden;
+    }
 
-}
+    .grind-overlay h2{
+      color:beige;
+      font-size:68px;
+      font-family:'Playfair Display', serif;
+      line-height:1.05;
+      max-width:760px;
+      margin-bottom:40px;
+    }
 
-.floating-bean img{
-  position:absolute;
-  right:-80px;
-  top:-250px;
-  width:650px;
-  height:500px;
-  z-index:50;
-}
+    .grind-slider{
+      position:relative;
+      max-width:1100px;
+      margin:0 auto;
+      overflow:hidden;
+    }
 
-    /* =========================
-       GRIND SIZE SECTION
-    ========================= */
-   .grind-size {
-  background-image:
-  linear-gradient(rgba(35, 24, 18, 0.58), rgba(35, 24, 18, 0.58)),
-  url("Headerpic.png");
-  background-size:cover;
-  background-position:center;
-  padding:70px 30px 90px;
-  overflow:hidden;
-}
+    .grind-slider input{
+      display:none;
+    }
 
-.grind-overlay h2 {
-  color:beige;
-  font-size:68px;
-  font-family:'Playfair Display', serif;
-  line-height:1.05;
-  max-width:760px;
-  margin-bottom:40px;
-}
+    .cards{
+      position:relative;
+      height:380px;
+    }
 
-.grind-slider {
-  position:relative;
-  max-width:1100px;
-  margin:0 auto;
-}
+    .card{
+      position:absolute;
+      top:50%;
+      left:50%;
+      width:180px;
+      height:240px;
+      background:#C1B393;
+      text-align:center;
+      padding:35px 20px;
+      transform:translate(-50%, -50%) scale(0.6);
+      opacity:0;
+      transition:0.5s ease;
+      box-shadow:0 10px 25px rgba(0, 0, 0, 0.20);
+      border-radius:20px;
+    }
 
-.grind-slider input {
-  display:none;
-}
+    .card h3{
+      font-size:24px;
+      font-family:'Playfair Display', serif;
+      color:#2f241d;
+      margin-bottom:18px;
+    }
 
-.cards {
-  position:relative;
-  height:380px;
-}
+    .card p{
+      font-size:16px;
+      color:#4a3a2f;
+      margin-bottom:12px;
+    }
 
-.card {
-  position:absolute;
-  top:50%;
-  left:50%;
-  width:180px;
-  height:240px;
-  background:#C1B393;
-  text-align:center;
-  padding:35px 20px;
-  transform:translate(-50%, -50%) scale(0.6);
-  opacity:0;
-  transition:0.5s ease;
-  box-shadow:0 10px 25px rgba(0, 0, 0, 0.20);
-}
+    .card img{
+      width:90px;
+      height:120px;
+      object-fit:contain;
+      display:block;
+      margin:18px auto 0;
+    }
 
-.card h3 {
-  font-size:24px;
-  font-family:'Playfair Display', serif;
-  color:#2f241d;
-  margin-bottom:18px;
-}
+    /* Desktop slider states */
+    #card1:checked ~ .cards .c1 {
+      transform:translate(-50%, -50%) scale(1.2);
+      opacity:1;
+      z-index:5;
+      width:240px;
+      height:320px;
+    }
+    #card1:checked ~ .cards .c6 {
+      transform:translate(-185%, -50%) scale(0.85);
+      opacity:0.8;
+      z-index:4;
+    }
+    #card1:checked ~ .cards .c2 {
+      transform:translate(85%, -50%) scale(0.85);
+      opacity:0.8;
+      z-index:4;
+    }
+    #card1:checked ~ .cards .c5 {
+      transform:translate(-290%, -50%) scale(0.65);
+      opacity:0.45;
+      z-index:3;
+    }
+    #card1:checked ~ .cards .c3 {
+      transform:translate(190%, -50%) scale(0.65);
+      opacity:0.45;
+      z-index:3;
+    }
 
-.card p {
-  font-size:16px;
-  color:#4a3a2f;
-  margin-bottom:12px;
-}
+    #card2:checked ~ .cards .c2 {
+      transform:translate(-50%, -50%) scale(1.2);
+      opacity:1;
+      z-index:5;
+      width:240px;
+      height:320px;
+    }
+    #card2:checked ~ .cards .c1 {
+      transform:translate(-185%, -50%) scale(0.85);
+      opacity:0.8;
+      z-index:4;
+    }
+    #card2:checked ~ .cards .c3 {
+      transform:translate(85%, -50%) scale(0.85);
+      opacity:0.8;
+      z-index:4;
+    }
+    #card2:checked ~ .cards .c6 {
+      transform:translate(-290%, -50%) scale(0.65);
+      opacity:0.45;
+      z-index:3;
+    }
+    #card2:checked ~ .cards .c4 {
+      transform:translate(190%, -50%) scale(0.65);
+      opacity:0.45;
+      z-index:3;
+    }
 
-.card img {
-  width:90px;
-  height:120px;
-  object-fit:contain;
-  display:block;
-  margin:18px auto 0;
-}
+    #card3:checked ~ .cards .c3 {
+      transform:translate(-50%, -50%) scale(1.2);
+      opacity:1;
+      z-index:5;
+      width:240px;
+      height:320px;
+    }
+    #card3:checked ~ .cards .c2 {
+      transform:translate(-185%, -50%) scale(0.85);
+      opacity:0.8;
+      z-index:4;
+    }
+    #card3:checked ~ .cards .c4 {
+      transform:translate(85%, -50%) scale(0.85);
+      opacity:0.8;
+      z-index:4;
+    }
+    #card3:checked ~ .cards .c1 {
+      transform:translate(-290%, -50%) scale(0.65);
+      opacity:0.45;
+      z-index:3;
+    }
+    #card3:checked ~ .cards .c5 {
+      transform:translate(190%, -50%) scale(0.65);
+      opacity:0.45;
+      z-index:3;
+    }
 
-/* الحالة 1 */
-#card1:checked ~ .cards .c1 {
-  transform:translate(-50%, -50%) scale(1.2);
-  opacity:1;
-  z-index:5;
-  width:240px;
-  height:320px;
-}
-#card1:checked ~ .cards .c6 {
-  transform:translate(-185%, -50%) scale(0.85);
-  opacity:0.8;
-  z-index:4;
-}
-#card1:checked ~ .cards .c2 {
-  transform:translate(85%, -50%) scale(0.85);
-  opacity:0.8;
-  z-index:4;
-}
-#card1:checked ~ .cards .c5 {
-  transform:translate(-290%, -50%) scale(0.65);
-  opacity:0.45;
-  z-index:3;
-}
-#card1:checked ~ .cards .c3 {
-  transform:translate(190%, -50%) scale(0.65);
-  opacity:0.45;
-  z-index:3;
-}
+    #card4:checked ~ .cards .c4 {
+      transform:translate(-50%, -50%) scale(1.2);
+      opacity:1;
+      z-index:5;
+      width:240px;
+      height:320px;
+    }
+    #card4:checked ~ .cards .c3 {
+      transform:translate(-185%, -50%) scale(0.85);
+      opacity:0.8;
+      z-index:4;
+    }
+    #card4:checked ~ .cards .c5 {
+      transform:translate(85%, -50%) scale(0.85);
+      opacity:0.8;
+      z-index:4;
+    }
+    #card4:checked ~ .cards .c2 {
+      transform:translate(-290%, -50%) scale(0.65);
+      opacity:0.45;
+      z-index:3;
+    }
+    #card4:checked ~ .cards .c6 {
+      transform:translate(190%, -50%) scale(0.65);
+      opacity:0.45;
+      z-index:3;
+    }
 
-/* الحالة 2 */
-#card2:checked ~ .cards .c2 {
-  transform:translate(-50%, -50%) scale(1.2);
-  opacity:1;
-  z-index:5;
-  width:240px;
-  height:320px;
-}
-#card2:checked ~ .cards .c1 {
-  transform:translate(-185%, -50%) scale(0.85);
-  opacity:0.8;
-  z-index:4;
-}
-#card2:checked ~ .cards .c3 {
-  transform:translate(85%, -50%) scale(0.85);
-  opacity:0.8;
-  z-index:4;
-}
-#card2:checked ~ .cards .c6 {
-  transform:translate(-290%, -50%) scale(0.65);
-  opacity:0.45;
-  z-index:3;
-}
-#card2:checked ~ .cards .c4 {
-  transform:translate(190%, -50%) scale(0.65);
-  opacity:0.45;
-  z-index:3;
-}
+    #card5:checked ~ .cards .c5 {
+      transform:translate(-50%, -50%) scale(1.2);
+      opacity:1;
+      z-index:5;
+      width:240px;
+      height:320px;
+    }
+    #card5:checked ~ .cards .c4 {
+      transform:translate(-185%, -50%) scale(0.85);
+      opacity:0.8;
+      z-index:4;
+    }
+    #card5:checked ~ .cards .c6 {
+      transform:translate(85%, -50%) scale(0.85);
+      opacity:0.8;
+      z-index:4;
+    }
+    #card5:checked ~ .cards .c3 {
+      transform:translate(-290%, -50%) scale(0.65);
+      opacity:0.45;
+      z-index:3;
+    }
+    #card5:checked ~ .cards .c1 {
+      transform:translate(190%, -50%) scale(0.65);
+      opacity:0.45;
+      z-index:3;
+    }
 
-/* الحالة 3 */
-#card3:checked ~ .cards .c3 {
-  transform:translate(-50%, -50%) scale(1.2);
-  opacity:1;
-  z-index:5;
-  width:240px;
-  height:320px;
-}
-#card3:checked ~ .cards .c2 {
-  transform:translate(-185%, -50%) scale(0.85);
-  opacity:0.8;
-  z-index:4;
-}
-#card3:checked ~ .cards .c4 {
-  transform:translate(85%, -50%) scale(0.85);
-  opacity:0.8;
-  z-index:4;
-}
-#card3:checked ~ .cards .c1 {
-  transform:translate(-290%, -50%) scale(0.65);
-  opacity:0.45;
-  z-index:3;
-}
-#card3:checked ~ .cards .c5 {
-  transform:translate(190%, -50%) scale(0.65);
-  opacity:0.45;
-  z-index:3;
-}
+    #card6:checked ~ .cards .c6 {
+      transform:translate(-50%, -50%) scale(1.2);
+      opacity:1;
+      z-index:5;
+      width:240px;
+      height:320px;
+    }
+    #card6:checked ~ .cards .c5 {
+      transform:translate(-185%, -50%) scale(0.85);
+      opacity:0.8;
+      z-index:4;
+    }
+    #card6:checked ~ .cards .c1 {
+      transform:translate(85%, -50%) scale(0.85);
+      opacity:0.8;
+      z-index:4;
+    }
+    #card6:checked ~ .cards .c4 {
+      transform:translate(-290%, -50%) scale(0.65);
+      opacity:0.45;
+      z-index:3;
+    }
+    #card6:checked ~ .cards .c2 {
+      transform:translate(190%, -50%) scale(0.65);
+      opacity:0.45;
+      z-index:3;
+    }
 
-/* الحالة 4 */
-#card4:checked ~ .cards .c4 {
-  transform:translate(-50%, -50%) scale(1.2);
-  opacity:1;
-  z-index:5;
-  width:240px;
-  height:320px;
-}
-#card4:checked ~ .cards .c3 {
-  transform:translate(-185%, -50%) scale(0.85);
-  opacity:0.8;
-  z-index:4;
-}
-#card4:checked ~ .cards .c5 {
-  transform:translate(85%, -50%) scale(0.85);
-  opacity:0.8;
-  z-index:4;
-}
-#card4:checked ~ .cards .c2 {
-  transform:translate(-290%, -50%) scale(0.65);
-  opacity:0.45;
-  z-index:3;
-}
-#card4:checked ~ .cards .c6 {
-  transform:translate(190%, -50%) scale(0.65);
-  opacity:0.45;
-  z-index:3;
-}
+    .arrows{
+      display:none;
+      position:absolute;
+      top:50%;
+      left:0;
+      width:100%;
+      transform:translateY(-50%);
+      justify-content:space-between;
+      align-items:center;
+      pointer-events:none;
+      z-index:20;
+      padding:0 10px;
+    }
 
-/* الحالة 5 */
-#card5:checked ~ .cards .c5 {
-  transform:translate(-50%, -50%) scale(1.2);
-  opacity:1;
-  z-index:5;
-  width:240px;
-  height:320px;
-}
-#card5:checked ~ .cards .c4 {
-  transform:translate(-185%, -50%) scale(0.85);
-  opacity:0.8;
-  z-index:4;
-}
-#card5:checked ~ .cards .c6 {
-  transform:translate(85%, -50%) scale(0.85);
-  opacity:0.8;
-  z-index:4;
-}
-#card5:checked ~ .cards .c3 {
-  transform:translate(-290%, -50%) scale(0.65);
-  opacity:0.45;
-  z-index:3;
-}
-#card5:checked ~ .cards .c1 {
-  transform:translate(190%, -50%) scale(0.65);
-  opacity:0.45;
-  z-index:3;
-}
+    .arrow{
+      pointer-events:auto;
+      width:52px;
+      height:52px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:50%;
+      background:rgba(38,35,31,0.72);
+      color:#fff;
+      font-size:34px;
+      cursor:pointer;
+      user-select:none;
+      transition:0.3s ease;
+      box-shadow:0 6px 16px rgba(0,0,0,0.22);
+    }
 
-/* الحالة 6 */
-#card6:checked ~ .cards .c6 {
-  transform:translate(-50%, -50%) scale(1.2);
-  opacity:1;
-  z-index:5;
-  width:240px;
-  height:320px;
-}
-#card6:checked ~ .cards .c5 {
-  transform:translate(-185%, -50%) scale(0.85);
-  opacity:0.8;
-  z-index:4;
-}
-#card6:checked ~ .cards .c1 {
-  transform:translate(85%, -50%) scale(0.85);
-  opacity:0.8;
-  z-index:4;
-}
-#card6:checked ~ .cards .c4 {
-  transform:translate(-290%, -50%) scale(0.65);
-  opacity:0.45;
-  z-index:3;
-}
-#card6:checked ~ .cards .c2 {
-  transform:translate(190%, -50%) scale(0.65);
-  opacity:0.45;
-  z-index:3;
-}
+    .arrow:hover{
+      background:rgba(38,35,31,0.9);
+      transform:scale(1.06);
+    }
 
-/* الأسهم */
-.arrows {
-  display:none;
-  position:absolute;
-  top:48%;
-  left:0;
-  width:100%;
-  transform:translateY(-50%);
-  justify-content:space-between;
-  align-items:center;
-  pointer-events:none;
-}
+    #card1:checked ~ .arrows-1,
+    #card2:checked ~ .arrows-2,
+    #card3:checked ~ .arrows-3,
+    #card4:checked ~ .arrows-4,
+    #card5:checked ~ .arrows-5,
+    #card6:checked ~ .arrows-6 {
+      display:flex;
+    }
 
-.arrow {
-  pointer-events:auto;
-  color:white;
-  font-size:72px;
-  cursor:pointer;
-  padding:0 18px;
-  user-select:none;
-}
+    .dots{
+      margin-top:25px;
+      text-align:center;
+    }
 
-#card1:checked ~ .arrows-1,
-#card2:checked ~ .arrows-2,
-#card3:checked ~ .arrows-3,
-#card4:checked ~ .arrows-4,
-#card5:checked ~ .arrows-5,
-#card6:checked ~ .arrows-6 {
-  display:flex;
-}
+    .dots label{
+      display:inline-block;
+      width:14px;
+      height:14px;
+      margin:0 6px;
+      border-radius:50%;
+      background-color:rgba(255,255,255,0.45);
+      cursor:pointer;
+      transition:0.3s;
+    }
 
-/* النقاط */
-.dots {
-  margin-top:25px;
-  text-align:center;
-}
+    #card1:checked ~ .dots label:nth-child(1),
+    #card2:checked ~ .dots label:nth-child(2),
+    #card3:checked ~ .dots label:nth-child(3),
+    #card4:checked ~ .dots label:nth-child(4),
+    #card5:checked ~ .dots label:nth-child(5),
+    #card6:checked ~ .dots label:nth-child(6) {
+      background-color:white;
+      transform:scale(1.2);
+    }
 
-.dots label {
-  display:inline-block;
-  width:14px;
-  height:14px;
-  margin:0 6px;
-  border-radius:50%;
-  background-color:rgba(255,255,255,0.45);
-  cursor:pointer;
-  transition:0.3s;
-}
-
-#card1:checked ~ .dots label:nth-child(1),
-#card2:checked ~ .dots label:nth-child(2),
-#card3:checked ~ .dots label:nth-child(3),
-#card4:checked ~ .dots label:nth-child(4),
-#card5:checked ~ .dots label:nth-child(5),
-#card6:checked ~ .dots label:nth-child(6) {
-  background-color:white;
-  transform:scale(1.2);
-}
-
-    /* =========================
-       REVIEWS SECTION
-    ========================= */
     .reviews-section{
-	background-color:#4B4F3E;
+      background-color:#4B4F3E;
       padding:35px 30px;
     }
 
@@ -622,7 +602,6 @@
       margin:0 auto 30px;
     }
 
-    /* إخفاء radio buttons */
     .reviews-slider input{
       display:none;
     }
@@ -656,19 +635,19 @@
     }
 
     .review-avatar{
-  width:35px;
-  height:35px;
-  border-radius:50%;
-  flex-shrink:0;
-  overflow:hidden;
-}
+      width:35px;
+      height:35px;
+      border-radius:50%;
+      flex-shrink:0;
+      overflow:hidden;
+    }
 
-.review-avatar img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
+    .review-avatar img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
 
     .review-header h3{
       margin:0;
@@ -694,7 +673,6 @@
       letter-spacing:2px;
     }
 
-    /* إظهار الكرت النشط فقط */
     #review1:checked ~ .reviews-cards .r1,
     #review2:checked ~ .reviews-cards .r2,
     #review3:checked ~ .reviews-cards .r3{
@@ -703,7 +681,6 @@
       z-index:5;
     }
 
-    /* أسهم سلايدر الريفيوز */
     .review-arrows{
       display:none;
       position:absolute;
@@ -723,16 +700,18 @@
       cursor:pointer;
       user-select:none;
       padding:0 8px;
+      width:auto;
+      height:auto;
+      background:none;
+      box-shadow:none;
     }
 
-    /* إظهار الأسهم حسب الريفيو الحالي */
     #review1:checked ~ .review-arrows.arrows-1,
     #review2:checked ~ .review-arrows.arrows-2,
     #review3:checked ~ .review-arrows.arrows-3{
       display:flex;
     }
 
-    /* نقاط سلايدر الريفيو */
     .review-dots{
       text-align:center;
       margin-top:10px;
@@ -749,7 +728,6 @@
       transition:0.3s;
     }
 
-    /* النقطة النشطة */
     #review1:checked ~ .review-dots label:nth-child(1),
     #review2:checked ~ .review-dots label:nth-child(2),
     #review3:checked ~ .review-dots label:nth-child(3){
@@ -757,7 +735,6 @@
       transform:scale(1.2);
     }
 
-    /* صندوق إضافة ريفيو */
     .add-review-box{
       max-width:320px;
       margin:20px auto 0;
@@ -800,7 +777,6 @@
       border-radius:10px;
     }
 
-    /* تقييم النجوم */
     .rating{
       display:flex;
       flex-direction:row-reverse;
@@ -828,11 +804,8 @@
       color:#f2c94c;
     }
 
-    /* =========================
-       FAQ SECTION
-    ========================= */
     .faq-section{
-	 background-color:#4B4F3E;
+      background-color:#4B4F3E;
       padding:25px 30px 40px;
     }
 
@@ -847,13 +820,11 @@
       gap:15px;
       flex-wrap:wrap;
       align-items:flex-start;
-
     }
 
     .faq-item{
       width:220px;
       background-color:transparent;
-
     }
 
     .faq-item summary{
@@ -893,11 +864,6 @@
       border-radius:12px;
     }
 
-
-    /* =========================
-       RESPONSIVE
-       تعديلات للشاشات المتوسطة
-    ========================= */
     @media (max-width: 992px){
       .navbar{
         padding:12px 20px;
@@ -941,12 +907,132 @@
       }
 
       .floating-bean img{
-        width:250px;
+        width:320px;
+        height:auto;
+        right:-40px;
         top:-120px;
       }
     }
 
-    /* تعديلات للجوال */
+    @media (max-width: 768px){
+      body{
+        padding-top:150px;
+      }
+
+      .hero{
+        min-height:calc(100vh - 150px);
+        padding:30px 24px 50px;
+      }
+
+      .hero-content{
+        max-width:100%;
+        text-align:center;
+      }
+
+      .main-hero-title{
+        font-size:48px;
+        text-align:center;
+      }
+
+      .bean-types{
+        padding:50px 24px;
+        gap:30px;
+      }
+
+      .bean-types-right h2{
+        font-size:42px;
+      }
+
+      .grind-overlay h2{
+        font-size:46px;
+      }
+
+      .grind-slider{
+        max-width:100%;
+      }
+
+      .cards{
+        height:300px;
+      }
+
+      .card{
+        width:140px;
+        height:205px;
+        padding:22px 14px;
+      }
+
+      .card h3{
+        font-size:18px;
+        margin-bottom:10px;
+      }
+
+      .card p{
+        font-size:13px;
+      }
+
+      .card img{
+        width:65px;
+        height:90px;
+        margin-top:10px;
+      }
+
+      .arrow{
+        width:44px;
+        height:44px;
+        font-size:26px;
+      }
+
+      #card1:checked ~ .cards .c1,
+      #card2:checked ~ .cards .c2,
+      #card3:checked ~ .cards .c3,
+      #card4:checked ~ .cards .c4,
+      #card5:checked ~ .cards .c5,
+      #card6:checked ~ .cards .c6{
+        width:170px;
+        height:240px;
+      }
+
+      #card1:checked ~ .cards .c6,
+      #card2:checked ~ .cards .c1,
+      #card3:checked ~ .cards .c2,
+      #card4:checked ~ .cards .c3,
+      #card5:checked ~ .cards .c4,
+      #card6:checked ~ .cards .c5{
+        transform:translate(-130%, -50%) scale(0.78);
+        opacity:0.55;
+      }
+
+      #card1:checked ~ .cards .c2,
+      #card2:checked ~ .cards .c3,
+      #card3:checked ~ .cards .c4,
+      #card4:checked ~ .cards .c5,
+      #card5:checked ~ .cards .c6,
+      #card6:checked ~ .cards .c1{
+        transform:translate(30%, -50%) scale(0.78);
+        opacity:0.55;
+      }
+
+      #card1:checked ~ .cards .c5,
+      #card1:checked ~ .cards .c3,
+      #card2:checked ~ .cards .c6,
+      #card2:checked ~ .cards .c4,
+      #card3:checked ~ .cards .c1,
+      #card3:checked ~ .cards .c5,
+      #card4:checked ~ .cards .c2,
+      #card4:checked ~ .cards .c6,
+      #card5:checked ~ .cards .c3,
+      #card5:checked ~ .cards .c1,
+      #card6:checked ~ .cards .c4,
+      #card6:checked ~ .cards .c2{
+        opacity:0;
+        pointer-events:none;
+      }
+
+      .floating-bean{
+        display:none;
+      }
+    }
+
     @media (max-width: 640px){
       body{
         padding-top:120px;
@@ -978,19 +1064,6 @@
         width:100%;
       }
 
-      .cards{
-        height:340px;
-      }
-
-      .card{
-        width:150px;
-        height:220px;
-      }
-
-      .arrow{
-        font-size:46px;
-      }
-
       .review-card{
         width:220px;
       }
@@ -998,9 +1071,79 @@
       .footer-logo img{
         width:220px;
       }
+    }
 
-      .floating-bean{
-        display:none;
+    @media (max-width: 560px){
+      body{
+        padding-top:185px;
+      }
+
+      .hero{
+        min-height:calc(100vh - 185px);
+        padding:20px 16px 40px;
+      }
+
+      .main-hero-title{
+        font-size:36px;
+        line-height:1.2;
+      }
+
+      .our-story h2,
+      .why-heading,
+      .bean-types-right h2,
+      .grind-overlay h2{
+        font-size:32px;
+      }
+
+      .our-story p{
+        font-size:16px;
+        line-height:1.8;
+      }
+
+      .why-card{
+        max-width:100%;
+        width:100%;
+        min-height:auto;
+      }
+
+      .bean-card{
+        width:100%;
+        max-width:320px;
+        margin:0 auto;
+      }
+
+      .bean-types-left{
+        width:100%;
+      }
+
+      .reviews-cards{
+        height:210px;
+      }
+    }
+
+    @media (max-width: 480px){
+      .cards{
+        height:280px;
+      }
+
+      .arrow{
+        width:40px;
+        height:40px;
+        font-size:22px;
+      }
+
+      .arrows{
+        padding:0 4px;
+      }
+
+      #card1:checked ~ .cards .c1,
+      #card2:checked ~ .cards .c2,
+      #card3:checked ~ .cards .c3,
+      #card4:checked ~ .cards .c4,
+      #card5:checked ~ .cards .c5,
+      #card6:checked ~ .cards .c6{
+        width:155px;
+        height:225px;
       }
     }
   </style>
@@ -1215,98 +1358,96 @@
       </div>
     </section>
 
-   <section class="reviews-section section-box">
-  <h2>What Customers Think About Us</h2>
+    <section class="reviews-section section-box">
+      <h2>What Customers Think About Us</h2>
 
-  <div class="reviews-slider">
-    <input type="radio" name="review" id="review1" checked>
-    <input type="radio" name="review" id="review2">
-    <input type="radio" name="review" id="review3">
+      <div class="reviews-slider">
+        <input type="radio" name="review" id="review1" checked>
+        <input type="radio" name="review" id="review2">
+        <input type="radio" name="review" id="review3">
 
-    <div class="reviews-cards">
-
-      <div class="review-card r1">
-        <div class="review-header">
-          <div class="review-avatar">
-            <img src="photo.png" alt="Wajd">
+        <div class="reviews-cards">
+          <div class="review-card r1">
+            <div class="review-header">
+              <div class="review-avatar">
+                <img src="photo.png" alt="Wajd">
+              </div>
+              <h3>Wajd Mohammed</h3>
+            </div>
+            <p>Great platform for beginners and coffee lovers</p>
+            <div class="stars">★★★★★</div>
           </div>
-          <h3>Wajd Mohammed</h3>
+
+          <div class="review-card r2">
+            <div class="review-header">
+              <div class="review-avatar">
+                <img src="photo.png" alt="Ellen">
+              </div>
+              <h3>Ellen Ahmed</h3>
+            </div>
+            <p>Perfect for learning coffee basics</p>
+            <div class="stars">★★★★☆</div>
+          </div>
+
+          <div class="review-card r3">
+            <div class="review-header">
+              <div class="review-avatar">
+                <img src="photo.png" alt="Lina">
+              </div>
+              <h3>Lina Omar</h3>
+            </div>
+            <p>Simple, useful, and enjoyable for coffee learners</p>
+            <div class="stars">★★★★★</div>
+          </div>
         </div>
-        <p>Great platform for beginners and coffee lovers</p>
-        <div class="stars">★★★★★</div>
+
+        <div class="review-arrows arrows-1">
+          <label for="review3" class="arrow left">&#10094;</label>
+          <label for="review2" class="arrow right">&#10095;</label>
+        </div>
+
+        <div class="review-arrows arrows-2">
+          <label for="review1" class="arrow left">&#10094;</label>
+          <label for="review3" class="arrow right">&#10095;</label>
+        </div>
+
+        <div class="review-arrows arrows-3">
+          <label for="review2" class="arrow left">&#10094;</label>
+          <label for="review1" class="arrow right">&#10095;</label>
+        </div>
+
+        <div class="review-dots">
+          <label for="review1"></label>
+          <label for="review2"></label>
+          <label for="review3"></label>
+        </div>
       </div>
 
-      <div class="review-card r2">
-        <div class="review-header">
-          <div class="review-avatar">
-            <img src="photo.png" alt="Ellen">
-          </div>
-          <h3>Ellen Ahmed</h3>
+      <div class="add-review-box">
+        <h3>Add Your Review</h3>
+        <input type="text" placeholder="Your name">
+        <textarea placeholder="Write your opinion..."></textarea>
+
+        <div class="rating">
+          <input type="radio" name="rating" id="star5">
+          <label for="star5">★</label>
+
+          <input type="radio" name="rating" id="star4">
+          <label for="star4">★</label>
+
+          <input type="radio" name="rating" id="star3">
+          <label for="star3">★</label>
+
+          <input type="radio" name="rating" id="star2">
+          <label for="star2">★</label>
+
+          <input type="radio" name="rating" id="star1">
+          <label for="star1">★</label>
         </div>
-        <p>Perfect for learning coffee basics</p>
-        <div class="stars">★★★★☆</div>
+
+        <button type="button">Submit Review</button>
       </div>
-
-      <div class="review-card r3">
-        <div class="review-header">
-          <div class="review-avatar">
-            <img src="photo.png" alt="Lina">
-          </div>
-          <h3>Lina Omar</h3>
-        </div>
-        <p>Simple, useful, and enjoyable for coffee learners</p>
-        <div class="stars">★★★★★</div>
-      </div>
-
-    </div>
-
-    <div class="review-arrows arrows-1">
-      <label for="review3" class="arrow left">&#10094;</label>
-      <label for="review2" class="arrow right">&#10095;</label>
-    </div>
-
-    <div class="review-arrows arrows-2">
-      <label for="review1" class="arrow left">&#10094;</label>
-      <label for="review3" class="arrow right">&#10095;</label>
-    </div>
-
-    <div class="review-arrows arrows-3">
-      <label for="review2" class="arrow left">&#10094;</label>
-      <label for="review1" class="arrow right">&#10095;</label>
-    </div>
-
-    <div class="review-dots">
-      <label for="review1"></label>
-      <label for="review2"></label>
-      <label for="review3"></label>
-    </div>
-  </div>
-
-  <div class="add-review-box">
-    <h3>Add Your Review</h3>
-    <input type="text" placeholder="Your name">
-    <textarea placeholder="Write your opinion..."></textarea>
-
-    <div class="rating">
-      <input type="radio" name="rating" id="star5">
-      <label for="star5">★</label>
-
-      <input type="radio" name="rating" id="star4">
-      <label for="star4">★</label>
-
-      <input type="radio" name="rating" id="star3">
-      <label for="star3">★</label>
-
-      <input type="radio" name="rating" id="star2">
-      <label for="star2">★</label>
-
-      <input type="radio" name="rating" id="star1">
-      <label for="star1">★</label>
-    </div>
-
-    <button type="button">Submit Review</button>
-  </div>
-</section>
+    </section>
 
     <section class="faq-section section-box">
       <h2>Frequently Asked Questions</h2>
@@ -1338,34 +1479,86 @@
   </main>
 
   <footer class="site-footer">
-      <div class="footer-top">
-        <div class="footer-logo">
-          <img src="logo.png" alt="Bean to Brew Logo">
-        </div>
-
-        <div class="footer-contact">
-          <h3>Contact us</h3>
-          <p>+966504256847</p>
-          <p>BeantoBrew@gmail.com</p>
-        </div>
-
-        <div class="footer-social">
-          <h3>Follow us</h3>
-          <div class="social-icons">
-            <a href="https://instagram.com">
-              <img src="instagramicon.png" alt="Instagram">
-            </a>
-            <span class="social-divider"></span>
-            <a href="https://instagram.com">
-              <img src="Xicon.png" alt="X">
-            </a>
-          </div>
-        </div>
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src="logo.png" alt="Bean to Brew Logo">
       </div>
 
-      <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
-      <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
-    </footer>
+      <div class="footer-contact">
+        <h3>Contact us</h3>
+        <p>+966504256847</p>
+        <p>BeantoBrew@gmail.com</p>
+      </div>
+
+      <div class="footer-social">
+        <h3>Follow us</h3>
+        <div class="social-icons">
+          <a href="https://instagram.com">
+            <img src="instagramicon.png" alt="Instagram">
+          </a>
+          <span class="social-divider"></span>
+          <a href="https://instagram.com">
+            <img src="Xicon.png" alt="X">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
+
+    <div class="footer-clock">
+      <div class="clock-box">
+        <span class="clock-label">Current Time</span>
+        <span id="live-clock">00:00:00</span>
+      </div>
+    </div>
+
+    <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
+  </footer>
+
+  <button id="backToTop" title="Back to Top">↑</button>
+
+  <script>
+    const liveClock = document.getElementById("live-clock");
+    const backToTopBtn = document.getElementById("backToTop");
+
+    function updateClock() {
+      const now = new Date();
+
+      const time = now.toLocaleTimeString("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true
+      });
+
+      if (liveClock) {
+        liveClock.textContent = time;
+      }
+    }
+
+    function toggleBackToTop() {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add("show");
+      } else {
+        backToTopBtn.classList.remove("show");
+      }
+    }
+
+    if (backToTopBtn) {
+      backToTopBtn.addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+    }
+
+    window.addEventListener("scroll", toggleBackToTop);
+
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
 
 </body>
 </html>
