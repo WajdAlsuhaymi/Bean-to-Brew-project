@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Brew School</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
@@ -153,34 +154,6 @@
     transform: translateY(-3px);
   }
 
-  @media (max-width: 992px) {
-    .brew-school-page {
-      padding: 120px 30px 55px;
-    }
-
-    .lessons-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 640px) {
-    .lessons-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .page-heading h1 {
-      font-size: 34px;
-    }
-
-    .lesson-card h3 {
-      font-size: 25px;
-    }
-
-    .lesson-card p {
-      font-size: 17px;
-    }
-  }
-
   .lesson-buttons {
     width: min(1150px, 92%);
     margin: 30px auto 80px;
@@ -242,6 +215,296 @@
   .path-breadcrumb a:hover {
     color: #FDE9C7;
   }
+
+  .footer-clock{
+    margin-top:18px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+
+  .clock-box{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 18px;
+    border:1px solid rgba(253, 233, 199, 0.28);
+    border-radius:14px;
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(4px);
+    color:#F5F1E8;
+    box-shadow:0 6px 18px rgba(0,0,0,0.18);
+  }
+
+  .clock-label{
+    font-size:14px;
+    font-weight:600;
+    color:#EDE8DC;
+    letter-spacing:0.4px;
+  }
+
+  #live-clock{
+    font-size:15px;
+    font-weight:700;
+    color:#F5F1E8;
+    letter-spacing:1px;
+    min-width:105px;
+    text-align:center;
+  }
+
+  #backToTop{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    width:50px;
+    height:50px;
+    border:none;
+    border-radius:50%;
+    background-color:#C1B393;
+    color:#26231F;
+    font-size:22px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(0,0,0,0.25);
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(12px);
+    transition:all 0.3s ease;
+    z-index:9999;
+  }
+
+  #backToTop:hover{
+    background-color:#FDE9C7;
+    transform:translateY(0) scale(1.06);
+  }
+
+  #backToTop.show{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+  }
+
+  @media (max-width: 992px) {
+    .brew-school-page {
+      padding: 150px 30px 55px;
+    }
+
+    .lessons-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px){
+    .navbar{
+      justify-content:center;
+      min-height:auto;
+      padding:14px 18px;
+    }
+
+    .logo,
+    .nav-right{
+      width:100%;
+      justify-content:center;
+      display:flex;
+    }
+
+    .nav-links{
+      width:100%;
+      justify-content:center;
+      gap:12px;
+      order:3;
+    }
+
+    .nav-right{
+      order:2;
+    }
+
+    .search-box{
+      max-width:240px;
+      min-width:0;
+    }
+
+    .brew-school-page {
+      padding: 185px 20px 60px;
+    }
+
+    .lessons-grid {
+      grid-template-columns: 1fr;
+      max-width: 430px;
+      margin: 0 auto;
+    }
+
+    .page-heading h1 {
+      font-size: 34px;
+    }
+
+    .lesson-card h3 {
+      font-size: 25px;
+    }
+
+    .lesson-card p {
+      font-size: 17px;
+      min-height: auto;
+    }
+
+    .lesson-buttons{
+      margin:25px auto 60px;
+      flex-wrap:wrap;
+    }
+
+    .lesson-buttons a{
+      font-size:1.1rem;
+    }
+  }
+
+  @media (max-width: 560px){
+    .navbar{
+      padding:12px 14px;
+      gap:12px;
+    }
+
+    .logo img{
+      width:52px;
+    }
+
+    .nav-links{
+      gap:10px 14px;
+    }
+
+    .nav-links a{
+      font-size:14px;
+    }
+
+    .mode-btn{
+      font-size:20px;
+    }
+
+    .search-box{
+      max-width:200px;
+      font-size:13px;
+      padding:8px 10px;
+    }
+
+    .brew-school-page{
+      padding:220px 14px 55px;
+    }
+
+    .page-heading h1{
+      font-size:30px;
+    }
+
+    .page-heading p{
+      font-size:15px;
+      line-height:1.6;
+    }
+
+    .lesson-card{
+      padding:18px;
+    }
+
+    .lesson-card img{
+      height:165px;
+    }
+
+    .lesson-card p{
+      font-size:15px;
+    }
+
+    .start-btn,
+    .more-btn{
+      width:100%;
+    }
+
+    .clock-box{
+      padding:9px 14px;
+      gap:8px;
+    }
+
+    .clock-label{
+      font-size:13px;
+    }
+
+    #live-clock{
+      font-size:14px;
+      min-width:95px;
+    }
+
+    #backToTop{
+      right:16px;
+      bottom:16px;
+      width:46px;
+      height:46px;
+      font-size:20px;
+    }
+  }
+  /* ===== Responsive Navbar ONLY ===== */
+
+@media (max-width: 768px){
+
+  .navbar{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:15px 10px;
+    gap:10px;
+    height:auto;
+  }
+
+  .logo{
+    order:1;
+  }
+
+  .nav-right{
+    order:2;
+    display:flex;
+    justify-content:center;
+    width:100%;
+  }
+
+  .nav-links{
+    order:3;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+    width:100%;
+    margin-top:5px;
+  }
+
+  .nav-links li{
+    list-style:none;
+  }
+
+  .nav-links a{
+    font-size:14px;
+  }
+
+  .search-box{
+    max-width:200px;
+  }
+}
+
+/* أصغر شاشات */
+@media (max-width: 480px){
+
+  .nav-links{
+    gap:8px;
+  }
+
+  .nav-links a{
+    font-size:13px;
+  }
+
+  .search-box{
+    max-width:160px;
+    font-size:12px;
+  }
+
+  .mode-btn{
+    font-size:18px;
+  }
+}
   </style>
 </head>
 <body>
@@ -456,12 +719,24 @@
     </div>
 
     <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
+
+    <div class="footer-clock">
+      <div class="clock-box">
+        <span class="clock-label">Current Time</span>
+        <span id="live-clock">00:00:00</span>
+      </div>
+    </div>
+
     <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
   </footer>
+
+  <button id="backToTop" title="Back to Top">↑</button>
 
   <script>
     const moreBtn = document.getElementById("moreBtn");
     const hiddenLessons = document.querySelectorAll(".hidden-lessons");
+    const liveClock = document.getElementById("live-clock");
+    const backToTopBtn = document.getElementById("backToTop");
 
     moreBtn.addEventListener("click", function () {
       hiddenLessons.forEach(function (lesson) {
@@ -478,6 +753,43 @@
         moreBtn.textContent = "More";
       }
     });
+
+    function updateClock() {
+      const now = new Date();
+
+      const time = now.toLocaleTimeString("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true
+      });
+
+      if (liveClock) {
+        liveClock.textContent = time;
+      }
+    }
+
+    function toggleBackToTop() {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add("show");
+      } else {
+        backToTopBtn.classList.remove("show");
+      }
+    }
+
+    if (backToTopBtn) {
+      backToTopBtn.addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+    }
+
+    window.addEventListener("scroll", toggleBackToTop);
+
+    updateClock();
+    setInterval(updateClock, 1000);
   </script>
 
 </body>
