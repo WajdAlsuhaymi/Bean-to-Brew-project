@@ -20,15 +20,14 @@
     }
 
     body{
-      background:
-        radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
-        radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
-        radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
-        radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
-        linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
+	background:
+  radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
+  radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
+  radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
+  radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
+  linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
       color:#EDE8DC;
       overflow-x:hidden;
-      line-height: 1.7;
     }
 
     p, li{
@@ -50,92 +49,74 @@
       z-index:auto;
     }
 
-    .path-breadcrumb{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      align-items:center;
-      color:#fff7ef;
-      font-size:14px;
-      margin-bottom:20px;
-    }
-
-    .path-breadcrumb a{
-      color:#fff7ef;
-      text-decoration:none;
-      transition:0.3s ease;
-    }
-
-    .path-breadcrumb a:hover{
-      color:#FDE9C7;
-    }
-
-    /* HERO مثل الدروس السابقة */
+    /* ================= HERO ================= */
     .hero-lesson{
       position:relative;
-      width:min(1150px, 92%);
-      height:420px;
-      margin:0 auto;
+      width:100%;
+      min-height:76vh;
       display:flex;
       align-items:flex-end;
-      padding:42px;
+      padding:0 70px 72px;
       background-image:
-        linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)),
+        linear-gradient(rgba(18,12,10,0.34), rgba(18,12,10,0.34)),
         url("images/lesson4.jpg");
       background-size:cover;
       background-position:center;
-      border-radius:34px;
       overflow:hidden;
-      border:1px solid rgba(255,255,255,0.08);
-      box-shadow:0 28px 65px rgba(0,0,0,0.35);
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    
+	  border-radius:30px;
+	  overflow:hidden;
     }
-
     .hero-lesson::before{
       content:"";
       position:absolute;
       inset:0;
-      background:transparent;
+      background:
+        linear-gradient(90deg, rgba(18,12,10,0.62) 0%, rgba(18,12,10,0.34) 42%, rgba(18,12,10,0.10) 100%),
+        radial-gradient(circle at 18% 28%, rgba(253,233,199,0.12), transparent 22%),
+        radial-gradient(circle at 84% 20%, rgba(122,77,44,0.14), transparent 24%);
       pointer-events:none;
     }
 
     .hero-content{
-      position:absolute;
-      left:65px;
-      bottom:45px;
+      position:relative;
       z-index:2;
       max-width:620px;
-      color:#EDE8DC;
+      animation:fadeUp 0.9s ease;
     }
 
     .lesson-badge{
       display:inline-block;
-      padding:7px 16px;
-      border-radius:20px;
-      background:rgba(255,255,255,0.20);
-      border:1px solid rgba(255,255,255,0.35);
+      padding:10px 18px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.10);
+      border:1px solid rgba(255,255,255,0.18);
       color:#FDE9C7;
       font-size:14px;
-      margin-bottom:14px;
-    }
+      margin-bottom:18px;
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      box-shadow:0 8px 20px rgba(0,0,0,0.18);}
 
     .hero-content h1{
       font-family:'Playfair Display', serif;
-      font-size:44px;
-      line-height:1.1;
+      font-size:70px;
+      line-height:1.04;
       color:#ffffff;
-      margin-bottom:10px;
+      margin-bottom:14px;
       text-shadow:0 10px 26px rgba(0,0,0,0.28);
     }
 
     .hero-content p{
-      font-size:16px;
+      font-size:21px;
       line-height:1.8;
       color:#FDE9C7;
-      max-width:540px;
+      max-width:580px;
       text-shadow:0 4px 14px rgba(0,0,0,0.18);
     }
 
-    /* WRAP */
+    /* ================= WRAP ================= */
     .page-wrap{
       width:min(1180px, calc(100% - 40px));
       margin:0 auto;
@@ -162,7 +143,7 @@
       line-height:1.9;
     }
 
-    /* INTRO */
+    /* ================= INTRO ================= */
     .intro-card{
       border-radius:32px;
       padding:42px 34px;
@@ -196,7 +177,7 @@
     .line.two{ width:82%; }
     .line.three{ width:58%; }
 
-    /* GRIND TYPES */
+    /* ================= GRIND TYPES ================= */
     .grind-types-section{
       margin-top:42px;
       padding:40px 28px;
@@ -212,16 +193,19 @@
       gap:26px;
     }
 
-    .grind-card{
-      text-align:center;
-      padding:22px 20px 24px;
-      border-radius:28px;
-      background:linear-gradient(145deg,#8E9775,#7A8A63);
-      border:1px solid rgba(0,0,0,0.08);
-      transition:0.35s ease;
-      box-shadow:0 12px 26px rgba(0,0,0,0.14);
-    }
+.grind-card{
+  text-align:center;
+  padding:22px 20px 24px;
+  border-radius:28px;
 
+  /* لون زيتي متوسط */
+  background:linear-gradient(145deg,#8E9775,#7A8A63);
+
+  border:1px solid rgba(0,0,0,0.08);
+  transition:0.35s ease;
+
+  box-shadow:0 12px 26px rgba(0,0,0,0.14);
+}
     .grind-card:hover{
       transform:translateY(-10px);
       border-color:rgba(253,233,199,0.18);
@@ -255,200 +239,175 @@
       margin:14px auto 0;
       background:linear-gradient(90deg, #C1B393, #FDE9C7);
     }
+/* ================= COMPARISON ================= */
+.comparison-section{
+  margin-top:44px;
+  border-radius:34px;
+  padding:52px 34px;
 
-    /* COMPARISON */
-    .comparison-section{
-      margin-top:44px;
-      border-radius:34px;
-      padding:52px 34px;
-      background:linear-gradient(145deg,#F5F0E6,#D8D3B6);
-      border:1px solid rgba(90,70,50,0.08);
-      box-shadow:0 20px 42px rgba(0,0,0,0.10);
-    }
+  /* خلفية بيج كريمي مع لمسة زيتي */
+  background:linear-gradient(145deg,#F5F0E6,#D8D3B6);
 
-    .comparison-section h2{
-      text-align:center;
-      font-family:'Playfair Display', serif;
-      font-size:50px;
-      color:#3A2F2B;
-      margin-bottom:34px;
-    }
+  border:1px solid rgba(90,70,50,0.08);
+  box-shadow:0 20px 42px rgba(0,0,0,0.10);
+}
 
-    .compare-grid{
-      max-width:920px;
-      margin:0 auto;
-      display:grid;
-      gap:24px;
-    }
+.comparison-section h2{
+  text-align:center;
+  font-family:'Playfair Display', serif;
+  font-size:50px;
 
-    .compare-row{
-      display:grid;
-      grid-template-columns:180px 1fr;
-      gap:20px;
-      align-items:center;
-      background:rgba(255,255,255,0.45);
-      padding:14px 16px;
-      border-radius:18px;
-    }
+  /* بني قهوة */
+  color:#3A2F2B;
 
-    .compare-label{
-      color:#5C4B44;
-      font-size:16px;
-      font-weight:600;
-    }
+  margin-bottom:34px;
+}
 
-    .compare-bars{
-      display:grid;
-      gap:10px;
-    }
+.compare-grid{
+  max-width:920px;
+  margin:0 auto;
+  display:grid;
+  gap:24px;
+}
 
-    .bar{
-      height:10px;
-      border-radius:999px;
-      overflow:hidden;
-      position:relative;
-      background:#E7DFD2;
-    }
+.compare-row{
+  display:grid;
+  grid-template-columns:180px 1fr;
+  gap:20px;
+  align-items:center;
 
-    .fill{
-      height:100%;
-      border-radius:999px;
-    }
+  /* خلفية صف المقارنة */
+  background:rgba(255,255,255,0.45);
+  padding:14px 16px;
+  border-radius:18px;
+}
 
-    .fine{
-      background:#7A4D2C;
-    }
+.compare-label{
+  color:#5C4B44; /* بني فاتح */
+  font-size:16px;
+  font-weight:600;
+}
 
-    .medium{
-      background:linear-gradient(90deg,#C1B393,#FDE9C7);
-    }
+.compare-bars{
+  display:grid;
+  gap:10px;
+}
 
-    .coarse{
-      background:linear-gradient(90deg,#7A8A63,#9DAA7A);
-    }
+.bar{
+  height:10px;
+  border-radius:999px;
+  overflow:hidden;
+  position:relative;
 
-    .legend{
-      display:flex;
-      justify-content:center;
-      gap:22px;
-      margin-top:28px;
-      flex-wrap:wrap;
-    }
+  /* خلفية البار */
+  background:#E7DFD2;
+}
 
-    .legend-item{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      color:#3A2F2B;
-      font-size:14px;
-      background:#F6F1E7;
-      padding:8px 14px;
-      border-radius:999px;
-    }
+.fill{
+  height:100%;
+  border-radius:999px;
+}
 
-    .legend-dot{
-      width:14px;
-      height:14px;
-      border-radius:50%;
-    }
+/* الألوان */
 
-    /* VIDEO بنفس النظام */
+.fine{
+  background:#7A4D2C; /* بني */
+}
+
+.medium{
+  background:linear-gradient(90deg,#C1B393,#FDE9C7); /* بيج */
+}
+
+.coarse{
+  background:linear-gradient(90deg,#7A8A63,#9DAA7A); /* زيتي */
+}
+
+.legend{
+  display:flex;
+  justify-content:center;
+  gap:22px;
+  margin-top:28px;
+  flex-wrap:wrap;
+}
+
+.legend-item{
+  display:flex;
+  align-items:center;
+  gap:8px;
+
+  color:#3A2F2B;
+  font-size:14px;
+
+  background:#F6F1E7;
+  padding:8px 14px;
+  border-radius:999px;
+}
+
+.legend-dot{
+  width:14px;
+  height:14px;
+  border-radius:50%;
+}
+
+    /* ================= VIDEO ================= */
     .video-section{
       margin-top:44px;
-      padding:0;
-      border-radius:0;
-      background:transparent;
-      color:#EDE8DC;
+      padding:42px 28px;
+      border-radius:34px;
+      background:
+        linear-gradient(145deg, rgba(237,232,220,0.95), rgba(253,233,199,0.92));
+      color:#3A2F2B;
       text-align:center;
-      box-shadow:none;
+      box-shadow:0 18px 38px rgba(0,0,0,0.14);
     }
 
     .video-section h2{
       font-family:'Playfair Display', serif;
-      font-size:28px;
-      color:#F3DEC3;
+      font-size:50px;
+      color:#7A4D2C;
       margin-bottom:14px;
     }
 
     .video-section p{
       max-width:760px;
       margin:0 auto 24px;
-      color:#EDE8DC;
-      font-size:16px;
+      color:#5C4B44;
+      font-size:18px;
       line-height:1.8;
     }
 
     .video-box{
-      background:#4B4F3E;
       width:min(700px, 100%);
       margin:0 auto;
-      border-radius:14px;
+      border-radius:28px;
       overflow:hidden;
       box-shadow:0 16px 32px rgba(0,0,0,0.16);
       border:1px solid rgba(122,77,44,0.08);
-      padding:20px;
     }
 
-    .video-poster{
-      position:relative;
-      width:100%;
-      margin:0 auto;
-      cursor:pointer;
-      border-radius:10px;
-      overflow:hidden;
-    }
-
-    .video-poster img{
+    .video-box iframe{
       width:100%;
       height:380px;
-      object-fit:cover;
       display:block;
-      border-radius:10px;
-    }
-
-    .play-btn{
-      position:absolute;
-      top:50%;
-      left:50%;
-      transform:translate(-50%,-50%);
-      width:70px;
-      height:70px;
-      border-radius:50%;
-      background:rgba(0,0,0,0.65);
-      color:#fff;
-      font-size:30px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-
-    #videoFrame{
-      display:none;
-      width:100%;
-      height:380px;
       border:none;
-      border-radius:10px;
     }
 
-    .youtube-btn{
+    .video-link{
       display:inline-block;
       margin-top:18px;
       text-decoration:none;
-      color:#2f241d;
+      color:#7A4D2C;
       font-weight:700;
       transition:0.3s;
-      background:#C1B393;
-      padding:10px 20px;
-      border-radius:20px;
     }
 
-    .youtube-btn:hover{
-      color:#2f241d;
-      background:#e3d3b7;
-      transform:translateY(-2px);
+    .video-link:hover{
+      color:#3A2F2B;
     }
 
+    /* =============================== */
     /* Lesson Navigation Buttons */
+    /* =============================== */
     .lesson-buttons {
       width: min(1150px, 92%);
       margin: 30px auto 80px;
@@ -460,7 +419,7 @@
       text-decoration: none;
       font-size: 1.5rem;
       font-weight: 600;
-      color: #C1B393;
+	  color:   #C1B393;
       display: inline-flex;
       align-items: center;
       gap: 10px;
@@ -475,86 +434,95 @@
     }
 
     .btn-back:hover,
-    .btn-next:hover,
-    .lesson-buttons a:hover {
+    .btn-next:hover {
       background: #7a4d2c;
       color: #EDE8DC;
       transform: translateY(-3px);
     }
 
-    /* POPUP */
-    .lesson-message{
-      display:none;
-      position:fixed;
-      top:50%;
-      left:50%;
-      transform:translate(-50%,-50%);
-      background:#E6D5B8;
-      color:#3A2F2B;
-      padding:20px;
-      width:320px;
-      border-radius:16px;
-      text-align:center;
-      z-index:9999;
-      box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    /* ================= ADDED ONLY: FOOTER CLOCK ================= */
+    .footer-clock{
+      margin-top:18px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
     }
 
-    .lesson-message h3{
-      margin-bottom:10px;
-      color:#3A2F2B;
-      font-family:'Playfair Display', serif;
+    .clock-box{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 18px;
+      border:1px solid rgba(253, 233, 199, 0.28);
+      border-radius:14px;
+      background:rgba(255,255,255,0.06);
+      backdrop-filter:blur(4px);
+      color:#F5F1E8;
+      box-shadow:0 6px 18px rgba(0,0,0,0.18);
     }
 
-    .lesson-message p{
+    .clock-label{
       font-size:14px;
-      line-height:1.6;
-      color:#3A2F2B;
+      font-weight:600;
+      color:#EDE8DC;
+      letter-spacing:0.4px;
     }
 
-    .lesson-message hr{
-      margin:15px 0;
+    #live-clock{
+      font-size:15px;
+      font-weight:700;
+      color:#F5F1E8;
+      letter-spacing:1px;
+      min-width:105px;
+      text-align:center;
+    }
+
+    /* ================= ADDED ONLY: BACK TO TOP ================= */
+    #backToTop{
+      position:fixed;
+      right:22px;
+      bottom:22px;
+      width:50px;
+      height:50px;
       border:none;
-      border-top:1px solid #3A2F2B;
-    }
-
-    .quiz-reminder{
+      border-radius:50%;
+      background-color:#C1B393;
+      color:#26231F;
+      font-size:22px;
       font-weight:bold;
-      color:#4B4F3E;
-    }
-
-    .ok-btn{
-      margin-top:10px;
-      padding:8px 20px;
-      border:none;
-      border-radius:10px;
-      background:#4B4F3E;
-      color:white;
       cursor:pointer;
+      box-shadow:0 8px 20px rgba(0,0,0,0.25);
+      opacity:0;
+      visibility:hidden;
+      transform:translateY(12px);
+      transition:all 0.3s ease;
+      z-index:9999;
     }
 
-    .ok-btn:hover{
-      background:#3A2F2B;
+    #backToTop:hover{
+      background-color:#FDE9C7;
+      transform:translateY(0) scale(1.06);
     }
 
-    /* RESPONSIVE */
+    #backToTop.show{
+      opacity:1;
+      visibility:visible;
+      transform:translateY(0);
+    }
+
+    /* ================= RESPONSIVE ================= */
     @media (max-width: 900px){
       .hero-lesson{
-        padding:42px 24px;
-        height:420px;
-      }
-
-      .hero-content{
-        left:25px;
-        right:25px;
-        bottom:30px;
+        padding:0 24px 48px;
+        min-height:64vh;
       }
 
       .hero-content h1{
-        font-size:34px;
+        font-size:48px;
       }
 
       .hero-content p{
-        font-size:16px;
+        font-size:18px;
       }
 
       .page-wrap{
@@ -571,9 +539,63 @@
         gap:10px;
       }
 
-      .video-poster img,
-      #videoFrame{
+      .video-box iframe{
         height:260px;
+      }
+    }
+
+    @media (max-width: 768px){
+      .navbar{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        padding:15px 10px;
+        gap:10px;
+        height:auto;
+      }
+
+      .logo{
+        order:1;
+      }
+
+      .nav-right{
+        order:2;
+        display:flex;
+        justify-content:center;
+        width:100%;
+      }
+
+      .nav-links{
+        order:3;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:12px;
+        width:100%;
+        margin-top:5px;
+      }
+
+      .nav-links li{
+        list-style:none;
+      }
+
+      .nav-links a{
+        font-size:14px;
+      }
+
+      .search-box{
+        max-width:200px;
+      }
+
+      .lesson-page{
+        padding-top:160px;
+      }
+
+      .lesson-buttons{
+        flex-direction:column;
+        align-items:center;
+        gap:18px;
       }
     }
 
@@ -588,18 +610,49 @@
         font-size:36px;
       }
 
-      .hero-lesson{
-        height:320px;
+      .clock-box{
+        padding:9px 14px;
+        gap:8px;
       }
 
-      .hero-content h1{
-        font-size:28px;
+      .clock-label{
+        font-size:13px;
       }
 
-      .lesson-buttons{
-        flex-direction:column;
-        align-items:center;
-        gap:18px;
+      #live-clock{
+        font-size:14px;
+        min-width:95px;
+      }
+
+      #backToTop{
+        right:16px;
+        bottom:16px;
+        width:46px;
+        height:46px;
+        font-size:20px;
+      }
+    }
+
+    @media (max-width: 480px){
+      .lesson-page{
+        padding-top:180px;
+      }
+
+      .nav-links{
+        gap:8px;
+      }
+
+      .nav-links a{
+        font-size:13px;
+      }
+
+      .search-box{
+        max-width:160px;
+        font-size:12px;
+      }
+
+      .mode-btn{
+        font-size:18px;
       }
     }
   </style>
@@ -613,7 +666,7 @@
     </div>
 
     <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="index.html"class="active">Home</a></li>
       <li><a href="BrewSchool.html">Brew School</a></li>
       <li><a href="CoffeLab.html">Coffee Lab</a></li>
       <li><a href="student-dashboard.html">Student Dashboard</a></li>
@@ -631,7 +684,8 @@
 
   <main class="lesson-page">
 
-    <div class="path-wrap">
+<div class="path-wrap">
+
       <div class="path-breadcrumb">
         <a href="index.html">Home</a>
         <span>›</span>
@@ -761,20 +815,15 @@
         </p>
 
         <div class="video-box">
-          <div class="video-poster" id="videoPoster" onclick="playVideo()">
-            <img src="images/lesson4.jpg" alt="Coffee Grinding Video Poster">
-            <div class="play-btn">▶</div>
-          </div>
-
           <iframe
-            id="videoFrame"
+            src="https://www.youtube.com/embed/YLSG8ha3g1w"
             title="Coffee Grinding Video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
           </iframe>
         </div>
 
-        <a class="youtube-btn" href="https://youtu.be/YLSG8ha3g1w?si=WtZ4HaQfYAefIG4x" target="_blank">
+        <a class="video-link" href="https://youtu.be/YLSG8ha3g1w?si=WtZ4HaQfYAefIG4x" target="_blank">
           Watch on YouTube
         </a>
       </section>
@@ -782,75 +831,92 @@
     </section>
   </main>
 
-  <div class="lesson-buttons">
-    <a href="BrewSchool.html">← Back</a>
-    <a href="lesson4.2.html">Next →</a>
-  </div>
-
-  <footer class="site-footer">
-    <div class="footer-top">
-      <div class="footer-logo">
-        <img src="logo.png" alt="Bean to Brew Logo">
-      </div>
-
-      <div class="footer-contact">
-        <h3>Contact us</h3>
-        <p>+966504256847</p>
-        <p>BeantoBrew@gmail.com</p>
-      </div>
-
-      <div class="footer-social">
-        <h3>Follow us</h3>
-        <div class="social-icons">
-          <a href="https://instagram.com">
-            <img src="instagramicon.png" alt="Instagram">
-          </a>
-          <span class="social-divider"></span>
-          <a href="https://instagram.com">
-            <img src="Xicon.png" alt="X">
-          </a>
-        </div>
-      </div>
+ <div class="lesson-buttons">
+      <a href="BrewSchool.html" >← Back</a>
+      <a href="lesson4.2.html" >Next →</a>
     </div>
 
-    <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
-    <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
-  </footer>
+ <footer class="site-footer">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <img src="logo.png" alt="Bean to Brew Logo">
+        </div>
 
-  <div id="lessonMessage" class="lesson-message">
-    <h3>Lesson Goal</h3>
+        <div class="footer-contact">
+          <h3>Contact us</h3>
+          <p>+966504256847</p>
+          <p>BeantoBrew@gmail.com</p>
+        </div>
 
-    <p>
-      In this lesson, you will learn how coffee grind size affects extraction, flavor, bitterness, and water flow, and why choosing the right grind size is important for different brewing methods.
-    </p>
+        <div class="footer-social">
+          <h3>Follow us</h3>
+          <div class="social-icons">
+            <a href="https://instagram.com">
+              <img src="instagramicon.png" alt="Instagram">
+            </a>
+            <span class="social-divider"></span>
+            <a href="https://instagram.com">
+              <img src="Xicon.png" alt="X">
+            </a>
+          </div>
+        </div>
+      </div>
 
-    <hr>
+      <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
 
-    <p class="quiz-reminder">
-      Don't forget to take the quiz after finishing the lesson!
-    </p>
+      <div class="footer-clock">
+        <div class="clock-box">
+          <span class="clock-label">Current Time</span>
+          <span id="live-clock">00:00:00</span>
+        </div>
+      </div>
 
-    <button onclick="closeMessage()" class="ok-btn">OK</button>
-  </div>
+      <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
+    </footer>
 
-  <script>
-    function playVideo(){
-      document.getElementById("videoPoster").style.display = "none";
-      let v = document.getElementById("videoFrame");
-      v.style.display = "block";
-      v.src = "https://www.youtube.com/embed/YLSG8ha3g1w?autoplay=1";
+<button id="backToTop" title="Back to Top">↑</button>
+
+<script>
+  const liveClock = document.getElementById("live-clock");
+  const backToTopBtn = document.getElementById("backToTop");
+
+  function updateClock() {
+    const now = new Date();
+
+    const time = now.toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: true
+    });
+
+    if (liveClock) {
+      liveClock.textContent = time;
     }
+  }
 
-    function closeMessage(){
-      document.getElementById("lessonMessage").style.display = "none";
+  function toggleBackToTop() {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add("show");
+    } else {
+      backToTopBtn.classList.remove("show");
     }
+  }
 
-    window.onload = function(){
-      setTimeout(function(){
-        document.getElementById("lessonMessage").style.display = "block";
-      }, 3000);
-    }
-  </script>
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener("click", function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  }
+
+  window.addEventListener("scroll", toggleBackToTop);
+
+  updateClock();
+  setInterval(updateClock, 1000);
+</script>
 
 </body>
 </html>
