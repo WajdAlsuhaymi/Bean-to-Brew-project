@@ -28,7 +28,6 @@
         linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
       color: #EDE8DC;
       overflow-x:hidden;
-      line-height: 1.7;
     }
 
     p{
@@ -39,7 +38,7 @@
       width:100%;
       padding-top:110px;
     }
-
+	
     .path-wrap{
       position:static;
       top:auto;
@@ -50,40 +49,17 @@
       z-index:auto;
     }
 
-    .path-breadcrumb{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      align-items:center;
-      color:#fff7ef;
-      font-size:14px;
-      margin-bottom:20px;
-    }
-
-    .path-breadcrumb a{
-      color:#fff7ef;
-      text-decoration:none;
-      transition:0.3s ease;
-    }
-
-    .path-breadcrumb a:hover{
-      color:#FDE9C7;
-    }
-
-    /* HERO - نفس ستايل الدرس الأول */
     .hero-lesson{
       position:relative;
-      width:min(1150px, 92%);
-      height:420px;
-      margin:0 auto;
+      min-height:470px;
       border-radius:34px;
       overflow:hidden;
       display:flex;
       align-items:flex-end;
       padding:42px;
       background:
-        linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)),
-        url("images/lesson3.jpg");
+        linear-gradient(rgba(16,12,10,0.20), rgba(16,12,10,0.55)),
+        url("images/lesson5.jpg");
       background-size:cover;
       background-position:center;
       border:1px solid rgba(255,255,255,0.08);
@@ -91,43 +67,43 @@
     }
 
     .hero-content{
-      position:absolute;
-      left:65px;
-      bottom:45px;
+      position:relative;
       z-index:2;
       max-width:680px;
-      color:#EDE8DC;
+      animation:fadeUp 0.9s ease;
+      left:60px;
     }
 
     .lesson-badge{
       display:inline-block;
-      margin-bottom:14px;
-      padding:7px 16px;
-      border-radius:20px;
-      background:rgba(255,255,255,0.20);
-      border:1px solid rgba(255,255,255,0.35);
+      margin-bottom:16px;
+      padding:10px 18px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.10);
+      border:1px solid rgba(255,255,255,0.18);
+      backdrop-filter:blur(6px);
       color:#FFF4DF;
       font-size:14px;
+      letter-spacing:1px;
     }
 
     .hero-content h1{
       margin:10px 0;
       font-family:'Playfair Display', serif;
-      font-size:44px;
-      line-height:1.1;
+      font-size:clamp(46px, 8vw, 92px);
+      line-height:0.95;
       color:#fff7ef;
       text-shadow:0 8px 24px rgba(0,0,0,0.28);
     }
 
     .hero-content p{
       margin:0;
-      font-size:16px;
-      line-height:1.8;
+      font-size:19px;
+      line-height:1.9;
       color:#F5ECE2;
-      max-width:540px;
+      max-width:600px;
     }
 
-    /* ===== Main Content ===== */
     .lesson-content{
       width:min(1100px, calc(100% - 40px));
       margin:0 auto;
@@ -154,7 +130,6 @@
       color:#DDD2C8;
     }
 
-    /* ===== Intro Section ===== */
     .intro-card{
       background:
         linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
@@ -211,7 +186,6 @@
       font-size:14px;
     }
 
-    /* points section */
     .points-section{
       background:#4B4F3E;
       padding:30px;
@@ -239,7 +213,6 @@
       font-size:17px;
     }
 
-    /* ===== Beans Strip ===== */
     .beans-strip{
       margin-top:34px;
       padding:28px 20px;
@@ -280,103 +253,39 @@
       filter:grayscale(10%);
     }
 
-    /* VIDEO - نفس ستايل الدروس السابقة */
     .video-section{
-      width:min(1150px, 92%);
-      margin:60px auto 0;
+      background:#E8DFD1;
+      padding:40px;
+      border-radius:18px;
       text-align:center;
-      background:transparent;
-      padding:0;
-      border-radius:0;
+      margin-top:60px;
     }
 
     .video-section h3{
       font-family:'Playfair Display',serif;
-      font-size:28px;
+      font-size:34px;
       margin-bottom:10px;
-      color:#F3DEC3;
+      color: #3A2F2B;
     }
 
     .video-section p{
-      color:#EDE8DC;
+      color:#5C4B44;
       margin-bottom:25px;
-      max-width:760px;
-      margin-left:auto;
-      margin-right:auto;
-      font-size:16px;
     }
 
     .video-box{
-      background:#4B4F3E;
-      padding:20px;
-      border-radius:14px;
-      width:80%;
-      margin:0 auto;
-      box-shadow:0 8px 20px rgba(0, 0, 0, 0.15);
+      width:520px;
+      max-width:100%;
+      margin:auto;
     }
 
-    .video-poster{
-      position:relative;
+    .video-box iframe{
       width:100%;
-      margin:0 auto;
-      cursor:pointer;
-      border-radius:10px;
-      overflow:hidden;
-    }
-
-    .video-poster img{
-      width:100%;
-      height:300px;
-      object-fit:cover;
-      border-radius:10px;
-      display:block;
-    }
-
-    .play-btn{
-      position:absolute;
-      top:50%;
-      left:50%;
-      transform:translate(-50%,-50%);
-      background:rgba(0,0,0,0.7);
-      color:white;
-      padding:15px;
-      border-radius:50%;
-      font-size:30px;
-      width:70px;
-      height:70px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-
-    #videoFrame{
-      display:none;
-      width:100%;
-      height:300px;
+      height:290px;
       border:none;
       border-radius:10px;
     }
 
-    .youtube-btn{
-      display:inline-block;
-      margin-top:15px;
-      padding:10px 20px;
-      background:#C1B393;
-      color:#2f241d;
-      border-radius:20px;
-      text-decoration:none;
-      font-weight:600;
-      transition:0.3s ease;
-    }
-
-    .youtube-btn:hover{
-      background:#e3d3b7;
-      transform:translateY(-2px);
-    }
-
-    /* =============================== */
-    /* Lesson Navigation Buttons */
-    /* =============================== */
     .lesson-buttons {
       width: min(1150px, 92%);
       margin: 30px auto 80px;
@@ -395,98 +304,161 @@
       transition: all 0.3s ease;
     }
 
-    .btn-back,
-    .btn-next {
-      background: #C1B393;
-      color: #2f241d;
-      border: 1px solid #b9997d;
+    .lesson-buttons a:hover{
+      color:#FDE9C7;
+      transform:translateY(-3px);
     }
 
-    .btn-back:hover,
-    .btn-next:hover,
-    .lesson-buttons a:hover {
-      background: #7a4d2c;
-      color: #EDE8DC;
-      transform: translateY(-3px);
+    .footer-clock{
+      margin-top:18px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
     }
 
-    /* POPUP */
-    .lesson-message{
-      display:none;
-      position:fixed;
-      top:50%;
-      left:50%;
-      transform:translate(-50%,-50%);
-      background:#E6D5B8;
-      color:#3A2F2B;
-      padding:20px;
-      width:320px;
-      border-radius:16px;
-      text-align:center;
-      z-index:9999;
-      box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    .clock-box{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 18px;
+      border:1px solid rgba(253, 233, 199, 0.28);
+      border-radius:14px;
+      background:rgba(255,255,255,0.06);
+      backdrop-filter:blur(4px);
+      color:#F5F1E8;
+      box-shadow:0 6px 18px rgba(0,0,0,0.18);
     }
 
-    .lesson-message h3{
-      margin-bottom:10px;
-      color:#3A2F2B;
-      font-family:'Playfair Display', serif;
-    }
-
-    .lesson-message p{
+    .clock-label{
       font-size:14px;
-      line-height:1.6;
-      color:#3A2F2B;
+      font-weight:600;
+      color:#EDE8DC;
+      letter-spacing:0.4px;
     }
 
-    .lesson-message hr{
-      margin:15px 0;
+    #live-clock{
+      font-size:15px;
+      font-weight:700;
+      color:#F5F1E8;
+      letter-spacing:1px;
+      min-width:105px;
+      text-align:center;
+    }
+
+    #backToTop{
+      position:fixed;
+      right:22px;
+      bottom:22px;
+      width:50px;
+      height:50px;
       border:none;
-      border-top:1px solid #3A2F2B;
-    }
-
-    .quiz-reminder{
+      border-radius:50%;
+      background-color:#C1B393;
+      color:#26231F;
+      font-size:22px;
       font-weight:bold;
-      color:#4B4F3E;
-    }
-
-    .ok-btn{
-      margin-top:10px;
-      padding:8px 20px;
-      border:none;
-      border-radius:10px;
-      background:#4B4F3E;
-      color:white;
       cursor:pointer;
+      box-shadow:0 8px 20px rgba(0,0,0,0.25);
+      opacity:0;
+      visibility:hidden;
+      transform:translateY(12px);
+      transition:all 0.3s ease;
+      z-index:9999;
     }
 
-    .ok-btn:hover{
-      background:#3A2F2B;
+    #backToTop:hover{
+      background-color:#FDE9C7;
+      transform:translateY(0) scale(1.06);
     }
 
-    /* ===== Responsive ===== */
+    #backToTop.show{
+      opacity:1;
+      visibility:visible;
+      transform:translateY(0);
+    }
+
+    @media (max-width: 768px){
+      .navbar{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        padding:15px 10px;
+        gap:10px;
+        height:auto;
+      }
+
+      .logo{
+        order:1;
+      }
+
+      .nav-right{
+        order:2;
+        display:flex;
+        justify-content:center;
+        width:100%;
+      }
+
+      .nav-links{
+        order:3;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:12px;
+        width:100%;
+        margin-top:5px;
+      }
+
+      .nav-links li{
+        list-style:none;
+      }
+
+      .nav-links a{
+        font-size:14px;
+      }
+
+      .search-box{
+        max-width:200px;
+      }
+    }
+
     @media (max-width: 992px){
+      .lesson-page{
+        padding-top:145px;
+      }
+
+      .hero-lesson{
+        padding:60px 30px 50px;
+      }
+
+      .hero-content{
+        left:0;
+      }
+
+      .hero-content h1{
+        font-size:56px;
+      }
+
       .intro-grid,
       .points-list{
         grid-template-columns:1fr;
       }
-
-      .hero-content{
-        left:25px;
-        right:25px;
-        bottom:30px;
-      }
-
-      .hero-content h1{
-        font-size:34px;
-      }
-
-      .video-box{
-        width:100%;
-      }
     }
 
     @media (max-width: 768px){
+      .hero-lesson{
+        min-height:62vh;
+        padding:50px 20px 40px;
+      }
+
+      .hero-content h1{
+        font-size:42px;
+      }
+
+      .hero-content p{
+        font-size:17px;
+      }
+
       .lesson-content{
         width:min(100% - 20px, 1100px);
         padding:40px 0 70px;
@@ -505,12 +477,12 @@
       }
 
       .intro-card,
-      .points-section{
+      .points-section,
+      .video-section{
         padding:22px;
       }
 
-      .video-poster img,
-      #videoFrame{
+      .video-box iframe{
         height:240px;
       }
 
@@ -519,32 +491,78 @@
         height:78px;
       }
 
-      .lesson-nav{
-        justify-content:center;
+      .lesson-buttons{
+        flex-direction:column;
+        align-items:center;
+        gap:18px;
+      }
+
+      .clock-box{
+        padding:9px 14px;
+        gap:8px;
+      }
+
+      .clock-label{
+        font-size:13px;
+      }
+
+      #live-clock{
+        font-size:14px;
+        min-width:95px;
+      }
+
+      #backToTop{
+        right:16px;
+        bottom:16px;
+        width:46px;
+        height:46px;
+        font-size:20px;
       }
     }
 
     @media (max-width: 480px){
+      .lesson-page{
+        padding-top:170px;
+      }
+
+      .path-breadcrumb{
+        justify-content:center;
+        text-align:center;
+      }
+
       .lesson-badge{
         font-size:13px;
       }
 
       .hero-lesson{
-        height:320px;
+        min-height:420px;
+        padding:40px 18px 35px;
+        border-radius:24px;
+      }
+
+      .hero-content{
+        text-align:center;
       }
 
       .hero-content h1{
-        font-size:28px;
+        font-size:36px;
       }
 
-      .lesson-nav a{
-        width:100%;
+      .nav-links{
+        gap:8px;
       }
 
-      .lesson-buttons{
-        flex-direction:column;
-        align-items:center;
-        gap:18px;
+      .nav-links a{
+        font-size:13px;
+      }
+
+      .search-box{
+        max-width:160px;
+        font-size:12px;
+      }
+
+      .mode-btn{
+        font-size:18px;
       }
     }
   </style>
@@ -558,7 +576,7 @@
       </div>
 
       <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="index.html"class="active">Home</a></li>
         <li><a href="BrewSchool.html">Brew School</a></li>
         <li><a href="CoffeLab.html">Coffee Lab</a></li>
         <li><a href="student-dashboard.html">Student Dashboard</a></li>
@@ -576,6 +594,7 @@
 
   <main class="lesson-page">
     <div class="path-wrap">
+
       <div class="path-breadcrumb">
         <a href="index.html">Home</a>
         <span>›</span>
@@ -586,14 +605,20 @@
     </div>
 
     <section class="hero-lesson">
+
       <div class="hero-content">
+
         <span class="lesson-badge">Lesson 3</span>
+
         <h1>Coffee Roasting</h1>
+
         <p>
           Discover how green coffee beans transform into rich, aromatic
           beans through heat, time, and chemical change.
         </p>
+
       </div>
+
     </section>
 
     <section class="lesson-content">
@@ -649,27 +674,22 @@
         </p>
 
         <div class="video-box">
-          <div class="video-poster" id="videoPoster" onclick="playVideo()">
-            <img src="images/lesson3.jpg" alt="Coffee Roasting Video Poster">
-            <div class="play-btn">▶</div>
-          </div>
-
           <iframe
-            id="videoFrame"
+            src="https://www.youtube.com/embed/N6BJVM5tvnw"
             title="Coffee Roasting Video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
           </iframe>
         </div>
 
-        <a class="youtube-btn" href="https://youtu.be/N6BJVM5tvnw?si=rz2d0PnzUfUpium4" target="_blank">
+        <a class="video-link" href="https://youtu.be/N6BJVM5tvnw?si=rz2d0PnzUfUpium4" target="_blank">
           Watch on YouTube
         </a>
       </div>
 
       <div class="lesson-buttons">
-        <a href="BrewSchool.html">← Back</a>
-        <a href="lesson3.2.html">Next →</a>
+        <a href="BrewSchool.html" >← Back</a>
+        <a href="lesson3.2.html" >Next →</a>
       </div>
 
     </section>
@@ -708,45 +728,60 @@
       Learn, explore, and enjoy the world of coffee.
     </p>
 
+    <div class="footer-clock">
+      <div class="clock-box">
+        <span class="clock-label">Current Time</span>
+        <span id="live-clock">00:00:00</span>
+      </div>
+    </div>
+
     <p class="copyright">
       © 2026 Bean to Brew. All rights reserved.
     </p>
   </footer>
 
-  <div id="lessonMessage" class="lesson-message">
-    <h3>Lesson Goal</h3>
-
-    <p>
-      In this lesson, you will learn how coffee roasting transforms green beans into roasted coffee, and how heat, moisture loss, and caramelization help develop the flavor, aroma, and final character of the coffee.
-    </p>
-
-    <hr>
-
-    <p class="quiz-reminder">
-      Don't forget to take the quiz after finishing the lesson!
-    </p>
-
-    <button onclick="closeMessage()" class="ok-btn">OK</button>
-  </div>
+  <button id="backToTop" title="Back to Top">↑</button>
 
   <script>
-    function playVideo(){
-      document.getElementById("videoPoster").style.display = "none";
-      let v = document.getElementById("videoFrame");
-      v.style.display = "block";
-      v.src = "https://www.youtube.com/embed/N6BJVM5tvnw?autoplay=1";
+    const liveClock = document.getElementById("live-clock");
+    const backToTopBtn = document.getElementById("backToTop");
+
+    function updateClock() {
+      const now = new Date();
+
+      const time = now.toLocaleTimeString("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true
+      });
+
+      if (liveClock) {
+        liveClock.textContent = time;
+      }
     }
 
-    function closeMessage(){
-      document.getElementById("lessonMessage").style.display = "none";
+    function toggleBackToTop() {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add("show");
+      } else {
+        backToTopBtn.classList.remove("show");
+      }
     }
 
-    window.onload = function(){
-      setTimeout(function(){
-        document.getElementById("lessonMessage").style.display = "block";
-      }, 3000);
+    if (backToTopBtn) {
+      backToTopBtn.addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
     }
+
+    window.addEventListener("scroll", toggleBackToTop);
+
+    updateClock();
+    setInterval(updateClock, 1000);
   </script>
-
 </body>
 </html>
