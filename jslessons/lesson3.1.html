@@ -290,7 +290,11 @@
       width: min(1150px, 92%);
       margin: 30px auto 80px;
       display: flex;
+      flex-direction:row;
       justify-content: space-between;
+      align-items:center;
+      gap:10px;
+      flex-wrap:nowrap;
     }
 
     .lesson-buttons a {
@@ -302,6 +306,7 @@
       align-items: center;
       gap: 10px;
       transition: all 0.3s ease;
+      white-space:nowrap;
     }
 
     .lesson-buttons a:hover{
@@ -420,13 +425,17 @@
       .search-box{
         max-width:200px;
       }
+
+      .path-wrap{
+        display:none;
+      }
+
+      .lesson-page{
+        padding-top:240px;
+      }
     }
 
     @media (max-width: 992px){
-      .lesson-page{
-        padding-top:145px;
-      }
-
       .hero-lesson{
         padding:60px 30px 50px;
       }
@@ -492,9 +501,16 @@
       }
 
       .lesson-buttons{
-        flex-direction:column;
+        flex-direction:row;
         align-items:center;
-        gap:18px;
+        justify-content:space-between;
+        gap:10px;
+        flex-wrap:nowrap;
+      }
+
+      .lesson-buttons a{
+        font-size:1.15rem;
+        white-space:nowrap;
       }
 
       .clock-box{
@@ -522,12 +538,7 @@
 
     @media (max-width: 480px){
       .lesson-page{
-        padding-top:170px;
-      }
-
-      .path-breadcrumb{
-        justify-content:center;
-        text-align:center;
+        padding-top:260px;
       }
 
       .lesson-badge{
@@ -546,6 +557,10 @@
 
       .hero-content h1{
         font-size:36px;
+      }
+
+      .lesson-buttons a{
+        font-size:1rem;
       }
 
       .nav-links{
