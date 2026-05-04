@@ -316,7 +316,11 @@
       width: min(1150px, 92%);
       margin: 30px auto 80px;
       display: flex;
+      flex-direction: row;
       justify-content: space-between;
+      align-items:center;
+      gap:10px;
+      flex-wrap:nowrap;
     }
 
     .lesson-buttons a {
@@ -328,6 +332,7 @@
       align-items: center;
       gap: 10px;
       transition: all 0.3s ease;
+      white-space:nowrap;
     }
 
     .btn-back,
@@ -344,7 +349,6 @@
       transform: translateY(-3px);
     }
 
-    /* ADDED ONLY: Responsive Header */
     @media (max-width: 768px){
       .navbar{
         display:flex;
@@ -389,8 +393,12 @@
         max-width:200px;
       }
 
+      .path-wrap{
+        display:none;
+      }
+
       main{
-        padding-top:180px;
+        padding-top:240px;
       }
     }
 
@@ -413,11 +421,10 @@
       }
 
       main{
-        padding-top:200px;
+        padding-top:260px;
       }
     }
 
-    /* ADDED ONLY: Footer Clock */
     .footer-clock{
       margin-top:18px;
       display:flex;
@@ -454,7 +461,6 @@
       text-align:center;
     }
 
-    /* ADDED ONLY: Back To Top Button */
     #backToTop{
       position:fixed;
       right:22px;
@@ -509,7 +515,7 @@
       }
 
       .lesson-buttons{
-        justify-content:center;
+        justify-content:space-between;
       }
     }
 
@@ -560,9 +566,16 @@
       }
 
       .lesson-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 18px;
+        flex-direction:row;
+        align-items:center;
+        justify-content:space-between;
+        gap:10px;
+        flex-wrap:nowrap;
+      }
+
+      .lesson-buttons a{
+        font-size:1.15rem;
+        white-space:nowrap;
       }
 
       .clock-box{
@@ -587,12 +600,17 @@
         font-size:20px;
       }
     }
+
+    @media (max-width:380px){
+      .lesson-buttons a{
+        font-size:1rem;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
   <header>
   <nav class="navbar">
 
@@ -632,7 +650,6 @@
       </div>
     </div>
 
-  <!-- PAGE CONTENT -->
   <section class="lesson-section">
 
     <h2>How Do We Describe Coffee Taste?</h2>
@@ -756,7 +773,6 @@
   </div>
 </main>
 
-  <!-- FOOTER -->
  <footer class="site-footer">
       <div class="footer-top">
         <div class="footer-logo">
