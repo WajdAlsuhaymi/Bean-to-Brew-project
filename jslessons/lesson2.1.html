@@ -351,7 +351,11 @@
       width: min(1150px, 92%);
       margin: 30px auto 80px;
       display: flex;
+      flex-direction: row;
       justify-content: space-between;
+      align-items:center;
+      gap:10px;
+      flex-wrap:nowrap;
     }
 
     .lesson-buttons a {
@@ -363,6 +367,7 @@
       align-items: center;
       gap: 10px;
       transition: all 0.3s ease;
+      white-space:nowrap;
     }
 
     .lesson-buttons a:hover {
@@ -370,7 +375,6 @@
       transform: translateY(-3px);
     }
 
-    /* ADDED ONLY: Footer Clock */
     .footer-clock{
       margin-top:18px;
       display:flex;
@@ -407,7 +411,6 @@
       text-align:center;
     }
 
-    /* ADDED ONLY: Back To Top Button */
     #backToTop{
       position:fixed;
       right:22px;
@@ -440,7 +443,6 @@
       transform:translateY(0);
     }
 
-    /* ADDED ONLY: Responsive Header */
     @media (max-width: 768px){
       .navbar{
         display:flex;
@@ -484,13 +486,17 @@
       .search-box{
         max-width:200px;
       }
+
+      .path-wrap{
+        display:none;
+      }
+
+      .lesson2-page{
+        padding-top:240px;
+      }
     }
 
     @media (max-width: 900px) {
-      .lesson2-page {
-        padding-top: 145px;
-      }
-
       .hero-lesson2 {
         min-height: 620px;
         padding: 90px 6% 70px;
@@ -530,19 +536,6 @@
     }
 
     @media (max-width: 600px) {
-      .lesson2-page {
-        padding-top: 170px;
-      }
-
-      .path-wrap {
-        margin-bottom: 20px;
-      }
-
-      .path-breadcrumb {
-        justify-content: center;
-        text-align: center;
-      }
-
       .hero-lesson2 {
         min-height: 460px;
         padding: 70px 22px 55px;
@@ -589,9 +582,16 @@
       }
 
       .lesson-buttons {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
-        gap: 18px;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: nowrap;
+      }
+
+      .lesson-buttons a{
+        font-size:1.15rem;
+        white-space:nowrap;
       }
 
       .clock-box{
@@ -618,6 +618,10 @@
     }
 
     @media (max-width: 480px){
+      .lesson2-page{
+        padding-top:260px;
+      }
+
       .nav-links{
         gap:8px;
       }
@@ -634,12 +638,15 @@
       .mode-btn{
         font-size:18px;
       }
+
+      .lesson-buttons a{
+        font-size:1rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
   <header>
     <nav class="navbar">
 
@@ -809,7 +816,6 @@
     </div>
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
 
     <div class="footer-top">
