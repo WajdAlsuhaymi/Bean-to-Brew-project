@@ -662,8 +662,8 @@
       <nav class="navbar">
 
         <div class="logo">
-          <img src="logo.png" alt="Bean to Brew Logo">
-        </div>
+    <a href="index.html"><img src="logo.png" alt="Bean to Brew Logo"></a>
+    </div>
 
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
@@ -703,26 +703,26 @@
           </p>
         </div>
 
-        <div class="note-input-box">
-          <input type="text" class="note-input" id="noteInput" placeholder="Enter your note here..">
+        <form class="note-input-box" id="addNoteForm">
+  <input type="text" class="note-input" id="noteInput" placeholder="Enter your note here..">
 
-          <select id="prioritySelect" class="priority-select">
-            <option value="">Choose Priority</option>
-            <option value="1">Priority 1</option>
-            <option value="2">Priority 2</option>
-            <option value="3">Priority 3</option>
-          </select>
+  <select id="prioritySelect" class="priority-select">
+    <option value="">Choose Priority</option>
+    <option value="1">Priority 1</option>
+    <option value="2">Priority 2</option>
+    <option value="3">Priority 3</option>
+  </select>
 
-          <button class="save-btn" id="saveBtn">Save</button>
-        </div>
+  <button type="submit" class="save-btn" id="saveBtn">Add Note</button>
+</form>
 
         <h2 class="saved-title">Saved Notes</h2>
 
         <div class="notes-list" id="notesList"></div>
 
-        <div class="notes-bottom">
-          <button class="delete-all-btn">Delete All selected</button>
-        </div>
+        <form class="notes-bottom" id="deleteNoteForm">
+  <button type="submit" class="delete-all-btn">Delete All selected</button>
+</form>
 
       </section>
 
@@ -777,8 +777,9 @@
     const noteInput = document.getElementById("noteInput");
     const prioritySelect = document.getElementById("prioritySelect");
     const saveBtn = document.getElementById("saveBtn");
+	const addNoteForm = document.getElementById("addNoteForm");
+    const deleteNoteForm = document.getElementById("deleteNoteForm");
     const notesList = document.getElementById("notesList");
-    const deleteBtn = document.querySelector(".delete-all-btn");
     const liveClock = document.getElementById("live-clock");
     const backToTopBtn = document.getElementById("backToTop");
     const modeBtn = document.querySelector(".mode-btn");
@@ -807,7 +808,8 @@
       localStorage.setItem("myNotes", JSON.stringify(notes));
     }
 
-    saveBtn.addEventListener("click", function () {
+    addNoteForm.addEventListener("submit", function (event) {
+    event.preventDefault();
       const noteText = noteInput.value.trim();
       const priority = prioritySelect.value;
 
@@ -839,7 +841,8 @@
       prioritySelect.value = "";
     });
 
-    deleteBtn.addEventListener("click", function () {
+    deleteNoteForm.addEventListener("submit", function (event) {
+     event.preventDefault();
       const checkedNotes = document.querySelectorAll(".note-check:checked");
 
       if (checkedNotes.length === 0) {
