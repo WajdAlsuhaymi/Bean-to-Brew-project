@@ -348,7 +348,40 @@
       color: #EDE8DC;
       transform: translateY(-3px);
     }
+.taste-list{
+  width:min(700px, 90%);
+  margin:25px auto 60px;
+  padding:20px 30px 20px 45px;
 
+  background:rgba(111,191,115,0.18);
+  border:2px solid #C1B393;
+  border-radius:20px;
+
+  text-align:left;
+
+  box-shadow:0 10px 22px rgba(0,0,0,0.12);
+
+  list-style-type:disc;
+}
+
+.taste-list > li{
+  color:#FDE9C7;
+  font-size:1.1rem;
+  font-weight:700;
+}
+
+.taste-list ul{
+  margin-top:10px;
+  padding-left:25px;
+  list-style-type:circle;
+}
+
+.taste-list ul li{
+  color:#EDE8DC;
+  font-size:1rem;
+  margin-bottom:8px;
+  font-weight:400;
+}
     @media (max-width: 768px){
       .navbar{
         display:flex;
@@ -760,7 +793,16 @@
         </tr>
       </table>
     </div>
-
+<ul class="taste-list">
+  <li>Coffee taste can be evaluated by:
+    <ul>
+      <li>Sweetness</li>
+      <li>Acidity</li>
+      <li>Bitterness</li>
+      <li>Aroma</li>
+    </ul>
+  </li>
+</ul>
     <p class="final-text">
       Coffee is not just one simple flavor. Its taste is shaped by different standards and bean types, each offering a unique experience. By understanding these characteristics, you can better appreciate the differences between Arabica and Robusta and begin to explore coffee with deeper knowledge.
     </p>
