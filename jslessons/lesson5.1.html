@@ -8,16 +8,30 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
+      *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+      }
+
+      html{
+        scroll-behavior:smooth;
+      }
+
+      body{
+        overflow-x:hidden;
+      }
+
       .lesson5-page{
         font-family:Arial, sans-serif;
         color:#EDE8DC;
         padding-top:110px;
         background:
-  radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
-  radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
-  radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
-  radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
-  linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
+          radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
+          radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
+          radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
+          radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
+          linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
         overflow:hidden;
       }
 
@@ -135,22 +149,25 @@
         max-width:950px;
         margin:54px auto 76px;
         text-align:center;
+        padding:0 20px;
       }
-.lesson5-intro p{
-  margin:0;
-  padding:34px 30px;
-  border-radius:28px;
-  line-height:1.95;
-  font-size:20px;
-  color:#3A2F2B;
-  background:
-    linear-gradient(135deg, rgba(235,216,183,0.85), rgba(193,179,147,0.60), rgba(255,244,223,0.70));
-  border:1px solid rgba(253,233,199,0.20);
-  box-shadow:0 18px 38px rgba(0,0,0,0.12);
-}
+
+      .lesson5-intro p{
+        margin:0;
+        padding:34px 30px;
+        border-radius:28px;
+        line-height:1.95;
+        font-size:20px;
+        color:#3A2F2B;
+        background:
+          linear-gradient(135deg, rgba(235,216,183,0.85), rgba(193,179,147,0.60), rgba(255,244,223,0.70));
+        border:1px solid rgba(253,233,199,0.20);
+        box-shadow:0 18px 38px rgba(0,0,0,0.12);
+      }
 
       .lesson5-styles{
-        margin-bottom:76px;
+        width:min(92%, 1280px);
+        margin:0 auto 76px;
         text-align:center;
       }
 
@@ -184,20 +201,14 @@
 
       .lesson5-card:hover{
         transform:translateY(-10px);
-      }.lesson5-card.one{
-  background:#6B7557;
-  border:1px solid rgba(253,233,199,0.22);
-}
+      }
 
-.lesson5-card.two{
-  background:#6B7557;
-  border:1px solid rgba(193,179,147,0.14);
-}
-
-.lesson5-card.three{
-  background:#6B7557;
-  border:1px solid rgba(193,179,147,0.14);
-}
+      .lesson5-card.one,
+      .lesson5-card.two,
+      .lesson5-card.three{
+        background:#6B7557;
+        border:1px solid rgba(193,179,147,0.14);
+      }
 
       .lesson5-icon-shell{
         width:150px;
@@ -269,8 +280,9 @@
       }
 
       .lesson5-quote-wrap{
+        width:min(92%, 1280px);
+        margin:0 auto 76px;
         text-align:center;
-        margin-bottom:76px;
       }
 
       .lesson5-quote{
@@ -288,11 +300,12 @@
       }
 
       .lesson5-video-section{
+        width:min(92%, 1280px);
+        margin:0 auto 70px;
         display:grid;
         grid-template-columns:0.9fr 1.1fr;
         gap:32px;
         align-items:center;
-        margin-bottom:70px;
       }
 
       .lesson5-video-text{
@@ -344,37 +357,47 @@
         border-radius:20px;
       }
 
-    .lesson-buttons {
-      width: min(1150px, 92%);
-      margin: 30px auto 80px;
-      display: flex;
-      justify-content: space-between;
-    }
+      .lesson-buttons {
+        width:min(1150px, 92%);
+        margin:30px auto 80px;
+        display:flex;
+        flex-direction:row;
+        justify-content:space-between;
+        align-items:center;
+        gap:10px;
+        flex-wrap:nowrap;
+      }
 
-    .lesson-buttons a {
-      text-decoration: none;
-      font-size: 1.5rem;
-      font-weight: 600;
-	  color:   #C1B393;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      transition: all 0.3s ease;
-    }
+      .lesson-buttons a {
+        text-decoration:none;
+        font-size:1.5rem;
+        font-weight:600;
+        color:#C1B393;
+        display:inline-flex;
+        align-items:center;
+        gap:10px;
+        transition:all 0.3s ease;
+        white-space:nowrap;
+      }
 
-    .btn-back,
-    .btn-next {
-      background: #C1B393;
-      color: #2f241d;
-      border: 1px solid #b9997d;
-    }
+      .lesson-buttons a:hover{
+        color:#FDE9C7;
+        transform:translateY(-3px);
+      }
 
-    .btn-back:hover,
-    .btn-next:hover {
-      background: #7a4d2c;
-      color: #EDE8DC;
-      transform: translateY(-3px);
-    }
+      .btn-back,
+      .btn-next {
+        background:#C1B393;
+        color:#2f241d;
+        border:1px solid #b9997d;
+      }
+
+      .btn-back:hover,
+      .btn-next:hover {
+        background:#7a4d2c;
+        color:#EDE8DC;
+        transform:translateY(-3px);
+      }
 
       .footer-clock{
         margin-top:18px;
@@ -461,14 +484,14 @@
         100%{ background-position:0% 50%; }
       }
 
-      @media (max-width: 1100px){
+      @media (max-width:1100px){
         .lesson5-grid,
         .lesson5-video-section{
           grid-template-columns:1fr;
         }
       }
 
-      @media (max-width: 768px){
+      @media (max-width:768px){
         .navbar{
           display:flex;
           flex-direction:column;
@@ -512,25 +535,39 @@
           max-width:200px;
         }
 
+        .path-wrap{
+          display:none;
+        }
+
         .lesson5-page{
-          padding-top:160px;
+          padding-top:240px;
         }
 
         .lesson-buttons{
-          flex-direction:column;
+          flex-direction:row;
           align-items:center;
-          gap:18px;
+          justify-content:space-between;
+          gap:10px;
+          flex-wrap:nowrap;
+        }
+
+        .lesson-buttons a{
+          font-size:1.15rem;
+          white-space:nowrap;
         }
       }
 
-      @media (max-width: 700px){
-        .lesson5-wrap{
-          padding:24px 0 60px;
-        }
-
+      @media (max-width:700px){
         .lesson5-hero{
           min-height:380px;
           padding:26px;
+          border-radius:28px;
+          width:min(92%, 1280px);
+          margin:0 auto;
+        }
+
+        .lesson5-intro{
+          margin:44px auto 58px;
         }
 
         .lesson5-intro p,
@@ -543,36 +580,31 @@
         .lesson5-video-box iframe{
           height:240px;
         }
-
-        .lesson5-buttons{
-          flex-direction:column;
-        }
-
-        .lesson5-btn{
-          width:100%;
-        }
       }
 
-      @media (max-width: 480px){
-        .lesson5-page{
-          padding-top:180px;
+      @media (max-width:600px){
+        .lesson5-hero p{
+          font-size:16px;
+          line-height:1.7;
         }
 
-        .nav-links{
-          gap:8px;
+        .lesson5-intro p{
+          font-size:17px;
+          padding:26px 20px;
         }
 
-        .nav-links a{
-          font-size:13px;
+        .lesson5-icon-shell{
+          width:125px;
+          height:125px;
         }
 
-        .search-box{
-          max-width:160px;
-          font-size:12px;
+        .lesson5-icon{
+          width:80px;
+          height:80px;
         }
 
-        .mode-btn{
-          font-size:18px;
+        .lesson-buttons a{
+          font-size:1rem;
         }
 
         .clock-box{
@@ -595,6 +627,33 @@
           width:46px;
           height:46px;
           font-size:20px;
+        }
+      }
+
+      @media (max-width:480px){
+        .lesson5-page{
+          padding-top:260px;
+        }
+
+        .nav-links{
+          gap:8px;
+        }
+
+        .nav-links a{
+          font-size:13px;
+        }
+
+        .search-box{
+          max-width:160px;
+          font-size:12px;
+        }
+
+        .mode-btn{
+          font-size:18px;
+        }
+
+        .lesson-buttons a{
+          font-size:0.95rem;
         }
       }
     </style>
