@@ -20,12 +20,12 @@
     }
 
     body{
-	background:
-  radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
-  radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
-  radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
-  radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
-  linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
+        radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
+        radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
+        radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
+        linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
       color:#EDE8DC;
       overflow-x:hidden;
     }
@@ -49,7 +49,6 @@
       z-index:auto;
     }
 
-    /* ================= HERO ================= */
     .hero-lesson{
       position:relative;
       width:100%;
@@ -64,10 +63,9 @@
       background-position:center;
       overflow:hidden;
       border-bottom:1px solid rgba(255,255,255,0.06);
-    
-	  border-radius:30px;
-	  overflow:hidden;
+      border-radius:30px;
     }
+
     .hero-lesson::before{
       content:"";
       position:absolute;
@@ -97,7 +95,8 @@
       margin-bottom:18px;
       backdrop-filter:blur(8px);
       -webkit-backdrop-filter:blur(8px);
-      box-shadow:0 8px 20px rgba(0,0,0,0.18);}
+      box-shadow:0 8px 20px rgba(0,0,0,0.18);
+    }
 
     .hero-content h1{
       font-family:'Playfair Display', serif;
@@ -116,7 +115,6 @@
       text-shadow:0 4px 14px rgba(0,0,0,0.18);
     }
 
-    /* ================= WRAP ================= */
     .page-wrap{
       width:min(1180px, calc(100% - 40px));
       margin:0 auto;
@@ -143,7 +141,6 @@
       line-height:1.9;
     }
 
-    /* ================= INTRO ================= */
     .intro-card{
       border-radius:32px;
       padding:42px 34px;
@@ -177,7 +174,6 @@
     .line.two{ width:82%; }
     .line.three{ width:58%; }
 
-    /* ================= GRIND TYPES ================= */
     .grind-types-section{
       margin-top:42px;
       padding:40px 28px;
@@ -193,19 +189,16 @@
       gap:26px;
     }
 
-.grind-card{
-  text-align:center;
-  padding:22px 20px 24px;
-  border-radius:28px;
+    .grind-card{
+      text-align:center;
+      padding:22px 20px 24px;
+      border-radius:28px;
+      background:linear-gradient(145deg,#8E9775,#7A8A63);
+      border:1px solid rgba(0,0,0,0.08);
+      transition:0.35s ease;
+      box-shadow:0 12px 26px rgba(0,0,0,0.14);
+    }
 
-  /* لون زيتي متوسط */
-  background:linear-gradient(145deg,#8E9775,#7A8A63);
-
-  border:1px solid rgba(0,0,0,0.08);
-  transition:0.35s ease;
-
-  box-shadow:0 12px 26px rgba(0,0,0,0.14);
-}
     .grind-card:hover{
       transform:translateY(-10px);
       border-color:rgba(253,233,199,0.18);
@@ -239,117 +232,94 @@
       margin:14px auto 0;
       background:linear-gradient(90deg, #C1B393, #FDE9C7);
     }
-/* ================= COMPARISON ================= */
-.comparison-section{
-  margin-top:44px;
-  border-radius:34px;
-  padding:52px 34px;
 
-  /* خلفية بيج كريمي مع لمسة زيتي */
-  background:linear-gradient(145deg,#F5F0E6,#D8D3B6);
+    .comparison-section{
+      margin-top:44px;
+      border-radius:34px;
+      padding:52px 34px;
+      background:linear-gradient(145deg,#F5F0E6,#D8D3B6);
+      border:1px solid rgba(90,70,50,0.08);
+      box-shadow:0 20px 42px rgba(0,0,0,0.10);
+    }
 
-  border:1px solid rgba(90,70,50,0.08);
-  box-shadow:0 20px 42px rgba(0,0,0,0.10);
-}
+    .comparison-section h2{
+      text-align:center;
+      font-family:'Playfair Display', serif;
+      font-size:50px;
+      color:#3A2F2B;
+      margin-bottom:34px;
+    }
 
-.comparison-section h2{
-  text-align:center;
-  font-family:'Playfair Display', serif;
-  font-size:50px;
+    .compare-grid{
+      max-width:920px;
+      margin:0 auto;
+      display:grid;
+      gap:24px;
+    }
 
-  /* بني قهوة */
-  color:#3A2F2B;
+    .compare-row{
+      display:grid;
+      grid-template-columns:180px 1fr;
+      gap:20px;
+      align-items:center;
+      background:rgba(255,255,255,0.45);
+      padding:14px 16px;
+      border-radius:18px;
+    }
 
-  margin-bottom:34px;
-}
+    .compare-label{
+      color:#5C4B44;
+      font-size:16px;
+      font-weight:600;
+    }
 
-.compare-grid{
-  max-width:920px;
-  margin:0 auto;
-  display:grid;
-  gap:24px;
-}
+    .compare-bars{
+      display:grid;
+      gap:10px;
+    }
 
-.compare-row{
-  display:grid;
-  grid-template-columns:180px 1fr;
-  gap:20px;
-  align-items:center;
+    .bar{
+      height:10px;
+      border-radius:999px;
+      overflow:hidden;
+      position:relative;
+      background:#E7DFD2;
+    }
 
-  /* خلفية صف المقارنة */
-  background:rgba(255,255,255,0.45);
-  padding:14px 16px;
-  border-radius:18px;
-}
+    .fill{
+      height:100%;
+      border-radius:999px;
+    }
 
-.compare-label{
-  color:#5C4B44; /* بني فاتح */
-  font-size:16px;
-  font-weight:600;
-}
+    .fine{ background:#7A4D2C; }
+    .medium{ background:linear-gradient(90deg,#C1B393,#FDE9C7); }
+    .coarse{ background:linear-gradient(90deg,#7A8A63,#9DAA7A); }
 
-.compare-bars{
-  display:grid;
-  gap:10px;
-}
+    .legend{
+      display:flex;
+      justify-content:center;
+      gap:22px;
+      margin-top:28px;
+      flex-wrap:wrap;
+    }
 
-.bar{
-  height:10px;
-  border-radius:999px;
-  overflow:hidden;
-  position:relative;
+    .legend-item{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      color:#3A2F2B;
+      font-size:14px;
+      background:#F6F1E7;
+      padding:8px 14px;
+      border-radius:999px;
+    }
 
-  /* خلفية البار */
-  background:#E7DFD2;
-}
+    .legend-dot{
+      width:14px;
+      height:14px;
+      border-radius:50%;
+    }
 
-.fill{
-  height:100%;
-  border-radius:999px;
-}
-
-/* الألوان */
-
-.fine{
-  background:#7A4D2C; /* بني */
-}
-
-.medium{
-  background:linear-gradient(90deg,#C1B393,#FDE9C7); /* بيج */
-}
-
-.coarse{
-  background:linear-gradient(90deg,#7A8A63,#9DAA7A); /* زيتي */
-}
-
-.legend{
-  display:flex;
-  justify-content:center;
-  gap:22px;
-  margin-top:28px;
-  flex-wrap:wrap;
-}
-
-.legend-item{
-  display:flex;
-  align-items:center;
-  gap:8px;
-
-  color:#3A2F2B;
-  font-size:14px;
-
-  background:#F6F1E7;
-  padding:8px 14px;
-  border-radius:999px;
-}
-
-.legend-dot{
-  width:14px;
-  height:14px;
-  border-radius:50%;
-}
-
-    /* ================= VIDEO ================= */
     .video-section{
       margin-top:44px;
       padding:42px 28px;
@@ -405,42 +375,34 @@
       color:#3A2F2B;
     }
 
-    /* =============================== */
-    /* Lesson Navigation Buttons */
-    /* =============================== */
     .lesson-buttons {
-      width: min(1150px, 92%);
-      margin: 30px auto 80px;
-      display: flex;
-      justify-content: space-between;
+      width:min(1150px, 92%);
+      margin:30px auto 80px;
+      display:flex;
+      flex-direction:row;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      flex-wrap:nowrap;
     }
 
     .lesson-buttons a {
-      text-decoration: none;
-      font-size: 1.5rem;
-      font-weight: 600;
-	  color:   #C1B393;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      transition: all 0.3s ease;
+      text-decoration:none;
+      font-size:1.5rem;
+      font-weight:600;
+      color:#C1B393;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      transition:all 0.3s ease;
+      white-space:nowrap;
     }
 
-    .btn-back,
-    .btn-next {
-      background: #C1B393;
-      color: #2f241d;
-      border: 1px solid #b9997d;
+    .lesson-buttons a:hover {
+      color:#FDE9C7;
+      transform:translateY(-3px);
     }
 
-    .btn-back:hover,
-    .btn-next:hover {
-      background: #7a4d2c;
-      color: #EDE8DC;
-      transform: translateY(-3px);
-    }
-
-    /* ================= ADDED ONLY: FOOTER CLOCK ================= */
     .footer-clock{
       margin-top:18px;
       display:flex;
@@ -477,7 +439,6 @@
       text-align:center;
     }
 
-    /* ================= ADDED ONLY: BACK TO TOP ================= */
     #backToTop{
       position:fixed;
       right:22px;
@@ -510,8 +471,7 @@
       transform:translateY(0);
     }
 
-    /* ================= RESPONSIVE ================= */
-    @media (max-width: 900px){
+    @media (max-width:900px){
       .hero-lesson{
         padding:0 24px 48px;
         min-height:64vh;
@@ -544,7 +504,7 @@
       }
     }
 
-    @media (max-width: 768px){
+    @media (max-width:768px){
       .navbar{
         display:flex;
         flex-direction:column;
@@ -588,22 +548,29 @@
         max-width:200px;
       }
 
+      .path-wrap{
+        display:none;
+      }
+
       .lesson-page{
-        padding-top:160px;
+        padding-top:240px;
       }
 
       .lesson-buttons{
-        flex-direction:column;
+        flex-direction:row;
         align-items:center;
-        gap:18px;
+        justify-content:space-between;
+        gap:10px;
+        flex-wrap:nowrap;
+      }
+
+      .lesson-buttons a{
+        font-size:1.15rem;
+        white-space:nowrap;
       }
     }
 
-    @media (max-width: 600px){
-      .lesson-nav a{
-        width:100%;
-      }
-
+    @media (max-width:600px){
       .video-section h2,
       .comparison-section h2,
       .section-title h2{
@@ -633,9 +600,9 @@
       }
     }
 
-    @media (max-width: 480px){
+    @media (max-width:480px){
       .lesson-page{
-        padding-top:180px;
+        padding-top:260px;
       }
 
       .nav-links{
@@ -653,6 +620,10 @@
 
       .mode-btn{
         font-size:18px;
+      }
+
+      .lesson-buttons a{
+        font-size:1rem;
       }
     }
   </style>
