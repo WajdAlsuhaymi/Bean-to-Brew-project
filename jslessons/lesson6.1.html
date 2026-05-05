@@ -14,9 +14,14 @@
       box-sizing:border-box;
     }
 
+    html{
+      scroll-behavior:smooth;
+    }
+
     body{
       margin:0;
       padding:0;
+      overflow-x:hidden;
     }
 
     .lesson6-page{
@@ -63,7 +68,6 @@
       color:#FDE9C7;
     }
 
-    /* HERO - ثابت مثل الدروس السابقة */
     .lesson6-hero{
       position:relative;
       width:min(1150px, 92%);
@@ -140,6 +144,7 @@
       max-width:980px;
       margin:54px auto 70px;
       text-align:center;
+      padding:0 20px;
     }
 
     .lesson6-intro p{
@@ -154,8 +159,16 @@
       box-shadow:0 18px 38px rgba(0,0,0,0.10);
     }
 
+    .lesson6-bag-guide,
+    .lesson6-find-style,
+    .lesson6-video-section{
+      width:min(1150px, 92%);
+      margin-left:auto;
+      margin-right:auto;
+    }
+
     .lesson6-bag-guide{
-      margin:0 0 76px;
+      margin-bottom:76px;
     }
 
     .lesson6-bag-head{
@@ -254,7 +267,7 @@
     }
 
     .lesson6-find-style{
-      margin:0 0 76px;
+      margin-bottom:76px;
       padding:38px 26px 34px;
       border-radius:34px;
       background:
@@ -429,7 +442,6 @@
       color:#E5D9CC;
     }
 
-    /* VIDEO - نفس النظام */
     .lesson6-video-box{
       background:#4B4F3E;
       padding:20px;
@@ -497,41 +509,48 @@
       transform:translateY(-2px);
     }
 
-    /* Lesson Navigation Buttons */
     .lesson-buttons {
-      width: min(1150px, 92%);
-      margin: 30px auto 80px;
-      display: flex;
-      justify-content: space-between;
+      width:min(1150px, 92%);
+      margin:30px auto 80px;
+      display:flex;
+      flex-direction:row;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      flex-wrap:nowrap;
     }
 
     .lesson-buttons a {
-      text-decoration: none;
-      font-size: 1.5rem;
-      font-weight: 600;
-      color:   #C1B393;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      transition: all 0.3s ease;
+      text-decoration:none;
+      font-size:1.5rem;
+      font-weight:600;
+      color:#C1B393;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      transition:all 0.3s ease;
+      white-space:nowrap;
+    }
+
+    .lesson-buttons a:hover {
+      color:#FDE9C7;
+      transform:translateY(-3px);
     }
 
     .btn-back,
     .btn-next {
-      background: #C1B393;
-      color: #2f241d;
-      border: 1px solid #b9997d;
+      background:#C1B393;
+      color:#2f241d;
+      border:1px solid #b9997d;
     }
 
     .btn-back:hover,
-    .btn-next:hover,
-    .lesson-buttons a:hover {
-      background: #7a4d2c;
-      color: #EDE8DC;
-      transform: translateY(-3px);
+    .btn-next:hover{
+      background:#7a4d2c;
+      color:#EDE8DC;
+      transform:translateY(-3px);
     }
 
-    /* POPUP */
     .lesson-message{
       display:none;
       position:fixed;
@@ -542,6 +561,7 @@
       color:#3A2F2B;
       padding:20px;
       width:320px;
+      max-width:90%;
       border-radius:16px;
       text-align:center;
       z-index:9999;
@@ -585,7 +605,6 @@
       background:#3A2F2B;
     }
 
-    /* ADDED ONLY: Footer Clock */
     .footer-clock{
       margin-top:18px;
       display:flex;
@@ -622,7 +641,6 @@
       text-align:center;
     }
 
-    /* ADDED ONLY: Back To Top Button */
     #backToTop{
       position:fixed;
       right:22px;
@@ -655,15 +673,23 @@
       transform:translateY(0);
     }
 
-    @media (max-width: 1000px){
+    @media (max-width:1000px){
       .lesson6-bag-grid,
       .lesson6-style-grid,
       .lesson6-video-section{
         grid-template-columns:1fr;
       }
+
+      .lesson6-bag-image{
+        order:-1;
+      }
+
+      .lesson6-bag-image img{
+        max-width:260px;
+      }
     }
 
-    @media (max-width: 768px){
+    @media (max-width:768px){
       .navbar{
         display:flex;
         flex-direction:column;
@@ -707,12 +733,29 @@
         max-width:200px;
       }
 
+      .path-wrap{
+        display:none;
+      }
+
       .lesson6-page{
-        padding-top:160px;
+        padding-top:240px;
+      }
+
+      .lesson-buttons{
+        flex-direction:row;
+        align-items:center;
+        justify-content:space-between;
+        gap:10px;
+        flex-wrap:nowrap;
+      }
+
+      .lesson-buttons a{
+        font-size:1.15rem;
+        white-space:nowrap;
       }
     }
 
-    @media (max-width: 700px){
+    @media (max-width:700px){
       .lesson6-hero{
         height:320px;
         padding:28px 24px 30px;
@@ -740,46 +783,32 @@
         padding-right:20px;
       }
 
+      .lesson6-bag-stage{
+        padding:28px 18px;
+      }
+
+      .lesson6-find-style{
+        padding:30px 18px;
+      }
+
       .video-poster img,
       #videoFrame{
         height:240px;
       }
-
-      .lesson6-actions{
-        flex-direction:column;
-      }
-
-      .lesson6-btn{
-        width:100%;
-      }
-
-      .lesson-buttons{
-        flex-direction:column;
-        align-items:center;
-        gap:18px;
-      }
     }
 
-    @media (max-width: 480px){
-      .lesson6-page{
-        padding-top:180px;
+    @media (max-width:600px){
+      .lesson6-intro p{
+        font-size:17px;
+        padding:26px 20px;
       }
 
-      .nav-links{
-        gap:8px;
+      .lesson6-bag-head h2{
+        font-size:32px;
       }
 
-      .nav-links a{
-        font-size:13px;
-      }
-
-      .search-box{
-        max-width:160px;
-        font-size:12px;
-      }
-
-      .mode-btn{
-        font-size:18px;
+      .lesson6-style-card h3{
+        font-size:24px;
       }
 
       .clock-box{
@@ -802,6 +831,41 @@
         width:46px;
         height:46px;
         font-size:20px;
+      }
+    }
+
+    @media (max-width:480px){
+      .lesson6-page{
+        padding-top:260px;
+      }
+
+      .nav-links{
+        gap:8px;
+      }
+
+      .nav-links a{
+        font-size:13px;
+      }
+
+      .search-box{
+        max-width:160px;
+        font-size:12px;
+      }
+
+      .mode-btn{
+        font-size:18px;
+      }
+
+      .lesson6-hero h1{
+        font-size:26px;
+      }
+
+      .lesson6-hero p{
+        font-size:14px;
+      }
+
+      .lesson-buttons a{
+        font-size:0.95rem;
       }
     }
   </style>
