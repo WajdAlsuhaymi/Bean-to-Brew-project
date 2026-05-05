@@ -93,6 +93,38 @@ transition:0.3s;
 background:#C1B393;
 }
 
+.footer-clock{
+  margin-top:18px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.clock-box{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 18px;
+  border:1px solid rgba(253, 233, 199, 0.28);
+  border-radius:14px;
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(4px);
+  color:#F5F1E8;
+  box-shadow:0 6px 18px rgba(0,0,0,0.18);
+}
+
+.clock-label{
+  font-size:14px;
+  font-weight:600;
+  color:#EDE8DC;
+}
+
+#live-clock{
+  font-size:15px;
+  font-weight:700;
+  color:#F5F1E8;
+}
+
 /* MOBILE */
 
 @media (max-width:768px){
@@ -207,7 +239,7 @@ z-index:999;
 <nav class="navbar">
 
 <div class="logo">
-<img src="logo.png" alt="Bean to Brew Logo">
+<a href="index.html"><img src="logo.png" alt="Bean to Brew Logo"></a>
 </div>
 
 <ul class="nav-links">
@@ -308,7 +340,10 @@ z-index:999;
 
 <!-- ADDED ONLY -->
 <div class="footer-clock">
-<span id="clock"></span>
+  <div class="clock-box">
+    <span class="clock-label">Current Time</span>
+    <span id="live-clock">00:00:00</span>
+  </div>
 </div>
 
 <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
@@ -355,7 +390,7 @@ contactForm.addEventListener("submit", function(event) {
 /* ADDED ONLY */
 function updateClock(){
   const now = new Date();
-  document.getElementById("clock").textContent = now.toLocaleTimeString();
+document.getElementById("live-clock").textContent = now.toLocaleTimeString();
 }
 setInterval(updateClock,1000);
 updateClock();
