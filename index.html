@@ -12,6 +12,10 @@
       box-sizing:border-box;
     }
 
+    html{
+      scroll-behavior:smooth;
+    }
+
     html, body{
       margin:0;
       padding:0;
@@ -234,12 +238,6 @@
       margin-bottom:0;
     }
 
-    .bean-types-right img{
-      width:200px;
-      height:380px;
-      margin-top:10px;
-    }
-
     .floating-bean{
       position:relative;
     }
@@ -256,21 +254,11 @@
     }
 
     @keyframes beanFloat{
-      0%{
-        transform:translateY(0) rotate(0deg);
-      }
-      25%{
-        transform:translateY(-10px) rotate(-1deg);
-      }
-      50%{
-        transform:translateY(-18px) rotate(0.8deg);
-      }
-      75%{
-        transform:translateY(-10px) rotate(-0.6deg);
-      }
-      100%{
-        transform:translateY(0) rotate(0deg);
-      }
+      0%{ transform:translateY(0) rotate(0deg); }
+      25%{ transform:translateY(-10px) rotate(-1deg); }
+      50%{ transform:translateY(-18px) rotate(0.8deg); }
+      75%{ transform:translateY(-10px) rotate(-0.6deg); }
+      100%{ transform:translateY(0) rotate(0deg); }
     }
 
     .grind-size{
@@ -345,170 +333,58 @@
       margin:18px auto 0;
     }
 
-    /* Desktop slider states */
-    #card1:checked ~ .cards .c1 {
+    #card1:checked ~ .cards .c1,
+    #card2:checked ~ .cards .c2,
+    #card3:checked ~ .cards .c3,
+    #card4:checked ~ .cards .c4,
+    #card5:checked ~ .cards .c5,
+    #card6:checked ~ .cards .c6{
       transform:translate(-50%, -50%) scale(1.2);
       opacity:1;
       z-index:5;
       width:240px;
       height:320px;
     }
-    #card1:checked ~ .cards .c6 {
+
+    #card1:checked ~ .cards .c6,
+    #card2:checked ~ .cards .c1,
+    #card3:checked ~ .cards .c2,
+    #card4:checked ~ .cards .c3,
+    #card5:checked ~ .cards .c4,
+    #card6:checked ~ .cards .c5{
       transform:translate(-185%, -50%) scale(0.85);
       opacity:0.8;
       z-index:4;
     }
-    #card1:checked ~ .cards .c2 {
+
+    #card1:checked ~ .cards .c2,
+    #card2:checked ~ .cards .c3,
+    #card3:checked ~ .cards .c4,
+    #card4:checked ~ .cards .c5,
+    #card5:checked ~ .cards .c6,
+    #card6:checked ~ .cards .c1{
       transform:translate(85%, -50%) scale(0.85);
       opacity:0.8;
       z-index:4;
     }
-    #card1:checked ~ .cards .c5 {
+
+    #card1:checked ~ .cards .c5,
+    #card2:checked ~ .cards .c6,
+    #card3:checked ~ .cards .c1,
+    #card4:checked ~ .cards .c2,
+    #card5:checked ~ .cards .c3,
+    #card6:checked ~ .cards .c4{
       transform:translate(-290%, -50%) scale(0.65);
-      opacity:0.45;
-      z-index:3;
-    }
-    #card1:checked ~ .cards .c3 {
-      transform:translate(190%, -50%) scale(0.65);
       opacity:0.45;
       z-index:3;
     }
 
-    #card2:checked ~ .cards .c2 {
-      transform:translate(-50%, -50%) scale(1.2);
-      opacity:1;
-      z-index:5;
-      width:240px;
-      height:320px;
-    }
-    #card2:checked ~ .cards .c1 {
-      transform:translate(-185%, -50%) scale(0.85);
-      opacity:0.8;
-      z-index:4;
-    }
-    #card2:checked ~ .cards .c3 {
-      transform:translate(85%, -50%) scale(0.85);
-      opacity:0.8;
-      z-index:4;
-    }
-    #card2:checked ~ .cards .c6 {
-      transform:translate(-290%, -50%) scale(0.65);
-      opacity:0.45;
-      z-index:3;
-    }
-    #card2:checked ~ .cards .c4 {
-      transform:translate(190%, -50%) scale(0.65);
-      opacity:0.45;
-      z-index:3;
-    }
-
-    #card3:checked ~ .cards .c3 {
-      transform:translate(-50%, -50%) scale(1.2);
-      opacity:1;
-      z-index:5;
-      width:240px;
-      height:320px;
-    }
-    #card3:checked ~ .cards .c2 {
-      transform:translate(-185%, -50%) scale(0.85);
-      opacity:0.8;
-      z-index:4;
-    }
-    #card3:checked ~ .cards .c4 {
-      transform:translate(85%, -50%) scale(0.85);
-      opacity:0.8;
-      z-index:4;
-    }
-    #card3:checked ~ .cards .c1 {
-      transform:translate(-290%, -50%) scale(0.65);
-      opacity:0.45;
-      z-index:3;
-    }
-    #card3:checked ~ .cards .c5 {
-      transform:translate(190%, -50%) scale(0.65);
-      opacity:0.45;
-      z-index:3;
-    }
-
-    #card4:checked ~ .cards .c4 {
-      transform:translate(-50%, -50%) scale(1.2);
-      opacity:1;
-      z-index:5;
-      width:240px;
-      height:320px;
-    }
-    #card4:checked ~ .cards .c3 {
-      transform:translate(-185%, -50%) scale(0.85);
-      opacity:0.8;
-      z-index:4;
-    }
-    #card4:checked ~ .cards .c5 {
-      transform:translate(85%, -50%) scale(0.85);
-      opacity:0.8;
-      z-index:4;
-    }
-    #card4:checked ~ .cards .c2 {
-      transform:translate(-290%, -50%) scale(0.65);
-      opacity:0.45;
-      z-index:3;
-    }
-    #card4:checked ~ .cards .c6 {
-      transform:translate(190%, -50%) scale(0.65);
-      opacity:0.45;
-      z-index:3;
-    }
-
-    #card5:checked ~ .cards .c5 {
-      transform:translate(-50%, -50%) scale(1.2);
-      opacity:1;
-      z-index:5;
-      width:240px;
-      height:320px;
-    }
-    #card5:checked ~ .cards .c4 {
-      transform:translate(-185%, -50%) scale(0.85);
-      opacity:0.8;
-      z-index:4;
-    }
-    #card5:checked ~ .cards .c6 {
-      transform:translate(85%, -50%) scale(0.85);
-      opacity:0.8;
-      z-index:4;
-    }
-    #card5:checked ~ .cards .c3 {
-      transform:translate(-290%, -50%) scale(0.65);
-      opacity:0.45;
-      z-index:3;
-    }
-    #card5:checked ~ .cards .c1 {
-      transform:translate(190%, -50%) scale(0.65);
-      opacity:0.45;
-      z-index:3;
-    }
-
-    #card6:checked ~ .cards .c6 {
-      transform:translate(-50%, -50%) scale(1.2);
-      opacity:1;
-      z-index:5;
-      width:240px;
-      height:320px;
-    }
-    #card6:checked ~ .cards .c5 {
-      transform:translate(-185%, -50%) scale(0.85);
-      opacity:0.8;
-      z-index:4;
-    }
-    #card6:checked ~ .cards .c1 {
-      transform:translate(85%, -50%) scale(0.85);
-      opacity:0.8;
-      z-index:4;
-    }
-    #card6:checked ~ .cards .c4 {
-      transform:translate(-290%, -50%) scale(0.65);
-      opacity:0.45;
-      z-index:3;
-    }
-    #card6:checked ~ .cards .c2 {
+    #card1:checked ~ .cards .c3,
+    #card2:checked ~ .cards .c4,
+    #card3:checked ~ .cards .c5,
+    #card4:checked ~ .cards .c6,
+    #card5:checked ~ .cards .c1,
+    #card6:checked ~ .cards .c2{
       transform:translate(190%, -50%) scale(0.65);
       opacity:0.45;
       z-index:3;
@@ -555,7 +431,7 @@
     #card3:checked ~ .arrows-3,
     #card4:checked ~ .arrows-4,
     #card5:checked ~ .arrows-5,
-    #card6:checked ~ .arrows-6 {
+    #card6:checked ~ .arrows-6{
       display:flex;
     }
 
@@ -580,9 +456,112 @@
     #card3:checked ~ .dots label:nth-child(3),
     #card4:checked ~ .dots label:nth-child(4),
     #card5:checked ~ .dots label:nth-child(5),
-    #card6:checked ~ .dots label:nth-child(6) {
+    #card6:checked ~ .dots label:nth-child(6){
       background-color:white;
       transform:scale(1.2);
+    }
+
+    .lesson-preview{
+      padding:60px 35px;
+      text-align:center;
+    }
+
+    .lesson-preview h2{
+      font-size:42px;
+      color:#EDE8DC;
+      font-family:'Playfair Display', serif;
+      margin-bottom:10px;
+    }
+
+    .lesson-preview-sub{
+      color:#EDE8DC;
+      font-size:16px;
+      margin-bottom:35px;
+    }
+
+    .lesson-preview-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:22px;
+    }
+
+    .flip-card{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:12px;
+    }
+
+    .flip-inner{
+      width:100%;
+      height:170px;
+      position:relative;
+      transform-style:preserve-3d;
+      transition:transform 0.7s ease;
+      cursor:pointer;
+    }
+
+    .flip-card:hover .flip-inner{
+      transform:rotateY(180deg);
+    }
+
+    .flip-front,
+    .flip-back{
+      position:absolute;
+      inset:0;
+      backface-visibility:hidden;
+      border-radius:20px;
+      padding:22px 18px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      background:#4B4F3E;
+      border:1px solid rgba(255,255,255,0.10);
+      box-shadow:0 10px 24px rgba(0,0,0,0.18);
+    }
+
+    .flip-front h3{
+      font-size:26px;
+      color:#FDE9C7;
+      font-family:'Playfair Display', serif;
+      margin-bottom:10px;
+    }
+
+    .flip-front p,
+    .flip-back p{
+      color:#EDE8DC;
+      font-size:14px;
+      line-height:1.6;
+      margin:0;
+    }
+
+    .flip-back{
+      transform:rotateY(180deg);
+      background:#C1B393;
+    }
+
+    .flip-back p{
+      color:#2f241d;
+      font-weight:600;
+    }
+
+    .learn-more{
+      display:inline-block;
+      text-decoration:none;
+      background:#C1B393;
+      color:#2f241d;
+      padding:9px 20px;
+      border-radius:12px;
+      font-size:14px;
+      font-weight:600;
+      transition:0.3s ease;
+    }
+
+    .learn-more:hover{
+      background:#7A4D2C;
+      color:#EDE8DC;
+      transform:translateY(-3px);
     }
 
     .reviews-section{
@@ -750,8 +729,7 @@
     }
 
     .add-review-box input,
-    .add-review-box textarea,
-    .add-review-box select{
+    .add-review-box textarea{
       width:100%;
       margin-bottom:8px;
       padding:8px;
@@ -796,10 +774,7 @@
     }
 
     .rating label:hover,
-    .rating label:hover ~ label{
-      color:#f2c94c;
-    }
-
+    .rating label:hover ~ label,
     .rating input:checked ~ label{
       color:#f2c94c;
     }
@@ -864,26 +839,79 @@
       border-radius:12px;
     }
 
+    .footer-clock{
+      margin-top:18px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .clock-box{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 18px;
+      border:1px solid rgba(253, 233, 199, 0.28);
+      border-radius:14px;
+      background:rgba(255,255,255,0.06);
+      backdrop-filter:blur(4px);
+      color:#F5F1E8;
+      box-shadow:0 6px 18px rgba(0,0,0,0.18);
+    }
+
+    .clock-label{
+      font-size:14px;
+      font-weight:600;
+      color:#EDE8DC;
+      letter-spacing:0.4px;
+    }
+
+    #live-clock{
+      font-size:15px;
+      font-weight:700;
+      color:#F5F1E8;
+      letter-spacing:1px;
+      min-width:105px;
+      text-align:center;
+    }
+
+    #backToTop{
+      position:fixed;
+      right:22px;
+      bottom:22px;
+      width:50px;
+      height:50px;
+      border:none;
+      border-radius:50%;
+      background-color:#C1B393;
+      color:#26231F;
+      font-size:22px;
+      font-weight:bold;
+      cursor:pointer;
+      box-shadow:0 8px 20px rgba(0,0,0,0.25);
+      opacity:0;
+      visibility:hidden;
+      transform:translateY(12px);
+      transition:all 0.3s ease;
+      z-index:9999;
+    }
+
+    #backToTop:hover{
+      background-color:#FDE9C7;
+      transform:translateY(0) scale(1.06);
+    }
+
+    #backToTop.show{
+      opacity:1;
+      visibility:visible;
+      transform:translateY(0);
+    }
+
     @media (max-width: 992px){
-      .navbar{
-        padding:12px 20px;
-        gap:15px;
-        flex-wrap:wrap;
-      }
-
-      .nav-links{
-        flex-wrap:wrap;
-        justify-content:center;
-      }
-
       .hero{
         padding:0 30px;
         justify-content:center;
         text-align:center;
-      }
-
-      .hero-content{
-        margin-top:0;
       }
 
       .main-hero-title{
@@ -912,21 +940,63 @@
         right:-40px;
         top:-120px;
       }
+
+      .lesson-preview-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
     }
 
-    @media (max-width: 768px){
+    @media (max-width:768px){
       body{
-        padding-top:150px;
+        padding-top:240px;
+      }
+
+      .navbar{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        padding:15px 10px;
+        gap:10px;
+        height:auto;
+      }
+
+      .logo{
+        order:1;
+      }
+
+      .nav-right{
+        order:2;
+        display:flex;
+        justify-content:center;
+        width:100%;
+      }
+
+      .nav-links{
+        order:3;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:12px;
+        width:100%;
+        margin-top:5px;
+      }
+
+      .nav-links li{
+        list-style:none;
+      }
+
+      .nav-links a{
+        font-size:14px;
+      }
+
+      .search-box{
+        max-width:200px;
       }
 
       .hero{
-        min-height:calc(100vh - 150px);
+        min-height:calc(100vh - 240px);
         padding:30px 24px 50px;
-      }
-
-      .hero-content{
-        max-width:100%;
-        text-align:center;
       }
 
       .main-hero-title{
@@ -1027,17 +1097,17 @@
         opacity:0;
         pointer-events:none;
       }
-
+@media (max-width: 900px){
+  .grind-slider .arrows{
+    display:none !important;
+  }
+}
       .floating-bean{
         display:none;
       }
     }
 
-    @media (max-width: 640px){
-      body{
-        padding-top:120px;
-      }
-
+    @media (max-width:640px){
       .main-hero-title{
         font-size:40px;
       }
@@ -1058,6 +1128,13 @@
 
       .bean-types-left{
         grid-template-columns:1fr;
+        width:100%;
+      }
+
+      .bean-card{
+        width:100%;
+        max-width:320px;
+        margin:0 auto;
       }
 
       .faq-item{
@@ -1068,18 +1145,30 @@
         width:220px;
       }
 
-      .footer-logo img{
-        width:220px;
+      .lesson-preview{
+        padding:45px 18px;
+      }
+
+      .lesson-preview h2{
+        font-size:32px;
+      }
+
+      .lesson-preview-grid{
+        grid-template-columns:1fr;
+      }
+
+      .flip-inner{
+        height:160px;
       }
     }
 
-    @media (max-width: 560px){
+    @media (max-width:560px){
       body{
-        padding-top:185px;
+        padding-top:260px;
       }
 
       .hero{
-        min-height:calc(100vh - 185px);
+        min-height:calc(100vh - 260px);
         padding:20px 16px 40px;
       }
 
@@ -1106,22 +1195,34 @@
         min-height:auto;
       }
 
-      .bean-card{
-        width:100%;
-        max-width:320px;
-        margin:0 auto;
-      }
-
-      .bean-types-left{
-        width:100%;
-      }
-
       .reviews-cards{
         height:210px;
       }
+
+      .clock-box{
+        padding:9px 14px;
+        gap:8px;
+      }
+
+      .clock-label{
+        font-size:13px;
+      }
+
+      #live-clock{
+        font-size:14px;
+        min-width:95px;
+      }
+
+      #backToTop{
+        right:16px;
+        bottom:16px;
+        width:46px;
+        height:46px;
+        font-size:20px;
+      }
     }
 
-    @media (max-width: 480px){
+    @media (max-width:480px){
       .cards{
         height:280px;
       }
@@ -1136,6 +1237,23 @@
         padding:0 4px;
       }
 
+      .nav-links{
+        gap:8px;
+      }
+
+      .nav-links a{
+        font-size:13px;
+      }
+
+      .search-box{
+        max-width:160px;
+        font-size:12px;
+      }
+
+      .mode-btn{
+        font-size:18px;
+      }
+
       #card1:checked ~ .cards .c1,
       #card2:checked ~ .cards .c2,
       #card3:checked ~ .cards .c3,
@@ -1148,6 +1266,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <header>
@@ -1187,9 +1306,7 @@
       <div class="story-container">
         <h2>Our Story</h2>
 
-        <p>
-          It all started with a cup of coffee that tasted different.
-        </p>
+        <p>It all started with a cup of coffee that tasted different.</p>
 
         <p>
           One day, we came across coffee beans that were naturally caffeine-free,
@@ -1358,6 +1475,93 @@
       </div>
     </section>
 
+    <section class="lesson-preview section-box">
+      <h2>Explore Our Lessons</h2>
+      <p class="lesson-preview-sub">A quick look at what you will learn in Brew School.</p>
+
+      <div class="lesson-preview-grid">
+
+        <div class="flip-card">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <h3>Lesson 1</h3>
+              <p>Coffee origins and where coffee starts.</p>
+            </div>
+            <div class="flip-back">
+              <p>This lesson includes explanation, a learning video, and a quiz at the end.</p>
+            </div>
+          </div>
+          <a href="BrewSchool.html" class="learn-more">Learn More</a>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <h3>Lesson 2</h3>
+              <p>Coffee beans and flavor characteristics.</p>
+            </div>
+            <div class="flip-back">
+              <p>This lesson includes explanation, a learning video, and a quiz at the end.</p>
+            </div>
+          </div>
+          <a href="BrewSchool.html" class="learn-more">Learn More</a>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <h3>Lesson 3</h3>
+              <p>Roasting stages and coffee taste.</p>
+            </div>
+            <div class="flip-back">
+              <p>This lesson includes explanation, a learning video, and a quiz at the end.</p>
+            </div>
+          </div>
+          <a href="BrewSchool.html" class="learn-more">Learn More</a>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <h3>Lesson 4</h3>
+              <p>Grind sizes and their role in extraction.</p>
+            </div>
+            <div class="flip-back">
+              <p>This lesson includes explanation, a learning video, and a quiz at the end.</p>
+            </div>
+          </div>
+          <a href="BrewSchool.html" class="learn-more">Learn More</a>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <h3>Lesson 5</h3>
+              <p>Brewing methods and preparation styles.</p>
+            </div>
+            <div class="flip-back">
+              <p>This lesson includes explanation, a learning video, and a quiz at the end.</p>
+            </div>
+          </div>
+          <a href="BrewSchool.html" class="learn-more">Learn More</a>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <h3>Lesson 6</h3>
+              <p>Choosing coffee that matches your taste.</p>
+            </div>
+            <div class="flip-back">
+              <p>This lesson includes explanation, a learning video, and a quiz at the end.</p>
+            </div>
+          </div>
+          <a href="BrewSchool.html" class="learn-more">Learn More</a>
+        </div>
+
+      </div>
+    </section>
+
     <section class="reviews-section section-box">
       <h2>What Customers Think About Us</h2>
 
@@ -1519,46 +1723,127 @@
   <button id="backToTop" title="Back to Top">↑</button>
 
   <script>
-    const liveClock = document.getElementById("live-clock");
-    const backToTopBtn = document.getElementById("backToTop");
+  const liveClock = document.getElementById("live-clock");
+  const backToTopBtn = document.getElementById("backToTop");
+  const grindSlider = document.querySelector(".grind-slider");
 
-    function updateClock() {
-      const now = new Date();
+  let currentGrind = 1;
+  const totalGrindCards = 6;
+  let isGrindSliding = false;
 
-      const time = now.toLocaleTimeString("en-US", {
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: true
-      });
+  function goToGrindCard(index) {
+    if (index < 1) index = totalGrindCards;
+    if (index > totalGrindCards) index = 1;
 
-      if (liveClock) {
-        liveClock.textContent = time;
+    currentGrind = index;
+    const radio = document.getElementById("card" + currentGrind);
+
+    if (radio) {
+      radio.checked = true;
+    }
+  }
+
+  function slideGrindOnce(direction) {
+    if (isGrindSliding) return;
+
+    isGrindSliding = true;
+
+    if (direction === "next") {
+      goToGrindCard(currentGrind + 1);
+    } else {
+      goToGrindCard(currentGrind - 1);
+    }
+
+    setTimeout(function () {
+      isGrindSliding = false;
+    }, 550);
+  }
+
+  document.addEventListener("keydown", function(event) {
+    if (event.key === "ArrowRight") {
+      slideGrindOnce("next");
+    }
+
+    if (event.key === "ArrowLeft") {
+      slideGrindOnce("prev");
+    }
+  });
+
+  if (grindSlider) {
+    grindSlider.addEventListener("wheel", function(event) {
+      if (Math.abs(event.deltaX) > Math.abs(event.deltaY) && Math.abs(event.deltaX) > 25) {
+        event.preventDefault();
+
+        if (event.deltaX > 0) {
+          slideGrindOnce("next");
+        } else {
+          slideGrindOnce("prev");
+        }
       }
-    }
+    }, { passive:false });
 
-    function toggleBackToTop() {
-      if (window.scrollY > 300) {
-        backToTopBtn.classList.add("show");
-      } else {
-        backToTopBtn.classList.remove("show");
+    let startX = 0;
+    let startY = 0;
+
+    grindSlider.addEventListener("touchstart", function(event) {
+      startX = event.touches[0].clientX;
+      startY = event.touches[0].clientY;
+    }, { passive:true });
+
+    grindSlider.addEventListener("touchend", function(event) {
+      const endX = event.changedTouches[0].clientX;
+      const endY = event.changedTouches[0].clientY;
+
+      const diffX = startX - endX;
+      const diffY = startY - endY;
+
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+        if (diffX > 0) {
+          slideGrindOnce("next");
+        } else {
+          slideGrindOnce("prev");
+        }
       }
-    }
+    }, { passive:true });
+  }
 
-    if (backToTopBtn) {
-      backToTopBtn.addEventListener("click", function () {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
+  function updateClock() {
+    const now = new Date();
+
+    const time = now.toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: true
+    });
+
+    if (liveClock) {
+      liveClock.textContent = time;
+    }
+  }
+
+  function toggleBackToTop() {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add("show");
+    } else {
+      backToTopBtn.classList.remove("show");
+    }
+  }
+
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener("click", function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
       });
-    }
+    });
+  }
 
-    window.addEventListener("scroll", toggleBackToTop);
+  window.addEventListener("scroll", toggleBackToTop);
 
-    updateClock();
-    setInterval(updateClock, 1000);
-  </script>
+  updateClock();
+  setInterval(updateClock, 1000);
+</script>
 
 </body>
 </html>
