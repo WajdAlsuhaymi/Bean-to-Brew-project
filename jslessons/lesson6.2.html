@@ -34,6 +34,18 @@
 
 <main class="lesson6b-page">
   <style>
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      overflow-x:hidden;
+    }
+
     .lesson6b-page{
       font-family:Arial, sans-serif;
       color:#EDE8DC;
@@ -420,6 +432,11 @@
       white-space:nowrap;
     }
 
+    .lesson-buttons a:hover{
+      color:#FDE9C7;
+      transform:translateY(-3px);
+    }
+
     .btn-back,
     .btn-next {
       background: #C1B393;
@@ -623,6 +640,7 @@
 
     @media (max-width: 720px){
       .path-wrap{
+        display:block;
         padding:0 0 45px;
       }
 
