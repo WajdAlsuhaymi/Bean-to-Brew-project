@@ -190,16 +190,18 @@
       color:#EDE8DC;
     }
 
-    .filter-group select{
-      width:100%;
-      height:42px;
-      border:1px solid #C1B393;
-      padding:0 10px;
-      background-color:#C1B393;
-      font-size:14px;
-      color:#2f241d;
-      border-radius:6px;
-    }
+    .filter-group select {
+  width: 100%;
+  height: 42px;
+  background-color: #C1B393;
+  border: 1px solid #C1B393;
+  padding: 0 10px;
+  font-size: 14px;
+  color: #2f241d;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+}
 
     .filter-buttons{
       display:flex;
@@ -998,7 +1000,11 @@
               <option>Latifah</option>
               <option>Abdurahman</option>
               <option>Hamad</option>
-              <option>Eman</option>
+			  <option>Sadeem</option>
+			  <option>Wajd</option>
+			  <option>Fahad</option>
+			  <option>Sara</option>
+			  <option>Salman</option>
             </select>
           </div>
 
@@ -1034,8 +1040,9 @@
           <input type="text" id="searchInput" placeholder="Search by lab name">
         </div>
 
-        <section class="cards-grid">
+                <section class="cards-grid">
 
+          <!-- Card 1 -->
           <div class="lab-card-wrap" data-title="Espresso Basics" data-trainer="Latifah" data-location="Riyadh" data-time="8-11 AM">
             <input type="checkbox" id="flip1" class="flip-toggle">
             <div class="lab-card-flip">
@@ -1045,6 +1052,7 @@
                 <p>Learn the basics of espresso extraction and balance through a simple hands-on lab.</p>
                 <label for="flip1" class="details-btn">More Details</label>
               </div>
+
               <div class="lab-card-back">
                 <div class="card-top">
                   <label for="flip1" class="back-arrow">&#8592;</label>
@@ -1063,223 +1071,239 @@
             </div>
           </div>
 
-          <div class="lab-card-wrap" data-title="Turkish Coffee" data-trainer="Reem" data-location="Riyadh" data-time="1-3 PM">
-            <input type="checkbox" id="flip2" class="flip-toggle">
-            <div class="lab-card-flip">
-              <div class="lab-card-front">
-                <div class="card-image turkish"></div>
-                <h3>Turkish Coffee</h3>
-                <p>Learn the art of Turkish coffee and discover how fine grinding, foam formation, and gentle heating create its rich flavor.</p>
-                <label for="flip2" class="details-btn">More Details</label>
-              </div>
-              <div class="lab-card-back">
-                <div class="card-top">
-                  <label for="flip2" class="back-arrow">&#8592;</label>
-                  <span class="back-tag">Coffee Lab</span>
-                </div>
-                <div class="card-back-image turkish"></div>
-                <h3>Turkish Coffee</h3>
-                <div class="back-details">
-                  <p><strong>Trainer:</strong> Reem</p>
-                  <p><strong>Location:</strong> Riyadh</p>
-                  <p><strong>Time:</strong> 1-3 PM</p>
-                  <p><strong>Level:</strong> Beginner</p>
-                </div>
-                <a href="#" class="book-btn" data-lab="Turkish Coffee">Book Now</a>
-              </div>
-            </div>
-          </div>
+          <!-- Card 2 -->
+<div class="lab-card-wrap" data-title="Turkish Coffee" data-trainer="Abdurahman" data-location="Riyadh" data-time="1-3 PM">
+  <input type="checkbox" id="flip2" class="flip-toggle">
+  <div class="lab-card-flip">
+    <div class="lab-card-front">
+      <div class="card-image turkish"></div>
+      <h3>Turkish Coffee</h3>
+      <p>Learn the art of Turkish coffee and discover how fine grinding, foam formation, and gentle heating create its rich flavor.</p>
+      <label for="flip2" class="details-btn">More Details</label>
+    </div>
 
-          <div class="lab-card-wrap" data-title="V60" data-trainer="Nora" data-location="Jeddah" data-time="8-11 AM">
-            <input type="checkbox" id="flip3" class="flip-toggle">
-            <div class="lab-card-flip">
-              <div class="lab-card-front">
-                <div class="card-image v60"></div>
-                <h3>V60</h3>
-                <p>Practice precise pour-over brewing and understand how flow rate, timing, and technique affect clarity and balance.</p>
-                <label for="flip3" class="details-btn">More Details</label>
-              </div>
-              <div class="lab-card-back">
-                <div class="card-top">
-                  <label for="flip3" class="back-arrow">&#8592;</label>
-                  <span class="back-tag">Coffee Lab</span>
-                </div>
-                <div class="card-back-image v60"></div>
-                <h3>V60</h3>
-                <div class="back-details">
-                  <p><strong>Trainer:</strong> Nora</p>
-                  <p><strong>Location:</strong> Jeddah</p>
-                  <p><strong>Time:</strong> 8-11 AM</p>
-                  <p><strong>Level:</strong> Intermediate</p>
-                </div>
-                <a href="#" class="book-btn" data-lab="V60">Book Now</a>
-              </div>
-            </div>
-          </div>
+    <div class="lab-card-back">
+      <div class="card-top">
+        <label for="flip2" class="back-arrow">&#8592;</label>
+        <span class="back-tag">Coffee Lab</span>
+      </div>
+      <div class="card-back-image turkish"></div>
+      <h3>Turkish Coffee</h3>
+      <div class="back-details">
+        <p><strong>Trainer:</strong> Abdurahman</p>
+        <p><strong>Location:</strong> Riyadh</p>
+        <p><strong>Time:</strong> 1-3 PM</p>
+        <p><strong>Level:</strong> Beginner</p>
+      </div>
+      <a href="#" class="book-btn" data-lab="Turkish Coffee">Book Now</a>
+    </div>
+  </div>
+</div>
 
-          <div class="lab-card-wrap" data-title="French Press" data-trainer="Latifah" data-location="Online" data-time="1-3 PM">
-            <input type="checkbox" id="flip4" class="flip-toggle">
-            <div class="lab-card-flip">
-              <div class="lab-card-front">
-                <div class="card-image frenchpress"></div>
-                <h3>French Press</h3>
-                <p>Explore full-bodied brewing with the French Press and learn how steeping time and grind size shape the final cup.</p>
-                <label for="flip4" class="details-btn">More Details</label>
-              </div>
-              <div class="lab-card-back">
-                <div class="card-top">
-                  <label for="flip4" class="back-arrow">&#8592;</label>
-                  <span class="back-tag">Coffee Lab</span>
-                </div>
-                <div class="card-back-image frenchpress"></div>
-                <h3>French Press</h3>
-                <div class="back-details">
-                  <p><strong>Trainer:</strong> Latifah</p>
-                  <p><strong>Location:</strong> Online</p>
-                  <p><strong>Time:</strong> 1-3 PM</p>
-                  <p><strong>Level:</strong> Beginner</p>
-                </div>
-                <a href="#" class="book-btn" data-lab="French Press">Book Now</a>
-              </div>
-            </div>
-          </div>
+          <!-- Card 3 -->
+<div class="lab-card-wrap" data-title="V60" data-trainer="Hamad" data-location="Jeddah" data-time="8-11 AM">
+  <input type="checkbox" id="flip3" class="flip-toggle">
+  <div class="lab-card-flip">
+    <div class="lab-card-front">
+      <div class="card-image v60"></div>
+      <h3>V60</h3>
+      <p>Practice precise pour-over brewing and understand how flow rate, timing, and technique affect clarity and balance.</p>
+      <label for="flip3" class="details-btn">More Details</label>
+    </div>
 
-          <div class="lab-card-wrap" data-title="Moka Pot" data-trainer="Reem" data-location="Riyadh" data-time="8-11 AM">
-            <input type="checkbox" id="flip5" class="flip-toggle">
-            <div class="lab-card-flip">
-              <div class="lab-card-front">
-                <div class="card-image moka"></div>
-                <h3>Moka Pot</h3>
-                <p>Discover how to brew rich coffee with a moka pot and understand how heat control and grind consistency affect taste.</p>
-                <label for="flip5" class="details-btn">More Details</label>
-              </div>
-              <div class="lab-card-back">
-                <div class="card-top">
-                  <label for="flip5" class="back-arrow">&#8592;</label>
-                  <span class="back-tag">Coffee Lab</span>
-                </div>
-                <div class="card-back-image moka"></div>
-                <h3>Moka Pot</h3>
-                <div class="back-details">
-                  <p><strong>Trainer:</strong> Reem</p>
-                  <p><strong>Location:</strong> Riyadh</p>
-                  <p><strong>Time:</strong> 8-11 AM</p>
-                  <p><strong>Level:</strong> Intermediate</p>
-                </div>
-                <a href="#" class="book-btn" data-lab="Moka Pot">Book Now</a>
-              </div>
-            </div>
-          </div>
+    <div class="lab-card-back">
+      <div class="card-top">
+        <label for="flip3" class="back-arrow">&#8592;</label>
+        <span class="back-tag">Coffee Lab</span>
+      </div>
+      <div class="card-back-image v60"></div>
+      <h3>V60</h3>
+      <div class="back-details">
+        <p><strong>Trainer:</strong> Hamad</p>
+        <p><strong>Location:</strong> Jeddah</p>
+        <p><strong>Time:</strong> 8-11 AM</p>
+        <p><strong>Level:</strong> Intermediate</p>
+      </div>
+      <a href="#" class="book-btn" data-lab="V60">Book Now</a>
+    </div>
+  </div>
+</div>
 
-          <div class="lab-card-wrap" data-title="Chemex" data-trainer="Nora" data-location="Online" data-time="1-3 PM">
-            <input type="checkbox" id="flip6" class="flip-toggle">
-            <div class="lab-card-flip">
-              <div class="lab-card-front">
-                <div class="card-image chemex"></div>
-                <h3>Chemex</h3>
-                <p>Learn how to brew clean and delicate coffee with Chemex while improving pouring control and extraction balance.</p>
-                <label for="flip6" class="details-btn">More Details</label>
-              </div>
-              <div class="lab-card-back">
-                <div class="card-top">
-                  <label for="flip6" class="back-arrow">&#8592;</label>
-                  <span class="back-tag">Coffee Lab</span>
-                </div>
-                <div class="card-back-image chemex"></div>
-                <h3>Chemex</h3>
-                <div class="back-details">
-                  <p><strong>Trainer:</strong> Nora</p>
-                  <p><strong>Location:</strong> Online</p>
-                  <p><strong>Time:</strong> 1-3 PM</p>
-                  <p><strong>Level:</strong> Intermediate</p>
-                </div>
-                <a href="#" class="book-btn" data-lab="Chemex">Book Now</a>
-              </div>
-            </div>
-          </div>
+         <!-- Card 4 -->
+<div class="lab-card-wrap" data-title="French Press" data-trainer="Eman" data-location="Online" data-time="1-3 PM">
+  <input type="checkbox" id="flip4" class="flip-toggle">
+  <div class="lab-card-flip">
+    <div class="lab-card-front">
+      <div class="card-image frenchpress"></div>
+      <h3>French Press</h3>
+      <p>Explore full-bodied brewing with the French Press and learn how steeping time and grind size shape the final cup.</p>
+      <label for="flip4" class="details-btn">More Details</label>
+    </div>
 
-          <div class="lab-card-wrap" data-title="Roasting Basics" data-trainer="Latifah" data-location="Jeddah" data-time="8-11 AM">
-            <input type="checkbox" id="flip7" class="flip-toggle">
-            <div class="lab-card-flip">
-              <div class="lab-card-front">
-                <div class="card-image roasting"></div>
-                <h3>Roasting Basics</h3>
-                <p>Understand the basics of coffee roasting and explore how roast levels influence aroma, sweetness, and body.</p>
-                <label for="flip7" class="details-btn">More Details</label>
-              </div>
-              <div class="lab-card-back">
-                <div class="card-top">
-                  <label for="flip7" class="back-arrow">&#8592;</label>
-                  <span class="back-tag">Coffee Lab</span>
-                </div>
-                <div class="card-back-image roasting"></div>
-                <h3>Roasting Basics</h3>
-                <div class="back-details">
-                  <p><strong>Trainer:</strong> Latifah</p>
-                  <p><strong>Location:</strong> Jeddah</p>
-                  <p><strong>Time:</strong> 8-11 AM</p>
-                  <p><strong>Level:</strong> Advanced</p>
-                </div>
-                <a href="#" class="book-btn" data-lab="Roasting Basics">Book Now</a>
-              </div>
-            </div>
-          </div>
+    <div class="lab-card-back">
+      <div class="card-top">
+        <label for="flip4" class="back-arrow">&#8592;</label>
+        <span class="back-tag">Coffee Lab</span>
+      </div>
+      <div class="card-back-image frenchpress"></div>
+      <h3>French Press</h3>
+      <div class="back-details">
+        <p><strong>Trainer:</strong> Eman</p>
+        <p><strong>Location:</strong> Online</p>
+        <p><strong>Time:</strong> 1-3 PM</p>
+        <p><strong>Level:</strong> Beginner</p>
+      </div>
+      <a href="#" class="book-btn" data-lab="French Press">Book Now</a>
+    </div>
+  </div>
+</div>
 
-          <div class="lab-card-wrap" data-title="Grinders & Grinding" data-trainer="Reem" data-location="Riyadh" data-time="1-3 PM">
-            <input type="checkbox" id="flip8" class="flip-toggle">
-            <div class="lab-card-flip">
-              <div class="lab-card-front">
-                <div class="card-image grinders"></div>
-                <h3>Grinders & Grinding</h3>
-                <p>Learn how grinder types and grind size influence extraction and discover how to choose the right grind for each method.</p>
-                <label for="flip8" class="details-btn">More Details</label>
-              </div>
-              <div class="lab-card-back">
-                <div class="card-top">
-                  <label for="flip8" class="back-arrow">&#8592;</label>
-                  <span class="back-tag">Coffee Lab</span>
-                </div>
-                <div class="card-back-image grinders"></div>
-                <h3>Grinders & Grinding</h3>
-                <div class="back-details">
-                  <p><strong>Trainer:</strong> Reem</p>
-                  <p><strong>Location:</strong> Riyadh</p>
-                  <p><strong>Time:</strong> 1-3 PM</p>
-                  <p><strong>Level:</strong> Beginner</p>
-                </div>
-                <a href="#" class="book-btn" data-lab="Grinders & Grinding">Book Now</a>
-              </div>
-            </div>
-          </div>
+         <!-- Card 5 -->
+<div class="lab-card-wrap" data-title="Moka Pot" data-trainer="Sadeem" data-location="Riyadh" data-time="8-11 AM">
+  <input type="checkbox" id="flip5" class="flip-toggle">
+  <div class="lab-card-flip">
+    <div class="lab-card-front">
+      <div class="card-image moka"></div>
+      <h3>Moka Pot</h3>
+      <p>Discover how to brew rich coffee with a moka pot and understand how heat control and grind consistency affect taste.</p>
+      <label for="flip5" class="details-btn">More Details</label>
+    </div>
 
-          <div class="lab-card-wrap" data-title="Cold Brew" data-trainer="Nora" data-location="Jeddah" data-time="1-3 PM">
-            <input type="checkbox" id="flip9" class="flip-toggle">
-            <div class="lab-card-flip">
-              <div class="lab-card-front">
-                <div class="card-image coldbrew"></div>
-                <h3>Cold Brew</h3>
-                <p>Learn how to prepare smooth cold brew coffee and understand how time, grind size, and water ratio shape its taste.</p>
-                <label for="flip9" class="details-btn">More Details</label>
-              </div>
-              <div class="lab-card-back">
-                <div class="card-top">
-                  <label for="flip9" class="back-arrow">&#8592;</label>
-                  <span class="back-tag">Coffee Lab</span>
-                </div>
-                <div class="card-back-image coldbrew"></div>
-                <h3>Cold Brew</h3>
-                <div class="back-details">
-                  <p><strong>Trainer:</strong> Nora</p>
-                  <p><strong>Location:</strong> Jeddah</p>
-                  <p><strong>Time:</strong> 1-3 PM</p>
-                  <p><strong>Level:</strong> Intermediate</p>
-                </div>
-                <a href="#" class="book-btn" data-lab="Cold Brew">Book Now</a>
-              </div>
-            </div>
-          </div>
+    <div class="lab-card-back">
+      <div class="card-top">
+        <label for="flip5" class="back-arrow">&#8592;</label>
+        <span class="back-tag">Coffee Lab</span>
+      </div>
+      <div class="card-back-image moka"></div>
+      <h3>Moka Pot</h3>
+      <div class="back-details">
+        <p><strong>Trainer:</strong> Sadeem</p>
+        <p><strong>Location:</strong> Riyadh</p>
+        <p><strong>Time:</strong> 8-11 AM</p>
+        <p><strong>Level:</strong> Intermediate</p>
+      </div>
+      <a href="#" class="book-btn" data-lab="Moka Pot">Book Now</a>
+    </div>
+  </div>
+</div>
+
+          <!-- Card 6 -->
+<div class="lab-card-wrap" data-title="Chemex" data-trainer="Wajd" data-location="Online" data-time="1-3 PM">
+  <input type="checkbox" id="flip6" class="flip-toggle">
+  <div class="lab-card-flip">
+    <div class="lab-card-front">
+      <div class="card-image chemex"></div>
+      <h3>Chemex</h3>
+      <p>Learn how to brew clean and delicate coffee with Chemex while improving pouring control and extraction balance.</p>
+      <label for="flip6" class="details-btn">More Details</label>
+    </div>
+
+    <div class="lab-card-back">
+      <div class="card-top">
+        <label for="flip6" class="back-arrow">&#8592;</label>
+        <span class="back-tag">Coffee Lab</span>
+      </div>
+      <div class="card-back-image chemex"></div>
+      <h3>Chemex</h3>
+      <div class="back-details">
+        <p><strong>Trainer:</strong> Wajd</p>
+        <p><strong>Location:</strong> Online</p>
+        <p><strong>Time:</strong> 1-3 PM</p>
+        <p><strong>Level:</strong> Intermediate</p>
+      </div>
+      <a href="#" class="book-btn" data-lab="Chemex">Book Now</a>
+    </div>
+  </div>
+</div>
+
+         <!-- Card 7 -->
+<div class="lab-card-wrap" data-title="Roasting Basics" data-trainer="Fahad" data-location="Jeddah" data-time="8-11 AM">
+  <input type="checkbox" id="flip7" class="flip-toggle">
+  <div class="lab-card-flip">
+    <div class="lab-card-front">
+      <div class="card-image roasting"></div>
+      <h3>Roasting Basics</h3>
+      <p>Understand the basics of coffee roasting and explore how roast levels influence aroma, sweetness, and body.</p>
+      <label for="flip7" class="details-btn">More Details</label>
+    </div>
+
+    <div class="lab-card-back">
+      <div class="card-top">
+        <label for="flip7" class="back-arrow">&#8592;</label>
+        <span class="back-tag">Coffee Lab</span>
+      </div>
+      <div class="card-back-image roasting"></div>
+      <h3>Roasting Basics</h3>
+      <div class="back-details">
+        <p><strong>Trainer:</strong> Fahad</p>
+        <p><strong>Location:</strong> Jeddah</p>
+        <p><strong>Time:</strong> 8-11 AM</p>
+        <p><strong>Level:</strong> Advanced</p>
+      </div>
+      <a href="#" class="book-btn" data-lab="Roasting Basics">Book Now</a>
+    </div>
+  </div>
+</div>
+          <!-- Card 8 -->
+<div class="lab-card-wrap" data-title="Grinders & Grinding" data-trainer="Sara" data-location="Riyadh" data-time="1-3 PM">
+  <input type="checkbox" id="flip8" class="flip-toggle">
+  <div class="lab-card-flip">
+    <div class="lab-card-front">
+      <div class="card-image grinders"></div>
+      <h3>Grinders & Grinding</h3>
+      <p>Learn how grinder types and grind size influence extraction and discover how to choose the right grind for each method.</p>
+      <label for="flip8" class="details-btn">More Details</label>
+    </div>
+
+    <div class="lab-card-back">
+      <div class="card-top">
+        <label for="flip8" class="back-arrow">&#8592;</label>
+        <span class="back-tag">Coffee Lab</span>
+      </div>
+      <div class="card-back-image grinders"></div>
+      <h3>Grinders & Grinding</h3>
+      <div class="back-details">
+        <p><strong>Trainer:</strong> Sara</p>
+        <p><strong>Location:</strong> Riyadh</p>
+        <p><strong>Time:</strong> 1-3 PM</p>
+        <p><strong>Level:</strong> Beginner</p>
+      </div>
+      <a href="#" class="book-btn" data-lab="Grinders & Grinding">Book Now</a>
+    </div>
+  </div>
+</div>
+
+          <!-- Card 9 -->
+<div class="lab-card-wrap" data-title="Cold Brew" data-trainer="Salman" data-location="Jeddah" data-time="1-3 PM">
+  <input type="checkbox" id="flip9" class="flip-toggle">
+  <div class="lab-card-flip">
+    <div class="lab-card-front">
+      <div class="card-image coldbrew"></div>
+      <h3>Cold Brew</h3>
+      <p>Learn how to prepare smooth cold brew coffee and understand how time, grind size, and water ratio shape its taste.</p>
+      <label for="flip9" class="details-btn">More Details</label>
+    </div>
+
+    <div class="lab-card-back">
+      <div class="card-top">
+        <label for="flip9" class="back-arrow">&#8592;</label>
+        <span class="back-tag">Coffee Lab</span>
+      </div>
+      <div class="card-back-image coldbrew"></div>
+      <h3>Cold Brew</h3>
+      <div class="back-details">
+        <p><strong>Trainer:</strong> Salman</p>
+        <p><strong>Location:</strong> Jeddah</p>
+        <p><strong>Time:</strong> 1-3 PM</p>
+        <p><strong>Level:</strong> Intermediate</p>
+      </div>
+      <a href="#" class="book-btn" data-lab="Cold Brew">Book Now</a>
+    </div>
+  </div>
+</div>
 
         </section>
+
       </div>
     </section>
 
