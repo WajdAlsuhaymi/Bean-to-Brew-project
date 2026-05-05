@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bean to Brew - Evaluation Form</title>
-
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Notes</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     *{
+      box-sizing:border-box;
       margin:0;
       padding:0;
-      box-sizing:border-box;
     }
 
     html{
@@ -25,110 +24,33 @@
 
     body{
       font-family:Arial, sans-serif;
+      background-color:#f8f4ef;
       color:#3e2c23;
+    }
+
+    .notes-page{
+      min-height:100vh;
       background:
         radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
         radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
         radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
         radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
         linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
-      min-height:100vh;
+      padding-top:90px;
     }
 
-    .navbar{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      min-height:80px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      background-color:#26231F;
-      padding:14px 32px;
-      gap:18px;
-      z-index:1000;
-      flex-wrap:wrap;
-    }
-
-    .logo{
-      display:flex;
-      align-items:center;
-      flex-shrink:0;
-    }
-
-    .logo img{
-      width:60px;
-      height:auto;
-      display:block;
-    }
-
-    .nav-links{
-      list-style:none;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:18px;
-      flex:1;
-      flex-wrap:wrap;
-    }
-
-    .nav-links li{
-      list-style:none;
-    }
-
-    .nav-links a{
-      text-decoration:none;
-      color:white;
-      font-size:16px;
-      white-space:nowrap;
-      transition:0.3s;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active{
-      color:#f3d9b1;
-    }
-
-    .nav-right{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      flex-shrink:0;
-    }
-
-    .mode-btn{
-      background:transparent;
-      border:none;
-      color:white;
-      font-size:22px;
-      cursor:pointer;
-    }
-
-    .search-box{
-      padding:8px 12px;
-      border:none;
-      outline:none;
-      border-radius:20px;
-      font-size:14px;
-      min-width:150px;
-      max-width:220px;
-      width:100%;
-    }
-
-    .form-page{
+    .notes-section{
       position:relative;
-      min-height:100vh;
-      padding:130px 20px 30px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
+      max-width:1200px;
+      margin:0 auto;
+      padding:45px 40px 70px;
     }
 
     .path-wrap{
+      position:static;
       width:min(92%, 1150px);
-      margin:0 auto 18px;
-      padding:0;
+      margin:0 auto 25px;
+      text-align:left;
     }
 
     .path-breadcrumb{
@@ -145,125 +67,157 @@
       text-decoration:none;
     }
 
-    .evaluation-wrapper{
-      width:100%;
-      max-width:700px;
+    .notes-header{
+      text-align:center;
+      margin-bottom:48px;
     }
 
-    .evaluation-card{
-      width:100%;
-      background-color:white;
-      border:1px solid #e5e5e5;
-      border-radius:12px;
-      padding:30px;
-      box-shadow:0 6px 18px rgba(0, 0, 0, 0.06);
-    }
-
-    .evaluation-card h1{
-      font-size:40px;
-      margin-bottom:12px;
-      color:#2f241d;
+    .notes-header h1{
+      font-size:46px;
+      color:#EDE8DC;
+      margin-bottom:14px;
       font-family:'Playfair Display', serif;
-      text-align:center;
     }
 
-    .evaluation-subtitle{
-      text-align:center;
-      font-size:16px;
-      color:#7a5d49;
-      margin-bottom:24px;
+    .notes-subtitle{
+      font-size:17px;
+      color:#EDE8DC;
       line-height:1.7;
+      max-width:640px;
+      margin:0 auto;
     }
 
-    .teacher-photo{
-      width:180px;
-      height:180px;
-      margin:0 auto 24px;
-      border-radius:12px;
-      background:url("photo.png") center/cover no-repeat;
-      background-color:#d8c3af;
-    }
-
-    .form-group{
-      margin-bottom:22px;
-    }
-
-    .form-group label{
-      display:block;
-      font-size:16px;
-      font-weight:600;
-      margin-bottom:10px;
-      color:#3b2a22;
-    }
-
-    .form-group select,
-    .form-group textarea{
-      width:100%;
-      border:1px solid #d1d1d1;
-      border-radius:8px;
-      padding:14px;
-      font-size:15px;
-      outline:none;
-      background-color:#fafafa;
-      color:#2f241d;
-      font-family:Arial, sans-serif;
-    }
-
-    .form-group textarea{
-      min-height:140px;
-      resize:vertical;
-    }
-
-    .stars{
+    .note-input-box{
+      background-color:#4B4F3E;
+      padding:26px 34px;
       display:flex;
-      flex-direction:row-reverse;
-      justify-content:flex-end;
-      gap:8px;
-      padding:8px 0;
-      border:1px solid transparent;
-      border-radius:8px;
+      align-items:center;
+      gap:22px;
+      margin-bottom:38px;
+      flex-wrap:wrap;
+      border-radius:20px;
     }
 
-    .stars input{
-      display:none;
-    }
-
-    .stars label{
-      font-size:34px;
-      color:#ccc;
-      cursor:pointer;
-      transition:0.2s;
-    }
-
-    .stars input:checked ~ label,
-    .stars label:hover,
-    .stars label:hover ~ label{
-      color:#c6923b;
-    }
-
-    .submit-btn{
-      width:100%;
+    .note-input{
+      flex:1;
+      min-width:240px;
       min-height:48px;
-      background-color:#26231F;
-      color:white;
+      border:1px dashed #EDE8DC;
+      background-color:#f8f8f8;
+      padding:12px 16px;
+      font-size:15px;
+      color:#333;
+      outline:none;
+      border-radius:10px;
+    }
+
+    .priority-select{
+      width:170px;
+      height:48px;
+      border:1px dashed #EDE8DC;
+      background-color:#f8f8f8;
+      padding:0 12px;
+      font-size:15px;
+      color:#333;
+      outline:none;
+      border-radius:10px;
+    }
+
+    .save-btn{
+      width:125px;
+      height:42px;
       border:none;
-      border-radius:8px;
-      font-size:16px;
-      font-weight:600;
+      background-color:#EDE8DC;
+      color:#2f241d;
+      font-size:15px;
       cursor:pointer;
-      transition:0.3s;
+      border-radius:10px;
+      font-weight:600;
+    }
+
+    .save-btn:hover{
+      background-color:#e6dfd7;
+    }
+
+    .saved-title{
+      font-size:38px;
+      color:#EDE8DC;
+      margin-bottom:22px;
       font-family:'Playfair Display', serif;
     }
 
-    .submit-btn:hover{
-      background-color:#4a3a2f;
+    .notes-list{
+      display:flex;
+      flex-direction:column;
+      gap:24px;
     }
 
-    .note{
-      margin-top:14px;
-      text-align:center;
-      font-size:14px;
-      color:#7a5d49;
+    .note-card{
+      background-color:#4B4F3E;
+      min-height:92px;
+      padding:18px 18px 18px 16px;
+      display:flex;
+      align-items:center;
+      border-radius:18px;
+    }
+
+    .note-card.priority-1{
+      background-color:#8B3A3A;
+    }
+
+    .note-card.priority-2{
+      background-color:#9A8B3A;
+    }
+
+    .note-card.priority-3{
+      background-color:#4B6B4B;
+    }
+
+    .note-left{
+      display:flex;
+      align-items:center;
+      gap:28px;
+      flex:1;
+      min-width:0;
+    }
+
+    .note-check{
+      width:27px;
+      height:27px;
+      accent-color:#7a4d2c;
+      flex-shrink:0;
+      cursor:pointer;
+    }
+
+    .note-text{
+      font-size:17px;
+      color:#EDE8DC;
+      line-height:1.6;
+      word-break:break-word;
+    }
+
+    .notes-bottom{
+      margin-top:32px;
+      display:flex;
+      justify-content:flex-end;
+      align-items:flex-end;
+    }
+
+    .delete-all-btn{
+      min-height:40px;
+      padding:0 18px;
+      border:none;
+      background-color:#EDE8DC;
+      color:#2f241d;
+      font-size:15px;
+      cursor:pointer;
+      border-radius:10px;
+      font-weight:600;
+    }
+
+    .delete-all-btn:hover{
+      background-color:#9f9f9f;
+      color:white;
     }
 
     .lesson-buttons{
@@ -271,7 +225,7 @@
       margin:30px auto 80px;
       display:flex;
       flex-direction:row;
-      justify-content:flex-start;
+      justify-content:space-between;
       align-items:center;
       gap:15px;
       flex-wrap:nowrap;
@@ -290,18 +244,8 @@
     }
 
     .lesson-buttons a:hover{
-      color:#EDE8DC;
+      color:#FDE9C7;
       transform:translateY(-3px);
-    }
-
-    .input-error{
-      border:2px solid #b94a48 !important;
-      background-color:#fff5f5 !important;
-    }
-
-    .stars-error{
-      border:2px solid #b94a48 !important;
-      background-color:#fff5f5 !important;
     }
 
     .footer-clock{
@@ -420,21 +364,47 @@
         display:none;
       }
 
-      .form-page{
-        padding:240px 18px 30px;
+      .notes-page{
+        padding-top:240px;
       }
 
-      .evaluation-card{
-        padding:22px;
+      .notes-section{
+        padding:35px 20px 60px;
       }
 
-      .evaluation-card h1{
-        font-size:32px;
+      .notes-header h1{
+        font-size:36px;
       }
 
-      .teacher-photo{
-        width:160px;
-        height:160px;
+      .note-input-box{
+        flex-direction:column;
+        align-items:stretch;
+        padding:20px;
+      }
+
+      .note-input{
+        min-width:0;
+        width:100%;
+      }
+
+      .save-btn,
+      .priority-select{
+        width:100%;
+      }
+
+      .note-card{
+        flex-direction:column;
+        align-items:stretch;
+        padding:18px;
+      }
+
+      .note-left{
+        gap:18px;
+        align-items:flex-start;
+      }
+
+      .notes-bottom{
+        justify-content:flex-end;
       }
 
       .lesson-buttons{
@@ -447,33 +417,28 @@
     }
 
     @media (max-width:560px){
-      .form-page{
-        padding:250px 14px 25px;
+      .notes-page{
+        padding-top:250px;
       }
 
-      .evaluation-card{
-        padding:18px;
+      .notes-section{
+        padding:30px 14px 55px;
       }
 
-      .evaluation-card h1{
+      .notes-header h1{
+        font-size:30px;
+      }
+
+      .notes-subtitle{
+        font-size:15px;
+      }
+
+      .saved-title{
         font-size:28px;
       }
 
-      .evaluation-subtitle{
-        font-size:14px;
-      }
-
-      .teacher-photo{
-        width:135px;
-        height:135px;
-      }
-
-      .stars{
-        justify-content:center;
-      }
-
-      .stars label{
-        font-size:30px;
+      .note-text{
+        font-size:15px;
       }
 
       .clock-box{
@@ -500,7 +465,7 @@
     }
 
     @media (max-width:480px){
-      .form-page{
+      .notes-page{
         padding-top:260px;
       }
 
@@ -520,203 +485,219 @@
       .mode-btn{
         font-size:18px;
       }
+
+      .delete-all-btn{
+        width:100%;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <nav class="navbar">
+  <div class="notes-page">
 
-      <div class="logo">
-        <img src="logo.png" alt="Bean to Brew Logo">
-      </div>
+    <header>
+      <nav class="navbar">
 
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="BrewSchool.html">Brew School</a></li>
-        <li><a href="CoffeLab.html">Coffee Lab</a></li>
-        <li><a href="student-dashboard.html">Student Dashboard</a></li>
-        <li><a href="About-us.html">About Us</a></li>
-        <li><a href="Contact.html">Contact Us</a></li>
-      </ul>
+        <div class="logo">
+          <img src="logo.png" alt="Bean to Brew Logo">
+        </div>
 
-      <div class="nav-right">
-        <button class="mode-btn">☀️</button>
-        <input type="text" placeholder="Search" class="search-box">
-      </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="BrewSchool.html">Brew School</a></li>
+          <li><a href="CoffeLab.html">Coffee Lab</a></li>
+          <li><a href="student-dashboard.html" class="active">Student Dashboard</a></li>
+          <li><a href="About-us.html">About Us</a></li>
+          <li><a href="Contact.html">Contact Us</a></li>
+        </ul>
 
-    </nav>
-  </header>
+        <div class="nav-right">
+          <button class="mode-btn">☀️</button>
+          <input type="text" placeholder="Search" class="search-box">
+        </div>
 
-  <main class="form-page">
+      </nav>
+    </header>
 
-    <div class="path-wrap">
-      <div class="path-breadcrumb">
-        <a href="index.html">Home</a>
-        <span>›</span>
-        <a href="student-dashboard.html">Student Dashboard</a>
-        <span>›</span>
-        <span>Teacher Evaluation</span>
-      </div>
-    </div>
+    <main>
+      <section class="notes-section">
 
-    <div class="evaluation-wrapper">
-
-      <div class="evaluation-card">
-        <h1>Teacher Evaluation</h1>
-        <p class="evaluation-subtitle">Rate teachers and share your feedback.</p>
-
-        <div class="teacher-photo"></div>
-
-        <form id="evaluationForm">
-          <div class="form-group">
-            <label for="teacher-name">Teacher Name</label>
-            <select id="teacher-name" name="teacher-name">
-              <option value="">Select a teacher</option>
-              <option value="Hamad">Hamad</option>
-              <option value="Eman">Eman</option>
-              <option value="Joury">Joury</option>
-              <option value="Abdurahman">Abdurahman</option>
-              <option value="Latifah">Latifah</option>
-              <option value="Sadeem">Sadeem</option>
-              <option value="Saud">Saud</option>
-              <option value="Fahad">Fahad</option>
-              <option value="Sara">Sara</option>
-              <option value="Naser">Naser</option>
-              <option value="Wajd">Wajd</option>
-            </select>
+        <div class="path-wrap">
+          <div class="path-breadcrumb">
+            <a href="index.html">Home</a>
+            <span>›</span>
+            <a href="student-dashboard.html">Student Dashboard</a>
+            <span>›</span>
+            <span>My Notes</span>
           </div>
+        </div>
 
-          <div class="form-group">
-            <label>Rating</label>
-            <div class="stars" id="ratingStars">
-              <input type="radio" id="star5" name="rating" value="5" />
-              <label for="star5">★</label>
+        <div class="notes-header">
+          <h1>My Notes</h1>
+          <p class="notes-subtitle">
+            Manage your note by adding new note, viewing and deleting the<br>
+            saved ones
+          </p>
+        </div>
 
-              <input type="radio" id="star4" name="rating" value="4" />
-              <label for="star4">★</label>
+        <div class="note-input-box">
+          <input type="text" class="note-input" id="noteInput" placeholder="Enter your note here..">
 
-              <input type="radio" id="star3" name="rating" value="3" />
-              <label for="star3">★</label>
+          <select id="prioritySelect" class="priority-select">
+            <option value="">Choose Priority</option>
+            <option value="1">Priority 1</option>
+            <option value="2">Priority 2</option>
+            <option value="3">Priority 3</option>
+          </select>
 
-              <input type="radio" id="star2" name="rating" value="2" />
-              <label for="star2">★</label>
+          <button class="save-btn" id="saveBtn">Save</button>
+        </div>
 
-              <input type="radio" id="star1" name="rating" value="1" />
-              <label for="star1">★</label>
-            </div>
+        <h2 class="saved-title">Saved Notes</h2>
+
+        <div class="notes-list" id="notesList"></div>
+
+        <div class="notes-bottom">
+          <button class="delete-all-btn">Delete All selected</button>
+        </div>
+
+      </section>
+
+      <div class="lesson-buttons">
+        <a href="student-dashboard.html">← Back</a>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <img src="logo.png" alt="Bean to Brew Logo">
+        </div>
+
+        <div class="footer-contact">
+          <h3>Contact us</h3>
+          <p>+966504256847</p>
+          <p>BeantoBrew@gmail.com</p>
+        </div>
+
+        <div class="footer-social">
+          <h3>Follow us</h3>
+          <div class="social-icons">
+            <a href="https://instagram.com">
+              <img src="instagramicon.png" alt="Instagram">
+            </a>
+            <span class="social-divider"></span>
+            <a href="https://instagram.com">
+              <img src="Xicon.png" alt="X">
+            </a>
           </div>
-
-          <div class="form-group">
-            <label for="comment">Comment</label>
-            <textarea id="comment" name="comment" placeholder="Write your feedback here..."></textarea>
-          </div>
-
-          <button type="submit" class="submit-btn">Apply</button>
-          <p class="note">This form is for project presentation and visual interaction.</p>
-        </form>
-      </div>
-
-    </div>
-  </main>
-
-  <div class="lesson-buttons">
-    <a href="student-dashboard.html">← Back</a>
-  </div>
-
-  <footer class="site-footer">
-    <div class="footer-top">
-      <div class="footer-logo">
-        <img src="logo.png" alt="Bean to Brew Logo">
-      </div>
-
-      <div class="footer-contact">
-        <h3>Contact us</h3>
-        <p>+966504256847</p>
-        <p>BeantoBrew@gmail.com</p>
-      </div>
-
-      <div class="footer-social">
-        <h3>Follow us</h3>
-        <div class="social-icons">
-          <a href="https://instagram.com">
-            <img src="instagramicon.png" alt="Instagram">
-          </a>
-          <span class="social-divider"></span>
-          <a href="https://instagram.com">
-            <img src="Xicon.png" alt="X">
-          </a>
         </div>
       </div>
-    </div>
 
-    <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
+      <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
 
-    <div class="footer-clock">
-      <div class="clock-box">
-        <span class="clock-label">Current Time</span>
-        <span id="live-clock">00:00:00</span>
+      <div class="footer-clock">
+        <div class="clock-box">
+          <span class="clock-label">Current Time</span>
+          <span id="live-clock">00:00:00</span>
+        </div>
       </div>
-    </div>
 
-    <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
-  </footer>
+      <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
+    </footer>
+
+  </div>
 
   <button id="backToTop" title="Back to Top">↑</button>
 
   <script>
-    const evaluationForm = document.getElementById("evaluationForm");
-    const teacherSelect = document.getElementById("teacher-name");
-    const commentBox = document.getElementById("comment");
-    const ratingStars = document.getElementById("ratingStars");
+    const noteInput = document.getElementById("noteInput");
+    const prioritySelect = document.getElementById("prioritySelect");
+    const saveBtn = document.getElementById("saveBtn");
+    const notesList = document.getElementById("notesList");
+    const deleteBtn = document.querySelector(".delete-all-btn");
     const liveClock = document.getElementById("live-clock");
     const backToTopBtn = document.getElementById("backToTop");
     const modeBtn = document.querySelector(".mode-btn");
 
-    evaluationForm.addEventListener("submit", function(event) {
-      event.preventDefault();
+    let notes = JSON.parse(localStorage.getItem("myNotes")) || [];
 
-      teacherSelect.classList.remove("input-error");
-      commentBox.classList.remove("input-error");
-      ratingStars.classList.remove("stars-error");
+    function renderNotes() {
+      notesList.innerHTML = "";
 
-      const selectedTeacher = teacherSelect.value;
-      const selectedRating = document.querySelector('input[name="rating"]:checked');
-      const commentValue = commentBox.value.trim();
+      notes.forEach((note, index) => {
+        const noteCard = document.createElement("div");
+        noteCard.className = "note-card priority-" + note.priority;
 
-      let hasError = false;
+        noteCard.innerHTML = `
+          <div class="note-left">
+            <input type="checkbox" class="note-check" data-index="${index}">
+            <p class="note-text">${note.text}</p>
+          </div>
+        `;
 
-      if (selectedTeacher === "") {
-        teacherSelect.classList.add("input-error");
-        hasError = true;
-      }
+        notesList.appendChild(noteCard);
+      });
+    }
 
-      if (!selectedRating) {
-        ratingStars.classList.add("stars-error");
-        hasError = true;
-      }
+    function saveNotesToLocalStorage() {
+      localStorage.setItem("myNotes", JSON.stringify(notes));
+    }
 
-      if (commentValue === "") {
-        commentBox.classList.add("input-error");
-        hasError = true;
-      }
+    saveBtn.addEventListener("click", function () {
+      const noteText = noteInput.value.trim();
+      const priority = prioritySelect.value;
 
-      if (hasError) {
-        alert("Please complete all required fields.");
+      if (noteText === "") {
+        alert("Note cannot be empty.");
         return;
       }
 
-      const ratingValue = Number(selectedRating.value);
-
-      if (ratingValue >= 4) {
-        alert("Thank you for your feedback! We are happy that you had a good experience.");
-      } else {
-        alert("We are sorry that your experience was not the best. Thank you for your feedback, and we will try to improve.");
+      if (noteText.length < 30) {
+        alert("Note must be at least 30 characters.");
+        return;
       }
 
-      window.location.href = "student-dashboard.html";
+      if (priority === "") {
+        alert("Please choose a priority.");
+        return;
+      }
+
+      const newNote = {
+        text: noteText,
+        priority: priority
+      };
+
+      notes.push(newNote);
+      saveNotesToLocalStorage();
+      renderNotes();
+
+      noteInput.value = "";
+      prioritySelect.value = "";
+    });
+
+    deleteBtn.addEventListener("click", function () {
+      const checkedNotes = document.querySelectorAll(".note-check:checked");
+
+      if (checkedNotes.length === 0) {
+        alert("Please select at least one note");
+        return;
+      }
+
+      const confirmDelete = confirm("Are you sure you want to delete the selected notes?");
+
+      if (!confirmDelete) {
+        return;
+      }
+
+      const selectedIndexes = Array.from(checkedNotes).map(note => Number(note.dataset.index));
+
+      notes = notes.filter((note, index) => !selectedIndexes.includes(index));
+
+      saveNotesToLocalStorage();
+      renderNotes();
     });
 
     function updateClock() {
@@ -757,10 +738,10 @@
       });
     }
 
-    window.addEventListener("scroll", toggleBackToTop);
-
+    renderNotes();
     updateClock();
     setInterval(updateClock, 1000);
+    window.addEventListener("scroll", toggleBackToTop);
   </script>
 
 </body>
