@@ -130,6 +130,40 @@
       margin-bottom: 18px;
     }
 
+    /* ADDED ONLY: Nested List for Lesson Intro */
+    .lesson-intro .lesson-list {
+      margin-top: 22px;
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 18px 28px;
+      text-align: left;
+      background: rgba(75, 79, 62 , 0.4);
+      border: 2px solid #C1B393;
+      border-radius: 16px;
+      list-style-position: outside;
+    }
+
+    .lesson-intro .lesson-list > li {
+      font-size: 17px;
+      font-weight: 600;
+      color: #FDE9C7;
+      margin-left: 18px;
+    }
+
+    .lesson-intro .lesson-list ul {
+      margin-top: 8px;
+      padding-left: 24px;
+    }
+
+    .lesson-intro .lesson-list ul li {
+      font-size: 15px;
+      font-weight: 400;
+      color: #EDE8DC;
+      margin-bottom: 6px;
+      list-style-type: circle;
+    }
+
     .lesson-video {
       max-width: 1000px;
       margin: 0 auto 70px;
@@ -556,6 +590,16 @@
         In this lesson, you will learn what coffee really is, where it comes from,
         and why understanding its origin is the first step to becoming more confident in the world of brewing.
       </p>
+
+      <!-- ADDED ONLY: Nested List -->
+      <ul class="lesson-list">
+        <li>Coffee begins as a coffee cherry
+          <ul>
+            <li>The seed inside the cherry becomes the coffee bean.</li>
+            <li>The bean goes through stages before reaching the cup.</li>
+          </ul>
+        </li>
+      </ul>
     </section>
 
     <section class="lesson-video">
