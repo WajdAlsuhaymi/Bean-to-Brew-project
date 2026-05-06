@@ -9,60 +9,66 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
+*{
+  box-sizing:border-box;
+}
 
-/* ===== BODY ===== */
+html{
+  scroll-behavior:smooth;
+}
+
 body{
-    background:
-      radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
-      radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
-      radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
-      radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
-      linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
-      min-height:100vh;
-    }
+  overflow-x:hidden;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(193,179,147,0.25), transparent 30%),
+    radial-gradient(circle at 85% 25%, rgba(193,179,147,0.20), transparent 28%),
+    radial-gradient(circle at 50% 80%, rgba(193,179,147,0.18), transparent 32%),
+    radial-gradient(circle at 70% 60%, rgba(75,79,62,0.30), transparent 35%),
+    linear-gradient(140deg, #3A2F2B 0%, #3A2F2B 40%, #4B4F3E 100%);
+  min-height:100vh;
+}
 
+/* ===== About Page ===== */
+.about-page {
+  position: relative;
+  padding: 150px 60px 80px;
+}
 
-    /* ===== About Page ===== */
-    .about-page {
-      position: relative;
-      padding: 150px 60px 80px;
-    }
+.about-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
 
-    .about-container {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+.about-page h1 {
+  font-size: 52px;
+  font-family: 'Playfair Display', serif;
+  color: #EDE8DC;
+  margin-bottom: 35px;
+}
 
-    .about-page h1 {
-      font-size: 52px;
-      font-family: 'Playfair Display', serif;
-      color: #EDE8DC;
-      margin-bottom: 35px;
-    }
+.about-image {
+  margin-bottom: 35px;
+}
 
-    .about-image {
-      margin-bottom: 35px;
-    }
+.about-image img {
+  width: 100%;
+  max-width: 850px;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
 
-    .about-image img {
-      width: 100%;
-      max-width: 850px;
-      height: 350px;
-      object-fit: cover;
-      display: block;
-      border-radius: 10px;
-    }
+.about-text {
+  max-width: 950px;
+}
 
-    .about-text {
-      max-width: 950px;
-    }
-
-    .about-text p {
-      font-size: 20px;
-      line-height: 1.9;
-      margin-bottom: 22px;
-      color: #EDE8DC;
-    }
+.about-text p {
+  font-size: 20px;
+  line-height: 1.9;
+  margin-bottom: 22px;
+  color: #EDE8DC;
+}
 
 /* ===== TEACHERS ===== */
 .teachers-section{
@@ -133,38 +139,13 @@ body{
   height:340px;
   background:#C1B393;
   border-radius:24px;
-  padding:22px 18px;
+  padding:24px 18px;
   transform:translate(-50%,-50%) scale(0.45);
   opacity:0;
   transition:0.5s ease;
   text-align:center;
-  box-sizing:border-box;
   overflow:hidden;
 }
-
-.card{
-  overflow-y:auto;
-   padding: 30px 26px; 
-  padding-right: 32px;  
-}
-  
-.card::-webkit-scrollbar {
-  width: 6px;
-}
-
-.card::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.card::-webkit-scrollbar-thumb {
-  background-color: #888;
-  border-radius: 10px;
-}
-
-.card::-webkit-scrollbar-thumb:hover {
-  background-color: #666;
-}
-
 
 .card h3{
   font-size:28px;
@@ -181,12 +162,70 @@ body{
   font-weight:600;
 }
 
+/* ✅ Short inner scroll box only */
+.card{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:240px;
+  height:340px;
+  background:#C1B393;
+  border-radius:24px;
+  padding:22px 18px;
+  transform:translate(-50%,-50%) scale(0.45);
+  opacity:0;
+  transition:0.5s ease;
+  text-align:center;
+  box-sizing:border-box;
+
+  /* السكرول على كرت الخبير كامل */
+  overflow-y:auto;
+  overflow-x:hidden;
+  scroll-behavior:smooth;
+}
+
+.card::-webkit-scrollbar{
+  width:5px;
+}
+
+.card::-webkit-scrollbar-track{
+  background:transparent;
+  margin:18px 0;
+}
+
+.card::-webkit-scrollbar-thumb{
+  background:#7A4D2C;
+  border-radius:20px;
+}
+
+.card::-webkit-scrollbar-thumb:hover{
+  background:#3A2F2B;
+}
+
 .teacher-note{
   font-size:14px;
   line-height:1.4;
   color:#2f241d;
   margin:0 auto;
   max-width:90%;
+}
+
+.teacher-note::-webkit-scrollbar{
+  width:4px;
+}
+
+.teacher-note::-webkit-scrollbar-track{
+  background:rgba(255,255,255,0.25);
+  border-radius:10px;
+}
+
+.teacher-note::-webkit-scrollbar-thumb{
+  background:#7A4D2C;
+  border-radius:10px;
+}
+
+.teacher-note::-webkit-scrollbar-thumb:hover{
+  background:#3A2F2B;
 }
 
 /* center */
@@ -313,38 +352,34 @@ body{
 }
 
 .lesson-buttons {
-      width: min(1150px, 92%);
-      margin: 30px auto 80px;
-      display: flex;
-      justify-content: space-between;
-    }
+  width: min(1150px, 92%);
+  margin: 30px auto 80px;
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:nowrap;
+}
 
-    .lesson-buttons a {
-      text-decoration: none;
-      font-size: 1.5rem;
-      font-weight: 600;
-      color:#C1B393;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      transition: all 0.3s ease;
-    }
+.lesson-buttons a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color:#C1B393;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  white-space:nowrap;
+}
 
-    .btn-back,
-    .btn-next {
-      background: #C1B393;
-      color: #2f241d;
-      border: 1px solid #b9997d;
-    }
+.lesson-buttons a:hover{
+  color:#FDE9C7;
+  transform:translateY(-3px);
+}
 
-    .btn-back:hover,
-    .btn-next:hover {
-      background: #7a4d2c;
-      color: #EDE8DC;
-      transform: translateY(-3px);
-    }
-
-/* ===== ADDED ONLY: Responsive Header ===== */
+/* ===== Responsive Header ===== */
 @media (max-width: 768px){
   .navbar{
     display:flex;
@@ -389,6 +424,10 @@ body{
     max-width:200px;
   }
 
+  .path-breadcrumb{
+    display:none;
+  }
+
   .about-page{
     padding:190px 24px 70px;
   }
@@ -411,6 +450,10 @@ body{
 
   .teachers-topbar{
     flex-wrap:wrap;
+  }
+
+  .lesson-buttons a{
+    font-size:1.15rem;
   }
 }
 
@@ -451,9 +494,13 @@ body{
   .teachers-title{
     font-size:32px;
   }
+
+  .lesson-buttons a{
+    font-size:1rem;
+  }
 }
 
-/* ===== ADDED ONLY: Footer Clock ===== */
+/* ===== Footer Clock ===== */
 .footer-clock{
   margin-top:18px;
   display:flex;
@@ -490,7 +537,7 @@ body{
   text-align:center;
 }
 
-/* ===== ADDED ONLY: Back To Top Button ===== */
+/* ===== Back To Top Button ===== */
 #backToTop{
   position:fixed;
   right:22px;
@@ -545,20 +592,23 @@ body{
     height:46px;
     font-size:20px;
   }
-}
+  @media (max-width: 1800px){
+  .arrows{
+    display:none !important;
+  }
 
+}
 </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header>
+<header>
   <nav class="navbar">
 
     <div class="logo">
-  <a href="index.html"><img src="logo.png" alt="Bean to Brew Logo"></a>
-</div>
+      <img src="logo.png" alt="Bean to Brew Logo">
+    </div>
 
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -569,10 +619,10 @@ body{
       <li><a href="Contact.html">Contact Us</a></li>
     </ul>
 
-    <div class="nav-right">
-      <button class="mode-btn">☀️</button>
-      <input type="text" placeholder="Search" class="search-box">
-    </div>
+          <div class="nav-right">
+    <a href="About-usLight.html" class="mode-btn">🌙</a>
+    <input type="text" placeholder="Search" class="search-box">
+</div>
 
   </nav>
 </header>
@@ -629,7 +679,6 @@ body{
     Our teachers bring passion, knowledge, and hands-on experience.
   </p>
 
- <!-- SORT -->
 <div class="teachers-topbar">
   <label class="sort-title" for="sortTeachers">Sort Teachers:</label>
   
@@ -647,7 +696,6 @@ body{
 
 </div>
 
-  <!-- SLIDER -->
   <div class="teachers-slider">
 
  <input type="radio" name="tcard" id="t1" checked>
@@ -686,7 +734,6 @@ body{
 	  <p class="teacher-note">Specializes in brewing methods and practical techniques for balanced coffee results.</p>
 	  </div>
 	  
-	  
       <div class="card c4" data-name="Saud" data-exp="8">
 	  <div class="teacher-img"></div>
 	  <h3>Saud</h3>
@@ -694,14 +741,12 @@ body{
 	  <p class="teacher-note">Helps students understand espresso workflow, extraction, and balance with confidence.</p>
 	  </div>
 	  
-	  
       <div class="card c5" data-name="Wajd" data-exp="5">
 	  <div class="teacher-img"></div>
 	  <h3>Wajd</h3>
 	  <p class="teacher-exp">5 Years</p>
 	  <p class="teacher-note">Creates interactive workshops that connect creativity with practical coffee learning.</p>
 	  </div>
-	  
 	  
       <div class="card c6" data-name="Salman" data-exp="7">
 	  <div class="teacher-img"></div>
@@ -824,9 +869,6 @@ body{
 
 </main>
 
-  <!-- FOOTER -->
-  
-
  <footer class="site-footer">
       <div class="footer-top">
         <div class="footer-logo">
@@ -870,55 +912,128 @@ body{
 <script>
 const cardsContainer = document.querySelector(".cards");
 const sortSelect = document.getElementById("sortTeachers");
+const slider = document.querySelector(".teachers-slider");
 
 let cards = Array.from(document.querySelectorAll(".card"));
+let currentIndex = 1;
+const totalCards = 12;
+let isSliding = false;
 
-// دالة عشوائي
 function shuffle(array) {
   return array.sort(() => Math.random() - 0.5);
 }
 
-// دالة تعيد ترتيب الكروت
+function goToCard(index) {
+  if (index < 1) index = totalCards;
+  if (index > totalCards) index = 1;
+
+  currentIndex = index;
+  const radio = document.getElementById("t" + currentIndex);
+
+  if (radio) {
+    radio.checked = true;
+  }
+}
+
+function nextCard() {
+  goToCard(currentIndex + 1);
+}
+
+function prevCard() {
+  goToCard(currentIndex - 1);
+}
+
+function slideOnce(direction) {
+  if (isSliding) return;
+
+  isSliding = true;
+
+  if (direction === "next") {
+    nextCard();
+  } else {
+    prevCard();
+  }
+
+  setTimeout(function () {
+    isSliding = false;
+  }, 550);
+}
+
 function showCards(newCards) {
   cardsContainer.innerHTML = "";
   newCards.forEach(card => cardsContainer.appendChild(card));
 
-  // تحديث الكلاسات c1 c2 ...
   newCards.forEach((card, index) => {
     card.className = "card c" + (index + 1);
   });
 
-  // يرجع أول كرت محدد
-  document.getElementById("t1").checked = true;
+  goToCard(1);
 }
 
-// أول ما تفتح الصفحة → ترتيب عشوائي
 cards = shuffle(cards);
 showCards(cards);
 
-// لما المستخدم يغير السورت
 sortSelect.addEventListener("change", function () {
-
   if (this.value === "alphabetical") {
-    cards.sort((a, b) =>
-      a.dataset.name.localeCompare(b.dataset.name)
-    );
-  }
-
-  else if (this.value === "experience") {
-    cards.sort((a, b) =>
-      a.dataset.exp - b.dataset.exp
-    );
-  }
-
-  else {
+    cards.sort((a, b) => a.dataset.name.localeCompare(b.dataset.name));
+  } else if (this.value === "experience") {
+    cards.sort((a, b) => a.dataset.exp - b.dataset.exp);
+  } else {
     cards = shuffle(cards);
   }
 
   showCards(cards);
 });
 
-/* ADDED ONLY: Footer Clock */
+/* Keyboard arrows */
+document.addEventListener("keydown", function(event) {
+  if (event.key === "ArrowRight") {
+    slideOnce("next");
+  }
+
+  if (event.key === "ArrowLeft") {
+    slideOnce("prev");
+  }
+});
+
+/* Touchpad horizontal swipe */
+slider.addEventListener("wheel", function(event) {
+  if (Math.abs(event.deltaX) > Math.abs(event.deltaY) && Math.abs(event.deltaX) > 25) {
+    event.preventDefault();
+
+    if (event.deltaX > 0) {
+      slideOnce("next");
+    } else {
+      slideOnce("prev");
+    }
+  }
+}, { passive:false });
+
+/* Mobile touch swipe */
+let startX = 0;
+let startY = 0;
+
+slider.addEventListener("touchstart", function(event) {
+  startX = event.touches[0].clientX;
+  startY = event.touches[0].clientY;
+}, { passive:true });
+
+slider.addEventListener("touchend", function(event) {
+  const endX = event.changedTouches[0].clientX;
+  const endY = event.changedTouches[0].clientY;
+
+  const diffX = startX - endX;
+  const diffY = startY - endY;
+
+  if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+    if (diffX > 0) {
+      slideOnce("next");
+    } else {
+      slideOnce("prev");
+    }
+  }
+}, { passive:true });
+
 const liveClock = document.getElementById("live-clock");
 
 function updateClock() {
@@ -936,7 +1051,6 @@ function updateClock() {
   }
 }
 
-/* ADDED ONLY: Back To Top Button */
 const backToTopBtn = document.getElementById("backToTop");
 
 function toggleBackToTop() {
