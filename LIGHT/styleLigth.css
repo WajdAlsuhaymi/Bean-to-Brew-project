@@ -182,21 +182,22 @@ p{
   animation:fadeUp 0.8s ease;
 }
 
+
 .path-breadcrumb a,
 .path-breadcrumb a:visited,
 .path-breadcrumb a:active{
-  color:#FFF8ED;
+  color:#7A4D2C;
   text-decoration:none;
   transition:0.3s ease;
 }
 
 .path-breadcrumb a:hover{
-  color:#F1D4A5;
+  color:#7A4D2C;
   text-decoration:none;
 }
 
 .path-breadcrumb span{
-  color:#FFF8ED;
+  color:#7A4D2C;
 }
 
 /* ===== Footer ===== */
