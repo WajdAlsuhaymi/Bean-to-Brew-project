@@ -620,7 +620,7 @@ body{
     </ul>
 
           <div class="nav-right">
-    <a href="About-usLight.html" class="mode-btn">🌙</a>
+    <a href="About-usLight.html" class="mode-btn">☀️</a>
     <input type="text" placeholder="Search" class="search-box">
 </div>
 
