@@ -677,10 +677,10 @@
           <li><a href="Contact.html">Contact Us</a></li>
         </ul>
 
-        <div class="nav-right">
-          <button class="mode-btn">☀️</button>
-          <input type="text" placeholder="Search" class="search-box">
-        </div>
+           <div class="nav-right">
+  <a href="my-notesLight.html" class="mode-btn">☀️</a>
+  <input type="text" placeholder="Search" class="search-box">
+</div>
 
       </nav>
     </header>
