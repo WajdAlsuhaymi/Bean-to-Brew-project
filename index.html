@@ -116,50 +116,79 @@
       text-align:center;
     }
 
-    .why-heading{
-      font-size:42px;
-      margin-bottom:60px;
-      color:#EDE8DC;
-    }
+   .why-section{
+  padding:80px 40px;
+  text-align:center;
+}
 
-    .why-container{
-      display:flex;
-      justify-content:center;
-      gap:30px;
-      flex-wrap:wrap;
-    }
+.why-heading{
+  font-size:42px;
+  margin-bottom:60px;
+  color:#EDE8DC;
+}
 
-    .why-card{
-      max-width:250px;
-      min-height:260px;
-      padding:30px 20px;
-      border-radius:22px;
-      background:#4B4F3E;
-      border:1px solid rgba(255,255,255,0.10);
-      transition:0.3s;
-    }
+.why-container{
+  display:flex;
+  justify-content:center;
+  align-items:stretch;
+  gap:40px;
+  flex-wrap:nowrap;
+}
 
-    .why-card:hover{
-      transform:translateY(-8px);
-    }
+.why-card{
+  width:320px;
+  min-height:320px;
+  padding:40px 28px;
+  border-radius:28px;
+  background:#4B4F3E;
+  border:1px solid rgba(255,255,255,0.10);
+  transition:0.3s;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
 
-    .why-card img{
-      width:100px;
-      height:auto;
-      margin-bottom:20px;
-    }
+.why-card:hover{
+  transform:translateY(-8px);
+}
 
-    .why-card h3{
-      font-size:18px;
-      margin-bottom:10px;
-      color:#EDE8DC;
-    }
+.why-card img{
+  width:90px;
+  height:auto;
+  margin-bottom:28px;
+}
 
-    .why-card p{
-      font-size:14px;
-      line-height:1.6;
-      color:#EDE8DC;
-    }
+.why-card h3{
+  font-size:24px;
+  margin-bottom:16px;
+  color:#EDE8DC;
+}
+
+.why-card p{
+  font-size:16px;
+  line-height:1.8;
+  color:#EDE8DC;
+  max-width:240px;
+}
+
+@media (max-width:1024px){
+  .why-container{
+    flex-wrap:wrap;
+  }
+
+  .why-card{
+    width:280px;
+  }
+}
+
+@media (max-width:768px){
+  .why-card{
+    width:100%;
+    max-width:340px;
+    min-height:auto;
+  }
+}
 
     .bean-types{
       display:flex;
@@ -1273,9 +1302,9 @@
       </ul>
 
       <div class="nav-right">
-        <button class="mode-btn">☀️</button>
-        <input type="text" placeholder="Search" class="search-box">
-      </div>
+  <a href="IndexLigth.html" class="mode-btn">☀️</a>
+  <input type="text" placeholder="Search" class="search-box">
+</div>
     </nav>
   </header>
 
