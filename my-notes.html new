@@ -570,6 +570,9 @@
       .notes-page{
         padding-top:205px;
       }
+	  .path-wrap{
+  display:none;
+}
 
       .navbar{
         padding:12px 14px;
