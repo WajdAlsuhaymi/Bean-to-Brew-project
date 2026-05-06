@@ -131,18 +131,26 @@
     }
 
     .path-breadcrumb{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-      color:#5A4638;
-      font-size:14px;
-    }
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  color:#5A4638;
+  font-size:14px;
+}
 
-    .path-breadcrumb a{
-      color:#5A4638;
-      text-decoration:none;
-    }
+.path-breadcrumb a,
+.path-breadcrumb a:visited,
+.path-breadcrumb a:active,
+.path-breadcrumb span{
+  color:#5A4638;
+  text-decoration:none;
+  transition:0.3s ease;
+}
+
+.path-breadcrumb a:hover{
+  color:#7A4D2C;
+}
 
     .page-title{
       width:min(100%, 1320px);
