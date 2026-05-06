@@ -285,6 +285,7 @@
       max-width:1100px;
       margin:0 auto;
       overflow:hidden;
+      touch-action:pan-y;
     }
 
     .grind-slider input{
@@ -908,17 +909,6 @@
     }
 
     @media (max-width: 992px){
-      .hero{
-        padding:0 30px;
-        justify-content:center;
-        text-align:center;
-      }
-
-      .main-hero-title{
-        font-size:52px;
-        text-align:center;
-      }
-
       .bean-types{
         justify-content:center;
       }
@@ -946,9 +936,15 @@
       }
     }
 
+    @media (max-width: 900px){
+      .grind-slider .arrows{
+        display:none !important;
+      }
+    }
+
     @media (max-width:768px){
       body{
-        padding-top:240px;
+        padding-top:0;
       }
 
       .navbar{
@@ -995,13 +991,23 @@
       }
 
       .hero{
-        min-height:calc(100vh - 240px);
-        padding:30px 24px 50px;
+        min-height:100vh;
+        padding:0 40px;
+        align-items:center;
+        justify-content:flex-start;
+        text-align:left;
+        background-position:center top;
+      }
+
+      .hero-content{
+        max-width:700px;
+        text-align:left;
       }
 
       .main-hero-title{
-        font-size:48px;
-        text-align:center;
+        font-size:58px;
+        line-height:1.15;
+        text-align:left;
       }
 
       .bean-types{
@@ -1044,12 +1050,6 @@
         width:65px;
         height:90px;
         margin-top:10px;
-      }
-
-      .arrow{
-        width:44px;
-        height:44px;
-        font-size:26px;
       }
 
       #card1:checked ~ .cards .c1,
@@ -1097,21 +1097,13 @@
         opacity:0;
         pointer-events:none;
       }
-@media (max-width: 900px){
-  .grind-slider .arrows{
-    display:none !important;
-  }
-}
+
       .floating-bean{
         display:none;
       }
     }
 
     @media (max-width:640px){
-      .main-hero-title{
-        font-size:40px;
-      }
-
       .section-box{
         width:min(1120px, calc(100% - 20px));
       }
@@ -1163,20 +1155,26 @@
     }
 
     @media (max-width:560px){
-      body{
-        padding-top:260px;
-      }
+  .hero{
+    min-height:100vh;
+    padding:0 18px;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+  }
 
-      .hero{
-        min-height:calc(100vh - 260px);
-        padding:20px 16px 40px;
-      }
+  .hero-content{
+    width:100%;
+    max-width:100%;
+    text-align:center;
+  }
 
-      .main-hero-title{
-        font-size:36px;
-        line-height:1.2;
-      }
-
+  .main-hero-title{
+    font-size:40px;
+    line-height:1.15;
+    text-align:center;
+  }
+}
       .our-story h2,
       .why-heading,
       .bean-types-right h2,
@@ -1225,16 +1223,6 @@
     @media (max-width:480px){
       .cards{
         height:280px;
-      }
-
-      .arrow{
-        width:40px;
-        height:40px;
-        font-size:22px;
-      }
-
-      .arrows{
-        padding:0 4px;
       }
 
       .nav-links{
@@ -1723,127 +1711,127 @@
   <button id="backToTop" title="Back to Top">↑</button>
 
   <script>
-  const liveClock = document.getElementById("live-clock");
-  const backToTopBtn = document.getElementById("backToTop");
-  const grindSlider = document.querySelector(".grind-slider");
+    const liveClock = document.getElementById("live-clock");
+    const backToTopBtn = document.getElementById("backToTop");
+    const grindSlider = document.querySelector(".grind-slider");
 
-  let currentGrind = 1;
-  const totalGrindCards = 6;
-  let isGrindSliding = false;
+    let currentGrind = 1;
+    const totalGrindCards = 6;
+    let isGrindSliding = false;
 
-  function goToGrindCard(index) {
-    if (index < 1) index = totalGrindCards;
-    if (index > totalGrindCards) index = 1;
+    function goToGrindCard(index) {
+      if (index < 1) index = totalGrindCards;
+      if (index > totalGrindCards) index = 1;
 
-    currentGrind = index;
-    const radio = document.getElementById("card" + currentGrind);
+      currentGrind = index;
+      const radio = document.getElementById("card" + currentGrind);
 
-    if (radio) {
-      radio.checked = true;
-    }
-  }
-
-  function slideGrindOnce(direction) {
-    if (isGrindSliding) return;
-
-    isGrindSliding = true;
-
-    if (direction === "next") {
-      goToGrindCard(currentGrind + 1);
-    } else {
-      goToGrindCard(currentGrind - 1);
-    }
-
-    setTimeout(function () {
-      isGrindSliding = false;
-    }, 550);
-  }
-
-  document.addEventListener("keydown", function(event) {
-    if (event.key === "ArrowRight") {
-      slideGrindOnce("next");
-    }
-
-    if (event.key === "ArrowLeft") {
-      slideGrindOnce("prev");
-    }
-  });
-
-  if (grindSlider) {
-    grindSlider.addEventListener("wheel", function(event) {
-      if (Math.abs(event.deltaX) > Math.abs(event.deltaY) && Math.abs(event.deltaX) > 25) {
-        event.preventDefault();
-
-        if (event.deltaX > 0) {
-          slideGrindOnce("next");
-        } else {
-          slideGrindOnce("prev");
-        }
+      if (radio) {
+        radio.checked = true;
       }
-    }, { passive:false });
+    }
 
-    let startX = 0;
-    let startY = 0;
+    function slideGrindOnce(direction) {
+      if (isGrindSliding) return;
 
-    grindSlider.addEventListener("touchstart", function(event) {
-      startX = event.touches[0].clientX;
-      startY = event.touches[0].clientY;
-    }, { passive:true });
+      isGrindSliding = true;
 
-    grindSlider.addEventListener("touchend", function(event) {
-      const endX = event.changedTouches[0].clientX;
-      const endY = event.changedTouches[0].clientY;
-
-      const diffX = startX - endX;
-      const diffY = startY - endY;
-
-      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
-        if (diffX > 0) {
-          slideGrindOnce("next");
-        } else {
-          slideGrindOnce("prev");
-        }
+      if (direction === "next") {
+        goToGrindCard(currentGrind + 1);
+      } else {
+        goToGrindCard(currentGrind - 1);
       }
-    }, { passive:true });
-  }
 
-  function updateClock() {
-    const now = new Date();
+      setTimeout(function () {
+        isGrindSliding = false;
+      }, 550);
+    }
 
-    const time = now.toLocaleTimeString("en-US", {
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: true
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "ArrowRight") {
+        slideGrindOnce("next");
+      }
+
+      if (event.key === "ArrowLeft") {
+        slideGrindOnce("prev");
+      }
     });
 
-    if (liveClock) {
-      liveClock.textContent = time;
-    }
-  }
+    if (grindSlider) {
+      grindSlider.addEventListener("wheel", function(event) {
+        if (Math.abs(event.deltaX) > Math.abs(event.deltaY) && Math.abs(event.deltaX) > 25) {
+          event.preventDefault();
 
-  function toggleBackToTop() {
-    if (window.scrollY > 300) {
-      backToTopBtn.classList.add("show");
-    } else {
-      backToTopBtn.classList.remove("show");
-    }
-  }
+          if (event.deltaX > 0) {
+            slideGrindOnce("next");
+          } else {
+            slideGrindOnce("prev");
+          }
+        }
+      }, { passive:false });
 
-  if (backToTopBtn) {
-    backToTopBtn.addEventListener("click", function () {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+      let startX = 0;
+      let startY = 0;
+
+      grindSlider.addEventListener("touchstart", function(event) {
+        startX = event.touches[0].clientX;
+        startY = event.touches[0].clientY;
+      }, { passive:true });
+
+      grindSlider.addEventListener("touchend", function(event) {
+        const endX = event.changedTouches[0].clientX;
+        const endY = event.changedTouches[0].clientY;
+
+        const diffX = startX - endX;
+        const diffY = startY - endY;
+
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+          if (diffX > 0) {
+            slideGrindOnce("next");
+          } else {
+            slideGrindOnce("prev");
+          }
+        }
+      }, { passive:true });
+    }
+
+    function updateClock() {
+      const now = new Date();
+
+      const time = now.toLocaleTimeString("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true
       });
-    });
-  }
 
-  window.addEventListener("scroll", toggleBackToTop);
+      if (liveClock) {
+        liveClock.textContent = time;
+      }
+    }
 
-  updateClock();
-  setInterval(updateClock, 1000);
-</script>
+    function toggleBackToTop() {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add("show");
+      } else {
+        backToTopBtn.classList.remove("show");
+      }
+    }
+
+    if (backToTopBtn) {
+      backToTopBtn.addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+    }
+
+    window.addEventListener("scroll", toggleBackToTop);
+
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
 
 </body>
 </html>
