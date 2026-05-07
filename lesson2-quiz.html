@@ -701,10 +701,55 @@
     </div>
 
     <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
+	<div class="footer-clock">
+  <div class="clock-box">
+    <span class="clock-label">Current Time</span>
+    <span id="live-clock">00:00:00</span>
+  </div>
+</div>
     <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
   </footer>
-
+<button id="backToTop" title="Back to Top">↑</button>
 <script>
+const liveClock = document.getElementById("live-clock");
+  const backToTopBtn = document.getElementById("backToTop");
+
+  function updateClock() {
+    const now = new Date();
+
+    const time = now.toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: true
+    });
+
+    if (liveClock) {
+      liveClock.textContent = time;
+    }
+  }
+
+  function toggleBackToTop() {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add("show");
+    } else {
+      backToTopBtn.classList.remove("show");
+    }
+  }
+
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener("click", function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  }
+
+  window.addEventListener("scroll", toggleBackToTop);
+
+  updateClock();
+  setInterval(updateClock, 1000);
 document.addEventListener("DOMContentLoaded", function () {
   const quizForm = document.getElementById("quizForm");
 
