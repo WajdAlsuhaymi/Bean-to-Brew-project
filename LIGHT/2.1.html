@@ -1,0 +1,1060 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson 2 | Types of Beans</title>
+
+  <link rel="stylesheet" href="styleLigth.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      font-family:Arial, sans-serif;
+      padding-top:80px;
+      color:#4A3527;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(193,179,147,0.32), transparent 30%),
+        radial-gradient(circle at 85% 25%, rgba(193,179,147,0.28), transparent 28%),
+        radial-gradient(circle at 50% 80%, rgba(193,179,147,0.24), transparent 32%),
+        radial-gradient(circle at 70% 60%, rgba(118,128,89,0.22), transparent 35%),
+        linear-gradient(140deg, #F7F0E4 0%, #EFE2CF 40%, #DCE1C8 100%);
+      background-attachment:fixed;
+    }
+
+    .lesson2-page {
+      overflow-x: hidden;
+      padding-top: 110px;
+    }
+	
+    .path-wrap{
+      position: static;
+      top: auto;
+      left: auto;
+      width: min(92%, 1320px);
+      margin: 0 auto 30px;
+      padding: 0;
+      z-index: auto;
+    }
+
+    .hero-lesson2 {
+      position:relative;
+      width:min(1150px, 92%);
+      height:420px;
+      margin:0 auto;
+      border-radius:34px;
+      overflow:hidden;
+      display:flex;
+      align-items:flex-end;
+      padding:42px;
+      background:
+        linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)),
+        url("images/lesson2.jpg") center/cover no-repeat;
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 28px 65px rgba(0,0,0,0.35);
+    }
+
+    .hero-lesson2::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:transparent;
+    }
+
+    .hero-lesson2::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(247, 242, 235, 0.12), transparent 40%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position:absolute;
+      left:65px;
+      bottom:45px;
+      z-index:2;
+      max-width:760px;
+      color:#EDE8DC;
+    }
+
+    .lesson-badge {
+      display: inline-block;
+      padding: 10px 22px;
+      border-radius: 999px;
+      border: 1.5px solid rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(6px);
+      font-size: 1rem;
+      margin-bottom: 24px;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      line-height: 1.05;
+      margin-bottom: 18px;
+      text-shadow: 0 8px 25px rgba(0,0,0,0.28);
+    }
+
+    .hero-content p {
+      margin:0;
+      color:#f3e8db;
+      font-size:16px;
+      line-height:1.8;
+      max-width:540px;
+    }
+
+
+    .intro-section {
+      width: min(1150px, 92%);
+      margin: 70px auto 30px;
+    }
+
+    .intro-card {
+      background:#4B4F3E;
+      border: 1px solid rgba(111, 76, 49, 0.12);
+      box-shadow: 0 18px 45px rgba(74, 48, 28, 0.10);
+      border-radius: 30px;
+      padding: 45px 40px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+
+    .intro-card h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+      margin-bottom: 18px;
+      color: #C1B393;
+    }
+
+    .intro-card p {
+      max-width: 900px;
+      margin: auto;
+      font-size: 1.12rem;
+      line-height: 1.95;
+      color: #EDE8DC;
+    }
+
+    .video-area {
+      width: min(1150px, 92%);
+      margin: 40px auto 80px;
+      text-align: center;
+    }
+
+    .video-area h3 {
+      font-size: 28px;
+      margin-bottom: 16px;
+  color:#7A4D2C;
+    }
+
+    .video-area .video-desc {
+      max-width: 760px;
+      margin: 0 auto 30px;
+  color:#7A4D2C;
+      font-size: 16px;
+    }
+
+    .video-box {
+      background: #4B4F3E;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 20px 45px rgba(53, 34, 22, 0.18);
+    }
+
+    .video-poster {
+      position: relative;
+      width: 70%;
+      margin: auto;
+      cursor: pointer;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .video-poster img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+      border-radius: 16px;
+    }
+
+    .play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.65);
+      color: #fff;
+      font-size: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #videoFrame {
+      display: none;
+      width: 70%;
+      height: 400px;
+      border: none;
+      border-radius: 16px;
+      margin: auto;
+    }
+
+    .youtube-btn {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 12px 24px;
+      background: #C1B393;
+      color: #2f241d;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: 0.3s ease;
+      text-decoration: none;
+    }
+
+    .youtube-btn:hover {
+      background: #e3d3b7;
+      transform: translateY(-2px);
+    }
+
+    .video-note {
+      text-align: center;
+      margin-top: 16px;
+      color: #C1B393;
+      font-size: 0.98rem;
+      letter-spacing: 0.3px;
+    }
+    .beans-heading {
+      text-align: center;
+      width: min(1000px, 92%);
+      margin: 0 auto 35px;
+    }
+
+    .beans-heading h2 {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      margin-bottom: 12px;
+      color: #C1B393;
+    }
+
+    .beans-heading p {
+      color: #EDE8DC;
+      font-size: 1.08rem;
+      line-height: 1.8;
+    }
+
+    .bean-showcase {
+      width: min(1180px, 94%);
+      margin: 0 auto 55px;
+      display: grid;
+      gap: 30px;
+    }
+
+    .bean-card {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      align-items: stretch;
+      overflow: hidden;
+      border-radius: 28px;
+      background:#4B4F3E;
+      border: 1px solid rgba(101, 71, 46, 0.10);
+      box-shadow: 0 18px 40px rgba(71, 48, 31, 0.10);
+      min-height: 340px;
+    }
+
+    .bean-card.reverse {
+      grid-template-columns: 1.1fr 1fr;
+    }
+
+    .bean-visual {
+      position: relative;
+      min-height: 320px;
+      overflow: hidden;
+    }
+
+    .bean-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s ease;
+    }
+
+    .bean-card:hover .bean-visual img {
+      transform: scale(1.08);
+    }
+
+    .bean-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(20, 12, 8, 0.18), rgba(20, 12, 8, 0.45));
+      display: flex;
+      align-items: end;
+      padding: 28px;
+    }
+
+    .bean-overlay h3 {
+      color: #EDE8DC;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1;
+      text-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+
+    .bean-text {
+      padding: 38px 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(255,255,255,0.75), rgba(245,236,226,0.85));
+    }
+
+    .bean-text .bean-tag {
+      display: inline-block;
+      width: fit-content;
+      margin-bottom: 14px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: #C1B393;
+      color: #EDE8DC;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .bean-text p {
+      font-size: 1.08rem;
+      line-height: 1.95;
+      color: #2f241c;
+      margin-bottom: 18px;
+    }
+
+    .bean-points {
+      display: grid;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .bean-points div {
+      padding: 14px 16px;
+      background: rgba(111, 76, 49, 0.08);
+      border-radius: 16px;
+      color: #503b2e;
+      line-height: 1.7;
+    }
+
+    .culture-section {
+      width: min(1150px, 92%);
+      margin: 70px auto;
+      background:
+        linear-gradient(rgba(46,139,87,0.85), rgba(46,139,87,0.85)),
+        url("images/saudi-coffee.jpg") center/cover no-repeat;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 20px 45px rgba(58, 38, 24, 0.18);
+    }
+
+    .culture-inner {
+      padding: 60px 6%;
+      text-align: center;
+      color: #EDE8DC;
+    }
+
+    .culture-inner h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin-bottom: 20px;
+    }
+
+    .culture-inner p {
+      max-width: 900px;
+      margin: 0 auto 18px;
+      line-height: 2;
+      font-size: 1.08rem;
+      color:#EDE8DC;
+    }
+
+    .culture-chip {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .vietnam-section {
+      width: min(1150px, 92%);
+      margin: 50px auto 80px;
+    }
+
+    .vietnam-card{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .vietnam-text{
+      max-width: 700px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .vietnam-text h2{
+      text-align: center;
+  color:#7A4D2C;
+      margin-bottom:14px;
+    }
+
+    .vietnam-text p{
+      text-align: center;
+      margin: auto;
+      max-width: 600px;
+  color:#7A4D2C;
+      line-height:1.8;
+    }
+
+    .lesson-buttons {
+      width: min(1150px, 92%);
+      margin: 30px auto 80px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items:center;
+      gap:10px;
+      flex-wrap:nowrap;
+    }
+
+    .lesson-buttons a {
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 600;
+  color:#7A4D2C;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      white-space:nowrap;
+    }
+
+    .lesson-buttons a:hover {
+      color: #FDE9C7;
+      transform: translateY(-3px);
+    }
+
+    .footer-clock{
+      margin-top:18px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .clock-box{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 18px;
+      border:1px solid rgba(253, 233, 199, 0.28);
+      border-radius:14px;
+      background:rgba(255,255,255,0.06);
+      backdrop-filter:blur(4px);
+      color:#F5F1E8;
+      box-shadow:0 6px 18px rgba(0,0,0,0.18);
+    }
+
+    .clock-label{
+      font-size:14px;
+      font-weight:600;
+      color:#EDE8DC;
+      letter-spacing:0.4px;
+    }
+
+    #live-clock{
+      font-size:15px;
+      font-weight:700;
+      color:#F5F1E8;
+      letter-spacing:1px;
+      min-width:105px;
+      text-align:center;
+    }
+
+    #backToTop{
+      position:fixed;
+      right:22px;
+      bottom:22px;
+      width:50px;
+      height:50px;
+      border:none;
+      border-radius:50%;
+      background-color:#C1B393;
+      color:#26231F;
+      font-size:22px;
+      font-weight:bold;
+      cursor:pointer;
+      box-shadow:0 8px 20px rgba(0,0,0,0.25);
+      opacity:0;
+      visibility:hidden;
+      transform:translateY(12px);
+      transition:all 0.3s ease;
+      z-index:9999;
+    }
+
+    #backToTop:hover{
+      background-color:#FDE9C7;
+      transform:translateY(0) scale(1.06);
+    }
+
+    #backToTop.show{
+      opacity:1;
+      visibility:visible;
+      transform:translateY(0);
+    }
+
+    .lesson-message {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 320px;
+      padding: 20px;
+      background: #E6D5B8;
+      color: #3A2F2B;
+      text-align: center;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      z-index: 9999;
+    }
+
+    .ok-btn {
+      margin-top: 15px;
+      padding: 8px 20px;
+      border: none;
+      border-radius: 10px;
+      background: #4B4F3E;
+      color: white;
+      cursor: pointer;
+    }
+
+    .ok-btn:hover {
+      background: #3A2F2B;
+    }
+
+    @media (max-width: 768px){
+      .navbar{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        padding:15px 10px;
+        gap:10px;
+        height:auto;
+      }
+
+      .logo{
+        order:1;
+      }
+
+      .nav-right{
+        order:2;
+        display:flex;
+        justify-content:center;
+        width:100%;
+      }
+
+      .nav-links{
+        order:3;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:12px;
+        width:100%;
+        margin-top:5px;
+      }
+
+      .nav-links li{
+        list-style:none;
+      }
+
+      .nav-links a{
+        font-size:14px;
+      }
+
+      .search-box{
+        max-width:200px;
+      }
+
+      .path-wrap{
+        display:none;
+      }
+
+      .lesson2-page{
+        padding-top:240px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-lesson2 {
+        min-height: 620px;
+        padding: 90px 6% 70px;
+      }
+
+      .video-box iframe {
+        width: 100%;
+      }
+
+      .bean-card,
+      .bean-card.reverse {
+        grid-template-columns: 1fr;
+      }
+
+      .bean-card.reverse .bean-text {
+        order: 2;
+      }
+
+      .bean-card.reverse .bean-visual {
+        order: 1;
+      }
+
+      .bean-visual {
+        min-height: 270px;
+      }
+
+      .intro-card,
+      .bean-text,
+      .vietnam-text,
+      .culture-inner {
+        padding: 30px 22px;
+      }
+
+      .bean-overlay h3 {
+        font-size: 2.3rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-lesson2 {
+        min-height: 460px;
+        padding: 70px 22px 55px;
+        border-radius: 24px;
+      }
+
+      .hero-content {
+        text-align: center;
+      }
+
+      .hero-content p,
+      .intro-card p,
+      .bean-text p,
+      .culture-inner p,
+      .vietnam-text p {
+        font-size: 1rem;
+      }
+
+      .lesson-badge {
+        font-size: 0.9rem;
+      }
+
+      .intro-section {
+        margin-top: 45px;
+      }
+
+      .intro-card,
+      .video-box,
+      .culture-section,
+      .bean-card {
+        border-radius: 22px;
+      }
+
+      .bean-text {
+        padding: 28px 20px;
+      }
+
+      .bean-points div {
+        font-size: 0.95rem;
+      }
+
+      .culture-inner {
+        padding: 42px 22px;
+      }
+
+      .lesson-buttons {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: nowrap;
+      }
+
+      .lesson-buttons a{
+        font-size:1.15rem;
+        white-space:nowrap;
+      }
+
+      .clock-box{
+        padding:9px 14px;
+        gap:8px;
+      }
+
+      .clock-label{
+        font-size:13px;
+      }
+
+      #live-clock{
+        font-size:14px;
+        min-width:95px;
+      }
+
+      #backToTop{
+        right:16px;
+        bottom:16px;
+        width:46px;
+        height:46px;
+        font-size:20px;
+      }
+    }
+
+    @media (max-width: 480px){
+      .lesson2-page{
+        padding-top:260px;
+      }
+
+      .nav-links{
+        gap:8px;
+      }
+
+      .nav-links a{
+        font-size:13px;
+      }
+
+      .search-box{
+        max-width:160px;
+        font-size:12px;
+      }
+
+      .mode-btn{
+        font-size:18px;
+      }
+
+      .lesson-buttons a{
+        font-size:1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+  <div class="logo">
+    <a href="IndexLigth.html"><img src="logo.png" alt="Bean to Brew Logo"></a>
+    </div>
+      <ul class="nav-links">
+        <li><a href="IndexLigth.html" class="active">Home</a></li>
+        <li><a href="BrewSchoolLight.html">Brew School</a></li>
+        <li><a href="CoffeLabLight.html">Coffee Lab</a></li>
+        <li><a href="student-dashboardLight.html">Student Dashboard</a></li>
+        <li><a href="About-usLight.html">About Us</a></li>
+        <li><a href="Contact.html">Contact Us</a></li>
+      </ul>
+
+      <div class="nav-right">
+    <a href="lesson2.1.html" class="mode-btn">🌙</a>
+        <input type="text" placeholder="Search" class="search-box">
+      </div>
+
+    </nav>
+  </header>
+
+  <main class="lesson2-page">
+    <div class="path-wrap">
+
+      <div class="path-breadcrumb">
+        <a href="IndexLigth.html">Home</a>
+        <span>›</span>
+        <a href="BrewSchoolLight.html">Brew School</a>
+        <span>›</span>
+        <a href="2.1.html">lesson2.1</a>     
+      </div>
+    </div>
+
+    <section class="hero-lesson2">
+      <div class="hero-content">
+        <span class="lesson-badge">Lesson 2</span>
+        <h1>Types of Beans</h1>
+        <p>
+          Discover how different coffee beans shape flavor, aroma, body,
+          and caffeine level — and why every bean tells a different story.
+        </p>
+      </div>
+    </section>
+
+    <section class="intro-section">
+      <div class="intro-card">
+        <h2>Do all coffee beans taste the same?</h2>
+        <p>
+          Coffee is more than just a bitter drink. Each bean has its own identity,
+          shaped by origin, species, roasting style, and growing environment.
+          These differences help professionals describe coffee more clearly and
+          allow coffee lovers to understand why one cup feels fruity and elegant,
+          while another feels bold and intense.
+        </p>
+      </div>
+    </section>
+
+    <section class="video-area">
+      <h3>Watch the Lesson Video</h3>
+      <p class="video-desc">
+        This video explains the main types of coffee beans and how they differ in flavor, strength, and character.
+      </p>
+
+      <div class="video-box">
+        <div class="video-poster" id="videoPoster" onclick="playVideo()">
+          <img src="images/lesson2.jpg" alt="Lesson 2 Video Poster">
+          <div class="play-btn">▶</div>
+        </div>
+
+        <iframe
+          id="videoFrame"
+          title="Types of Coffee Beans Video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+
+        <p class="video-note">A quick look into the world of coffee beans.</p>
+      </div>
+
+      <a href="https://www.youtube.com/watch?v=RWnSYAq9PPw" target="_blank" class="youtube-btn">
+        Watch on YouTube
+      </a>
+    </section>
+
+    <section class="bean-showcase">
+
+      <article class="bean-card">
+        <div class="bean-visual">
+          <img src="images/arabica.jpg" alt="Arabica coffee beans">
+          <div class="bean-overlay">
+            <h3>Arabica</h3>
+          </div>
+        </div>
+
+        <div class="bean-text">
+          <span class="bean-tag">Smooth & Elegant</span>
+          <p>
+            Arabica is the most popular coffee type worldwide. It is loved for
+            its smooth and layered flavor, often showing fruity, floral, or
+            slightly sweet notes with a gentle acidity.
+          </p>
+
+          <div class="bean-points">
+            <div>Most widely consumed coffee bean in the world.</div>
+            <div>More delicate, aromatic, and complex in flavor.</div>
+            <div>Contains less caffeine than Robusta.</div>
+          </div>
+        </div>
+      </article>
+
+      <section class="culture-section">
+        <div class="culture-inner">
+          <span class="culture-chip">🇸🇦 Saudi Arabia & Arabic Coffee</span>
+          <h2>A cup rooted in culture</h2>
+          <p>
+            Saudi Arabia has a deep and meaningful relationship with Arabic coffee.
+            In the southern region of the Kingdom, especially in Jazan, coffee is
+            grown on mountain terraces, and Saudi Khawlani coffee is celebrated for
+            its unique taste and cultural value.
+          </p>
+          <p>
+            Arabic coffee is often lightly roasted and flavored with cardamom.
+            More than a drink, it represents hospitality, generosity, warmth,
+            and a strong sense of heritage in Saudi culture.
+          </p>
+        </div>
+      </section>
+
+      <article class="bean-card reverse">
+        <div class="bean-text">
+          <span class="bean-tag">Bold & Powerful</span>
+          <p>
+            Robusta is known for its strong body, intense taste, and higher caffeine
+            level. It is often chosen when a richer, heavier, and more bitter profile
+            is needed in the cup.
+          </p>
+
+          <div class="bean-points">
+            <div>Stronger and more bitter than Arabica.</div>
+            <div>Contains more caffeine and produces heavy body.</div>
+            <div>Commonly used in espresso blends and commercial coffee.</div>
+          </div>
+        </div>
+
+        <div class="bean-visual">
+          <img src="beanspic.png" alt="Robusta coffee beans">
+          <div class="bean-overlay">
+            <h3>Robusta</h3>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="vietnam-section">
+      <div class="vietnam-card">
+        <div class="vietnam-text">
+          <h2>🌿 Vietnamese Robusta</h2>
+          <p>
+            Vietnamese Robusta is one of the most famous examples of Robusta coffee
+            in the world. It is known for its powerful taste, noticeable bitterness,
+            and high caffeine content. Because of its strength and thick crema,
+            it is often used in espresso blends and many commercial coffee products.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="lesson-buttons">
+      <a href="BrewSchoolLight.html">← Back</a>
+      <a href="2.2.html" >Next →</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+
+    <div class="footer-top">
+
+      <div class="footer-logo">
+        <img src="logo.png" alt="Bean to Brew Logo">
+      </div>
+
+      <div class="footer-contact">
+        <h3>Contact us</h3>
+        <p>+966504256847</p>
+        <p>BeantoBrew@gmail.com</p>
+      </div>
+
+      <div class="footer-social">
+        <h3>Follow us</h3>
+
+        <div class="social-icons">
+
+          <a href="javascript:void(0);">
+            <img src="instagramicon.png" alt="Instagram">
+          </a>
+
+          <span class="social-divider"></span>
+
+          <a href="javascript:void(0);">
+            <img src="Xicon.png" alt="X">
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <p class="footer-note">
+      Learn, explore, and enjoy the world of coffee.
+    </p>
+
+    <div class="footer-clock">
+      <div class="clock-box">
+        <span class="clock-label">Current Time</span>
+        <span id="live-clock">00:00:00</span>
+      </div>
+    </div>
+
+    <p class="copyright">
+      © 2026 Bean to Brew. All rights reserved.
+    </p>
+
+  </footer>
+
+  <button id="backToTop" title="Back to Top">↑</button>
+
+  <div id="lessonMessage" class="lesson-message">
+  
+  <h3>Lesson Goal</h3>
+
+  <p>
+    In this lesson, you will learn how different coffee beans shape flavor, aroma, body,
+          and caffeine level — and why every bean tells a different story. 
+  </p>
+
+  <hr>
+
+  <p class="quiz-reminder">
+    Don't forget to take the quiz after finishing the lesson!
+  </p>
+
+  <button onclick="closeMessage()" class="ok-btn">OK</button>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+    setTimeout(function () {
+      document.getElementById("lessonMessage").style.display = "block";
+    }, 3000);
+
+    document.getElementById("videoPoster").addEventListener("click", function () {
+      document.getElementById("videoPoster").style.display = "none";
+
+      const videoFrame = document.getElementById("videoFrame");
+      videoFrame.style.display = "block";
+      videoFrame.src = "https://www.youtube.com/embed/yagagM7SlWs?autoplay=1";
+    });
+
+  });
+
+  function closeMessage() {
+    document.getElementById("lessonMessage").style.display = "none";
+  }
+
+  const liveClock = document.getElementById("live-clock");
+  const backToTopBtn = document.getElementById("backToTop");
+
+  function updateClock() {
+    const now = new Date();
+
+    const time = now.toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: true
+    });
+
+    if (liveClock) {
+      liveClock.textContent = time;
+    }
+  }
+
+  function toggleBackToTop() {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add("show");
+    } else {
+      backToTopBtn.classList.remove("show");
+    }
+  }
+
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener("click", function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  }
+
+  window.addEventListener("scroll", toggleBackToTop);
+
+  updateClock();
+  setInterval(updateClock, 1000);
+</script>
+
+</body>
+</html>
