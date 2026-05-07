@@ -674,14 +674,14 @@
     <a href="index.html"><img src="logo.png" alt="Bean to Brew Logo"></a>
     </div>
 
-           <ul class="nav-links">
-        <li><a href="IndexLigth.html" class="active">Home</a></li>
-        <li><a href="BrewSchoolLight.html">Brew School</a></li>
-        <li><a href="CoffeLabLight.html">Coffee Lab</a></li>
-        <li><a href="student-dashboardLight.html">Student Dashboard</a></li>
-        <li><a href="About-usLight.html">About Us</a></li>
-        <li><a href="Contact.html">Contact Us</a></li>
-      </ul>
+        <ul class="nav-links">
+          <li><a href="IndexLigth.html">Home</a></li>
+          <li><a href="BrewSchool.html">Brew School</a></li>
+          <li><a href="CoffeLabLight.html">Coffee Lab</a></li>
+          <li><a href="student-dashboardLight.html" class="active">Student Dashboard</a></li>
+          <li><a href="About-usLight.html">About Us</a></li>
+          <li><a href="Contact.html">Contact Us</a></li>
+        </ul>
 
          <div class="nav-right">
     <a href="my-notes.html" class="mode-btn">🌙</a>
@@ -722,7 +722,8 @@
     <option value="3">Priority 3</option>
   </select>
 
-  <button type="submit" class="save-btn" id="saveBtn">Add Note</button>
+<button type="submit" class="save-btn" id="addBtn">Add Note</button>
+<button type="button" class="save-btn" id="saveBtn">Save Notes</button>
 </form>
 
         <h2 class="saved-title">Saved Notes</h2>
@@ -785,6 +786,7 @@
   <script>
     const noteInput = document.getElementById("noteInput");
     const prioritySelect = document.getElementById("prioritySelect");
+    const addBtn = document.getElementById("addBtn");
     const saveBtn = document.getElementById("saveBtn");
 	const addNoteForm = document.getElementById("addNoteForm");
     const deleteNoteForm = document.getElementById("deleteNoteForm");
@@ -843,12 +845,16 @@
       };
 
       notes.push(newNote);
-      saveNotesToLocalStorage();
       renderNotes();
 
       noteInput.value = "";
       prioritySelect.value = "";
     });
+	
+	saveBtn.addEventListener("click", function () {
+  saveNotesToLocalStorage();
+  alert("Notes saved successfully.");
+});
 
     deleteNoteForm.addEventListener("submit", function (event) {
      event.preventDefault();
