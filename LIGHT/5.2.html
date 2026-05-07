@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 5 - Brewing Methods</title>
+  <link rel="stylesheet" href="styleLigth.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{      font-family:Arial, sans-serif;
+      padding-top:80px;
+      color:#4A3527;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(193,179,147,0.32), transparent 30%),
+        radial-gradient(circle at 85% 25%, rgba(193,179,147,0.28), transparent 28%),
+        radial-gradient(circle at 50% 80%, rgba(193,179,147,0.24), transparent 32%),
+        radial-gradient(circle at 70% 60%, rgba(118,128,89,0.22), transparent 35%),
+        linear-gradient(140deg, #F7F0E4 0%, #EFE2CF 40%, #DCE1C8 100%);
+      background-attachment:fixed;
+    }
+    .path-wrap{
+      position:static;
+      top:auto;
+      left:auto;
+      width:min(92%, 1320px);
+      margin:auto auto 30px;
+      padding:0;
+      z-index:auto;
+    }
+	    
+    .lesson5-wrap{
+      width:min(92%, 1320px);
+      margin:auto;
+      padding:34px 0 80px;
+    }
+
+    .lesson5-breadcrumb{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      color:#cbb9a4;
+      font-size:14px;
+      margin-bottom:20px;
+      animation:fadeUp 0.8s ease;
+    }
+
+    .lesson5-breadcrumb a{
+      color:#ead7b7;
+      text-decoration:none;
+      transition:0.3s ease;
+    }
+
+    .lesson5-breadcrumb a:hover{
+      color:#FDE9C7;
+    }
+
+    .lesson5-hero{
+      position:relative;
+      border-radius:34px;
+      padding:42px 40px 46px;
+      overflow:hidden;
+      background:
+        linear-gradient(135deg, rgba(58,47,43,0.94), rgba(75,79,62,0.74), rgba(122,77,44,0.42)),
+        url("brewing-methods-hero.jpg") center/cover no-repeat;
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 28px 65px rgba(0,0,0,0.34);
+      min-height:430px;
+      display:flex;
+      align-items:flex-end;
+    }
+
+    .lesson5-hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(90deg, rgba(16,12,10,0.78) 0%, rgba(16,12,10,0.36) 42%, rgba(16,12,10,0.14) 100%);
+    }
+
+    .lesson5-hero-content{
+      position:relative;
+      z-index:2;
+      max-width:720px;
+      animation:fadeUp 1s ease;
+    }
+
+    .lesson5-hero h1{
+      margin:0 0 14px;
+      font-family:'Playfair Display', serif;
+      font-size:clamp(42px, 8vw, 88px);
+      line-height:0.95;
+      color:#fff7ef;
+      text-shadow:0 8px 24px rgba(0,0,0,0.30);
+    }
+
+    .lesson5-hero p{
+      margin:0;
+      color:#f3e8db;
+      font-size:18px;
+      line-height:1.9;
+      max-width:590px;
+    }
+
+    .lesson5-map-section{
+      margin:58px 0 62px;
+      padding:38px 28px 34px;
+      border-radius:34px;
+      background:#EBD8B7;
+      position:relative;
+    }
+
+    .lesson5-map-head{
+      text-align:center;
+      margin-bottom:44px;
+    }
+
+    .lesson5-map-head h2{
+      display:inline-block;
+      margin:0;
+      padding:20px 34px;
+      border-radius:28px;
+      font-family:'Playfair Display', serif;
+      font-size:clamp(28px, 4vw, 46px);
+      color:#fff2df;
+      background:linear-gradient(135deg, rgba(193,179,147,0.18), rgba(75,79,62,0.18), rgba(122,77,44,0.18));
+      border:1px solid rgba(253,233,199,0.10);
+      box-shadow:0 16px 30px rgba(0,0,0,0.16);
+    }
+
+    .lesson5-map-grid{
+      position:relative;
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:22px;
+    }
+
+    .lesson5-map-line{
+      position:absolute;
+      top:-84px;
+      left:50%;
+      transform:translateX(-50%);
+      width:min(1000px, 90%);
+      height:110px;
+      pointer-events:none;
+      opacity:0.55;
+    }
+
+    .lesson5-map-card{
+      position:relative;
+      padding:26px 20px 24px;
+      border-radius:28px;
+      min-height:320px;
+      transition:0.35s ease;
+      overflow:hidden;
+    }
+
+    .lesson5-map-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .lesson5-map-card::before{
+      content:"";
+      position:absolute;
+      inset:auto -30px -50px auto;
+      width:160px;
+      height:160px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(255,255,255,0.12), transparent 70%);
+    }
+
+    .lesson5-map-card.cold{
+      background:linear-gradient(180deg, rgba(185,208,223,0.35), rgba(58,47,43,0.70));
+    }
+
+    .lesson5-map-card.press{
+      background:linear-gradient(180deg, rgba(235,216,183,0.45), rgba(58,47,43,0.70));
+    }
+
+    .lesson5-map-card.v60{
+      background:linear-gradient(180deg, rgba(120,130,95,0.40), rgba(58,47,43,0.70));
+    }
+
+    .lesson5-map-card.espresso{
+      background:linear-gradient(180deg, rgba(210,160,120,0.40), rgba(58,47,43,0.70));
+    }
+
+    .lesson5-card-top{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-bottom:18px;
+    }
+
+    .lesson5-icon-bubble{
+      width:62px;
+      height:62px;
+      min-width:62px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      box-shadow:inset 0 8px 16px rgba(255,255,255,0.16), 0 8px 18px rgba(0,0,0,0.16);
+    }
+
+    .cold .lesson5-icon-bubble{
+      background:radial-gradient(circle at 30% 30%, #e8f0f5, #b2c3ce 58%, #6c8595 100%);
+    }
+
+    .press .lesson5-icon-bubble{
+      background:radial-gradient(circle at 30% 30%, #FDE9C7, #D9C5A1 58%, #8A6A52 100%);
+    }
+
+    .v60 .lesson5-icon-bubble{
+      background:radial-gradient(circle at 30% 30%, #ede8dc, #b8b08f 58%, #4B4F3E 100%);
+    }
+
+    .espresso .lesson5-icon-bubble{
+      background:radial-gradient(circle at 30% 30%, #FDE9C7, #C89A68 58%, #7A4D2C 100%);
+    }
+
+    .lesson5-method-icon{
+      width:36px;
+      height:36px;
+    }
+
+    .lesson5-method-icon .fill{
+      fill:#3A2F2B;
+    }
+
+    .lesson5-method-icon .line{
+      stroke:#3A2F2B;
+      stroke-width:2.7;
+      stroke-linecap:round;
+      fill:none;
+    }
+
+    .lesson5-map-card h3{
+      margin:0;
+      font-family:'Playfair Display', serif;
+      font-size:28px;
+      color:#fff3e4;
+    }
+
+    .lesson5-map-card ul{
+      margin:12px 0 0;
+      padding-left:18px;
+    }
+
+    .lesson5-map-card li{
+      margin-bottom:10px;
+      color:#e7dbcf;
+      line-height:1.7;
+      font-size:15px;
+    }
+
+    .brew-note{
+      margin-top:18px;
+      padding-top:16px;
+      border-top:1px solid rgba(255,255,255,0.08);
+      font-size:14px;
+      line-height:1.8;
+      color:#E7DBCF;
+      position:relative;
+      z-index:1;
+    }
+
+    .brew-temperature{
+      width:90%;
+      margin:70px auto;
+      text-align:center;
+    }
+
+    .brew-temperature h2{
+      font-family:'Playfair Display', serif;
+      font-size:42px;
+  color:#7A4D2C;
+      margin-bottom:40px;
+    }
+
+    .temp-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:30px;
+    }
+
+    .temp-card{
+      background:#3A2F2B;
+      padding:30px;
+      border-radius:20px;
+      color:#EDE8DC;
+      transition:0.3s;
+      border:1px solid rgba(255,255,255,0.1);
+    }
+
+    .temp-card:hover{
+      transform:translateY(-8px);
+    }
+
+    .temp-card.hot{
+      background:linear-gradient(135deg,#7A4D2C,#3A2F2B);
+    }
+
+    .temp-card.cold{
+      background:linear-gradient(135deg,#4B4F3E,#26231F);
+    }
+
+    .temp-card h3{
+      font-family:'Playfair Display', serif;
+      font-size:28px;
+      margin-bottom:15px;
+    }
+
+    .temp-card ul{
+      text-align:left;
+      line-height:1.8;
+      padding-left:20px;
+    }
+
+    .lesson5-summary{
+      text-align:center;
+      max-width:980px;
+      margin:0 auto 54px;
+    }
+
+    .lesson5-summary p{
+      margin:0;
+      color:#ede2d5;
+      font-size:20px;
+      line-height:1.95;
+      padding:30px 28px;
+      border-radius:28px;
+      background:
+        linear-gradient(135deg, rgba(58,47,43,0.84), rgba(75,79,62,0.50), rgba(122,77,44,0.20));
+      border:1px solid rgba(253,233,199,0.10);
+      box-shadow:0 16px 34px rgba(0,0,0,0.18);
+    }
+
+    .lesson-buttons {
+      width:min(1150px, 92%);
+      margin:30px auto 80px;
+      display:flex;
+      flex-direction:row;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      flex-wrap:nowrap;
+    }
+
+    .lesson-buttons a {
+      text-decoration:none;
+      font-size:1.5rem;
+      font-weight:600;
+  color:#7A4D2C;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      transition:all 0.3s ease;
+      white-space:nowrap;
+    }
+
+    .lesson-buttons a:hover{
+      color:#FDE9C7;
+      transform:translateY(-3px);
+    }
+
+    .footer-clock{
+      margin-top:18px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .clock-box{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 18px;
+      border:1px solid rgba(253, 233, 199, 0.28);
+      border-radius:14px;
+      background:rgba(255,255,255,0.06);
+      backdrop-filter:blur(4px);
+      color:#F5F1E8;
+      box-shadow:0 6px 18px rgba(0,0,0,0.18);
+    }
+
+    .clock-label{
+      font-size:14px;
+      font-weight:600;
+      color:#EDE8DC;
+      letter-spacing:0.4px;
+    }
+
+    #live-clock{
+      font-size:15px;
+      font-weight:700;
+      color:#F5F1E8;
+      letter-spacing:1px;
+      min-width:105px;
+      text-align:center;
+    }
+
+    #backToTop{
+      position:fixed;
+      right:22px;
+      bottom:22px;
+      width:50px;
+      height:50px;
+      border:none;
+      border-radius:50%;
+      background-color:#C1B393;
+      color:#26231F;
+      font-size:22px;
+      font-weight:bold;
+      cursor:pointer;
+      box-shadow:0 8px 20px rgba(0,0,0,0.25);
+      opacity:0;
+      visibility:hidden;
+      transform:translateY(12px);
+      transition:all 0.3s ease;
+      z-index:9999;
+    }
+
+    #backToTop:hover{
+      background-color:#FDE9C7;
+      transform:translateY(0) scale(1.06);
+    }
+
+    #backToTop.show{
+      opacity:1;
+      visibility:visible;
+      transform:translateY(0);
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(24px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @media(max-width:1100px){
+      .lesson5-map-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width:768px){
+      .navbar{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        padding:15px 10px;
+        gap:10px;
+        height:auto;
+      }
+
+      .logo{
+        order:1;
+      }
+
+      .nav-right{
+        order:2;
+        display:flex;
+        justify-content:center;
+        width:100%;
+      }
+
+      .nav-links{
+        order:3;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:12px;
+        width:100%;
+        margin-top:5px;
+      }
+
+      .nav-links li{
+        list-style:none;
+      }
+
+      .nav-links a{
+        font-size:14px;
+      }
+
+      .search-box{
+        max-width:200px;
+      }
+
+      .path-wrap{
+        display:none;
+      }
+
+      .lesson5-page{
+        padding-top:240px;
+      }
+
+      .lesson5-hero{
+        align-items:center;
+        text-align:center;
+        padding:40px 22px;
+      }
+
+      .lesson5-hero-content{
+        max-width:100%;
+      }
+
+      .lesson-buttons{
+        flex-direction:row;
+        align-items:center;
+        justify-content:space-between;
+        gap:10px;
+        flex-wrap:nowrap;
+      }
+
+      .lesson-buttons a{
+        font-size:1.15rem;
+        white-space:nowrap;
+      }
+    }
+
+    @media(max-width:700px){
+      .lesson5-wrap{
+        width:min(92%, 1320px);
+        padding:24px 0 60px;
+      }
+
+      .lesson5-hero{
+        min-height:380px;
+        padding:30px 20px;
+      }
+
+      .lesson5-map-section{
+        padding:30px 18px;
+      }
+
+      .lesson5-map-grid{
+        grid-template-columns:1fr;
+      }
+
+      .lesson5-map-line{
+        display:none;
+      }
+
+      .temp-grid{
+        grid-template-columns:1fr;
+      }
+
+      .brew-temperature{
+        width:100%;
+        margin:55px auto;
+      }
+
+      .brew-temperature h2{
+        font-size:34px;
+      }
+    }
+
+    @media(max-width:480px){
+      .lesson5-page{
+        padding-top:260px;
+      }
+
+      .nav-links{
+        gap:8px;
+      }
+
+      .nav-links a{
+        font-size:13px;
+      }
+
+      .search-box{
+        max-width:160px;
+        font-size:12px;
+      }
+
+      .mode-btn{
+        font-size:18px;
+      }
+
+      .lesson5-hero h1{
+        font-size:36px;
+        line-height:1.1;
+      }
+
+      .lesson5-hero p{
+        font-size:15px;
+      }
+
+      .lesson5-map-card h3{
+        font-size:24px;
+      }
+
+      .lesson5-summary p{
+        font-size:17px;
+        padding:24px 20px;
+      }
+
+      .lesson-buttons a{
+        font-size:1rem;
+        white-space:nowrap;
+      }
+
+      .clock-box{
+        padding:9px 14px;
+        gap:8px;
+      }
+
+      .clock-label{
+        font-size:13px;
+      }
+
+      #live-clock{
+        font-size:14px;
+        min-width:95px;
+      }
+
+      #backToTop{
+        right:16px;
+        bottom:16px;
+        width:46px;
+        height:46px;
+        font-size:20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <nav class="navbar">
+  <div class="logo">
+    <a href="IndexLigth.html"><img src="logo.png" alt="Bean to Brew Logo"></a>
+    </div>
+      <ul class="nav-links">
+        <li><a href="IndexLigth.html" class="active">Home</a></li>
+        <li><a href="BrewSchoolLight.html">Brew School</a></li>
+        <li><a href="CoffeLabLight.html">Coffee Lab</a></li>
+        <li><a href="student-dashboardLight.html">Student Dashboard</a></li>
+        <li><a href="About-usLight.html">About Us</a></li>
+        <li><a href="Contact.html">Contact Us</a></li>
+      </ul>
+    <div class="nav-right">
+    <a href="lesson5.2.html" class="mode-btn">🌙</a>
+      <input type="text" placeholder="Search" class="search-box">
+    </div>
+
+  </nav>
+</header>
+
+<main class="lesson5-page">
+
+    <div class="path-wrap">
+      <div class="path-breadcrumb">
+	  <a href="IndexLigth.html">Home</a>
+        <span>›</span>
+        <a href="BrewSchoolLight.html">Brew School</a>
+
+        <span>›</span>
+        <a href="5.1.html">lesson5.1</a>
+        <span>›</span>
+        <a href="5.2.html">lesson5.2</a>
+      </div>
+    </div>
+
+  <div class="lesson5-wrap">
+
+    <section class="lesson5-hero">
+      <div class="lesson5-hero-content">
+        <h1>Popular Brewing Methods</h1>
+        <p>
+          Learn how different brewing styles change the same coffee beans into completely
+          different cups — from light and smooth to rich and intense.
+        </p>
+      </div>
+    </section>
+
+    <section class="lesson5-map-section">
+      <div class="lesson5-map-head">
+        <h2>Popular Brewing Methods</h2>
+      </div>
+
+      <div class="lesson5-map-grid">
+        <svg class="lesson5-map-line" viewBox="0 0 1000 120" preserveAspectRatio="none">
+          <path d="M500 10 C430 35, 320 60, 125 110" stroke="rgba(253,233,199,0.25)" stroke-width="2" fill="none"/>
+          <path d="M500 10 C470 45, 420 58, 375 112" stroke="rgba(253,233,199,0.25)" stroke-width="2" fill="none"/>
+          <path d="M500 10 C530 45, 580 58, 625 112" stroke="rgba(253,233,199,0.25)" stroke-width="2" fill="none"/>
+          <path d="M500 10 C570 35, 680 60, 875 110" stroke="rgba(253,233,199,0.25)" stroke-width="2" fill="none"/>
+        </svg>
+
+        <article class="lesson5-map-card cold">
+          <div class="lesson5-card-top">
+            <div class="lesson5-icon-bubble">
+              <svg class="lesson5-method-icon" viewBox="0 0 40 40">
+                <rect x="10" y="11" width="20" height="18" rx="6" class="fill"/>
+                <line x1="14" y1="8" x2="14" y2="12" class="line"/>
+                <line x1="20" y1="6" x2="20" y2="12" class="line"/>
+                <line x1="26" y1="8" x2="26" y2="12" class="line"/>
+              </svg>
+            </div>
+            <h3>Cold Brew</h3>
+          </div>
+          <ul>
+            <li>Coarse grind</li>
+            <li>Long extraction (8–12 hours)</li>
+            <li>Cold water brewing</li>
+            <li>Smooth and low acidity</li>
+            <li>Naturally sweet taste</li>
+          </ul>
+        </article>
+
+        <article class="lesson5-map-card press">
+          <div class="lesson5-card-top">
+            <div class="lesson5-icon-bubble">
+              <svg class="lesson5-method-icon" viewBox="0 0 40 40">
+                <rect x="12" y="10" width="16" height="19" rx="4" class="fill"/>
+                <line x1="20" y1="6" x2="20" y2="12" class="line"/>
+                <line x1="14" y1="29" x2="26" y2="29" class="line"/>
+              </svg>
+            </div>
+            <h3>French Press</h3>
+          </div>
+          <ul>
+            <li>Coarse grind</li>
+            <li>Immersion brewing method</li>
+            <li>4-minute steeping time</li>
+            <li>Metal filter</li>
+            <li>Full body and rich texture</li>
+          </ul>
+        </article>
+
+        <article class="lesson5-map-card v60">
+          <div class="lesson5-card-top">
+            <div class="lesson5-icon-bubble">
+              <svg class="lesson5-method-icon" viewBox="0 0 40 40">
+                <path d="M10 11 L30 11 L24 27 L16 27 Z" class="fill"/>
+                <line x1="20" y1="6" x2="20" y2="11" class="line"/>
+                <line x1="15" y1="20" x2="25" y2="20" class="line"/>
+              </svg>
+            </div>
+            <h3>V60</h3>
+          </div>
+          <ul>
+            <li>Medium grind</li>
+            <li>Slow circular pouring</li>
+            <li>Paper filter used</li>
+            <li>Clean and balanced cup</li>
+            <li>Highlights flavor notes</li>
+          </ul>
+        </article>
+
+        <article class="lesson5-map-card espresso">
+          <div class="lesson5-card-top">
+            <div class="lesson5-icon-bubble">
+              <svg class="lesson5-method-icon" viewBox="0 0 40 40">
+                <rect x="11" y="16" width="18" height="10" rx="4" class="fill"/>
+                <line x1="16" y1="12" x2="24" y2="12" class="line"/>
+                <line x1="29" y1="18" x2="33" y2="18" class="line"/>
+              </svg>
+            </div>
+            <h3>Espresso</h3>
+          </div>
+          <ul>
+            <li>Fine grind</li>
+            <li>High pressure extraction</li>
+            <li>Short brew time (25–30 sec)</li>
+            <li>Strong and concentrated flavor</li>
+            <li>Thick crema layer</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+<section class="brew-temperature">
+
+<h2>Hot Brew vs Cold Brew</h2>
+
+<div class="temp-grid">
+
+<div class="temp-card hot">
+
+<h3>Hot Brew ☕</h3>
+
+<ul>
+<li>Water temperature: 90–96°C</li>
+<li>Extraction time: 2–5 minutes</li>
+<li>Strong aroma and flavor</li>
+<li>Used in V60, French Press, Espresso</li>
+</ul>
+
+</div>
+
+<div class="temp-card cold">
+
+<h3>Cold Brew ❄️</h3>
+
+<ul>
+<li>Cold or room temperature water</li>
+<li>Extraction time: 8–12 hours</li>
+<li>Smooth taste and low acidity</li>
+<li>Perfect for refreshing iced coffee</li>
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+    <section class="lesson5-summary">
+      <p>
+        Each brewing method creates a unique coffee experience. By understanding the differences in
+        grind size, time, and technique, you can explore new flavors and find the method that best
+        suits your taste.
+      </p>
+    </section>
+
+ <div class="lesson-buttons">
+    <a href="5.1.html" >← Back</a>
+    <a href="quiz5Light.html" >Start Quiz →</a>
+  </div>
+
+  </div>
+</main>
+
+ <footer class="site-footer">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <img src="logo.png" alt="Bean to Brew Logo">
+        </div>
+
+        <div class="footer-contact">
+          <h3>Contact us</h3>
+          <p>+966504256847</p>
+          <p>BeantoBrew@gmail.com</p>
+        </div>
+
+        <div class="footer-social">
+          <h3>Follow us</h3>
+          <div class="social-icons">
+            <a href="https://instagram.com">
+              <img src="instagramicon.png" alt="Instagram">
+            </a>
+            <span class="social-divider"></span>
+            <a href="https://instagram.com">
+              <img src="Xicon.png" alt="X">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <p class="footer-note">Learn, explore, and enjoy the world of coffee.</p>
+
+      <div class="footer-clock">
+        <div class="clock-box">
+          <span class="clock-label">Current Time</span>
+          <span id="live-clock">00:00:00</span>
+        </div>
+      </div>
+
+      <p class="copyright">© 2026 Bean to Brew. All rights reserved.</p>
+    </footer>
+
+<button id="backToTop" title="Back to Top">↑</button>
+
+<script>
+  const liveClock = document.getElementById("live-clock");
+  const backToTopBtn = document.getElementById("backToTop");
+
+  function updateClock() {
+    const now = new Date();
+
+    const time = now.toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: true
+    });
+
+    if (liveClock) {
+      liveClock.textContent = time;
+    }
+  }
+
+  function toggleBackToTop() {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add("show");
+    } else {
+      backToTopBtn.classList.remove("show");
+    }
+  }
+
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener("click", function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  }
+
+  window.addEventListener("scroll", toggleBackToTop);
+
+  updateClock();
+  setInterval(updateClock, 1000);
+</script>
+
+</body>
+</html>
