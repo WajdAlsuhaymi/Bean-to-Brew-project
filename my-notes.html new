@@ -570,9 +570,6 @@
       .notes-page{
         padding-top:205px;
       }
-	  .path-wrap{
-  display:none;
-}
 
       .navbar{
         padding:12px 14px;
@@ -677,10 +674,10 @@
           <li><a href="Contact.html">Contact Us</a></li>
         </ul>
 
-           <div class="nav-right">
-  <a href="my-notesLight.html" class="mode-btn">☀️</a>
-  <input type="text" placeholder="Search" class="search-box">
-</div>
+        <div class="nav-right">
+          <button class="mode-btn">☀️</button>
+          <input type="text" placeholder="Search" class="search-box">
+        </div>
 
       </nav>
     </header>
@@ -716,7 +713,8 @@
     <option value="3">Priority 3</option>
   </select>
 
-  <button type="submit" class="save-btn" id="saveBtn">Add Note</button>
+  <button type="submit" class="save-btn" id="addBtn">Add Note</button>
+<button type="button" class="save-btn" id="saveBtn">Save Notes</button>
 </form>
 
         <h2 class="saved-title">Saved Notes</h2>
@@ -779,6 +777,7 @@
   <script>
     const noteInput = document.getElementById("noteInput");
     const prioritySelect = document.getElementById("prioritySelect");
+    const addBtn = document.getElementById("addBtn");
     const saveBtn = document.getElementById("saveBtn");
 	const addNoteForm = document.getElementById("addNoteForm");
     const deleteNoteForm = document.getElementById("deleteNoteForm");
@@ -837,12 +836,16 @@
       };
 
       notes.push(newNote);
-      saveNotesToLocalStorage();
       renderNotes();
 
       noteInput.value = "";
       prioritySelect.value = "";
     });
+	
+	saveBtn.addEventListener("click", function () {
+  saveNotesToLocalStorage();
+  alert("Notes saved successfully.");
+});
 
     deleteNoteForm.addEventListener("submit", function (event) {
      event.preventDefault();
