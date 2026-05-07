@@ -71,79 +71,80 @@
         color:#FDE9C7;
       }
 
-      .lesson5-hero{
-        position:relative;
-        min-height:470px;
-        border-radius:34px;
-        overflow:hidden;
-        display:flex;
-        align-items:flex-end;
-        padding:42px;
-        background:
-          linear-gradient(rgba(16,12,10,0.20), rgba(16,12,10,0.55)),
-          url("images/lesson5.jpg");
-        background-size:cover;
-        background-position:center;
-        border:1px solid rgba(255,255,255,0.08);
-        box-shadow:0 28px 65px rgba(0,0,0,0.35);
-      }
+    .lesson5-hero{
+      position:relative;
+      width:min(1150px, 92%);
+      height:420px;
+      margin:0 auto;
+      border-radius:34px;
+      overflow:hidden;
+      display:flex;
+      align-items:flex-end;
+      padding:42px;
+      background:
+        linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)),
+        url("images/lesson5.jpg");
+      background-size:cover;
+      background-position:center;
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 28px 65px rgba(0,0,0,0.35);
+    }
 
-      .lesson5-hero::before{
-        content:"";
-        position:absolute;
-        inset:0;
-        background:
-          linear-gradient(90deg, rgba(20,15,12,0.72) 0%, rgba(20,15,12,0.35) 38%, rgba(20,15,12,0.18) 100%);
-      }
+    .lesson5-hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:transparent;
+    }
 
-      .lesson5-hero::after{
-        content:"";
-        position:absolute;
-        width:360px;
-        height:360px;
-        right:-80px;
-        top:-60px;
-        border-radius:50%;
-        background:radial-gradient(circle, rgba(253,233,199,0.16), transparent 65%);
-        filter:blur(4px);
-      }
+    .lesson5-hero::after{
+      content:"";
+      position:absolute;
+      width:360px;
+      height:360px;
+      right:-80px;
+      top:-60px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(253,233,199,0.10), transparent 65%);
+      filter:blur(4px);
+    }
 
-      .lesson5-hero-content{
-        position:relative;
-        z-index:2;
-        max-width:680px;
-        animation:fadeUp 0.9s ease;
-      }
+    .lesson5-hero-content{
+      position:absolute;
+      left:65px;
+      bottom:45px;
+      z-index:2;
+      max-width:680px;
+      color:#EDE8DC;
+    }
 
-      .lesson5-tag{
-        display:inline-block;
-        margin-bottom:16px;
-        padding:10px 18px;
-        border-radius:999px;
-        background:rgba(255,255,255,0.10);
-        border:1px solid rgba(255,255,255,0.18);
-        backdrop-filter:blur(6px);
-        color:#FFF4DF;
-        font-size:14px;
-        letter-spacing:1px;
-      }
+    .lesson5-tag{
+      display:inline-block;
+      margin-bottom:14px;
+      padding:7px 16px;
+      border-radius:20px;
+      background:rgba(255,255,255,0.20);
+      border:1px solid rgba(255,255,255,0.35);
+      color:#FFF4DF;
+      font-size:14px;
+    }
 
-      .lesson5-hero h1{
-        margin:0 0 16px;
-        font-family:'Playfair Display', serif;
-        font-size:clamp(46px, 8vw, 92px);
-        line-height:0.95;
-        color:#fff7ef;
-        text-shadow:0 8px 24px rgba(0,0,0,0.28);
-      }
+    .lesson5-hero h1{
+      margin:0 0 10px;
+      font-family:'Playfair Display', serif;
+      font-size:44px;
+      line-height:1.1;
+      color:#fff7ef;
+      text-shadow:0 8px 24px rgba(0,0,0,0.28);
+    }
 
-      .lesson5-hero p{
-        margin:0;
-        font-size:19px;
-        line-height:1.9;
-        color:#F5ECE2;
-        max-width:600px;
-      }
+    .lesson5-hero p{
+      margin:0;
+      font-size:16px;
+      line-height:1.8;
+      color:#F5ECE2;
+      max-width:540px;
+    }
 
       .lesson5-intro{
         max-width:950px;
@@ -299,63 +300,115 @@
         box-shadow:0 16px 36px rgba(0,0,0,0.22);
       }
 
-      .lesson5-video-section{
-        width:min(92%, 1280px);
-        margin:0 auto 70px;
-        display:grid;
-        grid-template-columns:0.9fr 1.1fr;
-        gap:32px;
-        align-items:center;
-      }
+    .lesson5-video-section{
+      display:grid;
+      grid-template-columns:0.9fr 1.1fr;
+      gap:32px;
+      align-items:center;
+      margin-bottom:70px;
+    }
 
-      .lesson5-video-text{
-        padding:34px;
-        border-radius:28px;
-        background:
-          linear-gradient(135deg, rgba(75,79,62,0.28), rgba(58,47,43,0.88), rgba(193,179,147,0.10));
-        border:1px solid rgba(253,233,199,0.10);
-        box-shadow:0 16px 35px rgba(0,0,0,0.20);
-      }
+    .lesson5-video-text{
+      padding:34px;
+      border-radius:28px;
+      background:
+        linear-gradient(135deg, rgba(75,79,62,0.28), rgba(58,47,43,0.88), rgba(193,179,147,0.10));
+      border:1px solid rgba(253,233,199,0.10);
+      box-shadow:0 16px 35px rgba(0,0,0,0.20);
+    }
 
-      .lesson5-video-text span{
-        display:inline-block;
-        margin-bottom:14px;
-        color:#FDE9C7;
-        letter-spacing:2px;
-        font-size:13px;
-        text-transform:uppercase;
-      }
+    .lesson5-video-text span{
+      display:inline-block;
+      margin-bottom:14px;
+      color:#FDE9C7;
+      letter-spacing:2px;
+      font-size:13px;
+      text-transform:uppercase;
+    }
 
-      .lesson5-video-text h2{
-        margin:0 0 14px;
-        font-family:'Playfair Display', serif;
-        font-size:clamp(32px, 4vw, 54px);
-        color:#FFF0DC;
-        line-height:1.05;
-      }
+    .lesson5-video-text h2{
+      margin:0 0 14px;
+      font-family:'Playfair Display', serif;
+      font-size:clamp(32px, 4vw, 54px);
+      color:#FFF0DC;
+      line-height:1.05;
+    }
 
-      .lesson5-video-text p{
-        margin:0;
-        font-size:17px;
-        line-height:1.9;
-        color:#E5D9CC;
-      }
+    .lesson5-video-text p{
+      margin:0;
+      font-size:17px;
+      line-height:1.9;
+      color:#E5D9CC;
+    }
 
-      .lesson5-video-box{
-        padding:14px;
-        border-radius:30px;
-        background:linear-gradient(135deg, rgba(253,233,199,0.10), rgba(75,79,62,0.14), rgba(122,77,44,0.18));
-        border:1px solid rgba(253,233,199,0.10);
-        box-shadow:0 22px 48px rgba(0,0,0,0.24);
-      }
+    /* VIDEO بنفس النظام */
+    .lesson5-video-box{
+      background:#4B4F3E;
+      padding:20px;
+      border-radius:14px;
+      box-shadow:0 16px 32px rgba(0,0,0,0.16);
+      border:1px solid rgba(122,77,44,0.08);
+    }
 
-      .lesson5-video-box iframe{
-        width:100%;
-        height:420px;
-        border:none;
-        display:block;
-        border-radius:20px;
-      }
+    .video-poster{
+      position:relative;
+      width:100%;
+      margin:0 auto;
+      cursor:pointer;
+      border-radius:10px;
+      overflow:hidden;
+    }
+
+    .video-poster img{
+      width:100%;
+      height:420px;
+      object-fit:cover;
+      display:block;
+      border-radius:10px;
+    }
+
+    .play-btn{
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      width:70px;
+      height:70px;
+      border-radius:50%;
+      background:rgba(0,0,0,0.65);
+      color:#fff;
+      font-size:30px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    #videoFrame{
+      display:none;
+      width:100%;
+      height:420px;
+      border:none;
+      border-radius:10px;
+    }
+
+    .youtube-btn{
+      display:inline-block;
+      margin-top:18px;
+      text-decoration:none;
+      color:#2f241d;
+      font-weight:700;
+      transition:0.3s;
+      background:#C1B393;
+      padding:10px 20px;
+      border-radius:20px;
+    }
+
+    .youtube-btn:hover{
+      color:#2f241d;
+      background:#e3d3b7;
+      transform:translateY(-2px);
+    }
+
 
       .lesson-buttons {
         width:min(1150px, 92%);
@@ -490,6 +543,61 @@
           grid-template-columns:1fr;
         }
       }
+
+
+    /* POPUP */
+    .lesson-message{
+      display:none;
+      position:fixed;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      background:#E6D5B8;
+      color:#3A2F2B;
+      padding:20px;
+      width:320px;
+      border-radius:16px;
+      text-align:center;
+      z-index:9999;
+      box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .lesson-message h3{
+      margin-bottom:10px;
+      color:#3A2F2B;
+      font-family:'Playfair Display', serif;
+    }
+
+    .lesson-message p{
+      font-size:14px;
+      line-height:1.6;
+      color:#3A2F2B;
+    }
+
+    .lesson-message hr{
+      margin:15px 0;
+      border:none;
+      border-top:1px solid #3A2F2B;
+    }
+
+    .quiz-reminder{
+      font-weight:bold;
+      color:#4B4F3E;
+    }
+
+    .ok-btn{
+      margin-top:10px;
+      padding:8px 20px;
+      border:none;
+      border-radius:10px;
+      background:#4B4F3E;
+      color:white;
+      cursor:pointer;
+    }
+
+    .ok-btn:hover{
+      background:#3A2F2B;
+    }
 
       @media (max-width:768px){
         .navbar{
@@ -677,7 +785,7 @@
     </ul>
 
     <div class="nav-right">
-      <button class="mode-btn">☀️</button>
+  <a href="5.1.html" class="mode-btn">☀️</a>
       <input type="text" placeholder="Search" class="search-box">
     </div>
 
@@ -778,25 +886,39 @@
         <div class="lesson5-quote">“Different styles extract flavor in different ways.”</div>
       </section>
 
-      <section class="lesson5-video-section">
-        <div class="lesson5-video-text">
-          <span>Watch & Learn</span>
-          <h2>See brewing methods in action</h2>
-          <p>
-            Watch how each method changes extraction and discover why brewing technique
-            has such a strong effect on the final cup.
-          </p>
-        </div>
+    <section class="lesson5-video-section">
+      <div class="lesson5-video-text">
+        <span>Watch & Learn</span>
+        <h2>See brewing methods in action</h2>
+        <p>
+          Watch how each method changes extraction and discover why brewing technique
+          has such a strong effect on the final cup.
+        </p>
+      </div>
 
+      <div>
         <div class="lesson5-video-box">
+          <div class="video-poster" id="videoPoster" onclick="playVideo()">
+            <img src="images/lesson5.jpg" alt="Brewing Methods Video Poster">
+            <div class="play-btn">▶</div>
+          </div>
+
           <iframe
-            src="https://www.youtube.com/embed/QVTNscQY0c?si=baK_VSn5QIHja7ak"
+            id="videoFrame"
             title="Brewing Methods Video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
           </iframe>
         </div>
-      </section>
+
+        <div style="text-align:center;">
+          <a class="youtube-btn" href="https://www.youtube.com/watch?v=QVTNscQY0c" target="_blank">
+            Watch on YouTube
+          </a>
+        </div>
+      </div>
+    </section>
+
  <div class="lesson-buttons">
       <a href="BrewSchool.html" >← Back</a>
       <a href="lesson5.2.html" >Next →</a>
@@ -844,7 +966,43 @@
 
 <button id="backToTop" title="Back to Top">↑</button>
 
+  <div id="lessonMessage" class="lesson-message">
+    <h3>Lesson Goal</h3>
+
+    <p>
+      In this lesson, you will learn how different brewing methods shape coffee’s flavor, body,
+            and strength — and why the same beans can create completely different experiences.
+          </p>
+    <hr>
+
+    <p class="quiz-reminder">
+      Don't forget to take the quiz after finishing the lesson!
+    </p>
+
+    <button onclick="closeMessage()" class="ok-btn">OK</button>
+	        </div>
+
 <script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+    setTimeout(function () {
+      document.getElementById("lessonMessage").style.display = "block";
+    }, 3000);
+
+    document.getElementById("videoPoster").addEventListener("click", function () {
+      document.getElementById("videoPoster").style.display = "none";
+
+      const videoFrame = document.getElementById("videoFrame");
+      videoFrame.style.display = "block";
+      videoFrame.src = "https://www.youtube.com/embed/yagagM7SlWs?autoplay=1";
+    });
+
+  });
+
+  function closeMessage() {
+    document.getElementById("lessonMessage").style.display = "none";
+  }
+
   const liveClock = document.getElementById("live-clock");
   const backToTopBtn = document.getElementById("backToTop");
 
@@ -885,6 +1043,7 @@
   updateClock();
   setInterval(updateClock, 1000);
 </script>
+
 
 </body>
 </html>
