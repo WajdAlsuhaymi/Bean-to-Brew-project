@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3 Quiz | Bean to Brew</title>
+
+<link rel="stylesheet" href="styleLigth.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+  min-height:100vh;
+}
+
+/* Typography */
+h1,h2,h3,h4,h5,h6{
+font-family:'Playfair Display', serif;
+}
+
+/* Breadcrumb */
+.path-wrap{
+position:absolute;
+top:110px;
+left:80px;
+z-index:5;
+}
+
+.path-breadcrumb{
+display:flex;
+align-items:center;
+gap:10px;
+flex-wrap:wrap;
+color:#5A4638;
+font-size:14px;
+}
+
+.path-breadcrumb a,
+.path-breadcrumb a:visited,
+.path-breadcrumb a:active,
+.path-breadcrumb span{
+color:#5A4638;
+text-decoration:none;
+transition:0.3s ease;
+}
+
+.path-breadcrumb a:hover{
+color:#7A4D2C;
+}
+
+/* Quiz Layout */
+.quiz-page{
+width:min(1000px,92%);
+margin:170px auto 80px;
+}
+
+.quiz-header{
+text-align:center;
+background:#E6D3B3;
+border:1px solid rgba(107,83,58,0.16);
+border-radius:30px;
+padding:40px 30px;
+margin-bottom:30px;
+color:#4A3527;
+box-shadow:0 8px 18px rgba(92,64,42,0.10);
+}
+
+.quiz-badge{
+display:inline-block;
+padding:9px 20px;
+border-radius:999px;
+background:#7A4D2C;
+color:#FFF8ED;
+font-size:14px;
+margin-bottom:18px;
+}
+
+.quiz-header h1{
+font-size:clamp(2.2rem,5vw,3.4rem);
+color:#3A2F2B;
+margin-bottom:14px;
+}
+
+.quiz-header p{
+color:#5A4638;
+max-width:700px;
+margin:auto;
+line-height:1.9;
+font-family:Arial, sans-serif;
+}
+
+.quiz-form{
+display:grid;
+gap:24px;
+}
+
+.question-card{
+background:#E6D3B3;
+border:1px solid rgba(107,83,58,0.16);
+border-radius:28px;
+padding:28px 24px;
+color:#4A3527;
+box-shadow:0 8px 18px rgba(92,64,42,0.10);
+}
+
+.question-card h3{
+font-size:1.25rem;
+margin-bottom:18px;
+color:#3A2F2B;
+}
+
+.options{
+display:grid;
+gap:14px;
+}
+
+.option{
+display:flex;
+gap:12px;
+background:#FFF8ED;
+border:1px solid rgba(107,83,58,0.16);
+border-radius:16px;
+padding:14px 16px;
+cursor:pointer;
+color:#4A3527;
+font-family:Arial, sans-serif;
+line-height:1.7;
+transition:0.3s ease;
+}
+
+.option:hover{
+background:#FDE9C7;
+border-color:#C1B393;
+}
+
+.option input{
+accent-color:#7A4D2C;
+transform:scale(1.15);
+margin-top:3px;
+flex-shrink:0;
+}
+
+/* Buttons */
+.quiz-actions{
+  width:min(1150px, 92%);
+  margin:30px auto 80px;
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.quiz-actions a,
+.quiz-actions button{
+  text-decoration:none;
+  font-size:1.5rem;
+  font-weight:600;
+  color:#7A4D2C;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  transition:all 0.3s ease;
+  font-family:'Playfair Display', serif;
+  background:transparent;
+  border:none;
+  padding:0;
+  cursor:pointer;
+}
+
+.quiz-actions a:hover,
+.quiz-actions button:hover{
+  color:#94613D;
+  transform:translateY(-3px);
+}
+
+@media (max-width:992px){
+  .quiz-page{
+    width:min(1000px, 94%);
+    margin:160px auto 75px;
+  }
+
+  .quiz-header{
+    padding:34px 24px;
+  }
+
+  .question-card{
+    padding:26px 22px;
+  }
+}
+
+@media (max-width:768px){
+  .navbar{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:15px 10px;
+    gap:10px;
+    height:auto;
+  }
+
+  .logo{
+    order:1;
+  }
+
+  .nav-right{
+    order:2;
+    display:flex;
+    justify-content:center;
+    width:100%;
+  }
+
+  .nav-links{
+    order:3;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+    width:100%;
+    margin-top:5px;
+  }
+
+  .nav-links li{
+    list-style:none;
+  }
+
+  .nav-links a{
+    font-size:14px;
+  }
+
+  .search-box{
+    max-width:200px;
+  }
+
+  .path-wrap{
+    left:20px;
+    top:185px;
+  }
+
+  .path-breadcrumb{
+    flex-wrap:wrap;
+    font-size:13px;
+  }
+
+  .quiz-page{
+    width:min(1000px, 92%);
+    margin:240px auto 70px;
+  }
+
+  .quiz-header{
+    padding:30px 20px;
+    border-radius:24px;
+  }
+
+  .quiz-header h1{
+    font-size:2.2rem;
+  }
+
+  .quiz-header p{
+    font-size:0.98rem;
+  }
+
+  .question-card{
+    padding:24px 18px;
+    border-radius:22px;
+  }
+
+  .question-card h3{
+    font-size:1.1rem;
+  }
+
+  .option{
+    padding:13px 14px;
+    font-size:14px;
+    line-height:1.7;
+  }
+
+  .quiz-actions{
+    width:100%;
+    justify-content:space-between;
+    margin:28px auto 65px;
+  }
+
+  .quiz-actions a,
+  .quiz-actions button{
+    font-size:1.2rem;
+  }
+}
+
+@media (max-width:560px){
+  .path-breadcrumb{
+    display:none;
+  }
+
+  .quiz-page{
+    width:min(100%, calc(100% - 28px));
+    margin:220px auto 60px;
+  }
+
+  .quiz-header{
+    padding:28px 16px;
+  }
+
+  .quiz-badge{
+    font-size:13px;
+    padding:8px 16px;
+  }
+
+  .quiz-header h1{
+    font-size:1.9rem;
+  }
+
+  .quiz-header p{
+    font-size:0.95rem;
+    line-height:1.7;
+  }
+
+  .quiz-form{
+    gap:20px;
+  }
+
+  .question-card{
+    padding:22px 16px;
+  }
+
+  .question-card h3{
+    font-size:1rem;
+  }
+
+  .option{
+    gap:10px;
+    padding:12px 13px;
+    font-size:13px;
+  }
+
+  .quiz-actions{
+    gap:14px;
+  }
+
+  .quiz-actions a,
+  .quiz-actions button{
+    font-size:1.05rem;
+  }
+}
+
+@media (max-width:480px){
+  .nav-links{
+    gap:8px;
+  }
+
+  .nav-links a{
+    font-size:13px;
+  }
+
+  .search-box{
+    max-width:160px;
+    font-size:12px;
+  }
+
+  .mode-btn{
+    font-size:18px;
+  }
+
+  .quiz-page{
+    margin:230px auto 55px;
+  }
+
+  .quiz-actions{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .quiz-actions a,
+  .quiz-actions button{
+    width:100%;
+    justify-content:center;
+  }
+}
+
+@media (max-width:992px){
+  .quiz-page{
+    width:min(1000px, 94%);
+    margin:160px auto 75px;
+  }
+
+  .quiz-header{
+    padding:34px 24px;
+  }
+
+  .question-card{
+    padding:26px 22px;
+  }
+}
+
+@media (max-width:768px){
+  .navbar{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:15px 10px;
+    gap:10px;
+    height:auto;
+  }
+
+  .logo{
+    order:1;
+  }
+
+  .nav-right{
+    order:2;
+    display:flex;
+    justify-content:center;
+    width:100%;
+  }
+
+  .nav-links{
+    order:3;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+    width:100%;
+    margin-top:5px;
+  }
+
+  .nav-links li{
+    list-style:none;
+  }
+
+  .nav-links a{
+    font-size:14px;
+  }
+
+  .search-box{
+    max-width:200px;
+  }
+
+  .path-wrap{
+    left:20px;
+    top:185px;
+  }
+
+  .path-breadcrumb{
+    flex-wrap:wrap;
+    font-size:13px;
+  }
+
+  .quiz-page{
+    width:min(1000px, 92%);
+    margin:240px auto 70px;
+  }
+
+  .quiz-header{
+    padding:30px 20px;
+    border-radius:24px;
+  }
+
+  .quiz-header h1{
+    font-size:2.2rem;
+  }
+
+  .quiz-header p{
+    font-size:0.98rem;
+  }
+
+  .question-card{
+    padding:24px 18px;
+    border-radius:22px;
+  }
+
+  .question-card h3{
+    font-size:1.1rem;
+  }
+
+  .option{
+    padding:13px 14px;
+    font-size:14px;
+    line-height:1.7;
+  }
+
+  .quiz-actions{
+    width:100%;
+    justify-content:space-between;
+    margin:28px auto 65px;
+  }
+
+  .quiz-actions a,
+  .quiz-actions button{
+    font-size:1.2rem;
+  }
+}
+
+@media (max-width:560px){
+  .path-breadcrumb{
+    display:none;
+  }
+
+  .quiz-page{
+    width:min(100%, calc(100% - 28px));
+    margin:220px auto 60px;
+  }
+
+  .quiz-header{
+    padding:28px 16px;
+  }
+
+  .quiz-badge{
+    font-size:13px;
+    padding:8px 16px;
+  }
+
+  .quiz-header h1{
+    font-size:1.9rem;
+  }
+
+  .quiz-header p{
+    font-size:0.95rem;
+    line-height:1.7;
+  }
+
+  .quiz-form{
+    gap:20px;
+  }
+
+  .question-card{
+    padding:22px 16px;
+  }
+
+  .question-card h3{
+    font-size:1rem;
+  }
+
+  .option{
+    gap:10px;
+    padding:12px 13px;
+    font-size:13px;
+  }
+
+  .quiz-actions{
+    gap:14px;
+  }
+
+  .quiz-actions a,
+  .quiz-actions button{
+    font-size:1.05rem;
+  }
+}
+
+@media (max-width:480px){
+  .nav-links{
+    gap:8px;
+  }
+
+  .nav-links a{
+    font-size:13px;
+  }
+
+  .search-box{
+    max-width:160px;
+    font-size:12px;
+  }
+
+  .mode-btn{
+    font-size:18px;
+  }
+
+  .quiz-page{
+    margin:230px auto 55px;
+  }
+
+  .quiz-actions{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .quiz-actions a,
+  .quiz-actions button{
+    width:100%;
+    justify-content:center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav class="navbar">
+
+  <div class="logo">
+    <a href="index.html"><img src="logo.png" alt="Bean to Brew Logo"></a>
+    </div>
+	
+  <ul class="nav-links">
+        <li><a href="IndexLigth.html" class="active">Home</a></li>
+        <li><a href="BrewSchoolLight.html">Brew School</a></li>
+        <li><a href="CoffeLabLight.html">Coffee Lab</a></li>
+        <li><a href="student-dashboardLight.html">Student Dashboard</a></li>
+        <li><a href="About-usLight.html">About Us</a></li>
+        <li><a href="Contact.html">Contact Us</a></li>
+      </ul>
+
+<div class="nav-right">
+<a href="quiz3.html" class="mode-btn">🌙</a>
+<input type="text" placeholder="Search" class="search-box">
+</div>
+
+</nav>
+</header>
+
+<main class="quiz-page">
+
+<div class="path-wrap">
+<div class="path-breadcrumb">
+<a href="index.html">Home</a>
+<span>›</span>
+<a href="BrewSchool.html">Brew School</a>
+<span>›</span>
+<a href="lesson3.1.html">Lesson 3.1</a>
+<span>›</span>
+<a href="lesson3.2.html">Lesson 3.2</a>
+<span>›</span>
+<span>Quiz 3</span>
+</div>
+</div>
+
+<div class="quiz-header">
+<span class="quiz-badge">Lesson 3 Quiz</span>
+<h1>Coffee Roasting & Roast Levels</h1>
+<p>
+Answer the following multiple-choice questions about roasting,
+roast levels, and how roasting changes coffee flavor.
+</p>
+</div>
+
+<form class="quiz-form" id="quizForm">
+
+<div class="question-card">
+<h3>1) What is roasting?</h3>
+<div class="options">
+<label class="option"><input type="radio" name="q1" value="a"> The process of turning roasted beans back into green beans</label>
+<label class="option"><input type="radio" name="q1" value="b"> The process that transforms green coffee beans into brown aromatic beans</label>
+<label class="option"><input type="radio" name="q1" value="c"> The process of serving coffee with milk</label>
+<label class="option"><input type="radio" name="q1" value="d"> The process of cooling coffee after brewing</label>
+</div>
+</div>
+
+<div class="question-card">
+<h3>2) Which of the following happens during roasting?</h3>
+<div class="options">
+<label class="option"><input type="radio" name="q2" value="a"> Beans become wetter and heavier</label>
+<label class="option"><input type="radio" name="q2" value="b"> Moisture evaporates and sugars begin to caramelize</label>
+<label class="option"><input type="radio" name="q2" value="c"> Beans turn from brown to green</label>
+<label class="option"><input type="radio" name="q2" value="d"> Aroma disappears completely</label>
+</div>
+</div>
+
+<div class="question-card">
+<h3>3) As roasting increases, acidity usually becomes:</h3>
+<div class="options">
+<label class="option"><input type="radio" name="q3" value="a"> Higher and sharper</label>
+<label class="option"><input type="radio" name="q3" value="b"> Softer and lower</label>
+<label class="option"><input type="radio" name="q3" value="c"> Exactly the same</label>
+<label class="option"><input type="radio" name="q3" value="d"> Sweeter</label>
+</div>
+</div>
+
+<div class="question-card">
+<h3>4) Which roast level usually has the highest acidity?</h3>
+<div class="options">
+<label class="option"><input type="radio" name="q4" value="a"> Light Roast</label>
+<label class="option"><input type="radio" name="q4" value="b"> Medium Roast</label>
+<label class="option"><input type="radio" name="q4" value="c"> Dark Roast</label>
+<label class="option"><input type="radio" name="q4" value="d"> All are equal</label>
+</div>
+</div>
+
+<div class="question-card">
+<h3>5) Which roast level is described as balanced in acidity and bitterness?</h3>
+<div class="options">
+<label class="option"><input type="radio" name="q5" value="a"> Light Roast</label>
+<label class="option"><input type="radio" name="q5" value="b"> Medium Roast</label>
+<label class="option"><input type="radio" name="q5" value="c"> Dark Roast</label>
+<label class="option"><input type="radio" name="q5" value="d"> Green Roast</label>
+</div>
+</div>
+
+<div class="question-card">
+<h3>6) Which roast level usually has stronger bitterness and heavier body?</h3>
+<div class="options">
+<label class="option"><input type="radio" name="q6" value="a"> Light Roast</label>
+<label class="option"><input type="radio" name="q6" value="b"> Medium Roast</label>
+<label class="option"><input type="radio" name="q6" value="c"> Dark Roast</label>
+<label class="option"><input type="radio" name="q6" value="d"> None of them</label>
+</div>
+</div>
+
+<div class="quiz-actions">
+<a href="3.2.html">← Back</a>
+<button type="submit">Submit →</button>
+</div>
+
+</form>
+
+</main>
+
+<footer class="site-footer">
+
+<div class="footer-top">
+
+<div class="footer-logo">
+<img src="logo.png">
+</div>
+
+<div class="footer-contact">
+<h3>Contact us</h3>
+<p>+966504256847</p>
+<p>BeantoBrew@gmail.com</p>
+</div>
+
+<div class="footer-social">
+<h3>Follow us</h3>
+
+<div class="social-icons">
+
+<a href="javascript:void(0);">
+<img src="instagramicon.png">
+</a>
+
+<span class="social-divider"></span>
+
+<a href="javascript:void(0);">
+<img src="Xicon.png">
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<p class="footer-note">
+Learn, explore, and enjoy the world of coffee.
+</p>
+
+<p class="copyright">
+© 2026 Bean to Brew. All rights reserved.
+</p>
+
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const quizForm = document.getElementById("quizForm");
+
+  if (!quizForm) return;
+
+  quizForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const correctAnswers = {
+      q1: "b",
+      q2: "b",
+      q3: "b",
+      q4: "a",
+      q5: "b",
+      q6: "c"
+    };
+
+    let score = 0;
+    const lessonName = "Lesson 3 Quiz";
+    const totalQuestions = 6;
+    const quizLink = "quiz3Light.html";
+
+    for (let question in correctAnswers) {
+      const selectedAnswer = document.querySelector('input[name="' + question + '"]:checked');
+
+      if (!selectedAnswer) {
+        alert("Please answer all questions before submitting.");
+        return;
+      }
+
+      if (selectedAnswer.value === correctAnswers[question]) {
+        score++;
+      }
+    }
+
+    let scores = JSON.parse(localStorage.getItem("quizScores")) || [];
+
+    let existingLesson = scores.find(function(item) {
+      return item.lesson === lessonName;
+    });
+
+    if (existingLesson) {
+      if (score > existingLesson.bestScore) {
+        existingLesson.bestScore = score;
+      }
+    } else {
+      scores.push({
+        lesson: lessonName,
+        bestScore: score
+      });
+    }
+
+    localStorage.setItem("quizScores", JSON.stringify(scores));
+    localStorage.setItem("currentQuizScore", String(score));
+    localStorage.setItem("currentQuizLesson", lessonName);
+    localStorage.setItem("currentQuizTotal", String(totalQuestions));
+    localStorage.setItem("currentQuizLink", quizLink);
+
+    window.location.href = "resultLight.html";
+  });
+});
+</script>
+
+</body>
+</html>
