@@ -12,20 +12,22 @@
   <nav class="navbar">
 
     <div class="logo">
-    <a href="index.html"><img src="logo.png" alt="Bean to Brew Logo"></a>
+    <a href="IndexLigth.html"><img src="logo.png" alt="Bean to Brew Logo"></a>
     </div>
+	
+  
+      <ul class="nav-links">
+        <li><a href="IndexLigth.html" class="active">Home</a></li>
+        <li><a href="BrewSchoolLight.html">Brew School</a></li>
+        <li><a href="CoffeLabLight.html">Coffee Lab</a></li>
+        <li><a href="student-dashboardLight.html">Student Dashboard</a></li>
+        <li><a href="About-usLight.html">About Us</a></li>
+        <li><a href="Contact.html">Contact Us</a></li>
+      </ul>
 
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="BrewSchool.html">Brew School</a></li>
-      <li><a href="CoffeLab.html">Coffee Lab</a></li>
-      <li><a href="student-dashboard.html">Student Dashboard</a></li>
-      <li><a href="About-us.html">About Us</a></li>
-      <li><a href="Contact.html">Contact Us</a></li>
-    </ul>
 
     <div class="nav-right">
-      <button class="mode-btn">☀️</button>
+  <a href="6.2.html" class="mode-btn">☀️</a>
       <input type="text" placeholder="Search" class="search-box">
     </div>
 
@@ -561,7 +563,31 @@
         transform:translateY(-8px) scale(1.02) !important;
       }
     }
+.cup-nested-list{
+  margin-top:14px;
+  padding-left:18px;
+  text-align:left;
+  list-style-type:disc;
+}
 
+.cup-nested-list > li{
+  color:#3A2F2B;
+  font-size:14px;
+  font-weight:700;
+}
+
+.cup-nested-list ul{
+  margin-top:7px;
+  padding-left:20px;
+  list-style-type:circle;
+}
+
+.cup-nested-list ul li{
+  color:#4A3527;
+  font-size:13px;
+  font-weight:400;
+  margin-bottom:4px;
+}
     @media (max-width: 768px){
       .navbar{
         display:flex;
@@ -921,15 +947,24 @@
           </p>
         </article>
 
-        <article class="journey-card cup">
-          <div class="journey-icon">☕</div>
-          <span class="journey-badge">Final Result</span>
-          <h3>Your Cup</h3>
-          <p>
-            The final cup reflects every choice before it — bean, roast, grind, and brewing method.
-            That is how coffee becomes your perfect match.
-          </p>
-        </article>
+<article class="journey-card cup">
+  <div class="journey-icon">☕</div>
+  <span class="journey-badge">Final Result</span>
+  <h3>Your Cup</h3>
+  <p>
+    The final cup reflects every choice before it — bean, roast, grind, and brewing method.
+    That is how coffee becomes your perfect match.
+  </p>
+
+  <ul class="cup-nested-list">
+    <li>Final cup depends on:
+      <ul>
+        <li>Bean type and roast level</li>
+        <li>Grind size and brewing method</li>
+      </ul>
+    </li>
+  </ul>
+</article>
       </div>
 
       <p class="journey-bottom-text">
