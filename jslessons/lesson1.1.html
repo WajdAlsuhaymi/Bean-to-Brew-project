@@ -62,54 +62,76 @@
       color: #FDE9C7;
     }
 
-    .lesson-hero {
-      position: relative;
-      width: min(1150px, 92%);
-      height: 420px;
-      margin: 0 auto;
-      overflow: hidden;
-      border-radius: 34px;
+    .lesson-hero{
+      position:relative;
+      width:min(1150px, 92%);
+      height:420px;
+      margin:0 auto;
+      border-radius:34px;
+      overflow:hidden;
+      display:flex;
+      align-items:flex-end;
+      padding:42px;
+      background:
+        linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)),
+        url("images/lesson1.jpg") center/cover no-repeat;
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 28px 65px rgba(0,0,0,0.35);
     }
 
-    .lesson-hero img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .lesson-hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:transparent;
     }
 
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.28);
+    .lesson-hero::after{
+      content:"";
+      position:absolute;
+      top:-80px;
+      right:-40px;
+      width:260px;
+      height:260px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(253,233,199,0.10), transparent 65%);
     }
 
-    .hero-content {
-      position: absolute;
-      left: 65px;
-      bottom: 45px;
-      color: #EDE8DC;
-      z-index: 2;
+    .lesson-hero-content{
+      position:absolute;
+      left:65px;
+      bottom:45px;
+      z-index:2;
+      max-width:760px;
+      color:#EDE8DC;
     }
 
-    .lesson-label {
-      display: inline-block;
-      background-color: rgba(255, 255, 255, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      padding: 7px 16px;
-      border-radius: 20px;
-      font-size: 14px;
-      margin-bottom: 14px;
+    .lesson-pill{
+      display:inline-block;
+      margin-bottom:14px;
+      padding:7px 16px;
+      border-radius:20px;
+      background:rgba(255,255,255,0.20);
+      border:1px solid rgba(255,255,255,0.35);
+      color:#fff3de;
+      font-size:14px;
     }
 
-    .hero-content h1 {
-      font-size: 44px;
-      margin-bottom: 10px;
+    .lesson-hero h1{
+      margin:0 0 10px;
+      font-family:'Playfair Display', serif;
+      font-size:44px;
+      line-height:1.1;
+      color:#fff7ef;
+      text-shadow:0 8px 24px rgba(0,0,0,0.30);
     }
 
-    .hero-content p {
-      font-size: 16px;
-      max-width: 540px;
-    }
+    .lesson-hero p{
+      margin:0;
+      color:#f3e8db;
+      font-size:16px;
+      line-height:1.8;
+      max-width:540px;}
 
     .lesson-intro {
       max-width: 900px;
@@ -128,40 +150,6 @@
       font-size: 17px;
       color: #EDE8DC;
       margin-bottom: 18px;
-    }
-
-    /* ADDED ONLY: Nested List for Lesson Intro */
-    .lesson-intro .lesson-list {
-      margin-top: 22px;
-      max-width: 620px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 18px 28px;
-      text-align: left;
-      background: rgba(75, 79, 62 , 0.4);
-      border: 2px solid #C1B393;
-      border-radius: 16px;
-      list-style-position: outside;
-    }
-
-    .lesson-intro .lesson-list > li {
-      font-size: 17px;
-      font-weight: 600;
-      color: #FDE9C7;
-      margin-left: 18px;
-    }
-
-    .lesson-intro .lesson-list ul {
-      margin-top: 8px;
-      padding-left: 24px;
-    }
-
-    .lesson-intro .lesson-list ul li {
-      font-size: 15px;
-      font-weight: 400;
-      color: #EDE8DC;
-      margin-bottom: 6px;
-      list-style-type: circle;
     }
 
     .lesson-video {
@@ -550,7 +538,7 @@
       </ul>
 
       <div class="nav-right">
-        <button class="mode-btn">☀️</button>
+  <a href="1.1.html" class="mode-btn">☀️</a>
         <input type="text" placeholder="Search" class="search-box">
       </div>
 
@@ -567,15 +555,12 @@
         <a href="lesson1.1.html">lesson1.1</a>
       </div>
     </div>
-
-    <section class="lesson-hero">
-      <img src="images/lesson1.jpg" alt="Coffee lesson image">
-      <div class="hero-overlay"></div>
-
-      <div class="hero-content">
-        <span class="lesson-label">Lesson 1</span>
+ <section class="lesson-hero">
+      <div class="lesson-hero-content">
+        <span class="lesson6-pill">Lesson 1</span>
         <h1>What is Coffee?</h1>
-        <p>Discover where coffee begins and how this everyday drink starts its journey from plant to cup.</p>
+              <p>Discover where coffee begins and how this everyday drink starts its journey from plant to cup.</p>
+
       </div>
     </section>
 
@@ -590,16 +575,6 @@
         In this lesson, you will learn what coffee really is, where it comes from,
         and why understanding its origin is the first step to becoming more confident in the world of brewing.
       </p>
-
-      <!-- ADDED ONLY: Nested List -->
-      <ul class="lesson-list">
-        <li>Coffee begins as a coffee cherry
-          <ul>
-            <li>The seed inside the cherry becomes the coffee bean.</li>
-            <li>The bean goes through stages before reaching the cup.</li>
-          </ul>
-        </li>
-      </ul>
     </section>
 
     <section class="lesson-video">
