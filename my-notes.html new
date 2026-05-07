@@ -651,6 +651,13 @@
         height:46px;
         font-size:20px;
       }
+	  @media (max-width:768px){
+
+.path-wrap{
+display:none;
+}
+
+}
     }
   </style>
 </head>
@@ -786,18 +793,33 @@
     const backToTopBtn = document.getElementById("backToTop");
     const modeBtn = document.querySelector(".mode-btn");
 
-    let notes = JSON.parse(localStorage.getItem("myNotes")) || [];
+    let savedNotes = JSON.parse(localStorage.getItem("myNotes")) || [];
+    let tempNotes = [];
 
     function renderNotes() {
       notesList.innerHTML = "";
 
-      notes.forEach((note, index) => {
+      savedNotes.forEach((note, index) => {
         const noteCard = document.createElement("div");
         noteCard.className = "note-card priority-" + note.priority;
 
         noteCard.innerHTML = `
           <div class="note-left">
-            <input type="checkbox" class="note-check" data-index="${index}">
+            <input type="checkbox" class="note-check" data-type="saved" data-index="${index}">
+            <p class="note-text">${note.text}</p>
+          </div>
+        `;
+
+        notesList.appendChild(noteCard);
+      });
+
+      tempNotes.forEach((note, index) => {
+        const noteCard = document.createElement("div");
+        noteCard.className = "note-card priority-" + note.priority;
+
+        noteCard.innerHTML = `
+          <div class="note-left">
+            <input type="checkbox" class="note-check" data-type="temp" data-index="${index}">
             <p class="note-text">${note.text}</p>
           </div>
         `;
@@ -807,7 +829,9 @@
     }
 
     function saveNotesToLocalStorage() {
-      localStorage.setItem("myNotes", JSON.stringify(notes));
+      savedNotes = [...savedNotes, ...tempNotes];
+      localStorage.setItem("myNotes", JSON.stringify(savedNotes));
+      tempNotes = [];
     }
 
     addNoteForm.addEventListener("submit", function (event) {
@@ -835,7 +859,7 @@
         priority: priority
       };
 
-      notes.push(newNote);
+      tempNotes.push(newNote);
       renderNotes();
 
       noteInput.value = "";
@@ -843,7 +867,13 @@
     });
 	
 	saveBtn.addEventListener("click", function () {
+  if (tempNotes.length === 0) {
+    alert("There are no new notes to save.");
+    return;
+  }
+
   saveNotesToLocalStorage();
+  renderNotes();
   alert("Notes saved successfully.");
 });
 
@@ -862,11 +892,21 @@
         return;
       }
 
-      const selectedIndexes = Array.from(checkedNotes).map(note => Number(note.dataset.index));
+      const savedIndexes = [];
+      const tempIndexes = [];
 
-      notes = notes.filter((note, index) => !selectedIndexes.includes(index));
+      checkedNotes.forEach(note => {
+        if (note.dataset.type === "saved") {
+          savedIndexes.push(Number(note.dataset.index));
+        } else if (note.dataset.type === "temp") {
+          tempIndexes.push(Number(note.dataset.index));
+        }
+      });
 
-      saveNotesToLocalStorage();
+      savedNotes = savedNotes.filter((note, index) => !savedIndexes.includes(index));
+      tempNotes = tempNotes.filter((note, index) => !tempIndexes.includes(index));
+
+      localStorage.setItem("myNotes", JSON.stringify(savedNotes));
       renderNotes();
     });
 
